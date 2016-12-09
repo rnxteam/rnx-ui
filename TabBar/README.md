@@ -33,3 +33,7 @@ TabBar.defaultProps = {
   onChange: () => {},
 };
 ```
+
+### Other Points
+
+- TabBar 默认不设高度，高度由内部 tab 项（即 `items` 中所配元素）撑起。
