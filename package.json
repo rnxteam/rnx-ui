@@ -1,7 +1,7 @@
 {
   "name": "rnx-ui",
-  "version": "0.0.1",
-  "description": "RNX UI",
+  "version": "0.0.2",
+  "description": "A UI Lib for React Native",
   "keywords": [
     "rnx",
     "ui",
