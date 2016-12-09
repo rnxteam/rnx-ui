@@ -31,6 +31,6 @@ function Demo(props) {
 
 Index | Name       | State
 ----- | ---------- | ---
-1     | NavBar     | ![](https://img.shields.io/badge/state-done-blue.svg)
+1     | TabBar     | ![](https://img.shields.io/badge/state-done-blue.svg)
 2     | SlideMenu  | ![](https://img.shields.io/badge/state-developing-brightgreen.svg)
-3     | tabBar     | ![](https://img.shields.io/badge/state-designing-orange.svg)
+3     | NavBar     | ![](https://img.shields.io/badge/state-designing-orange.svg)
