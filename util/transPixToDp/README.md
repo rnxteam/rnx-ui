@@ -11,6 +11,8 @@
  * @return {Number} dp
  */
 
+import transPixToDp from 'rnx-ui/util/transPixToDp';
+
 // 设置一个宽度为 1 像素的顶部边框
 const styles = StyleSheet.create({
   foo: {
