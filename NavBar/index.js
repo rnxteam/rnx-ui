@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   Platform,
   View,
@@ -14,54 +14,56 @@ const HEADER_HEIGHT = isAndroid ? 56 : 44;
 
 const NOOP = () => {};
 
-function NavBar(props) {
-  // title
-  let title = props.title;
-  if (typeof props.title === 'string') {
-    title = (
-      <Text
-        style={[styles.headerTextCenter, props.titleStyle]}
-        numberOfLines={1}
-      >
-        {props.title}
-      </Text>
-    );
-  }
+class NavBar extends Component {
+  render() {
+    // title
+    let title = this.props.title;
+    if (typeof this.props.title === 'string') {
+      title = (
+        <Text
+          style={[styles.headerTextCenter, this.props.titleStyle]}
+          numberOfLines={1}
+        >
+          {this.props.title}
+        </Text>
+      );
+    }
 
-  return (
-    <View
-      style={[styles.navBar, {
-        paddingTop: props.statusBarHeight,
-      }, props.style]}
-    >
+    return (
       <View
-        style={[styles.header, {
-          height: props.headerHeight,
-        }]}
+        style={[styles.navBar, {
+          paddingTop: this.props.statusBarHeight,
+        }, this.props.style]}
       >
         <View
-          style={[styles.headerItemCenter, {
-            left: props.titleGap,
-            right: props.titleGap,
+          style={[styles.header, {
+            height: this.props.headerHeight,
           }]}
         >
-          {title}
+          <View
+            style={[styles.headerItemCenter, {
+              left: this.props.titleGap,
+              right: this.props.titleGap,
+            }]}
+          >
+            {title}
+          </View>
+          <TouchableOpacity
+            activeOpacity={this.props.activeOpacity}
+            onPress={this.props.leftEvent}
+          >
+            {this.props.leftBtn}
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={this.props.activeOpacity}
+            onPress={this.props.rightEvent}
+          >
+            {this.props.rightBtn}
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          activeOpacity={props.activeOpacity}
-          onPress={props.leftEvent}
-        >
-          {props.leftBtn}
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={props.activeOpacity}
-          onPress={props.rightEvent}
-        >
-          {props.rightBtn}
-        </TouchableOpacity>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 NavBar.propTypes = {

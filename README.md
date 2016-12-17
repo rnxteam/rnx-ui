@@ -29,9 +29,11 @@ function Demo(props) {
 
 ## Overview
 
-Index | Name       | State
------ | ---------- | ---
-1     | TabBar     | ![](https://img.shields.io/badge/state-done-blue.svg)
-2     | NavBar     | ![](https://img.shields.io/badge/state-done-blue.svg)
-2     | SlideMenu  | ![](https://img.shields.io/badge/state-developing-brightgreen.svg)
-3     | Btn        | ![](https://img.shields.io/badge/state-designing-orange.svg)
+Name       | Description | State
+---------- | ---
+TabBar     | 横向点击栏 | ![](https://img.shields.io/badge/state-done-blue.svg)
+NavBar     | 导航栏 | ![](https://img.shields.io/badge/state-done-blue.svg)
+Badge      | 角标 | ![](https://img.shields.io/badge/state-done-blue.svg)
+Btn        | 按钮 | ![](https://img.shields.io/badge/state-done-blue.svg)
+SlideMenu  | 侧滑菜单 | ![](https://img.shields.io/badge/state-developing-brightgreen.svg)
+LoadingBtn | 带菊花图的按钮 | ![](https://img.shields.io/badge/state-designing-orange.svg)

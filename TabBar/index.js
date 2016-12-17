@@ -8,11 +8,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import transPixToDp from '../util/transPixToDp';
+
 const styles = StyleSheet.create({
   all: {
     backgroundColor: '#fff',
     flexDirection: 'row',
     justifyContent: 'space-around',
+    borderTopColor: '#C9C9C9',
+    borderTopWidth: transPixToDp(1),
   },
 });
 

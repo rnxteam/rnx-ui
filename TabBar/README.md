@@ -4,6 +4,8 @@
 
 ## Demo
 
+![navBar demo](demo.png)
+
 ## Document
 
 ### Props
