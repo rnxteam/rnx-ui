@@ -30,7 +30,7 @@ function Demo(props) {
 ## Overview
 
 Name       | Description | State
----------- | ---
+---------- | ----------- | -----
 TabBar     | 横向点击栏 | ![](https://img.shields.io/badge/state-done-blue.svg)
 NavBar     | 导航栏 | ![](https://img.shields.io/badge/state-done-blue.svg)
 Badge      | 角标 | ![](https://img.shields.io/badge/state-done-blue.svg)
