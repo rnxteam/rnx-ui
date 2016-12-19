@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
   },
 });
 
-
 function Badge(props) {
   const text = props.text;
   const numberWidth = 7 * (text.length + 1);

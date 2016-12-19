@@ -29,7 +29,7 @@ class TabBar extends Component {
   }
 
   onPress() {
-    if (this.context.activedItemId !== this.id) {
+    if (this.context.state.activedItemId !== this.id) {
       this.context.setState({
         activedItemId: this.id,
       });
