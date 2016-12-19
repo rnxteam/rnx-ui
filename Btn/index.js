@@ -1,7 +1,10 @@
 /**
  * 按钮
  */
-import React, { PropTypes } from 'react';
+import React, {
+  Component,
+  PropTypes,
+} from 'react';
 import {
   StyleSheet,
   Text,
@@ -25,34 +28,36 @@ const styles = StyleSheet.create({
   },
 });
 
-function Btn(props) {
-  let content = props.children;
-  if (typeof props.children === 'string') {
-    content = (
-      <Text style={[styles.text, props.textStyle]}>
-        {props.children}
-      </Text>
+class Btn extends Component {
+  render() {
+    let content = this.props.children;
+    if (typeof content === 'string') {
+      content = (
+        <Text style={[styles.text, this.props.textStyle]}>
+          {content}
+        </Text>
+      );
+    }
+
+    let onPress = this.props.onPress;
+    let activeOpacity = this.props.activeOpacity;
+    if (this.props.disabled) {
+      onPress = null;
+      activeOpacity = 1;
+    }
+
+    return (
+      <View style={[styles.container, this.props.style]}>
+        <TouchableOpacity
+          activeOpacity={activeOpacity}
+          onPress={onPress}
+          style={[styles.contentContainerStyle, this.props.contentContainerStyle]}
+        >
+          {content}
+        </TouchableOpacity>
+      </View>
     );
   }
-
-  let onPress = props.onPress;
-  let activeOpacity = props.activeOpacity;
-  if (props.disabled) {
-    onPress = null;
-    activeOpacity = 1;
-  }
-
-  return (
-    <View style={[styles.container, props.style]}>
-      <TouchableOpacity
-        activeOpacity={activeOpacity}
-        onPress={onPress}
-        style={[styles.contentContainerStyle, props.contentContainerStyle]}
-      >
-        { content }
-      </TouchableOpacity>
-    </View>
-  );
 }
 
 Btn.propTypes = {
