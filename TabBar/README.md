@@ -25,7 +25,7 @@ TabBar.propTypes = {
   })),
   // tab 项点击时透明度
   activeOpacity: PropTypes.number,
-  // 改变激活项时的回调，激活项的 id 会作为参数传入
+  // 改变激活项时的回调，激活项的 id 会作为参数传入。当该函数返回 false 时，可以阻止当前切换操作。
   onChange: PropTypes.func,
 };
 TabBar.defaultProps = {
