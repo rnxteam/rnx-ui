@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## 0.0.8
+
+- transPixToDp 更名为 transPxToDp
+
 ## 0.0.6
 
-- TabBar 的 `onChange` 回调可以有返回值。当返回值为 `false` 时，可以阻止当前切换操作。
+- TabBar 的 `onChange` 回调可以有返回值。当返回值为 `false` 时，可以阻止当前切换操作
 
 ## 0.0.5
 

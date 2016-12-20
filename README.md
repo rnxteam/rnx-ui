@@ -45,4 +45,8 @@ Name       | Description | State
 
 Name       | Description | State
 ---------- | ----------- | -----
-[transPixToDp](https://github.com/dragonwong/rnx-ui/tree/master/util/transPixToDp)      | 虚拟像素（dp）转像素（px）方法 | ![](https://img.shields.io/badge/state-done-blue.svg)
+[transPxToDp](https://github.com/dragonwong/rnx-ui/tree/master/util/transPxToDp)      | 虚拟像素（dp）转像素（px）方法 | ![](https://img.shields.io/badge/state-done-blue.svg)
+
+## Todo
+
+- Badge 添加小圆点样式

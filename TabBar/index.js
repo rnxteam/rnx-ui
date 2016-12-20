@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import transPixToDp from '../util/transPixToDp';
+import transPxToDp from '../util/transPxToDp';
 
 const styles = StyleSheet.create({
   all: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderTopColor: '#C9C9C9',
-    borderTopWidth: transPixToDp(1),
+    borderTopWidth: transPxToDp(1),
   },
 });
 

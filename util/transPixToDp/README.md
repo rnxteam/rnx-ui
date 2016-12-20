@@ -1,4 +1,4 @@
-# transPixToDp
+# transPxToDp
 
 虚拟像素（dp）转像素（px）方法
 
@@ -7,16 +7,16 @@
 ```js
 /**
  * pix 转 dp
- * @param  {Number} pix
+ * @param  {Number} px
  * @return {Number} dp
  */
 
-import transPixToDp from 'rnx-ui/util/transPixToDp';
+import transPxToDp from 'rnx-ui/util/transPxToDp';
 
 // 设置一个宽度为 1 像素的顶部边框
 const styles = StyleSheet.create({
   foo: {
-    borderTopWidth: transPixToDp(1),
+    borderTopWidth: transPxToDp(1),
   },
 });
 ```

@@ -38,4 +38,5 @@ TabBar.defaultProps = {
 
 ### Other Points
 
-- TabBar 默认不设高度，高度由内部 tab 项（即 `items` 中所配元素）撑起。
+- TabBar 默认不设高度
+- 为防止 `defaultComponent` 和 `activedComponent` 不被刷新，强烈建议加上 `key`

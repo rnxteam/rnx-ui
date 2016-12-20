@@ -7,11 +7,11 @@ const dpi = PixelRatio.get();
 
 /**
  * pix 转 dp
- * @param  {Number} pix
+ * @param  {Number} px
  * @return {Number} dp
  */
-function transPixToDp(pix) {
-  return pix / dpi;
+function transPxToDp(px) {
+  return px / dpi;
 }
 
-export default transPixToDp;
+export default transPxToDp;
