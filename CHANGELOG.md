@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.1.0
+
+- 新增手机号码输入框组件：PhoneNumInput
+- 新增短信验证码输入框组件：SmsCaptchaInput
+- 新增表单校验工具：Validator
+
 ## 0.0.8
 
 - transPixToDp 更名为 transPxToDp
