@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.2.0
+
+- 新增提示框组件：ToolTip
+- PhoneNumInput 和 SmsCaptchaInput 去除默认水平 padding
+
 ## 0.1.0
 
 - 新增手机号码输入框组件：PhoneNumInput

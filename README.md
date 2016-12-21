@@ -42,6 +42,8 @@ Name       | Description | State
 [SlideMenu](https://github.com/dragonwong/rnx-ui/tree/master/SlideMenu)  | 侧滑菜单 | ![](https://img.shields.io/badge/state-designing-orange.svg)
 [SmsCaptchaInput](https://github.com/dragonwong/rnx-ui/tree/master/SmsCaptchaInput)        | 短信验证码输入框 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [TabBar](https://github.com/dragonwong/rnx-ui/tree/master/TabBar)     | 横向点击栏 | ![](https://img.shields.io/badge/state-done-blue.svg)
+[ToolTip](https://github.com/dragonwong/rnx-ui/tree/master/ToolTip)     | 提示框 | ![](https://img.shields.io/badge/state-done-blue.svg)
+[Web](https://github.com/dragonwong/rnx-ui/tree/master/Web)  | 类微信浏览器 | ![](https://img.shields.io/badge/state-designing-orange.svg)
 
 ### Util
 

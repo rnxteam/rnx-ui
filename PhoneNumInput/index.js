@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 50,
     marginBottom: 1,
-    paddingHorizontal: 20,
   },
   input: {
     color: '#798698',
