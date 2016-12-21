@@ -1,5 +1,5 @@
 /**
- * pix 转 dp
+ * px 转 dp
  */
 import { PixelRatio } from 'react-native';
 

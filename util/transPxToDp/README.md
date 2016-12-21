@@ -1,6 +1,6 @@
 # transPxToDp
 
-虚拟像素（dp）转像素（px）方法
+像素（px）转虚拟像素（dp）方法
 
 ![](demo.png)
 

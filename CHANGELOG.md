@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.1
+
+- 修正 transPxToDp 的说明
+
 ## 0.2.0
 
 - 新增提示框组件：ToolTip
