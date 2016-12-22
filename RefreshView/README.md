@@ -8,7 +8,7 @@
 
 ## Demo
 
-![](./RefreshControl/demo.gif)
+![](demo.gif)
 
 ## Document
 

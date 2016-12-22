@@ -4,10 +4,6 @@
 
 需在 [RefreshView](../) 中使用。
 
-## Demo
-
-![](demo.gif)
-
 ## Document
 
 下拉刷新有如下三种状态：
