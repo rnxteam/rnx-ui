@@ -8,34 +8,10 @@ import {
   Animated,
 } from 'react-native';
 import RefreshControl from './RefreshControl';
-
+import InertiallyDecreasingSpead from './InertiallyDecreasingSpead';
 import styles from './styles.js';
 
-/**
- * 惯性减速函数
- * v = cos(t)/π + 0.5       t ≤ π/2
- * v = atan(π/2-t)/π + 0.5  t > π/2
- *
- * v = k * (cos(t/kt)/π + 0.5)      t ≤ kt * π/2
- * v = k * (atan(π/2-t/kt)/π + 0.5) t > kt * π/2
- * k = initalV/(1/π + 0.5)
- */
-class InertialV {
-  constructor(initalV, kt = 200) {
-    this.k = initalV / ((1 / Math.PI) + 0.5);
-    this.kt = kt;
-    this.demarcation = kt * (Math.PI / 2);
-  }
-  getV(t) {
-    let v;
-    if (t <= this.demarcation) {
-      v = this.k * ((Math.cos(t / this.kt) / Math.PI) + 0.5);
-    } else {
-      v = this.k * ((Math.atan((Math.PI / 2) - (t / this.kt)) / Math.PI) + 0.5);
-    }
-    return v;
-  }
-}
+const NOOP = () => {};
 
 class RefreshView extends Component {
   constructor(props) {
@@ -70,6 +46,7 @@ class RefreshView extends Component {
      * @type {Number}
      */
     this.refreshControlStatus = 0;
+    this.lastRefreshControlStatus = 0;
 
     this.aniShowScrollBar = Animated.timing(this.state.scrollBarOpacity, {
       toValue: 1,
@@ -116,7 +93,8 @@ class RefreshView extends Component {
 
         if (p > topThreshold) {
           // 超出顶部范围，触发减速
-          p = y + (dy / dragOverA);
+          const p0 = this.lastRefreshControlStatus === 0 ? 0 : topThreshold;
+          p = p0 + ((p - p0) / dragOverA);
 
           // 处理下拉刷新逻辑
           const refreshControl = this.props.refreshControl;
@@ -141,15 +119,11 @@ class RefreshView extends Component {
           const d = this.outerLen - this.innerLen;
           if (p < d) {
             // 超出底部范围，触发减速
-            p = y + (dy / dragOverA);
+            p = d + ((p - d) / dragOverA);
           }
         }
 
-        this.setState({
-          y: p,
-        });
-
-        this.renderScrollBar(p);
+        this.position(p);
       },
       onPanResponderRelease: (evt, gestureState) => {
         // 停止移动
@@ -184,6 +158,8 @@ class RefreshView extends Component {
             this.inertialScroll(vy);
           }
         }
+
+        this.lastRefreshControlStatus = this.refreshControlStatus;
       },
     });
   }
@@ -201,6 +177,7 @@ class RefreshView extends Component {
         // * 2: 「刷新中...」正在刷新
         // 2「刷新中...」结束，进入 0
         this.refreshControlStatus = 0;
+        this.lastRefreshControlStatus = 0;
         this.refreshControlRecover();
       }
     }
@@ -230,6 +207,11 @@ class RefreshView extends Component {
     });
   }
 
+  onScroll(p) {
+    this.props.onScroll(p);
+    this.checkEndReached(p);
+  }
+
   getTopThreshold() {
     if (this.refreshControlStatus !== 0) {
       return this.refreshControlHeight;
@@ -240,10 +222,23 @@ class RefreshView extends Component {
   // 定位
   setPosition(p) {
     this.y = p;
+    this.position(p);
+  }
+
+  // 检查 onEndReached 触发时机
+  checkEndReached(p) {
+    const distanceToBottom = (this.innerLen - this.outerLen) + p;
+    if (distanceToBottom <= this.props.onEndReachedThreshold) {
+      this.props.onEndReached();
+    }
+  }
+
+  position(p) {
+    this.onScroll(p);
     this.setState({
       y: p,
     });
-    this.renderScrollBar();
+    this.renderScrollBar(p);
   }
 
   // 惯性滚动
@@ -254,7 +249,7 @@ class RefreshView extends Component {
     let v = Math.abs(initalV);
     let n = 0;
 
-    const vMaker = new InertialV(v);
+    const vMaker = new InertiallyDecreasingSpead(v);
 
     this.intervalId = setInterval(() => {
       n += 1;
@@ -529,6 +524,12 @@ class RefreshView extends Component {
 }
 
 RefreshView.propTypes = {
+  // 滚动回调，参数为滚动距离
+  onScroll: PropTypes.func,
+  // 调用 onEndReached 之前的临界值，描述距底部的距离
+  onEndReachedThreshold: PropTypes.number,
+  // 当滚动至距离底部 onEndReachedThreshold 的范围内，会持续触发的回调
+  onEndReached: PropTypes.func,
   // 超出范围时的减速度
   overA: PropTypes.number,
   // 超出范围时最大速度
@@ -556,6 +557,9 @@ RefreshView.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 RefreshView.defaultProps = {
+  onScroll: NOOP,
+  onEndReachedThreshold: 0,
+  onEndReached: NOOP,
   overA: 0.05,
   maxOverV: 3,
   dragOverA: 2.5,

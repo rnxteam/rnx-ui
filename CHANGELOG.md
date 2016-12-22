@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.3.1
+
+### RefreshView
+
+- 新增滚动回调属性：`onScroll`
+- 新增到达底部阀值属性：`onEndReachedThreshold`
+- 新增到达底部回调属性：`onEndReached`
+- 修正进入顶部和底部超范围减速时闪烁的 bug
+
 ## 0.3.0
 
 - 新增滚动框组件：RefreshView
