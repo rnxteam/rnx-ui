@@ -20,10 +20,10 @@ npm install 'rnx-ui' --save
 import React, {
   Component,
 } from 'react';
-import SlideMenu from 'rnx-ui/SlideMenu';
+import Btn from 'rnx-ui/Btn';
 
 function Demo(props) {
-  return <SlideMenu />;
+  return <Btn />;
 }
 ```
 
