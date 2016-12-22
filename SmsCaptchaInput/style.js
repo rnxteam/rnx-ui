@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     alignItems: 'stretch',
-    backgroundColor: '#fff',
     flexDirection: 'row',
     height: 50,
     marginBottom: 1,

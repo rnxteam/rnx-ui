@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.3.0
+
+- 新增滚动框组件：RefreshView
+- PhoneNumInput 和 SmsCaptchaInput 默认背景色由白色改为透明
+
 ## 0.2.1
 
 - 修正 transPxToDp 的说明
