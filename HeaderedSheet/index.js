@@ -1,20 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import {
-  Platform,
   View,
   Text,
   TouchableOpacity,
 } from 'react-native';
+
+import Sheet from '../Sheet';
 import styles from './styles.js';
-
-const isAndroid = Platform.OS === 'android';
-
-const STATUS_BAR_HEIGHT = isAndroid ? 0 : 20;
-const HEADER_HEIGHT = isAndroid ? 56 : 44;
 
 const NOOP = () => {};
 
-class NavBar extends Component {
+class HeaderedSheet extends Component {
   makeTitle() {
     let title = this.props.title;
     if (typeof title === 'string') {
@@ -40,6 +36,7 @@ class NavBar extends Component {
         </Text>
       );
     }
+
     return leftBtn;
   }
   makeRightBtn() {
@@ -61,15 +58,16 @@ class NavBar extends Component {
     const rightBtn = this.makeRightBtn();
 
     return (
-      <View
-        style={[styles.navBar, {
-          paddingTop: this.props.statusBarHeight,
-        }, this.props.style]}
+      <Sheet
+        visible={this.props.visible}
+        modalStyle={this.props.modalStyle}
+        onPressModal={this.props.onPressModal}
+        onClose={this.props.onClose}
+        duration={this.props.duration}
+        style={[styles.containerStyle, this.props.containerStyle]}
       >
         <View
-          style={[styles.header, {
-            height: this.props.headerHeight,
-          }]}
+          style={[styles.header, this.props.headerStyle]}
         >
           <View
             style={[styles.titleWrapper, {
@@ -92,18 +90,31 @@ class NavBar extends Component {
             {rightBtn}
           </TouchableOpacity>
         </View>
-      </View>
+        <View style={[styles.container, this.props.style]}>
+          {this.props.children}
+        </View>
+      </Sheet>
     );
   }
 }
 
-NavBar.propTypes = {
+HeaderedSheet.propTypes = {
+  // 显示开关
+  visible: Sheet.propTypes.visible,
+  // 遮罩层样式
+  modalStyle: Sheet.propTypes.modalStyle,
+  // 关闭回调（动画结束时）
+  onClose: Sheet.propTypes.onClose,
+  // 遮罩点击事件
+  onPressModal: Sheet.propTypes.onPressModal,
+  // 动画时长
+  duration: Sheet.propTypes.duration,
+  // 自定容器义样式（包含 header 区域）
+  containerStyle: Sheet.propTypes.style,
   // 自定义样式
   style: View.propTypes.style,
-  // statusBar 高度
-  statusBarHeight: PropTypes.number,
-  // header 高度
-  headerHeight: PropTypes.number,
+  // 自定义 header 样式
+  headerStyle: View.propTypes.style,
   // 标题
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 标题文本样式（title 为字符串时才生效）
@@ -112,23 +123,29 @@ NavBar.propTypes = {
   titleGap: PropTypes.number,
   // 左侧按钮
   leftBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 左侧按钮点击事件
+  // 左侧点击事件
   leftEvent: PropTypes.func,
   // 左侧按钮文本样式（leftBtn 为字符串时才生效）
   leftBtnStyle: Text.propTypes.style,
   // 右侧按钮
   rightBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 右侧按钮点击事件
+  // 右侧点击事件
   rightEvent: PropTypes.func,
   // 右侧按钮文本样式（rightBtn 为字符串时才生效）
   rightBtnStyle: Text.propTypes.style,
   // 按钮点击透明度变化
   activeOpacity: PropTypes.number,
+  // 子元素
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
-NavBar.defaultProps = {
+HeaderedSheet.defaultProps = {
+  visible: false,
+  modalStyle: null,
+  onClose: NOOP,
+  onPressModal: NOOP,
+  duration: 200,
   style: null,
-  statusBarHeight: STATUS_BAR_HEIGHT,
-  headerHeight: HEADER_HEIGHT,
+  headerHeight: null,
   title: '',
   titleStyle: null,
   titleGap: 50,
@@ -139,6 +156,7 @@ NavBar.defaultProps = {
   rightEvent: NOOP,
   rightBtnStyle: null,
   activeOpacity: 0.6,
+  children: null,
 };
 
-export default NavBar;
+export default HeaderedSheet;

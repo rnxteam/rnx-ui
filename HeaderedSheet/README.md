@@ -1,23 +1,33 @@
-# NavBar
+# HeaderedSheet
 
-导航栏
+有标题栏的底部弹层
 
 ## Demo
 
-![navBar demo](demo.png)
+![navBar demo](demo.gif)
 
 ## Document
 
 ### Props
 
 ```js
-NavBar.propTypes = {
+HeaderedSheet.propTypes = {
+  // 显示开关
+  visible: Sheet.propTypes.visible,
+  // 遮罩层样式
+  modalStyle: Sheet.propTypes.modalStyle,
+  // 关闭回调（动画结束时）
+  onClose: Sheet.propTypes.onClose,
+  // 遮罩点击事件
+  onPressModal: Sheet.propTypes.onPressModal,
+  // 动画时长
+  duration: Sheet.propTypes.duration,
+  // 自定容器义样式（包含 header 区域）
+  containerStyle: Sheet.propTypes.style,
   // 自定义样式
   style: View.propTypes.style,
-  // statusBar 高度
-  statusBarHeight: PropTypes.number,
-  // header 高度
-  headerHeight: PropTypes.number,
+  // 自定义 header 样式
+  headerStyle: View.propTypes.style,
   // 标题
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 标题文本样式（title 为字符串时才生效）
@@ -26,23 +36,29 @@ NavBar.propTypes = {
   titleGap: PropTypes.number,
   // 左侧按钮
   leftBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 左侧按钮点击事件
+  // 左侧点击事件
   leftEvent: PropTypes.func,
   // 左侧按钮文本样式（leftBtn 为字符串时才生效）
   leftBtnStyle: Text.propTypes.style,
   // 右侧按钮
   rightBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 右侧按钮点击事件
+  // 右侧点击事件
   rightEvent: PropTypes.func,
   // 右侧按钮文本样式（rightBtn 为字符串时才生效）
   rightBtnStyle: Text.propTypes.style,
   // 按钮点击透明度变化
   activeOpacity: PropTypes.number,
+  // 子元素
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
-NavBar.defaultProps = {
+HeaderedSheet.defaultProps = {
+  visible: false,
+  modalStyle: null,
+  onClose: NOOP,
+  onPressModal: NOOP,
+  duration: 200,
   style: null,
-  statusBarHeight: STATUS_BAR_HEIGHT,
-  headerHeight: HEADER_HEIGHT,
+  headerHeight: null,
   title: '',
   titleStyle: null,
   titleGap: 50,
@@ -53,11 +69,6 @@ NavBar.defaultProps = {
   rightEvent: NOOP,
   rightBtnStyle: null,
   activeOpacity: 0.6,
+  children: null,
 };
 ```
-
-### Other Points
-
-- NavBar 的高度由 `statusBarHeight` 和 `headerHeight` 两部分组成。`statusBarHeight` 默认 iOS 为 20，Android 为 0；`headerHeight` 默认 iOS 为 44，Android 为 56。
-
-- `titleGap` 用来控制 `title` 到左右两边的距离。在 `title` 为字符串且宽度超过这个距离时，标题会显示为自动剪切，并以 ‘...’ 结束。

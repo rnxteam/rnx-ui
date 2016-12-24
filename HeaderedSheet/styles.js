@@ -1,14 +1,15 @@
 import {
   StyleSheet,
 } from 'react-native';
+import transPxToDp from '../util/transPxToDp';
 
+const HEADER_HEIGHT = 40;
 const SIDE_GAP = 10;
-const COLOR = '#fff';
+const COLOR_PRESSABLE = '#157efb';
 
 const styles = StyleSheet.create({
-  navBar: {
-    backgroundColor: '#2F3549',
-    position: 'relative',
+  containerStyle: {
+    backgroundColor: '#fff',
   },
   header: {
     paddingHorizontal: SIDE_GAP,
@@ -17,6 +18,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     position: 'relative',
     backgroundColor: 'transparent',
+    height: HEADER_HEIGHT,
+    borderBottomWidth: transPxToDp(1),
+    borderBottomColor: '#ddd',
   },
   titleWrapper: {
     position: 'absolute',
@@ -28,12 +32,9 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: COLOR,
   },
   btnText: {
-    color: COLOR,
+    color: COLOR_PRESSABLE,
   },
 });
 

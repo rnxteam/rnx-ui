@@ -3,12 +3,28 @@ import React, {
   PropTypes,
 } from 'react';
 import {
+  StyleSheet,
   View,
   Text,
-  Modal,
 } from 'react-native';
 
-import styles from './styles.js';
+import Overlay from '../Overlay';
+
+const styles = StyleSheet.create({
+  modal: {
+    backgroundColor: 'rgba(0, 0, 0, 0.0)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textWrapper: {
+    padding: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+  },
+  text: {
+    color: '#fff',
+  },
+});
+
 
 class ToolTip extends Component {
   render() {
@@ -20,21 +36,15 @@ class ToolTip extends Component {
       textWrapperStyle,
     } = this.props;
 
-    if (!visible) {
-      return null;
-    }
-
     return (
-      <Modal
-        animationType="fade"
-        transparent
+      <Overlay
+        visible={visible}
+        style={[styles.modal, modalStyle]}
       >
-        <View style={[styles.modal, modalStyle]}>
-          <View style={[styles.textWrapper, textWrapperStyle]}>
-            <Text style={[styles.text, textStyle]}>{text}</Text>
-          </View>
+        <View style={[styles.textWrapper, textWrapperStyle]}>
+          <Text style={[styles.text, textStyle]}>{text}</Text>
         </View>
-      </Modal>
+      </Overlay>
     );
   }
 }

@@ -1,12 +1,30 @@
 # CHANGELOG
 
+## 0.4.0
+
+- 添加组件开发模板：Template
+- 新增遮罩层组件：Overlay
+- 新增底部弹层组件：Sheet
+- 新增有标题栏的底部弹层组件：HeaderedSheet
+
+### NavBar
+
+- 修改属性 `leftBtn`：现在可以为字符串或元素类型
+- 修改属性 `rightBtn`：现在可以为字符串或元素类型
+- 新增属性 `leftBtnStyle`：左侧按钮文本样式（leftBtn 为字符串时才生效）
+- 新增属性 `rightBtnStyle`：左侧按钮文本样式（rightBtn 为字符串时才生效）
+
+### ToolTip
+
+- 内部改用 Overlay 组件
+
 ## 0.3.1
 
 ### RefreshView
 
-- 新增滚动回调属性：`onScroll`
-- 新增到达底部阀值属性：`onEndReachedThreshold`
-- 新增到达底部回调属性：`onEndReached`
+- 新增属性 `onScroll`：滚动回调
+- 新增属性 `onEndReachedThreshold`：到达底部阀值
+- 新增属性 `onEndReached`：到达底部回调
 - 修正进入顶部和底部超范围减速时闪烁的 bug
 
 ## 0.3.0
