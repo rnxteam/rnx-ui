@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 
 import Sheet from '../Sheet';
@@ -66,33 +67,37 @@ class HeaderedSheet extends Component {
         duration={this.props.duration}
         style={[styles.containerStyle, this.props.containerStyle]}
       >
-        <View
-          style={[styles.header, this.props.headerStyle]}
-        >
-          <View
-            style={[styles.titleWrapper, {
-              left: this.props.titleGap,
-              right: this.props.titleGap,
-            }]}
-          >
-            {title}
+        <TouchableWithoutFeedback>
+          <View>
+            <View
+              style={[styles.header, this.props.headerStyle]}
+            >
+              <View
+                style={[styles.titleWrapper, {
+                  left: this.props.titleGap,
+                  right: this.props.titleGap,
+                }]}
+              >
+                {title}
+              </View>
+              <TouchableOpacity
+                activeOpacity={this.props.activeOpacity}
+                onPress={this.props.onPressLeftBtn}
+              >
+                {leftBtn}
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={this.props.activeOpacity}
+                onPress={this.props.onPressRightBtn}
+              >
+                {rightBtn}
+              </TouchableOpacity>
+            </View>
+            <View style={[styles.container, this.props.style]}>
+              {this.props.children}
+            </View>
           </View>
-          <TouchableOpacity
-            activeOpacity={this.props.activeOpacity}
-            onPress={this.props.leftEvent}
-          >
-            {leftBtn}
-          </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={this.props.activeOpacity}
-            onPress={this.props.rightEvent}
-          >
-            {rightBtn}
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.container, this.props.style]}>
-          {this.props.children}
-        </View>
+        </TouchableWithoutFeedback>
       </Sheet>
     );
   }
@@ -124,13 +129,13 @@ HeaderedSheet.propTypes = {
   // 左侧按钮
   leftBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 左侧点击事件
-  leftEvent: PropTypes.func,
+  onPressLeftBtn: PropTypes.func,
   // 左侧按钮文本样式（leftBtn 为字符串时才生效）
   leftBtnStyle: Text.propTypes.style,
   // 右侧按钮
   rightBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 右侧点击事件
-  rightEvent: PropTypes.func,
+  onPressRightBtn: PropTypes.func,
   // 右侧按钮文本样式（rightBtn 为字符串时才生效）
   rightBtnStyle: Text.propTypes.style,
   // 按钮点击透明度变化
@@ -150,10 +155,10 @@ HeaderedSheet.defaultProps = {
   titleStyle: null,
   titleGap: 50,
   leftBtn: null,
-  leftEvent: NOOP,
+  onPressLeftBtn: NOOP,
   leftBtnStyle: null,
   rightBtn: null,
-  rightEvent: NOOP,
+  onPressRightBtn: NOOP,
   rightBtnStyle: null,
   activeOpacity: 0.6,
   children: null,

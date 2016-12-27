@@ -37,13 +37,13 @@ HeaderedSheet.propTypes = {
   // 左侧按钮
   leftBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 左侧点击事件
-  leftEvent: PropTypes.func,
+  onPressHeaderLeft: PropTypes.func,
   // 左侧按钮文本样式（leftBtn 为字符串时才生效）
   leftBtnStyle: Text.propTypes.style,
   // 右侧按钮
   rightBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 右侧点击事件
-  rightEvent: PropTypes.func,
+  onPressHeaderRight: PropTypes.func,
   // 右侧按钮文本样式（rightBtn 为字符串时才生效）
   rightBtnStyle: Text.propTypes.style,
   // 按钮点击透明度变化
@@ -63,12 +63,16 @@ HeaderedSheet.defaultProps = {
   titleStyle: null,
   titleGap: 50,
   leftBtn: null,
-  leftEvent: NOOP,
+  onPressHeaderLeft: NOOP,
   leftBtnStyle: null,
   rightBtn: null,
-  rightEvent: NOOP,
+  onPressHeaderRight: NOOP,
   rightBtnStyle: null,
   activeOpacity: 0.6,
   children: null,
 };
 ```
+
+### Other Points
+
+- 内部封装了 Overlay 组件，请参考 [Other Points - Overlay](https://github.com/dragonwong/rnx-ui/tree/master/Overlay#other-points)

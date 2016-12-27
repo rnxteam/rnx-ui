@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.4.1
+
+### HeaderedSheet
+
+- 修改属性 `leftEvent`：更名为 `onPressLeftBtn`
+- 修改属性 `rightEvent`：更名为 `onPressRightBtn`
+- 点击底部内容区域不再会触发 `onPressModal`
+
 ## 0.4.0
 
 - 添加组件开发模板：Template
