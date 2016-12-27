@@ -3,7 +3,7 @@ import {
 } from 'react-native';
 import transPxToDp from '../util/transPxToDp';
 
-const HEADER_HEIGHT = 40;
+const HEADER_HEIGHT = 45;
 const SIDE_GAP = 10;
 const COLOR_PRESSABLE = '#157efb';
 

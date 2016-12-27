@@ -66,6 +66,7 @@ Name       | Description | State
 ## Todo
 
 - Overlay 提供非 Modal 版本
+- demo 图片缩小
 - Badge 添加小圆点样式
 - PhoneNumInput 安卓键盘测试
 

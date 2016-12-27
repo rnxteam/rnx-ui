@@ -14,7 +14,7 @@ import {
 
 const styles = StyleSheet.create({
   container: {
-    height: 40,
+    height: 45,
     overflow: 'hidden',
     backgroundColor: '#fd734c',
   },

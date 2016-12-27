@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.4.2
+
+- Btn 默认高度由 40 调整为 45
+- HeaderedSheet 的标题栏的默认高度由 40 调整为 45
+
 ## 0.4.1
 
 ### HeaderedSheet
