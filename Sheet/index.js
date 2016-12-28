@@ -44,13 +44,13 @@ class Sheet extends Component {
   }
 
   componentWillReceiveProps(props) {
-    if (props.visible && !this.state.visible) {
+    if (props.visible && !this.props.visible) {
       // 隐藏 -> 显示
       this.setState({
         visible: true,
       });
       this.show(props);
-    } else if (!props.visible && this.state.visible) {
+    } else if (!props.visible && this.props.visible) {
       // 显示 -> 隐藏
       this.hide(props);
     }
