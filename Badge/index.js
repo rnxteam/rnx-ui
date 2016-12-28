@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   container: {
     position: 'relative',
   },
-  number: {
+  textContainer: {
     position: 'absolute',
     top: -5,
     right: -5,
@@ -41,8 +41,12 @@ const styles = StyleSheet.create({
 });
 
 function Badge(props) {
-  const text = props.text;
-  const numberWidth = 7 * (text.length + 1);
+  let text = props.text;
+
+  if (typeof text !== 'string') {
+    text = `${text}`;
+  }
+  const textWidth = 7 * (text.length + 1);
 
   return (
     <View style={[styles.container, props.style]}>
@@ -52,11 +56,11 @@ function Badge(props) {
       {
         text.length > 0 ? (
           <View
-            style={[styles.number, {
-              width: numberWidth,
-            }, props.numberStyle]}
+            style={[styles.textContainer, {
+              width: textWidth,
+            }, props.textContainerStyle]}
           >
-            <Text style={styles.text}>
+            <Text style={[styles.text, props.textStyle]}>
               {text}
             </Text>
           </View>
@@ -69,16 +73,19 @@ function Badge(props) {
 Badge.propTypes = {
   // 自定义样式
   style: View.propTypes.style,
-  // 自定义数字样式
-  numberStyle: View.propTypes.style,
+  // 自定义文本容器样式
+  textContainerStyle: View.propTypes.style,
+  // 自定义文本样式
+  textStyle: Text.propTypes.style,
   // 角标文本内容
-  text: PropTypes.string,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // 主体元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 Badge.defaultProps = {
   style: null,
-  numberStyle: null,
+  textContainerStyle: null,
+  textStyle: null,
   text: '',
   children: null,
 };

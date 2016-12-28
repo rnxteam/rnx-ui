@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.5.1
+
+### Badge
+
+- 新增属性 `textStyle`：自定义文本样式
+- 修改属性 `numberStyle`：更名为 `textContainerStyle`
+- 修改属性 `text`：现在可以为字符串或数字类型
+
 ## 0.5.0
 
 - 新增菊花加载组件：Loading
