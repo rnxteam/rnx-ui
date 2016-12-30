@@ -33,5 +33,5 @@ Overlay.defaultProps = {
 
 ### Other Points
 
-- 因为内部封装的 Modal 组件，会导致该组件会阻止安卓的物理返回键
-- 因为内部封装的 Modal 组件，会导致该组件会出现在应用的最顶层。可能需要重点考虑应用存在 Navigator 的情况：尽管 Overlay 写在 Navigator 的某一个场景中，但当该场景被切换时，Overlay 却不会消失。需要在场景结束时手动隐藏该组件。
+- Overlay 默认撑满父容器，且父容器需要设置样式属性 `position` 为 `'absolute'` 或 `'relative'`
+- Overlay 不会阻止安卓物理返回键

@@ -61,8 +61,8 @@ class HeaderedSheet extends Component {
     return (
       <Sheet
         visible={this.props.visible}
-        modalStyle={this.props.modalStyle}
-        onPressModal={this.props.onPressModal}
+        overlayStyle={this.props.overlayStyle}
+        onPressOverlay={this.props.onPressOverlay}
         onClose={this.props.onClose}
         duration={this.props.duration}
         style={[styles.containerStyle, this.props.containerStyle]}
@@ -107,11 +107,11 @@ HeaderedSheet.propTypes = {
   // 显示开关
   visible: Sheet.propTypes.visible,
   // 遮罩层样式
-  modalStyle: Sheet.propTypes.modalStyle,
+  overlayStyle: Sheet.propTypes.overlayStyle,
   // 关闭回调（动画结束时）
   onClose: Sheet.propTypes.onClose,
   // 遮罩点击事件
-  onPressModal: Sheet.propTypes.onPressModal,
+  onPressOverlay: Sheet.propTypes.onPressOverlay,
   // 动画时长
   duration: Sheet.propTypes.duration,
   // 自定容器义样式（包含 header 区域）
@@ -145,9 +145,9 @@ HeaderedSheet.propTypes = {
 };
 HeaderedSheet.defaultProps = {
   visible: false,
-  modalStyle: null,
+  overlayStyle: null,
   onClose: NOOP,
-  onPressModal: NOOP,
+  onPressOverlay: NOOP,
   duration: 200,
   style: null,
   headerHeight: null,

@@ -14,7 +14,7 @@ import {
 import Overlay from '../Overlay';
 
 const styles = StyleSheet.create({
-  modal: {
+  overlay: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
@@ -34,7 +34,7 @@ class Loading extends Component {
     return (
       <Overlay
         visible={this.props.visible}
-        style={[styles.modal, this.props.modalStyle]}
+        style={[styles.overlay, this.props.overlayStyle]}
       >
         <View style={[styles.loader, this.props.loaderStyle]}>
           <ActivityIndicator
@@ -52,7 +52,7 @@ Loading.propTypes = {
   // 显示开关
   visible: PropTypes.bool.isRequired,
   // 遮罩层样式
-  modalStyle: View.propTypes.style,
+  overlayStyle: View.propTypes.style,
   // 菊花容器样式
   loaderStyle: View.propTypes.style,
   // 菊花图标的颜色
@@ -62,7 +62,7 @@ Loading.propTypes = {
 };
 Loading.defaultProps = {
   visible: false,
-  modalStyle: null,
+  overlayStyle: null,
   loaderStyle: null,
   color: '#fff',
   size: 'small',

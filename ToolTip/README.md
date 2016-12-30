@@ -17,7 +17,7 @@ ToolTip.propTypes = {
   // 显示文本
   text: PropTypes.string.isRequired,
   // 遮罩层样式
-  modalStyle: View.propTypes.style,
+  overlayStyle: View.propTypes.style,
   // 文本容器样式
   textWrapperStyle: View.propTypes.style,
   // 文本样式
@@ -26,8 +26,12 @@ ToolTip.propTypes = {
 ToolTip.defaultProps = {
   visible: false,
   text: '',
-  modalStyle: null,
+  overlayStyle: null,
   textWrapperStyle: null,
   textStyle: null,
 };
 ```
+
+### Other Points
+
+- 内部封装了 Overlay 组件，请参考 [Other Points - Overlay](https://github.com/dragonwong/rnx-ui/tree/master/Overlay#other-points)

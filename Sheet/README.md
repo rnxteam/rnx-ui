@@ -19,11 +19,11 @@ Sheet.propTypes = {
   // 显示开关
   visible: PropTypes.bool.isRequired,
   // 遮罩层样式
-  modalStyle: View.propTypes.style,
+  overlayStyle: View.propTypes.style,
   // 关闭回调（动画结束时）
   onClose: PropTypes.func,
   // 遮罩点击事件
-  onPressModal: PropTypes.func,
+  onPressOverlay: PropTypes.func,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 动画时长
@@ -32,9 +32,9 @@ Sheet.propTypes = {
 Sheet.defaultProps = {
   style: null,
   visible: false,
-  modalStyle: null,
+  overlayStyle: null,
   onClose: NOOP,
-  onPressModal: NOOP,
+  onPressOverlay: NOOP,
   children: null,
   duration: 200,
 };

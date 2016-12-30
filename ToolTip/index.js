@@ -11,8 +11,8 @@ import {
 import Overlay from '../Overlay';
 
 const styles = StyleSheet.create({
-  modal: {
-    backgroundColor: 'rgba(0, 0, 0, 0.0)',
+  overlay: {
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -30,7 +30,7 @@ class ToolTip extends Component {
   render() {
     const {
       visible,
-      modalStyle,
+      overlayStyle,
       textStyle,
       text,
       textWrapperStyle,
@@ -39,7 +39,7 @@ class ToolTip extends Component {
     return (
       <Overlay
         visible={visible}
-        style={[styles.modal, modalStyle]}
+        style={[styles.overlay, overlayStyle]}
       >
         <View style={[styles.textWrapper, textWrapperStyle]}>
           <Text style={[styles.text, textStyle]}>{text}</Text>
@@ -55,7 +55,7 @@ ToolTip.propTypes = {
   // 显示文本
   text: PropTypes.string.isRequired,
   // 遮罩层样式
-  modalStyle: View.propTypes.style,
+  overlayStyle: View.propTypes.style,
   // 文本容器样式
   textWrapperStyle: View.propTypes.style,
   // 文本样式
@@ -64,7 +64,7 @@ ToolTip.propTypes = {
 ToolTip.defaultProps = {
   visible: false,
   text: '',
-  modalStyle: null,
+  overlayStyle: null,
   textWrapperStyle: null,
   textStyle: null,
 };

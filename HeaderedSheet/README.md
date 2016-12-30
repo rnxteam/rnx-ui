@@ -15,11 +15,11 @@ HeaderedSheet.propTypes = {
   // 显示开关
   visible: Sheet.propTypes.visible,
   // 遮罩层样式
-  modalStyle: Sheet.propTypes.modalStyle,
+  overlayStyle: Sheet.propTypes.overlayStyle,
   // 关闭回调（动画结束时）
   onClose: Sheet.propTypes.onClose,
   // 遮罩点击事件
-  onPressModal: Sheet.propTypes.onPressModal,
+  onPressOverlay: Sheet.propTypes.onPressOverlay,
   // 动画时长
   duration: Sheet.propTypes.duration,
   // 自定容器义样式（包含 header 区域）
@@ -37,13 +37,13 @@ HeaderedSheet.propTypes = {
   // 左侧按钮
   leftBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 左侧点击事件
-  onPressHeaderLeft: PropTypes.func,
+  onPressLeftBtn: PropTypes.func,
   // 左侧按钮文本样式（leftBtn 为字符串时才生效）
   leftBtnStyle: Text.propTypes.style,
   // 右侧按钮
   rightBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 右侧点击事件
-  onPressHeaderRight: PropTypes.func,
+  onPressRightBtn: PropTypes.func,
   // 右侧按钮文本样式（rightBtn 为字符串时才生效）
   rightBtnStyle: Text.propTypes.style,
   // 按钮点击透明度变化
@@ -53,9 +53,9 @@ HeaderedSheet.propTypes = {
 };
 HeaderedSheet.defaultProps = {
   visible: false,
-  modalStyle: null,
+  overlayStyle: null,
   onClose: NOOP,
-  onPressModal: NOOP,
+  onPressOverlay: NOOP,
   duration: 200,
   style: null,
   headerHeight: null,
@@ -63,10 +63,10 @@ HeaderedSheet.defaultProps = {
   titleStyle: null,
   titleGap: 50,
   leftBtn: null,
-  onPressHeaderLeft: NOOP,
+  onPressLeftBtn: NOOP,
   leftBtnStyle: null,
   rightBtn: null,
-  onPressHeaderRight: NOOP,
+  onPressRightBtn: NOOP,
   rightBtnStyle: null,
   activeOpacity: 0.6,
   children: null,

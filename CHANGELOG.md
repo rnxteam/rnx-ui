@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## 0.5.2
+
+### HeaderedSheet
+
+- 修改属性 `modalStyle`：更名为 `overlayStyle`
+- 修改属性 `onPressModal`：更名为 `onPressOverlay`
+
+### Loading
+
+- 修改属性 `modalStyle`：更名为 `overlayStyle`
+
+### Overlay
+
+- Overlay 内部不再依赖 Modal 组件
+
+### Sheet
+
+- 修改属性 `modalStyle`：更名为 `overlayStyle`
+- 修改属性 `onPressModal`：更名为 `onPressOverlay`
+
+### ToolTip
+
+- 修改属性 `modalStyle`：更名为 `overlayStyle`
+
 ## 0.5.1
 
 ### Badge

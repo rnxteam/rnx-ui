@@ -1,6 +1,5 @@
 /**
  * 遮罩层
- * 内部封装的 Modal 组件，该组件会阻止安卓的物理返回键
  */
 import React, {
   PropTypes,
@@ -8,7 +7,7 @@ import React, {
 } from 'react';
 import {
   StyleSheet,
-  Modal,
+  Animated,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
@@ -16,33 +15,81 @@ import {
 const NOOP = () => {};
 
 const styles = StyleSheet.create({
-  modal: {
+  all: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    flex: 1,
   },
 });
 
 class Overlay extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      visible: false,
+      opacity: new Animated.Value(0),
+    };
+
+    this.aniShow = Animated.timing(this.state.opacity, {
+      toValue: 1,
+      duration: 200,
+    });
+    this.aniHide = Animated.timing(this.state.opacity, {
+      toValue: 0,
+      duration: 200,
+    });
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.visible && !this.props.visible) {
+      // 隐藏 -> 显示
+      this.show();
+    } else if (!props.visible && this.props.visible) {
+      // 显示 -> 隐藏
+      this.hide();
+    }
+  }
+
+  // 显示
+  show() {
+    this.setState({
+      visible: true,
+    });
+    this.aniHide.stop();
+    this.aniShow.start();
+  }
+
+  // 隐藏
+  hide() {
+    this.aniShow.stop();
+    this.aniHide.start(() => {
+      this.setState({
+        visible: false,
+      });
+    });
+  }
+
   render() {
-    if (!this.props.visible) {
+    if (!this.state.visible) {
       return null;
     }
 
     return (
-      <Modal
-        animationType="fade"
-        transparent
+      <TouchableWithoutFeedback
+        onPress={this.props.onPress}
       >
-        <TouchableWithoutFeedback
-          onPress={this.props.onPress}
+        <Animated.View
+          style={[styles.all, {
+            opacity: this.state.opacity,
+          }, this.props.style]}
         >
-          <View
-            style={[styles.modal, this.props.style]}
-          >
-            {this.props.children}
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
+          {this.props.children}
+        </Animated.View>
+      </TouchableWithoutFeedback>
     );
   }
 }
