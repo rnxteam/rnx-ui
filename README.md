@@ -11,7 +11,7 @@ A UI Lib for React Native
 ### 1. Install
 
 ```js
-npm install 'rnx-ui' --save
+npm install rnx-ui --save
 ```
 
 ### 2. Use
@@ -40,7 +40,7 @@ Name       | Description | State
 [Checkbox](https://github.com/dragonwong/rnx-ui/tree/master/Checkbox)  | 选择框 | ![](https://img.shields.io/badge/state-designing-orange.svg)
 [HeaderedSheet](https://github.com/dragonwong/rnx-ui/tree/master/HeaderedSheet)        | 有标题栏的底部弹层 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [Icon](https://github.com/dragonwong/rnx-ui/tree/master/Icon)  | 字体图标 | ![](https://img.shields.io/badge/state-designing-orange.svg)
-[Loading](https://github.com/dragonwong/rnx-ui/tree/master/Loading) | 菊花加载中动画 | ![](https://img.shields.io/badge/state-designing-orange.svg)
+[Loading](https://github.com/dragonwong/rnx-ui/tree/master/Loading) | 菊花加载中动画 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [LoadingBtn](https://github.com/dragonwong/rnx-ui/tree/master/LoadingBtn) | 带菊花图的按钮 | ![](https://img.shields.io/badge/state-designing-orange.svg)
 [NavBar](https://github.com/dragonwong/rnx-ui/tree/master/NavBar)     | 导航栏 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [Number](https://github.com/dragonwong/rnx-ui/tree/master/Number)     | 数字 | ![](https://img.shields.io/badge/state-developing-brightgreen.svg)
@@ -66,10 +66,10 @@ Name       | Description | State
 
 ## Todo
 
-- Overlay 提供非 Modal 版本
 - demo 图片缩小
 - Badge 添加小圆点样式
 - PhoneNumInput 安卓键盘测试
+- 所有组件安卓测试
 
 ### Bug
 

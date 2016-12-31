@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 0.5.3
+
+### SmsCaptchaInput
+
+- 新增方法 `start`：进入倒计时状态
+- 新增方法 `stop`：进入倒计时结束状态
+- 新增属性 `btnTextInital`：按钮文字：初始状态
+- 新增属性 `btnTextSending`：按钮文字：发送短信中
+- 新增属性 `btnTextTiming`：按钮文字：倒计时中，`{time}` 将会被替换为倒计时数字
+- 新增属性 `btnTextTimed`：按钮文字：倒计时结束
+- 新增属性 `onStop`：倒计时结束回调
+- 修改属性 `buttonStyle`：更名为 `btnStyle`
+- 修改属性 `buttonTextStyle`：更名为 `btnTextStyle`
+- 修改属性 `onPressSendMsgBtn`：更名为 `onPressBtn`
+- 修改属性 `codeLength`：更名为 `captchaLength`，并且会限制键盘允许输入最大长度
+
 ## 0.5.2
 
 ### HeaderedSheet

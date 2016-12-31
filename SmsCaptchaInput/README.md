@@ -4,6 +4,19 @@
 
 提供发送短信按钮和倒计时功能。
 
+短信验证码输入框组件有三种状态：
+
+1. 初始状态
+2. 发送短信中状态
+3. 倒计时状态
+4. 倒计时结束状态
+
+点击按钮会使组件由 `1. 初始状态` 进入 `2. 发送短信中状态`，此时需要根据接口状况进行判断：
+
+1. 如果发送短信成功：手动调起组件的 `start()` 方法，进入 `3. 倒计时状态`，在倒计时结束时组件会自动进入 `4. 倒计时结束状态`；
+
+2. 如果发送短信失败：手动调起组件的 `stop()` 方法，进入 `4. 倒计时结束状态`。
+
 > rnx-ui 表单校验工具 [Validator](https://github.com/dragonwong/rnx-ui/tree/master/util/Validator) 现已支持该组件。
 
 ## Demo
@@ -21,9 +34,17 @@ SmsCaptchaInput.propTypes = {
   // 自定义输入框样式
   inputStyle: TextInput.propTypes.style,
   // 自定义按钮样式
-  buttonStyle: View.propTypes.style,
+  btnStyle: View.propTypes.style,
+  // 按钮文字：初始状态
+  btnTextInital: PropTypes.string,
+  // 按钮文字：发送短信中
+  btnTextSending: PropTypes.string,
+  // 按钮文字：倒计时中，`{time}` 将会被替换为倒计时数字
+  btnTextTiming: PropTypes.string,
+  // 按钮文字：倒计时结束
+  btnTextTimed: PropTypes.string,
   // 自定义按钮文本样式
-  buttonTextStyle: Text.propTypes.style,
+  btnTextStyle: Text.propTypes.style,
   // 提示文字
   placeholder: PropTypes.string,
   // 提示文字颜色
@@ -33,9 +54,11 @@ SmsCaptchaInput.propTypes = {
   // 倒计时时间
   intervalTime: PropTypes.number,
   // 点击发送短信按钮回调，当返回 false 时，可以阻止倒计时开始
-  onPressSendMsgBtn: PropTypes.func,
+  onPressBtn: PropTypes.func,
+  // 倒计时结束回调
+  onStop: PropTypes.func,
   // 验证码校验长度
-  codeLength: PropTypes.number,
+  captchaLength: PropTypes.number,
   // 校验器接口，值通常为叫校验器的校验手机方法
   collectValidate: PropTypes.func,
   // 用来在校验器中做标识
@@ -48,14 +71,19 @@ SmsCaptchaInput.propTypes = {
 SmsCaptchaInput.defaultProps = {
   style: null,
   inputStyle: null,
-  buttonStyle: null,
-  buttonTextStyle: null,
+  btnStyle: null,
+  btnTextInital: '获取验证码',
+  btnTextSending: '正在发送短信',
+  btnTextTiming: '{time}秒后可重发',
+  btnTextTimed: '重新获取',
+  btnTextStyle: null,
   placeholder: '短信验证码',
   placeholderTextColor: '#798698',
   activeOpacity: 0.6,
   intervalTime: 60,
-  onPressSendMsgBtn: NOOP,
-  codeLength: 6,
+  onPressBtn: NOOP,
+  onStop: NOOP,
+  captchaLength: 6,
   collectValidate: NOOP,
   name: 'SMS_CODE_INPUT',
   readableName: '短信验证码',
