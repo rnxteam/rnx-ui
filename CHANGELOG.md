@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.5.3
+## 0.5.4
 
 ### SmsCaptchaInput
 
