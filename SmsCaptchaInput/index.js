@@ -37,6 +37,8 @@ class SmsCaptchaInput extends Component {
     this.onPress = this.onPress.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
     this.timer = this.timer.bind(this);
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
 
     props.collectValidate(this.validate.bind(this));
   }
@@ -56,7 +58,7 @@ class SmsCaptchaInput extends Component {
       return;
     }
     // 运行点击按钮回调
-    if (this.props.onPressBtn() === false) {
+    if (this.props.onPressBtn(this.start, this.stop) === false) {
       return;
     }
     this.setState({
@@ -185,7 +187,8 @@ SmsCaptchaInput.propTypes = {
   activeOpacity: PropTypes.number,
   // 倒计时时间
   intervalTime: PropTypes.number,
-  // 点击发送短信按钮回调，当返回 false 时，可以阻止倒计时开始
+  // 点击发送短信按钮回调，当返回 false 时，可以阻止倒计时开始；
+  // 该回调接受两个参数：开始倒计时方法：`start` 和结束倒计时方法 `stop`
   onPressBtn: PropTypes.func,
   // 倒计时结束回调
   onStop: PropTypes.func,

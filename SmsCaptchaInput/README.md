@@ -53,7 +53,8 @@ SmsCaptchaInput.propTypes = {
   activeOpacity: PropTypes.number,
   // 倒计时时间
   intervalTime: PropTypes.number,
-  // 点击发送短信按钮回调，当返回 false 时，可以阻止倒计时开始
+  // 点击发送短信按钮回调，当返回 false 时，可以阻止倒计时开始。
+  // 该回调接受两个参数：开始倒计时方法：`start` 和结束倒计时方法 `stop`
   onPressBtn: PropTypes.func,
   // 倒计时结束回调
   onStop: PropTypes.func,
