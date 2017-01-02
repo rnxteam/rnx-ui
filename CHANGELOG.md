@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.6.0
+
+- 新增带占位的图片组件：ImgHolder
+
 ## 0.5.4
 
 ### SmsCaptchaInput

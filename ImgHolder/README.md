@@ -1,0 +1,29 @@
+# ImgHolder
+
+带占位的图片组件
+
+## Demo
+
+![](demo.gif)
+
+## Document
+
+### Props
+
+```js
+ImgHolder.propTypes = {
+  // 自定义样式
+  style: View.propTypes.style,
+  // 占位元素
+  holder: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  // 图片资源
+  source: PropTypes.oneOfType([PropTypes.object, PropTypes.number]).isRequired,
+};
+ImgHolder.defaultProps = {
+  style: null,
+  holder: null,
+  source: {
+    uri: '',
+  },
+};
+```
