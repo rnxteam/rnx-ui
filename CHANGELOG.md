@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.6.1
+
+### Overlay
+
+- 新增属性 `pointerEvents`：控制 Overlay 是否可以作为触控事件的目标
+
+### ToolTip
+
+- 新增属性 `pointerEvents`：控制 Overlay 是否可以作为触控事件的目标
+
 ## 0.6.0
 
 - 新增带占位的图片组件：ImgHolder

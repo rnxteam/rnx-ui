@@ -22,6 +22,8 @@ ToolTip.propTypes = {
   textWrapperStyle: View.propTypes.style,
   // 文本样式
   textStyle: Text.propTypes.style,
+  // 控制 Overlay 是否可以作为触控事件的目标
+  pointerEvents: Overlay.propTypes.pointerEvents,
 };
 ToolTip.defaultProps = {
   visible: false,
@@ -29,6 +31,7 @@ ToolTip.defaultProps = {
   overlayStyle: null,
   textWrapperStyle: null,
   textStyle: null,
+  pointerEvents: 'none',
 };
 ```
 
