@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.6.2
+
+### TabBar
+
+- 简化逻辑，现在 TabBar 自身不维持激活项状态，需要通过属性 `activeId` 来定义
+- 新增属性 `activeId`：激活项的 Id，必须是 `items` 项的 `id` 属性
+- 修改属性 `onChange`：更名为 `onPress`
+
 ## 0.6.1
 
 ### Overlay
