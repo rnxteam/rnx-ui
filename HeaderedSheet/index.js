@@ -6,6 +6,9 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
+import {
+  ACTIVE_OPACITY,
+} from '../util/constant';
 import Sheet from '../Sheet';
 import styles from './styles.js';
 
@@ -160,7 +163,7 @@ HeaderedSheet.defaultProps = {
   rightBtn: null,
   onPressRightBtn: NOOP,
   rightBtnStyle: null,
-  activeOpacity: 0.6,
+  activeOpacity: ACTIVE_OPACITY,
   children: null,
 };
 

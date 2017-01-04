@@ -40,7 +40,7 @@ PhoneNumInput.defaultProps = {
   style: null,
   inputStyle: null,
   placeholder: '手机号',
-  placeholderTextColor: '#798698',
+  placeholderTextColor: COLOR_PLACEHOLDER,
   collectValidate: NOOP,
   defaultValue: '',
   name: 'PHONE_NUM_INPUT',

@@ -8,6 +8,10 @@ import {
   View,
 } from 'react-native';
 
+import {
+  COLOR_PLACEHOLDER,
+} from '../util/constant';
+
 const NOOP = () => {};
 
 const styles = StyleSheet.create({
@@ -18,7 +22,6 @@ const styles = StyleSheet.create({
     marginBottom: 1,
   },
   input: {
-    color: '#798698',
     flex: 1,
   },
 });
@@ -114,7 +117,7 @@ PhoneNumInput.defaultProps = {
   style: null,
   inputStyle: null,
   placeholder: '手机号',
-  placeholderTextColor: '#798698',
+  placeholderTextColor: COLOR_PLACEHOLDER,
   collectValidate: NOOP,
   defaultValue: '',
   name: 'PHONE_NUM_INPUT',

@@ -33,7 +33,7 @@ Btn.defaultProps = {
   textStyle: null,
   onPress: null,
   children: '下一步',
-  activeOpacity: 0.6,
+  activeOpacity: ACTIVE_OPACITY,
   disabled: false,
 };
 ```

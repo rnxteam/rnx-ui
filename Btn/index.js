@@ -12,11 +12,16 @@ import {
   View,
 } from 'react-native';
 
+import {
+  COLOR_THEME,
+  ACTIVE_OPACITY,
+} from '../util/constant';
+
 const styles = StyleSheet.create({
   container: {
     height: 45,
     overflow: 'hidden',
-    backgroundColor: '#fd734c',
+    backgroundColor: COLOR_THEME,
   },
   contentContainerStyle: {
     flex: 1,
@@ -82,7 +87,7 @@ Btn.defaultProps = {
   textStyle: null,
   onPress: null,
   children: '下一步',
-  activeOpacity: 0.6,
+  activeOpacity: ACTIVE_OPACITY,
   disabled: false,
 };
 

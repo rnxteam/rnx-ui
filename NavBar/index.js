@@ -5,6 +5,10 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+
+import {
+  ACTIVE_OPACITY,
+} from '../util/constant';
 import styles from './styles.js';
 
 const isAndroid = Platform.OS === 'android';
@@ -142,7 +146,7 @@ NavBar.defaultProps = {
   rightBtn: null,
   rightEvent: NOOP,
   rightBtnStyle: null,
-  activeOpacity: 0.6,
+  activeOpacity: ACTIVE_OPACITY,
 };
 
 export default NavBar;

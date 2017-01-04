@@ -21,6 +21,10 @@ import {
   View,
 } from 'react-native';
 
+import {
+  COLOR_PLACEHOLDER,
+  ACTIVE_OPACITY,
+} from '../util/constant';
 import styles from './styles';
 
 const NOOP = () => {};
@@ -153,7 +157,7 @@ class SmsCaptchaInput extends Component {
           onPress={this.onPress}
           style={[styles.button, this.props.btnStyle]}
         >
-          <Text style={[styles.buttonText, this.props.btnTextStyle]}>
+          <Text style={this.props.btnTextStyle}>
             {this.state.buttonText}
           </Text>
         </TouchableOpacity>
@@ -213,8 +217,8 @@ SmsCaptchaInput.defaultProps = {
   btnTextTimed: '重新获取',
   btnTextStyle: null,
   placeholder: '短信验证码',
-  placeholderTextColor: '#798698',
-  activeOpacity: 0.6,
+  placeholderTextColor: COLOR_PLACEHOLDER,
+  activeOpacity: ACTIVE_OPACITY,
   intervalTime: 60,
   onPressBtn: NOOP,
   onStop: NOOP,

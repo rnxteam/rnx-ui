@@ -68,7 +68,7 @@ HeaderedSheet.defaultProps = {
   rightBtn: null,
   onPressRightBtn: NOOP,
   rightBtnStyle: null,
-  activeOpacity: 0.6,
+  activeOpacity: ACTIVE_OPACITY,
   children: null,
 };
 ```

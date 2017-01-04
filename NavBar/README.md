@@ -52,7 +52,7 @@ NavBar.defaultProps = {
   rightBtn: null,
   rightEvent: NOOP,
   rightBtnStyle: null,
-  activeOpacity: 0.6,
+  activeOpacity: ACTIVE_OPACITY,
 };
 ```
 
