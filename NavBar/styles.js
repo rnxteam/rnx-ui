@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   header: {
     paddingHorizontal: SIDE_GAP,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'space-between',
     position: 'relative',
     backgroundColor: 'transparent',
@@ -31,6 +31,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     color: COLOR,
+  },
+  btn: {
+    justifyContent: 'center',
+    flex: 1,
   },
   btnText: {
     color: COLOR,

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.6.3
+
+### NavBar
+
+扩大左右按钮点击区域高度，现在等同于 header 高度
+
 ## 0.6.2
 
 ### TabBar

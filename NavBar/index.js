@@ -83,13 +83,17 @@ class NavBar extends Component {
             activeOpacity={this.props.activeOpacity}
             onPress={this.props.leftEvent}
           >
-            {leftBtn}
+            <View style={styles.btn}>
+              {leftBtn}
+            </View>
           </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={this.props.activeOpacity}
             onPress={this.props.rightEvent}
           >
-            {rightBtn}
+            <View style={styles.btn}>
+              {rightBtn}
+            </View>
           </TouchableOpacity>
         </View>
       </View>
