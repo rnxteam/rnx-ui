@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.6.6
+
+### HeaderedSheet
+
+- 扩大左右按钮点击区域高度，现在等同于 header 高度
+
+### Overlay
+
+- 修复关闭 Overlay 后立刻再次打开 Overlay，Overlay 不再显示的 bug
+
 ## 0.6.5
 
 ### PhoneNumInput
@@ -15,7 +25,7 @@
 
 ### NavBar
 
-扩大左右按钮点击区域高度，现在等同于 header 高度
+- 扩大左右按钮点击区域高度，现在等同于 header 高度
 
 ## 0.6.2
 

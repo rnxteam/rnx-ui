@@ -56,10 +56,10 @@ class Overlay extends Component {
 
   // 显示
   show() {
+    this.aniHide.stop();
     this.setState({
       visible: true,
     });
-    this.aniHide.stop();
     this.aniShow.start();
   }
 

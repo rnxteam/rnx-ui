@@ -33,6 +33,10 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
   },
+  btn: {
+    justifyContent: 'center',
+    flex: 1,
+  },
   btnText: {
     color: COLOR_PRESSABLE,
   },
