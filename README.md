@@ -69,7 +69,3 @@ Name       | Description | State
 
 - demo 图片缩小
 - Badge 添加小圆点样式
-
-### Bug
-
-- Sheet 组件：`visible` 初始状态为 true 时只有遮罩

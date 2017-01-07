@@ -31,57 +31,72 @@ class Sheet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: this.props.visible,
+      overlayVisible: props.visible,
+      animDistance: new Animated.Value(0),
     };
 
-    this.animDistance = new Animated.Value(0);
     this.height = null;
 
+    this.aniShow = this.makeAnimation(this.height || 0);
+    this.aniHide = this.makeAnimation(0);
+
     this.getHeight = this.getHeight.bind(this);
+  }
+
+  componentWillMount() {
+    if (this.props.visible) {
+      this.show();
+    }
   }
 
   componentWillReceiveProps(props) {
     if (props.visible && !this.props.visible) {
       // 隐藏 -> 显示
       this.setState({
-        visible: true,
+        overlayVisible: true,
       });
-      this.show(props);
+      this.show();
     } else if (!props.visible && this.props.visible) {
       // 显示 -> 隐藏
-      this.hide(props);
+      this.hide();
     }
   }
 
   getHeight(e) {
     const { height } = e.nativeEvent.layout;
-    this.height = height;
+
+    if (height !== this.height) {
+      this.height = height;
+      this.aniShow = this.makeAnimation(-height);
+    }
   }
 
-  animated(targetPositon, cb = NOOP) {
-    Animated.timing(this.animDistance, {
-      toValue: targetPositon,
+  makeAnimation(toValue) {
+    return Animated.timing(this.state.animDistance, {
+      toValue,
       duration: this.props.duration,
-    }).start(() => {
-      cb();
     });
   }
 
+  // 显示
   show() {
     if (this.height === null) {
       // 如果组件还未渲染，等待，再次尝试
       setTimeout(() => {
         this.show();
       }, 10);
-    } else {
-      this.animated(-this.height);
+      return;
     }
-  }
 
+    this.aniHide.stop();
+    this.aniShow.start();
+  }
+  // 隐藏
   hide() {
-    this.animated(0, () => {
+    this.aniShow.stop();
+    this.aniHide.start(() => {
       this.setState({
-        visible: false,
+        overlayVisible: false,
       });
       this.props.onClose();
     });
@@ -90,14 +105,14 @@ class Sheet extends Component {
   render() {
     return (
       <Overlay
-        visible={this.state.visible}
+        visible={this.state.overlayVisible}
         style={this.props.overlayStyle}
         onPress={this.props.onPressOverlay}
       >
         <View style={styles.container}>
           <Animated.View
             style={[styles.sheet, {
-              top: this.animDistance,
+              top: this.state.animDistance,
             }, this.props.style]}
             onLayout={this.getHeight}
           >

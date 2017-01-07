@@ -24,6 +24,8 @@ Overlay.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 控制 Overlay 是否可以作为触控事件的目标
   pointerEvents: View.propTypes.pointerEvents,
+  // 动画时长
+  duration: PropTypes.number,
 };
 Overlay.defaultProps = {
   visible: false,
@@ -31,6 +33,7 @@ Overlay.defaultProps = {
   style: null,
   children: null,
   pointerEvents: 'auto',
+  duration: 200,
 };
 ```
 

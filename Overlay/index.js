@@ -29,14 +29,15 @@ class Overlay extends Component {
   constructor(props) {
     super(props);
 
+    const visible = props.visible;
     this.state = {
-      visible: false,
-      opacity: new Animated.Value(0),
+      visible,
+      opacity: new Animated.Value(visible ? 1 : 0),
     };
 
     this.aniShow = Animated.timing(this.state.opacity, {
       toValue: 1,
-      duration: 200,
+      duration: props.duration,
     });
     this.aniHide = Animated.timing(this.state.opacity, {
       toValue: 0,
@@ -106,6 +107,8 @@ Overlay.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 控制 Overlay 是否可以作为触控事件的目标
   pointerEvents: View.propTypes.pointerEvents,
+  // 动画时长
+  duration: PropTypes.number,
 };
 Overlay.defaultProps = {
   visible: false,
@@ -113,6 +116,7 @@ Overlay.defaultProps = {
   style: null,
   children: null,
   pointerEvents: 'auto',
+  duration: 200,
 };
 
 export default Overlay;

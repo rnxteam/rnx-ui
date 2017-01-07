@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.6.7
+
+### Overlay
+
+- 修正 `visible` 初始值为 `true` 时不显示的 bug
+- 新增属性 `duration`：动画时长
+
+### Sheet
+
+- 修正 `visible` 初始值为 `true` 时不显示的 bug
+
 ## 0.6.6
 
 ### HeaderedSheet
