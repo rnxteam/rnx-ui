@@ -1,6 +1,6 @@
 # Badge
 
-角标
+**角标**
 
 通常用来显示未读消息数目。
 
@@ -8,9 +8,21 @@
 
 ![](demo.png)
 
-## Document
+## Example
 
-### Props
+```js
+import Badge from 'rnx-ui/Badge';
+
+function Example(props) {
+  return (
+    <Badge text={8}>
+      <Icon name="commenting-o" style={styles.icon} />
+    </Badge>
+  )
+}
+```
+
+## Props
 
 ```js
 Badge.propTypes = {
@@ -34,6 +46,6 @@ Badge.defaultProps = {
 };
 ```
 
-### Other Points
+## Other Points
 
 - Badge 没有宽度，跨度随外部容器变化

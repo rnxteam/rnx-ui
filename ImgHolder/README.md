@@ -1,14 +1,12 @@
 # ImgHolder
 
-带占位的图片组件
+**带占位的图片组件**
 
 ## Demo
 
 ![](demo.gif)
 
-## Document
-
-### Props
+## Props
 
 ```js
 ImgHolder.propTypes = {

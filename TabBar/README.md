@@ -1,14 +1,12 @@
 # TabBar
 
-横向点击栏
+**横向点击栏**
 
 ## Demo
 
 ![navBar demo](demo.png)
 
-## Document
-
-### Props
+## Props
 
 ```js
 TabBar.propTypes = {
@@ -39,7 +37,7 @@ TabBar.defaultProps = {
 };
 ```
 
-### Other Points
+## Other Points
 
 - TabBar 默认不设高度
 - 为防止 `defaultComponent` 和 `activedComponent` 不被刷新，强烈建议加上 `key`

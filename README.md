@@ -38,6 +38,7 @@ Name       | Description | State
 [Btn](https://github.com/dragonwong/rnx-ui/tree/master/Btn)        | 按钮 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [CellInput](https://github.com/dragonwong/rnx-ui/tree/master/Checkbox)  | 格子输入框（通常用于固定长度的密码输入） | ![](https://img.shields.io/badge/state-designing-orange.svg)
 [Checkbox](https://github.com/dragonwong/rnx-ui/tree/master/Checkbox)  | 选择框 | ![](https://img.shields.io/badge/state-designing-orange.svg)
+[Drop](https://github.com/dragonwong/rnx-ui/tree/master/Drop)        | 掉落动画组件 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [HeaderedSheet](https://github.com/dragonwong/rnx-ui/tree/master/HeaderedSheet)        | 有标题栏的底部弹层 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [Icon](https://github.com/dragonwong/rnx-ui/tree/master/Icon)  | 字体图标 | ![](https://img.shields.io/badge/state-designing-orange.svg)
 [ImgHolder](https://github.com/dragonwong/rnx-ui/tree/master/ImgHolder)  | 带占位的图片 | ![](https://img.shields.io/badge/state-done-blue.svg)
@@ -67,5 +68,7 @@ Name       | Description | State
 
 ## Todo
 
-- demo 图片缩小
+- 文档规范，补全 Example
+- demo 图片缩小，并迁移至微博图床
 - Badge 添加小圆点样式
+- 文字走马灯组件（用于 title）

@@ -1,14 +1,12 @@
 # NavBar
 
-导航栏
+**导航栏**
 
 ## Demo
 
 ![navBar demo](demo.png)
 
-## Document
-
-### Props
+## Props
 
 ```js
 NavBar.propTypes = {
@@ -56,7 +54,7 @@ NavBar.defaultProps = {
 };
 ```
 
-### Other Points
+## Other Points
 
 - NavBar 的高度由 `statusBarHeight` 和 `headerHeight` 两部分组成。`statusBarHeight` 默认 iOS 为 20，Android 为 0；`headerHeight` 默认 iOS 为 44，Android 为 56。
 

@@ -1,10 +1,10 @@
 # SmsCaptchaInput
 
-短信验证码输入框
+**短信验证码输入框**
 
 提供发送短信按钮和倒计时功能。
 
-短信验证码输入框组件有三种状态：
+短信验证码输入框组件有4种状态：
 
 1. 初始状态
 2. 发送短信中状态
@@ -23,9 +23,7 @@
 
 ![](demo.png)
 
-## Document
-
-### Props
+## Props
 
 ```js
 SmsCaptchaInput.propTypes = {

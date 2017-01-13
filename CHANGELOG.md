@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.7.0
+
+- 新增掉落动画组件：Drop
+
+### PhoneNumInput
+
+- 限制输入长度为 11
+
 ## 0.6.7
 
 ### Overlay

@@ -8,9 +8,7 @@
 
 ![400*650](demo.png)
 
-## Document
-
-### Props
+## Props
 
 ```js
 Template.propTypes = {
@@ -25,6 +23,6 @@ Template.defaultProps = {
 };
 ```
 
-### Other Points
+## Other Points
 
 -

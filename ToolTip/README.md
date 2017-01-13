@@ -1,14 +1,12 @@
 # ToolTip
 
-提示框
+**提示框**
 
 ## Demo
 
 ![navBar demo](demo.png)
 
-## Document
-
-### Props
+## Props
 
 ```js
 ToolTip.propTypes = {
@@ -35,6 +33,6 @@ ToolTip.defaultProps = {
 };
 ```
 
-### Other Points
+## Other Points
 
 - 内部封装了 Overlay 组件，请参考 [Other Points - Overlay](https://github.com/dragonwong/rnx-ui/tree/master/Overlay#other-points)

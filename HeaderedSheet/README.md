@@ -1,14 +1,12 @@
 # HeaderedSheet
 
-有标题栏的底部弹层
+**有标题栏的底部弹层**
 
 ## Demo
 
 ![navBar demo](demo.gif)
 
-## Document
-
-### Props
+## Props
 
 ```js
 HeaderedSheet.propTypes = {
@@ -73,6 +71,6 @@ HeaderedSheet.defaultProps = {
 };
 ```
 
-### Other Points
+## Other Points
 
 - 内部封装了 Overlay 组件，请参考 [Other Points - Overlay](https://github.com/dragonwong/rnx-ui/tree/master/Overlay#other-points)

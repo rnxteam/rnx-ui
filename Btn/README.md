@@ -1,14 +1,24 @@
 # Btn
 
-按钮
+**按钮**
 
 ## Demo
 
 ![](demo.png)
 
-## Document
+## Example
 
-### Props
+```js
+import Btn from 'rnx-ui/Btn';
+
+function Example(props) {
+  return (
+    <Btn>自定义样式</Btn>
+  );
+}
+```
+
+## Props
 
 ```js
 Btn.propTypes = {

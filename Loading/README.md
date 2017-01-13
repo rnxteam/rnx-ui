@@ -1,14 +1,12 @@
 # Loading
 
-菊花加载器
+**菊花加载器**
 
 ## Demo
 
 ![Loading Demo](demo.png)
 
-## Document
-
-### Props
+## Props
 
 ```js
 Loading.propTypes = {
@@ -32,6 +30,6 @@ Loading.defaultProps = {
 };
 ```
 
-### Other Points
+## Other Points
 
 - 内部封装了 Overlay 组件，请参考 [Other Points - Overlay](https://github.com/dragonwong/rnx-ui/tree/master/Overlay#other-points)

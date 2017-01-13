@@ -1,6 +1,6 @@
 # RefreshView
 
-滚动框
+**滚动框**
 
 带惯性、下拉刷新功能。官版的 ScrollView 下拉刷新的功能几乎没有可定制空间，而 RefreshView 可以对 RefreshControl 进行完全的自定义，包括控件的本身，下拉状态的实时响应等，具有极大的可定制空间。
 
@@ -10,9 +10,7 @@
 
 ![](demo.gif)
 
-## Document
-
-### Props
+## Props
 
 ```js
 RefreshView.propTypes = {

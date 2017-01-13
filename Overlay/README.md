@@ -1,6 +1,6 @@
 # Overlay
 
-遮罩层
+**遮罩层**
 
 内部封装了 Modal 组件
 
@@ -8,9 +8,7 @@
 
 ![](demo.png)
 
-## Document
-
-### Props
+## Props
 
 ```js
 Overlay.propTypes = {
@@ -37,7 +35,7 @@ Overlay.defaultProps = {
 };
 ```
 
-### Other Points
+## Other Points
 
 - Overlay 默认撑满父容器，且父容器需要设置样式属性 `position` 为 `'absolute'` 或 `'relative'`
 - Overlay 不会阻止安卓物理返回键

@@ -84,6 +84,7 @@ class PhoneNumInput extends Component {
           placeholderTextColor={this.props.placeholderTextColor}
           ref={(c) => { this.input = c; }}
           style={[styles.input, this.props.inputStyle]}
+          maxLength={11}
         />
       </View>
     );
