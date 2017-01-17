@@ -1,6 +1,6 @@
 {
   "name": "rnx-ui",
-  "version": "0.7.0",
+  "version": "0.7.2",
   "description": "A UI Lib for React Native",
   "keywords": [
     "rnx",
@@ -10,6 +10,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dragonwong/rnx-ui"
+  },
+  "author": {
+    "name": "wangdagen",
+    "url": "http://wangdagen.com/"
   },
   "license": "MIT",
   "devDependencies": {

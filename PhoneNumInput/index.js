@@ -82,7 +82,6 @@ class PhoneNumInput extends Component {
           onChangeText={this.onChangeText}
           placeholder={this.props.placeholder}
           placeholderTextColor={this.props.placeholderTextColor}
-          ref={(c) => { this.input = c; }}
           style={[styles.input, this.props.inputStyle]}
           maxLength={11}
         />

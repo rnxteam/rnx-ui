@@ -5,6 +5,7 @@
  */
 import React, {
   PropTypes,
+  Component,
 } from 'react';
 import {
   StyleSheet,
@@ -40,34 +41,36 @@ const styles = StyleSheet.create({
   },
 });
 
-function Badge(props) {
-  let text = props.text;
+class Badge extends Component {
+  render() {
+    let text = this.props.text;
 
-  if (typeof text !== 'string') {
-    text = `${text}`;
-  }
-  const textWidth = 7 * (text.length + 1);
+    if (typeof text !== 'string') {
+      text = `${text}`;
+    }
+    const textWidth = 7 * (text.length + 1);
 
-  return (
-    <View style={[styles.container, props.style]}>
-      {
-        props.children
+    return (
+      <View style={[styles.container, this.props.style]}>
+        {
+        this.props.children
       }
-      {
+        {
         text.length > 0 ? (
           <View
             style={[styles.textContainer, {
               width: textWidth,
-            }, props.textContainerStyle]}
+            }, this.props.textContainerStyle]}
           >
-            <Text style={[styles.text, props.textStyle]}>
+            <Text style={[styles.text, this.props.textStyle]}>
               {text}
             </Text>
           </View>
         ) : null
       }
-    </View>
-  );
+      </View>
+    );
+  }
 }
 
 Badge.propTypes = {

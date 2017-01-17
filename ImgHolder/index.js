@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   all: {
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'relative',
   },
   img: {
     position: 'absolute',

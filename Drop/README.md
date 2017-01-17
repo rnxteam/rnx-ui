@@ -80,8 +80,10 @@ Dropper.propTypes = {
   jumpHeight: PropTypes.number,
   // 缩放值
   scale: PropTypes.number,
-  // 选择角度，如 360
+  // 旋转角度，如 360
   rotate: PropTypes.number,
+  // 动画刚开始由透明变化至不透明的时间
+  showDuration: PropTypes.number,
   // 动画结束回调
   onEnd: PropTypes.func,
   // 是否需要收尾动画
@@ -110,6 +112,7 @@ Dropper.defaultProps = {
   jumpHeight: 60,
   scale: 1,
   rotate: 360,
+  showDuration: 100,
   onEnd: NOOP,
   endAnimation: true,
   endJumpHeight: 40,
@@ -167,7 +170,7 @@ Emitter.defaultProps = {
 
 **掉落元素接受组件**
 
-用来包裹掉落元素接受元素，主要提供以下功能：
+用来包裹掉落元素接受元素，如果该元素是绝对定位，定位的样式应该写在 `Receiver` 或父元素上，而不应该写在子元素上。`Receiver` 主要提供以下功能：
 
 1. 提供元素中心坐标，以作为掉落动画的终点；
 
@@ -184,7 +187,7 @@ import Badge from 'rnx-ui/Drop';
 function CartReceiver(props) {
   return (
     <Receiver
-      getEl={props.getEl}
+      ref={props.getEl}
       getCenterPosition={props.getCenterPosition}
       style={styles.all}
     >
@@ -209,7 +212,7 @@ Receiver.propTypes = {
   // 获取中心位置回调
   getCenterPosition: PropTypes.func,
   // 获取元素
-  getEl: PropTypes.func,
+  ref: PropTypes.func,
   // 缩放值
   scale: PropTypes.number,
   // 动画时间
@@ -218,13 +221,16 @@ Receiver.propTypes = {
   style: View.propTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  // 布局回调
+  onLayout: PropTypes.func,
 };
 Receiver.defaultProps = {
   getCenterPosition: NOOP,
-  getEl: NOOP,
+  ref: NOOP,
   scale: 1.1,
   duration: 300,
   style: null,
   children: null,
+  onLayout: NOOP,
 };
 ```

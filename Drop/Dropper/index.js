@@ -37,7 +37,7 @@ class Dropper extends Component {
     this.y = new Animated.Value(0);
     this.scale = new Animated.Value(1);
     this.rotate = new Animated.Value(0);
-    this.opacity = new Animated.Value(1);
+    this.opacity = new Animated.Value(0);
 
     const dx = endPosition.x - startPosition.x;
     const dy = endPosition.y - startPosition.y;
@@ -57,6 +57,11 @@ class Dropper extends Component {
 
   componentDidMount() {
     Animated.parallel([
+      Animated.timing(this.opacity, {
+        toValue: 1,
+        duration: this.props.showDuration,
+        easing: t => t,
+      }),
       Animated.timing(this.x, {
         toValue: this.dx,
         duration: this.props.duration,
@@ -168,8 +173,10 @@ Dropper.propTypes = {
   jumpHeight: PropTypes.number,
   // 缩放值
   scale: PropTypes.number,
-  // 选择角度，如 360
+  // 旋转角度，如 360
   rotate: PropTypes.number,
+  // 动画刚开始由透明变化至不透明的时间
+  showDuration: PropTypes.number,
   // 动画结束回调
   onEnd: PropTypes.func,
   // 是否需要收尾动画
@@ -198,6 +205,7 @@ Dropper.defaultProps = {
   jumpHeight: 60,
   scale: 1,
   rotate: 360,
+  showDuration: 100,
   onEnd: NOOP,
   endAnimation: true,
   endJumpHeight: 40,

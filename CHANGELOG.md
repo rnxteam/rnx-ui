@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## 0.7.2
+
+### Badge
+
+- 不再使用纯函数构建组件
+
+### Drop
+
+#### Dropper
+
+- 新增动画阶段：开始阶段有透明向不透明渐变
+- 新增属性 `showDuration`：动画刚开始由透明变化至不透明的时间
+
+#### Receiver
+
+- 新增属性 `onLayout`：布局回调
+- 修正 `getCenterPosition` 获取位置不准确的 bug
+
+### ImgHolder
+
+- 修正图片大小可能不正确的 bug
+
 ## 0.7.0
 
 - 新增掉落动画组件：Drop

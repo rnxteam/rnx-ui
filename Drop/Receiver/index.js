@@ -13,24 +13,32 @@ class Receiver extends Component {
   constructor(props) {
     super(props);
 
-    props.getEl(this);
+    props.ref(this);
 
     this.state = {
       scale: new Animated.Value(1),
     };
 
-    this.onLayout = this.onLayout.bind(this);
+    this.getEl = this.getEl.bind(this);
   }
 
-  onLayout(e) {
-    const {
-      x, y, width, height,
-    } = e.nativeEvent.layout;
+  getEl(el) {
+    this.el = el;
+    // sometimes the component does not finish rendering before ref
+    setTimeout(() => {
+      this.getCenterPosition();
+    }, 0);
+  }
 
-    this.props.getCenterPosition({
-      x: x + (width / 2),
-      y: y + (height / 2),
-    });
+  getCenterPosition() {
+    if (this.el) {
+      this.el.refs.node.measure((fx, fy, width, height, px, py) => {
+        this.props.getCenterPosition({
+          x: px + (width / 2),
+          y: py + (height / 2),
+        });
+      });
+    }
   }
 
   animate() {
@@ -47,12 +55,13 @@ class Receiver extends Component {
   render() {
     return (
       <Animated.View
+        ref={this.getEl}
+        onLayout={this.props.onLayout}
         style={[{
           transform: [{
             scale: this.state.scale,
           }],
         }, this.props.style]}
-        onLayout={this.onLayout}
       >
         {this.props.children}
       </Animated.View>
@@ -64,7 +73,7 @@ Receiver.propTypes = {
   // 获取中心位置回调
   getCenterPosition: PropTypes.func,
   // 获取元素
-  getEl: PropTypes.func,
+  ref: PropTypes.func,
   // 缩放值
   scale: PropTypes.number,
   // 动画时间
@@ -73,14 +82,17 @@ Receiver.propTypes = {
   style: View.propTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  // 布局回调
+  onLayout: PropTypes.func,
 };
 Receiver.defaultProps = {
   getCenterPosition: NOOP,
-  getEl: NOOP,
+  ref: NOOP,
   scale: 1.1,
   duration: 300,
   style: null,
   children: null,
+  onLayout: NOOP,
 };
 
 export default Receiver;

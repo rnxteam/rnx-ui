@@ -148,7 +148,6 @@ class SmsCaptchaInput extends Component {
           onChangeText={this.onChangeText}
           placeholder={this.props.placeholder}
           placeholderTextColor={this.props.placeholderTextColor}
-          ref={(el) => { this.input = el; }}
           style={[styles.input, this.props.inputStyle]}
           maxLength={this.props.captchaLength}
         />
