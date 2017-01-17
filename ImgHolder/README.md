@@ -12,6 +12,8 @@
 ImgHolder.propTypes = {
   // 自定义样式
   style: View.propTypes.style,
+  // 图片样式
+  imgStyle: Image.propTypes.style,
   // 占位元素
   holder: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 图片资源
@@ -19,6 +21,7 @@ ImgHolder.propTypes = {
 };
 ImgHolder.defaultProps = {
   style: null,
+  imgStyle: null,
   holder: null,
   source: {
     uri: '',

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.7.3
+
+### ImgHolder
+
+- 新增属性 `imgStyle`：图片样式
+
 ## 0.7.2
 
 ### Badge
