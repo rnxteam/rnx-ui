@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.8.1
+
+### KeyboardAdaptiveView
+
+- 新增导出常量 `keyboardDismissMode`
+
+## 0.8.0
+
+- 新增适应键盘的容器组件：KeyboardAdaptiveView
+
 ## 0.7.3
 
 ### ImgHolder
