@@ -10,7 +10,6 @@
  *
  * @method collect
  *   用来收集基础表单组件的校验方法，通常为基础表单组件的 collectValidate 属性的值。
- *   注意，使用使一定要 bind 校验器实例。
  * @method run
  *   用来运行结果，返回一个对象。
  *   如果运行正确，返回对象的 `err` 属性值为 0，返回对象的 `data` 属性值为包含所有收集表单的名字和值的映射；
@@ -52,7 +51,7 @@
      // 验证器初始化
      const validator = new Validator();
      this.validator = validator;
-     this.collectValidate = validator.collect.bind(validator);
+     this.collectValidate = validator.collect;
    }
    onPress() {
      const res = this.validator.run();

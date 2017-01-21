@@ -12,7 +12,9 @@
 
 **掉落组件**
 
-用来包裹掉落元素，提供抛物线运动的动画。使用时请注意一下几点：
+用来包裹掉落元素，提供抛物线运动的动画。
+
+### ⚠️ 注意
 
 1. 必须提供起点和终点坐标，起点和终点坐标可以通过 `Emitter` 和 `Receiver` 非常方便地获取到。
 
@@ -211,7 +213,7 @@ function CartReceiver(props) {
 Receiver.propTypes = {
   // 获取中心位置回调
   getCenterPosition: PropTypes.func,
-  // 获取元素
+  // 获取元素回调
   ref: PropTypes.func,
   // 缩放值
   scale: PropTypes.number,

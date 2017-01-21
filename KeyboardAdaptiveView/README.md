@@ -6,7 +6,13 @@
 
 > 官方提供了 `KeyboardAvoidingView` 组件也是为了解决这个问题，不过又复杂又不好用，`KeyboardAdaptiveView` 比它不知道高到哪里去了。
 
-为了提升用户体验，强烈建议 iOS 在外层滚动视图（`ScrollView` 或 `ListView`）上添加 `keyboardDismissMode="on-drag"` 属性，在视图滚动时自动关闭键盘。对此 `KeyboardAdaptiveView` 也为你准备好适合的 `keyboardDismissMode` 值了，直接引用即可。
+### ⚠️ 注意
+
+1. `KeyboardAdaptiveView` 会针对不同位置的 `TextInput` 进行不同位移，所以必须在每一个 `TextInput` 的 `onFocus` 时触发 `KeyboardAdaptiveView` 的 `inputFocusHandle` 方法，并将事件对象作为参数传入。
+
+1. 为了提升用户体验，强烈建议 iOS 在外层滚动视图（`ScrollView` 或 `ListView`）上添加 `keyboardDismissMode="on-drag"` 属性，在视图滚动时自动关闭键盘。对此 `KeyboardAdaptiveView` 也为你准备好适合的 `keyboardDismissMode` 值了，直接引用即可。
+
+具体操作请参考 Example。
 
 ## Demo
 
@@ -19,32 +25,40 @@ import KeyboardAdaptiveView, {
   keyboardDismissMode,
 } from 'rnx-ui/Drop';
 
-function DropperImg(props) {
-  return (
-    <ScrollView
-      style={styles.scrollView}
-      keyboardDismissMode={keyboardDismissMode}
-    >
-      <KeyboardAdaptiveView>
-        <View style={styles.placeholder}>
-          <Text>Placeholder</Text>
-        </View>
-        <View style={styles.inputWrapper}>
-          <TextInput
-            placeholder="single line"
-            style={styles.input}
-          />
-        </View>
-        <View style={styles.inputWrapper}>
-          <TextInput
-            multiline
-            placeholder="multi line"
-            style={styles.input}
-          />
-        </View>
-      </KeyboardAdaptiveView>
-    </ScrollView>
-  );
+class Example extends Component {
+  constructor(props) {
+    super(props);
+    this.getKeyboardAdaptiveView = this.getKeyboardAdaptiveView.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+  }
+
+  onFocus(e) {
+    if (this.keyboardAdaptiveView) {
+      this.keyboardAdaptiveView.inputFocusHandle(e);
+    }
+  }
+  getKeyboardAdaptiveView(el) {
+    this.keyboardAdaptiveView = el;
+  }
+
+  render() {
+    return (
+      <ScrollView
+        keyboardDismissMode={keyboardDismissMode}
+      >
+        <KeyboardAdaptiveView
+          getEl={this.getKeyboardAdaptiveView}
+        >
+          <View style={styles.inputWrapper}>
+            <TextInput
+              style={styles.input}
+              onFocus={this.onFocus}
+            />
+          </View>
+        </KeyboardAdaptiveView>
+      </ScrollView>
+    );
+  }
 }
 ```
 
@@ -52,13 +66,19 @@ function DropperImg(props) {
 
 ```js
 KeyboardAdaptiveView.propTypes = {
+  // 获取元素回调
+  getEl: PropTypes.func,
   // 自定义样式
   style: View.propTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  // 更多距离。iOS 系统键盘可能会出现 suggest 行，导致键盘高度获取不准确。
+  moreDistance: PropTypes.number,
 };
 KeyboardAdaptiveView.defaultProps = {
+  getEl: NOOP,
   style: null,
   children: null,
+  moreDistance: 40,
 };
 ```

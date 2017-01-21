@@ -15,10 +15,12 @@
   */
 import React, { Component, PropTypes } from 'react';
 import {
-  Text,
-  TextInput,
-  TouchableOpacity,
+  Platform,
+  AppState,
   View,
+  TouchableOpacity,
+  TextInput,
+  Text,
 } from 'react-native';
 
 import {
@@ -28,16 +30,19 @@ import {
 import styles from './styles';
 
 const NOOP = () => {};
+const isIOS = Platform.OS === 'ios';
 
 class SmsCaptchaInput extends Component {
   constructor(props) {
     super(props);
+
+    this.time = props.intervalTime;
     this.state = {
       buttonText: props.btnTextInital,
       isRunning: false,
       sendSmsCount: 0,
-      time: props.intervalTime,
     };
+
     this.onPress = this.onPress.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
     this.timer = this.timer.bind(this);
@@ -45,10 +50,30 @@ class SmsCaptchaInput extends Component {
     this.stop = this.stop.bind(this);
 
     props.collectValidate(this.validate.bind(this));
-  }
 
+    this.onAppStateChange = this.onAppStateChange.bind(this);
+  }
+  componentDidMount() {
+    if (isIOS) {
+      AppState.addEventListener('change', this.onAppStateChange);
+    }
+  }
   componentWillUnmount() {
     clearInterval(this.interval);
+    if (isIOS) {
+      AppState.removeEventListener('change', this.onAppStateChange);
+    }
+  }
+
+  onAppStateChange(state) {
+    if (state === 'inactive') {
+      this.lastTimeStamp = +new Date();
+    } else if (state === 'active') {
+      if (this.lastTimeStamp) {
+        const duration = Math.floor((+new Date() - this.lastTimeStamp) / 1000);
+        this.time -= duration;
+      }
+    }
   }
 
   onChangeText(value) {
@@ -74,7 +99,7 @@ class SmsCaptchaInput extends Component {
 
   // 开始倒计时
   start() {
-    this.timer();
+    this.time = this.props.intervalTime;
     this.interval = setInterval(this.timer, 1000);
   }
   // 结束倒计时
@@ -82,7 +107,6 @@ class SmsCaptchaInput extends Component {
     clearInterval(this.interval);
     this.setState({
       buttonText: this.props.btnTextTimed,
-      time: this.props.intervalTime,
       isRunning: false,
     });
     this.props.onStop();
@@ -90,11 +114,11 @@ class SmsCaptchaInput extends Component {
 
   // 倒计时函数
   timer() {
-    if (this.state.time > 0) {
+    if (this.time > 0) {
       this.setState({
-        buttonText: this.props.btnTextTiming.replace('{time}', this.state.time),
-        time: (this.state.time > 1 ? this.state.time - 1 : 0),
+        buttonText: this.props.btnTextTiming.replace('{time}', this.time),
       });
+      this.time -= 1;
     } else {
       this.stop();
     }

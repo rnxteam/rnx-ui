@@ -72,7 +72,7 @@ class Receiver extends Component {
 Receiver.propTypes = {
   // 获取中心位置回调
   getCenterPosition: PropTypes.func,
-  // 获取元素
+  // 获取元素回调
   ref: PropTypes.func,
   // 缩放值
   scale: PropTypes.number,

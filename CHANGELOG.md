@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 0.8.2
+
+### SmsCaptchaInput
+
+- 优化倒计时逻辑
+- iOS 设备中在倒计时阶段，如果应用进入后台，倒计时不再中断
+
+### KeyboardAdaptiveView
+
+- 改进使用方式，更加智能地适应键盘
+- 新增属性 `getEl`：获取元素回调
+- 新增属性 `moreDistance`：更多距离。iOS 系统键盘可能会出现 suggest 行，导致键盘高度获取不准确
+
+### Validator
+
+- `collect` 方法不再需要 `bind` 到 Validator 实例上
+
 ## 0.8.1
 
 ### KeyboardAdaptiveView
