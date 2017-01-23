@@ -15,7 +15,7 @@ import {
 import {
   COLOR_THEME,
   ACTIVE_OPACITY,
-} from '../util/constant';
+} from '../constant';
 
 const styles = StyleSheet.create({
   container: {

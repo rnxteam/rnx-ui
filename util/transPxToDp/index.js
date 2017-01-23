@@ -1,5 +1,7 @@
 /**
  * px 转 dp
+ * 注意：
+ * 在安卓设备下，如果 lineHeight 是浮点数会红屏，需要再取整下
  */
 import { PixelRatio } from 'react-native';
 

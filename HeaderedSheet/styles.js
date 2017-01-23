@@ -1,7 +1,9 @@
 import {
   StyleSheet,
 } from 'react-native';
-import transPxToDp from '../util/transPxToDp';
+import {
+  DP_FROM_1PX,
+} from '../constant';
 
 const HEADER_HEIGHT = 45;
 const SIDE_GAP = 10;
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: 'transparent',
     height: HEADER_HEIGHT,
-    borderBottomWidth: transPxToDp(1),
+    borderBottomWidth: DP_FROM_1PX,
     borderBottomColor: '#ddd',
   },
   titleWrapper: {

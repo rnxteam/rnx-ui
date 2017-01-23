@@ -10,13 +10,13 @@
 
 1. `KeyboardAdaptiveView` 会针对不同位置的 `TextInput` 进行不同位移，所以必须在每一个 `TextInput` 的 `onFocus` 时触发 `KeyboardAdaptiveView` 的 `inputFocusHandle` 方法，并将事件对象作为参数传入。
 
-1. 为了提升用户体验，强烈建议 iOS 在外层滚动视图（`ScrollView` 或 `ListView`）上添加 `keyboardDismissMode="on-drag"` 属性，在视图滚动时自动关闭键盘。对此 `KeyboardAdaptiveView` 也为你准备好适合的 `keyboardDismissMode` 值了，直接引用即可。
+2. 为了提升用户体验，强烈建议 iOS 在外层滚动视图（`ScrollView` 或 `ListView`）上添加 `keyboardDismissMode="on-drag"` 属性，在视图滚动时自动关闭键盘。对此 `KeyboardAdaptiveView` 也为你准备好适合的 `keyboardDismissMode` 值了，直接引用即可。
 
 具体操作请参考 Example。
 
 ## Demo
 
-![KeyboardAdaptiveView](http://wx2.sinaimg.cn/mw690/4c8b519dly1fbx5067tdqg20ho0wgnpd.gif)
+![KeyboardAdaptiveView](http://wx2.sinaimg.cn/mw690/4c8b519dly1fbztgmfj0lg20ho0wgqv8.gif)
 
 ## Example
 

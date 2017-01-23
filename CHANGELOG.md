@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.9.1
+
+### NumericKeyboard
+
+- 新增属性 `deleteKeyContent`：删除键内容
+
+## 0.9.0
+
+- 新增虚拟密码输入框组件：VirtualPasswordInput
+- 新增虚拟数字键盘组件：NumericKeyboard
+
 ## 0.8.2
 
 ### SmsCaptchaInput

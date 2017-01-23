@@ -26,7 +26,7 @@ import {
 import {
   COLOR_PLACEHOLDER,
   ACTIVE_OPACITY,
-} from '../util/constant';
+} from '../constant';
 import styles from './styles';
 
 const NOOP = () => {};

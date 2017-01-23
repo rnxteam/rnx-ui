@@ -1,14 +1,26 @@
-# <组件名>
+# Template
 
-<组件简介>
+**模板**
 
-<详细介绍>
+详细介绍
 
 ### ⚠️ 注意
 
 ## Demo
 
 ![400*650](demo.png)
+
+## Example
+
+```js
+import Template from 'rnx-ui/Template';
+
+function Example(props) {
+  return (
+    <Template />
+  );
+}
+```
 
 ## Props
 

@@ -10,7 +10,7 @@ import {
 
 import {
   COLOR_PLACEHOLDER,
-} from '../util/constant';
+} from '../constant';
 
 const NOOP = () => {};
 

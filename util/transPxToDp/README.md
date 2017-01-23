@@ -8,6 +8,10 @@ React Native 的长度单位为 dp，意思是虚拟像素，不是真实的物�
 
 `transPxToDp` 就是为了解决这个问题。使用了 `transPxToDp` 之后，设置 1 的宽度，在 iPhone 5 实际设置为 0.5，在 iPhone 6s 实际设置为 0.33。
 
+### ⚠️ 注意
+
+在安卓设备下，如果 `lineHeight` 是小数会红屏，需要再取整下。
+
 ## Example
 
 ```js

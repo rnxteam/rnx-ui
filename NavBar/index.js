@@ -8,7 +8,7 @@ import {
 
 import {
   ACTIVE_OPACITY,
-} from '../util/constant';
+} from '../constant';
 import styles from './styles.js';
 
 const isAndroid = Platform.OS === 'android';
