@@ -12,8 +12,7 @@ const NOOP = () => {};
 class Receiver extends Component {
   constructor(props) {
     super(props);
-
-    props.ref(this);
+    props.getEl(this);
 
     this.state = {
       scale: new Animated.Value(1),
@@ -32,12 +31,19 @@ class Receiver extends Component {
 
   getCenterPosition() {
     if (this.el) {
-      this.el.refs.node.measure((fx, fy, width, height, px, py) => {
-        this.props.getCenterPosition({
-          x: px + (width / 2),
-          y: py + (height / 2),
+      /* eslint-disable */
+      // in RN@0.33, use this.el._component
+      // in RN@0.30, use this.el.refs.node
+      const node = this.el._component || this.el.refs.node;
+      /* eslint-enable */
+      if (node) {
+        node.measure((fx, fy, width, height, px, py) => {
+          this.props.getCenterPosition({
+            x: px + (width / 2),
+            y: py + (height / 2),
+          });
         });
-      });
+      }
     }
   }
 
@@ -73,7 +79,7 @@ Receiver.propTypes = {
   // 获取中心位置回调
   getCenterPosition: PropTypes.func,
   // 获取元素回调
-  ref: PropTypes.func,
+  getEl: PropTypes.func,
   // 缩放值
   scale: PropTypes.number,
   // 动画时间
@@ -87,7 +93,7 @@ Receiver.propTypes = {
 };
 Receiver.defaultProps = {
   getCenterPosition: NOOP,
-  ref: NOOP,
+  getEl: NOOP,
   scale: 1.1,
   duration: 300,
   style: null,

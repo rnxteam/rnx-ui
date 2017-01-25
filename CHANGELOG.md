@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.9.2
+
+### Drop
+
+#### Receiver
+
+- 修改属性 `ref`：更名为 `getEl`
+- `getCenterPosition` 方法兼容 RN 0.33 版本
+
 ## 0.9.1
 
 ### NumericKeyboard

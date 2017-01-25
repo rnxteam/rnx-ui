@@ -214,7 +214,7 @@ Receiver.propTypes = {
   // 获取中心位置回调
   getCenterPosition: PropTypes.func,
   // 获取元素回调
-  ref: PropTypes.func,
+  getEl: PropTypes.func,
   // 缩放值
   scale: PropTypes.number,
   // 动画时间
@@ -228,7 +228,7 @@ Receiver.propTypes = {
 };
 Receiver.defaultProps = {
   getCenterPosition: NOOP,
-  ref: NOOP,
+  getEl: NOOP,
   scale: 1.1,
   duration: 300,
   style: null,
