@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.10.0
+
+- 新增加减法动画组件：AddAndSubtract
+
 ## 0.9.2
 
 ### Drop
