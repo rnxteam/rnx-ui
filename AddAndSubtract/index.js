@@ -8,7 +8,6 @@ import {
   TouchableHighlight,
   Animated,
 } from 'react-native';
-import Easing from 'Easing';
 
 import styles from './styles';
 
@@ -187,10 +186,10 @@ AddAndSubtract.defaultProps = {
   num: 0,
   onPressAdder: NOOP,
   onPressSubtracter: NOOP,
-  duration: 600,
+  duration: 200,
   distance: 30,
   deg: 180,
-  easing: Easing.elastic(1),
+  easing: t => t,
   btnWidth: 30,
   style: null,
   adderStyle: null,

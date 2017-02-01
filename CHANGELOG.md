@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.10.1
+
+### AddAndSubtract
+
+- 修改属性 `duration`：默认值改为 `200`
+- 修改属性 `easing`：默认值改为匀速动画
+
 ## 0.10.0
 
 - 新增加减法动画组件：AddAndSubtract
