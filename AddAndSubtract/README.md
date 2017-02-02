@@ -6,7 +6,7 @@
 
 ## Demo
 
-![AddAndSubtract](http://wx2.sinaimg.cn/mw690/4c8b519dgy1fc9vmc4ddng20ho0wgwsc.gif)
+![AddAndSubtract](http://wx3.sinaimg.cn/mw690/4c8b519dly1fcaq7v2pnvg20ho0wgh0z.gif)
 
 ## Example
 
@@ -71,5 +71,27 @@ AddAndSubtract.propTypes = {
     right: PropTypes.number,
     bottom: PropTypes.number,
   }),
+};
+AddAndSubtract.defaultProps = {
+  num: 0,
+  onPressAdder: NOOP,
+  onPressSubtracter: NOOP,
+  duration: 200,
+  distance: 30,
+  deg: 180,
+  easing: t => t,
+  btnWidth: 30,
+  style: null,
+  adderStyle: null,
+  subtracterStyle: null,
+  textStyle: null,
+  adder: <Text style={styles.adderText}>+</Text>,
+  subtracter: <Text style={styles.subtracterText}>-</Text>,
+  hitSlop: {
+    top: 5,
+    left: 5,
+    right: 5,
+    bottom: 5,
+  },
 };
 ```

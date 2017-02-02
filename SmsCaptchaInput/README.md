@@ -51,7 +51,7 @@ SmsCaptchaInput.propTypes = {
   activeOpacity: PropTypes.number,
   // 倒计时时间
   intervalTime: PropTypes.number,
-  // 点击发送短信按钮回调，当返回 false 时，可以阻止倒计时开始。
+  // 点击发送短信按钮回调，当返回 false 时，可以阻止倒计时开始；
   // 该回调接受两个参数：开始倒计时方法：`start` 和结束倒计时方法 `stop`
   onPressBtn: PropTypes.func,
   // 倒计时结束回调
@@ -66,6 +66,10 @@ SmsCaptchaInput.propTypes = {
   readableName: PropTypes.string,
   // 改变回调
   onChangeText: PropTypes.func,
+  // 是否开启自动获取焦点（在 start 被调用时）
+  autoFocus: PropTypes.bool,
+  // 获取输入框
+  getInput: PropTypes.func,
 };
 SmsCaptchaInput.defaultProps = {
   style: null,
@@ -87,5 +91,7 @@ SmsCaptchaInput.defaultProps = {
   name: 'SMS_CODE_INPUT',
   readableName: '短信验证码',
   onChangeText: NOOP,
+  autoFocus: true,
+  getInput: NOOP,
 };
 ```

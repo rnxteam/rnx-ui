@@ -1,18 +1,18 @@
- /**
-  * 短信验证码输入框组件
-  *
-  * 短信验证码输入框组件有三种状态：
-  * 0：初始状态
-  * 1：发送短信中状态
-  * 2：倒计时状态
-  * 3：倒计时结束状态
-  *
-  * 点击按钮会使组件由 `0：初始状态` 进入 `1：发送短信中状态`，
-  * 此时需要根据接口状况进行判断：
-  * 1、如果发送短信成功：手动调起组件的 `start` 方法，进入 `2：倒计时状态`，
-  * 在倒计时结束时组件会自动进入 `3：倒计时结束状态`；
-  * 2、如果发送短信失败：手动调起组件的 `stop` 方法，进入 `3：倒计时结束状态`；
-  */
+/**
+ * 短信验证码输入框组件
+ *
+ * 短信验证码输入框组件有三种状态：
+ * 0：初始状态
+ * 1：发送短信中状态
+ * 2：倒计时状态
+ * 3：倒计时结束状态
+ *
+ * 点击按钮会使组件由 `0：初始状态` 进入 `1：发送短信中状态`，
+ * 此时需要根据接口状况进行判断：
+ * 1、如果发送短信成功：手动调起组件的 `start` 方法，进入 `2：倒计时状态`，
+ * 在倒计时结束时组件会自动进入 `3：倒计时结束状态`；
+ * 2、如果发送短信失败：手动调起组件的 `stop` 方法，进入 `3：倒计时结束状态`；
+ */
 import React, { Component, PropTypes } from 'react';
 import {
   Platform,
@@ -48,6 +48,7 @@ class SmsCaptchaInput extends Component {
     this.timer = this.timer.bind(this);
     this.start = this.start.bind(this);
     this.stop = this.stop.bind(this);
+    this.getInput = this.getInput.bind(this);
 
     props.collectValidate(this.validate.bind(this));
 
@@ -97,10 +98,19 @@ class SmsCaptchaInput extends Component {
     });
   }
 
+  getInput(el) {
+    this.props.getInput(el);
+    this.input = el;
+  }
+
   // 开始倒计时
   start() {
     this.time = this.props.intervalTime;
     this.interval = setInterval(this.timer, 1000);
+
+    if (this.props.autoFocus && this.input) {
+      this.input.focus();
+    }
   }
   // 结束倒计时
   stop() {
@@ -167,6 +177,7 @@ class SmsCaptchaInput extends Component {
     return (
       <View style={[styles.container, this.props.style]}>
         <TextInput
+          ref={this.getInput}
           clearButtonMode="never"
           keyboardType="numeric"
           onChangeText={this.onChangeText}
@@ -229,6 +240,10 @@ SmsCaptchaInput.propTypes = {
   readableName: PropTypes.string,
   // 改变回调
   onChangeText: PropTypes.func,
+  // 是否开启自动获取焦点（在 start 被调用时）
+  autoFocus: PropTypes.bool,
+  // 获取输入框
+  getInput: PropTypes.func,
 };
 SmsCaptchaInput.defaultProps = {
   style: null,
@@ -250,6 +265,8 @@ SmsCaptchaInput.defaultProps = {
   name: 'SMS_CODE_INPUT',
   readableName: '短信验证码',
   onChangeText: NOOP,
+  autoFocus: true,
+  getInput: NOOP,
 };
 
 export default SmsCaptchaInput;

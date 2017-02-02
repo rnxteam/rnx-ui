@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.10.2
+
+### SmsCaptchaInput
+
+- 新增属性 `autoFocus`：是否开启自动获取焦点（在 start 被调用时）
+- 新增属性 `getInput`：获取输入框
+
 ## 0.10.1
 
 ### AddAndSubtract
