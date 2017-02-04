@@ -36,12 +36,29 @@ class KeyboardAdaptiveView extends Component {
 
   componentDidMount() {
     if (isIOS) {
-      this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', (e) => {
-        kbdHeight = e.endCoordinates.height;
+      this.keyboardShowListener = Keyboard.addListener('keyboardWillShow', (e) => {
+        kbdHeight = Math.max(e.endCoordinates.height, this.props.minKbdHeight);
         this.kbdHandle();
       });
 
-      this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', () => {
+      this.keyboardHideListener = Keyboard.addListener('keyboardWillHide', () => {
+        this.reset();
+        if (this.state.y !== 0) {
+          this.setState({
+            y: 0,
+          });
+        }
+      });
+    } else if (this.props.handlerAndroid) {
+      // 安卓不支持 keyboardWillShow
+      this.keyboardShowListener = Keyboard.addListener('keyboardDidShow', (e) => {
+        kbdHeight = Math.max(e.endCoordinates.height, this.props.minKbdHeight);
+        // 安卓键盘收起 input 不会失去焦点
+        this.isInputHandled = true;
+        this.kbdHandle();
+      });
+      // 安卓不支持 keyboardWillHide
+      this.keyboardHideListener = Keyboard.addListener('keyboardDidHide', () => {
         this.reset();
         if (this.state.y !== 0) {
           this.setState({
@@ -53,9 +70,11 @@ class KeyboardAdaptiveView extends Component {
   }
 
   componentWillUnmount() {
-    if (isIOS) {
-      this.keyboardWillShowListener.remove();
-      this.keyboardWillHideListener.remove();
+    if (this.keyboardShowListener) {
+      this.keyboardShowListener.remove();
+    }
+    if (this.keyboardHideListener) {
+      this.keyboardHideListener.remove();
     }
   }
 
@@ -124,12 +143,18 @@ KeyboardAdaptiveView.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 更多距离。iOS 系统键盘可能会出现 suggest 行，导致键盘高度获取不准确。
   moreDistance: PropTypes.number,
+  // 最小键盘高度
+  minKbdHeight: PropTypes.number,
+  // 安卓系统是否处理
+  handlerAndroid: PropTypes.bool,
 };
 KeyboardAdaptiveView.defaultProps = {
   getEl: NOOP,
   style: null,
   children: null,
   moreDistance: 40,
+  minKbdHeight: 250,
+  handlerAndroid: false,
 };
 
 export default KeyboardAdaptiveView;

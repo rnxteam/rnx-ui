@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.10.4
+
+### KeyboardAdaptiveView
+
+- 新增属性 `minKbdHeight`：最小键盘高度
+- 新增属性 `handlerAndroid`：安卓系统是否处理
+
 ## 0.10.3
 
 ### AddAndSubtract
