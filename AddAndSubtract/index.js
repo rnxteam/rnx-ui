@@ -13,7 +13,6 @@ import styles from './styles';
 
 const NOOP = () => {};
 
-// rnx-ui 组件一律不允许使用 stateless function 构建
 class AddAndSubtract extends Component {
   constructor(props) {
     super(props);
@@ -78,7 +77,6 @@ class AddAndSubtract extends Component {
       width: btnWidth,
       height: btnWidth,
       borderRadius: btnBorderRadius,
-      overflow: 'hidden',
     }];
 
     return (
@@ -93,11 +91,11 @@ class AddAndSubtract extends Component {
                 outputRange: [`${this.props.deg}deg`, '0deg'],
               }),
             }],
-          }]}
+          }, this.props.subtracterWrapperStyle]}
         >
           <TouchableHighlight
             underlayColor="#ddd"
-            style={btnStyle}
+            style={[btnStyle, this.props.subtracterBtnStyle]}
             onPress={this.props.onPressSubtracter}
             hitSlop={this.props.hitSlop}
           >
@@ -120,7 +118,7 @@ class AddAndSubtract extends Component {
           </Text>
         </View>
         <TouchableHighlight
-          style={btnStyle}
+          style={[btnStyle, this.props.adderBtnStyle]}
           onPress={this.props.onPressAdder}
           hitSlop={this.props.hitSlop}
         >
@@ -166,9 +164,15 @@ AddAndSubtract.propTypes = {
   // 自定义样式
   style: View.propTypes.style,
   // 加法按钮样式
-  adderStyle:  View.propTypes.style,
+  adderBtnStyle: View.propTypes.style,
+  // 加法元素样式
+  adderStyle: View.propTypes.style,
+  // 减法按钮容器样式
+  subtracterWrapperStyle: View.propTypes.style,
   // 减法按钮样式
-  subtracterStyle:  View.propTypes.style,
+  subtracterBtnStyle: View.propTypes.style,
+  // 减法元素样式
+  subtracterStyle: View.propTypes.style,
   // 自定义字体样式
   textStyle: Text.propTypes.style,
   // 加法按钮
@@ -192,7 +196,10 @@ AddAndSubtract.defaultProps = {
   easing: t => t,
   btnWidth: 30,
   style: null,
+  adderBtnStyle: null,
   adderStyle: null,
+  subtracterWrapperStyle: null,
+  subtracterBtnStyle: null,
   subtracterStyle: null,
   textStyle: null,
   adder: <Text style={styles.adderText}>+</Text>,

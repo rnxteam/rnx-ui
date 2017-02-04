@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.10.3
+
+### AddAndSubtract
+
+- 新增属性 `adderBtnStyle`：加法按钮样式
+- 新增属性 `subtracterWrapperStyle`：减法按钮容器样式
+- 新增属性 `subtracterBtnStyle`：减法按钮样式
+
 ## 0.10.2
 
 ### SmsCaptchaInput

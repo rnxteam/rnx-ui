@@ -2,7 +2,11 @@
 
 **遮罩层**
 
-内部封装了 Modal 组件
+### ⚠️ 注意
+
+1. Overlay 默认撑满父容器，且父容器需要设置样式属性 `position` 为 `'absolute'` 或 `'relative'`。
+
+2. Overlay 不会阻止安卓物理返回键。
 
 ## Demo
 
@@ -34,8 +38,3 @@ Overlay.defaultProps = {
   duration: 200,
 };
 ```
-
-## Other Points
-
-- Overlay 默认撑满父容器，且父容器需要设置样式属性 `position` 为 `'absolute'` 或 `'relative'`
-- Overlay 不会阻止安卓物理返回键
