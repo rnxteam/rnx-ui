@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import {
-  DP_FROM_1PX,
+  HAIRLINE_WIDTH,
 } from '../constant';
 
 const BORDER_COLOR = '#ccc';
@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   container: {
     backgroundColor: '#fff',
-    borderWidth: DP_FROM_1PX,
+    borderWidth: HAIRLINE_WIDTH,
     borderLeftWidth: 0,
     borderColor: BORDER_COLOR,
     flexDirection: 'row',
@@ -19,7 +19,7 @@ export default StyleSheet.create({
   cell: {
     height: 40,
     width: 40,
-    borderLeftWidth: DP_FROM_1PX,
+    borderLeftWidth: HAIRLINE_WIDTH,
     borderColor: BORDER_COLOR,
     justifyContent: 'center',
     alignItems: 'center',

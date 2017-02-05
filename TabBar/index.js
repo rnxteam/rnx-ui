@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {
-  DP_FROM_1PX,
+  HAIRLINE_WIDTH,
 } from '../constant';
 
 const NOOP = () => {};
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderTopColor: '#C9C9C9',
-    borderTopWidth: DP_FROM_1PX,
+    borderTopWidth: HAIRLINE_WIDTH,
   },
 });
 

@@ -2,7 +2,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import {
-  DP_FROM_1PX,
+  HAIRLINE_WIDTH,
 } from '../constant';
 
 const HEADER_HEIGHT = 45;
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: 'transparent',
     height: HEADER_HEIGHT,
-    borderBottomWidth: DP_FROM_1PX,
+    borderBottomWidth: HAIRLINE_WIDTH,
     borderBottomColor: '#ddd',
   },
   titleWrapper: {

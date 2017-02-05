@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.11.0
+
+- 新增警告弹框组件：Alert
+
 ## 0.10.5
 
 ### AddAndSubtract
