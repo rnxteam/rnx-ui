@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.10.5
+
+### AddAndSubtract
+
+- 修正 android 系统下数字可能不显示的 bug
+
 ## 0.10.4
 
 ### KeyboardAdaptiveView

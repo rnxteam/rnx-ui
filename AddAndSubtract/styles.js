@@ -51,6 +51,5 @@ export default StyleSheet.create({
   },
   text: {
     alignItems: 'center',
-    zIndex: -1,
   },
 });
