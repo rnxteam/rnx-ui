@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.11.1
+
+### SmsCaptchaInput
+
+- 新增属性 `hitSlop`：发送短信按钮热区
+
 ## 0.11.0
 
 - 新增警告弹框组件：Alert

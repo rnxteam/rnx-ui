@@ -35,6 +35,7 @@ Name       | Description | State
 ---------- | ----------- | -----
 [AddAndSubtract](https://github.com/dragonwong/rnx-ui/tree/master/AddAndSubtract)      | 加减法动画组件 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [ActionSheet](https://github.com/dragonwong/rnx-ui/tree/master/ActionSheet)     | 上拉菜单 | ![](https://img.shields.io/badge/state-developing-brightgreen.svg)
+[Alert](https://github.com/dragonwong/rnx-ui/tree/master/Alert)      | 警告弹框 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [Badge](https://github.com/dragonwong/rnx-ui/tree/master/Badge)      | 角标 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [Btn](https://github.com/dragonwong/rnx-ui/tree/master/Btn)        | 按钮 | ![](https://img.shields.io/badge/state-done-blue.svg)
 [CellInput](https://github.com/dragonwong/rnx-ui/tree/master/Checkbox)  | 格子输入框（通常用于固定长度的密码输入） | ![](https://img.shields.io/badge/state-designing-orange.svg)

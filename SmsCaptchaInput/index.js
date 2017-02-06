@@ -244,6 +244,8 @@ SmsCaptchaInput.propTypes = {
   autoFocus: PropTypes.bool,
   // 获取输入框
   getInput: PropTypes.func,
+  // 发送短信按钮热区
+  hitSlop: TouchableOpacity.propTypes.hitSlop,
 };
 SmsCaptchaInput.defaultProps = {
   style: null,
@@ -267,6 +269,7 @@ SmsCaptchaInput.defaultProps = {
   onChangeText: NOOP,
   autoFocus: true,
   getInput: NOOP,
+  hitSlop: null,
 };
 
 export default SmsCaptchaInput;

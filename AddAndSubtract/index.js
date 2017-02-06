@@ -180,14 +180,7 @@ AddAndSubtract.propTypes = {
   // 减法按钮
   subtracter: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 按钮热区
-  hitSlop: PropTypes.shape({
-    /* eslint-disable */
-    top: PropTypes.number,
-    left: PropTypes.number,
-    right: PropTypes.number,
-    bottom: PropTypes.number,
-    /* eslint-enable */
-  }),
+  hitSlop: TouchableHighlight.propTypes.hitSlop,
 };
 AddAndSubtract.defaultProps = {
   num: 0,
