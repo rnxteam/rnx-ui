@@ -21,6 +21,10 @@ class Receiver extends Component {
     this.getEl = this.getEl.bind(this);
   }
 
+  componentWillUnmount() {
+    this.willUnmount = true;
+  }
+
   getEl(el) {
     this.el = el;
     // sometimes the component does not finish rendering before ref
@@ -48,6 +52,9 @@ class Receiver extends Component {
   }
 
   animate() {
+    if (this.willUnmount) {
+      return;
+    }
     this.setState({
       scale: new Animated.Value(1),
     });

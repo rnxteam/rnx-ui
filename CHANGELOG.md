@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.11.3
+
+### Drop
+
+#### Receiver
+
+- 修正当元素已经 unmount 了仍可动画的 bug
+
 ## 0.11.2
 
 ### SmsCaptchaInput
