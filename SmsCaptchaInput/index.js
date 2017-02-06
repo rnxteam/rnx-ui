@@ -190,6 +190,7 @@ class SmsCaptchaInput extends Component {
           activeOpacity={this.state.isRunning ? 1 : this.props.activeOpacity}
           onPress={this.onPress}
           style={[styles.button, this.props.btnStyle]}
+          hitSlop={this.props.hitSlop}
         >
           <Text style={this.props.btnTextStyle}>
             {this.state.buttonText}
