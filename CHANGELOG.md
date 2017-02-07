@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.11.4
+
+### Badge
+
+- 新增属性 `characterWidth`：单个字符宽度
+
 ## 0.11.3
 
 ### Drop

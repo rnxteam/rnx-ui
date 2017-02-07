@@ -48,7 +48,7 @@ class Badge extends Component {
     if (typeof text !== 'string') {
       text = `${text}`;
     }
-    const textWidth = 7 * (text.length + 1);
+    const textWidth = this.props.characterWidth * (text.length + 1);
 
     return (
       <View style={[styles.container, this.props.style]}>
@@ -80,6 +80,8 @@ Badge.propTypes = {
   textContainerStyle: View.propTypes.style,
   // 自定义文本样式
   textStyle: Text.propTypes.style,
+  // 单个字符宽度
+  characterWidth: PropTypes.number,
   // 角标文本内容
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // 主体元素
@@ -89,6 +91,7 @@ Badge.defaultProps = {
   style: null,
   textContainerStyle: null,
   textStyle: null,
+  characterWidth: 7,
   text: '',
   children: null,
 };

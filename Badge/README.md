@@ -4,6 +4,12 @@
 
 通常用来显示未读消息数目。
 
+### ⚠️ 注意
+
+1. 角标宽度是动态计算的，随角标内容的增长而变长。当你通过 `textStyle` 改变角标内容的字体大小时，注意配置相符的 `characterWidth`。
+
+2. Badge 没有宽度，宽度随外部容器变化。
+
 ## Demo
 
 ![](demo.png)
@@ -32,6 +38,8 @@ Badge.propTypes = {
   textContainerStyle: View.propTypes.style,
   // 自定义文本样式
   textStyle: Text.propTypes.style,
+  // 单个字符宽度
+  characterWidth: PropTypes.number,
   // 角标文本内容
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // 主体元素
@@ -41,11 +49,8 @@ Badge.defaultProps = {
   style: null,
   textContainerStyle: null,
   textStyle: null,
+  characterWidth: 7,
   text: '',
   children: null,
 };
 ```
-
-## Other Points
-
-- Badge 没有宽度，跨度随外部容器变化
