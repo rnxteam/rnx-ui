@@ -1,5 +1,6 @@
 # rnx-ui
 
+[![Build Status](https://travis-ci.org/dragonwong/rnx-ui.svg?branch=master)](https://travis-ci.org/dragonwong/rnx-ui)
 [![npm](https://img.shields.io/npm/v/rnx-ui.svg?maxAge=60)](https://www.npmjs.com/package/rnx-ui)
 [![npm](https://img.shields.io/npm/dt/rnx-ui.svg?maxAge=60)](https://www.npmjs.com/package/rnx-ui)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/dragonwong/rnx-ui/master/LICENSE)
