@@ -16,7 +16,7 @@
     "url": "http://wangdagen.com/"
   },
   "scripts": {
-    "eslint": "echo \"Checking code style, please wait ...\" && eslint ./src *.js || exit 0"
+    "lint": "eslint . *.js"
   },
   "license": "MIT",
   "devDependencies": {
