@@ -20,10 +20,6 @@ const styles = StyleSheet.create({
 
 // rnx-ui 组件一律不允许使用 stateless function 构建
 class Template extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <View style={[styles.all, this.props.style]}>

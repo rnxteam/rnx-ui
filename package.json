@@ -16,7 +16,8 @@
     "url": "http://wangdagen.com/"
   },
   "scripts": {
-    "lint": "eslint . *.js"
+    "lint": "eslint . *.js",
+    "test": "cd Example && npm run test"
   },
   "license": "MIT",
   "devDependencies": {

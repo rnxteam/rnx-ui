@@ -23,14 +23,9 @@ class Dropper extends Component {
       visible: true,
     };
 
-    const {
-      startPosition,
-      endPosition,
-    } = props;
-
     this.startPosition = {
-      x: startPosition.x - (props.width / 2),
-      y: startPosition.y - (props.height / 2),
+      x: props.startPosition.x - (props.width / 2),
+      y: props.startPosition.y - (props.height / 2),
     };
 
     this.x = new Animated.Value(0);
@@ -39,8 +34,8 @@ class Dropper extends Component {
     this.rotate = new Animated.Value(0);
     this.opacity = new Animated.Value(0);
 
-    const dx = endPosition.x - startPosition.x;
-    const dy = endPosition.y - startPosition.y;
+    const dx = props.endPosition.x - props.startPosition.x;
+    const dy = props.endPosition.y - props.startPosition.y;
     this.dx = dx;
     this.dy = dy;
 

@@ -57,6 +57,7 @@ TabBar.propTypes = {
   activeId: PropTypes.string,
   // 自定义样式
   style: View.propTypes.style,
+  /* eslint-disable */
   // tab 项
   items: PropTypes.arrayOf(PropTypes.shape({
     // tab 项 id
@@ -66,10 +67,13 @@ TabBar.propTypes = {
     // tab 项激活元素
     activedComponent: PropTypes.element,
   })),
+  /* eslint-enable */
   // tab 项点击时透明度
   activeOpacity: PropTypes.number,
+  /* eslint-disable */
   // 改变激活项时的回调，点击项的 id 会作为参数传入。
   onPress: PropTypes.func,
+  /* eslint-enable */
 };
 TabBar.defaultProps = {
   activeId: '',
