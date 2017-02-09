@@ -3,12 +3,14 @@ sudo: false
 node_js: 6
 before_cache:
 - rm -rf node_modules
+- rm -rf Example/node_modules
 cache:
   directories:
   - node_modules
+  - Example/node_modules
 install:
 - npm install
-- cd Example && npm install
+- cd Example && npm install && cd ..
 script:
 - npm run lint
 - npm run test
