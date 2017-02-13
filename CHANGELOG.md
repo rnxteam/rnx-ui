@@ -14,7 +14,16 @@
 
 ### 0.11.x
 
-- 💚 `Badge` `Drop` `SmsCaptchaInput`
+- 💚 `Badge` `Drop` `SmsCaptchaInput` `NavBar` `PlaceholderInput`
+
+#### 0.11.6
+
+- 💚 新增可以自定义占位元素的输入框组件：`PlaceholderInput`
+
+##### NavBar
+
+- 💚 新增属性 `leftBtnDisabled`：左侧按钮禁用
+- 💚 新增属性 `rightBtnDisabled`：右侧按钮禁用
 
 #### 0.11.4
 

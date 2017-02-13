@@ -30,7 +30,7 @@ function Demo(props) {
 
 ## Overview
 
-`🖌` designing(7) `🛠` developing(2) `✅` done(21)
+`🖌` designing(7) `🛠` developing(2) `✅` done(22)
 
 ### Component
 
@@ -53,6 +53,7 @@ Name       | Description | State
 [Number](https://github.com/dragonwong/rnx-ui/tree/master/Number)     | 数字 | 🛠
 [NumericKeyboard](https://github.com/dragonwong/rnx-ui/tree/master/NumericKeyboard)  | 虚拟数字键盘 | ✅
 [Overlay](https://github.com/dragonwong/rnx-ui/tree/master/Overlay)     | 遮罩层 | ✅
+[PlaceholderInput](https://github.com/dragonwong/rnx-ui/tree/master/PlaceholderInput)     | 可以自定义占位元素的输入框 | ✅
 [PswdInput](https://github.com/dragonwong/rnx-ui/tree/master/Checkbox)  | 密码输入框（带有用于切换密码显隐的“眼睛”按钮） | 🖌
 [PhoneNumInput](https://github.com/dragonwong/rnx-ui/tree/master/PhoneNumInput)     | 手机号码输入框 | ✅
 [RefreshView](https://github.com/dragonwong/rnx-ui/tree/master/RefreshView)     | 滚动列表（带下拉刷新、上拉加载） | ✅
@@ -74,8 +75,17 @@ Name       | Description | State
 
 ## Todo
 
+- PlaceholderInput 补充 demo 及图片
+- Validator demo 中把 PlaceholderInput 也加进去
+- ImgHolder 图片加载完成移除底图
 - 补全 Example
 - 添加 test 执行脚本，检查 Example 下是否有对应示例
 - demo 图片缩小，并迁移至微博图床
 - Badge 添加小圆点样式
 - 文字走马灯组件（用于 title）
+
+### `*input` 系列组件
+
+- 添加 `required` 属性
+- 在 `onChangeText` 中将 `name` 的值作为第二个参数传入
+- value 设置默认值为 `''`

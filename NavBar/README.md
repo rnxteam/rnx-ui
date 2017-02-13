@@ -28,12 +28,16 @@ NavBar.propTypes = {
   leftEvent: PropTypes.func,
   // 左侧按钮文本样式（leftBtn 为字符串时才生效）
   leftBtnStyle: Text.propTypes.style,
+  // 左侧按钮禁用
+  leftBtnDisabled: PropTypes.bool,
   // 右侧按钮
   rightBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   // 右侧按钮点击事件
   rightEvent: PropTypes.func,
   // 右侧按钮文本样式（rightBtn 为字符串时才生效）
   rightBtnStyle: Text.propTypes.style,
+  // 右侧按钮禁用
+  rightBtnDisabled: PropTypes.bool,
   // 按钮点击透明度变化
   activeOpacity: PropTypes.number,
 };
@@ -47,9 +51,11 @@ NavBar.defaultProps = {
   leftBtn: null,
   leftEvent: NOOP,
   leftBtnStyle: null,
+  leftBtnDisabled: false,
   rightBtn: null,
   rightEvent: NOOP,
   rightBtnStyle: null,
+  rightBtnDisabled: false,
   activeOpacity: ACTIVE_OPACITY,
 };
 ```
