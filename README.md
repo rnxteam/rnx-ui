@@ -30,14 +30,14 @@ function Demo(props) {
 
 ## Overview
 
-`🖌` designing(7) `🛠` developing(2) `✅` done(22)
+`🖌` designing(7) `🛠` developing(1) `✅` done(24)
 
 ### Component
 
 Name       | Description | State
 ---------- | ----------- | -----
+[ActionSheet](https://github.com/dragonwong/rnx-ui/tree/master/ActionSheet)     | 上拉按钮组 | ✅
 [AddAndSubtract](https://github.com/dragonwong/rnx-ui/tree/master/AddAndSubtract)      | 加减法动画组件 | ✅
-[ActionSheet](https://github.com/dragonwong/rnx-ui/tree/master/ActionSheet)     | 上拉菜单 | 🛠
 [Alert](https://github.com/dragonwong/rnx-ui/tree/master/Alert)      | 警告弹框 | ✅
 [Badge](https://github.com/dragonwong/rnx-ui/tree/master/Badge)      | 角标 | ✅
 [Btn](https://github.com/dragonwong/rnx-ui/tree/master/Btn)        | 按钮 | ✅
@@ -46,6 +46,7 @@ Name       | Description | State
 [HeaderedSheet](https://github.com/dragonwong/rnx-ui/tree/master/HeaderedSheet)        | 有标题栏的底部弹层 | ✅
 [Icon](https://github.com/dragonwong/rnx-ui/tree/master/Icon)  | 字体图标 | 🖌
 [ImgHolder](https://github.com/dragonwong/rnx-ui/tree/master/ImgHolder)  | 带占位的图片 | ✅
+[ImgPicker](https://github.com/dragonwong/rnx-ui/tree/master/ImgPicker)  | 图片选择组件 | ✅
 [KeyboardAdaptiveView](https://github.com/dragonwong/rnx-ui/tree/master/KeyboardAdaptiveView)        | 适应键盘的容器 | ✅
 [Loading](https://github.com/dragonwong/rnx-ui/tree/master/Loading) | 菊花加载中动画 | ✅
 [LoadingBtn](https://github.com/dragonwong/rnx-ui/tree/master/LoadingBtn) | 带菊花图的按钮 | 🖌
@@ -75,7 +76,11 @@ Name       | Description | State
 
 ## Todo
 
+- 修复多个 PlaceholderInput 切换输入时页面滚动错误的 bug
+- ActionSheet 补充 demo 及图片
+- ImgPicker 补充 demo 及图片
 - PlaceholderInput 补充 demo 及图片
+- 统一 `underlayColor`
 - Validator demo 中把 PlaceholderInput 也加进去
 - ImgHolder 图片加载完成移除底图
 - 补全 Example

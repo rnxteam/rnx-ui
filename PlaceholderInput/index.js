@@ -26,6 +26,8 @@ class PlaceholderInput extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.defaultValue !== this.props.defaultValue) {
       this.value = nextProps.defaultValue;
+      // 触发下 render，使 placeholder 消失或出现
+      this.forceUpdate();
     }
   }
 
