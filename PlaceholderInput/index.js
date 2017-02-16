@@ -102,7 +102,8 @@ class PlaceholderInput extends Component {
         </View>
         <TextInput
           {...this.props.textInputProps}
-          style={[styles.fill, this.props.inputStyle]}
+          defaultValue={this.props.defaultValue}
+          style={[styles.fill, styles.input, this.props.inputStyle]}
           ref={this.getInput}
           onChangeText={this.onChangeText}
         />

@@ -30,7 +30,7 @@ function Demo(props) {
 
 ## Overview
 
-`🖌` designing(7) `🛠` developing(1) `✅` done(24)
+`🖌` designing(7) `🛠` developing(1) `✅` done(25)
 
 ### Component
 
@@ -54,6 +54,7 @@ Name       | Description | State
 [Number](https://github.com/dragonwong/rnx-ui/tree/master/Number)     | 数字 | 🛠
 [NumericKeyboard](https://github.com/dragonwong/rnx-ui/tree/master/NumericKeyboard)  | 虚拟数字键盘 | ✅
 [Overlay](https://github.com/dragonwong/rnx-ui/tree/master/Overlay)     | 遮罩层 | ✅
+[PlaceholderText](https://github.com/dragonwong/rnx-ui/tree/master/PlaceholderText)     | 有占位元素的文本显示组件 | ✅
 [PlaceholderInput](https://github.com/dragonwong/rnx-ui/tree/master/PlaceholderInput)     | 可以自定义占位元素的输入框 | ✅
 [PswdInput](https://github.com/dragonwong/rnx-ui/tree/master/Checkbox)  | 密码输入框（带有用于切换密码显隐的“眼睛”按钮） | 🖌
 [PhoneNumInput](https://github.com/dragonwong/rnx-ui/tree/master/PhoneNumInput)     | 手机号码输入框 | ✅
@@ -77,11 +78,14 @@ Name       | Description | State
 ## Todo
 
 - 修复多个 PlaceholderInput 切换输入时页面滚动错误的 bug
+- Loading 可添加文字
+- HeaderedSheet 新增按钮禁用属性，类似 NavBar
 - ActionSheet 补充 demo 及图片
 - ImgPicker 补充 demo 及图片
 - PlaceholderInput 补充 demo 及图片
+- PlaceholderText 补充 demo 及图片
 - 统一 `underlayColor`
-- Validator demo 中把 PlaceholderInput 也加进去
+- Validator demo 中把 PlaceholderInput、PlaceholderText 也加进去
 - ImgHolder 图片加载完成移除底图
 - 补全 Example
 - 添加 test 执行脚本，检查 Example 下是否有对应示例

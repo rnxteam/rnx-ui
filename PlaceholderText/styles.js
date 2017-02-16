@@ -2,28 +2,27 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const FONT_SIZE = 16;
+const FONT_SIZE = 15;
 
 const styles = StyleSheet.create({
   all: {
     height: 50,
     flex: 1,
     position: 'relative',
-  },
-  input: {
-    fontSize: FONT_SIZE,
-    // for android
-    paddingLeft: 0,
-  },
-  fill: {
     justifyContent: 'center',
+  },
+  value: {
+    fontSize: FONT_SIZE,
+  },
+  placeholderContainer: {
     position: 'absolute',
     left: 0,
     top: 0,
     right: 0,
     bottom: 0,
+    justifyContent: 'center',
   },
-  fillHide: {
+  placeholderContainerHide: {
     left: 1000,
   },
   placeholder: {
