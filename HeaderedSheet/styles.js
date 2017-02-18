@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    paddingHorizontal: SIDE_GAP,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -41,6 +40,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: COLOR_PRESSABLE,
+    marginHorizontal: SIDE_GAP,
   },
 });
 
