@@ -21,6 +21,9 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "eslint-config-rnx": "*"
+    "babel-preset-react-native": "1.9.1",
+    "eslint-config-rnx": "*",
+    "react": "~15.4.0",
+		"react-native": "0.41.2"
   }
 }

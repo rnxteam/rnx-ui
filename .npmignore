@@ -10,3 +10,9 @@ npm-debug.log
 # Example
 #
 Example/
+
+# Demo
+ios/
+android/
+index.android.js
+index.ios.js
