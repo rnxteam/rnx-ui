@@ -30,7 +30,7 @@ function Demo(props) {
 
 ## Overview
 
-`🖌` designing(7) `🛠` developing(1) `✅` done(25)
+`🖌` designing(8) `🛠` developing(1) `✅` done(25)
 
 ### Component
 
@@ -39,9 +39,11 @@ Name       | Description | State
 [ActionSheet](https://github.com/dragonwong/rnx-ui/tree/master/ActionSheet)     | 上拉按钮组 | ✅
 [AddAndSubtract](https://github.com/dragonwong/rnx-ui/tree/master/AddAndSubtract)      | 加减法动画组件 | ✅
 [Alert](https://github.com/dragonwong/rnx-ui/tree/master/Alert)      | 警告弹框 | ✅
+[All](https://github.com/dragonwong/rnx-ui/tree/master/All)      | 页面容器 | ✅
 [Badge](https://github.com/dragonwong/rnx-ui/tree/master/Badge)      | 角标 | ✅
 [Btn](https://github.com/dragonwong/rnx-ui/tree/master/Btn)        | 按钮 | ✅
 [Checkbox](https://github.com/dragonwong/rnx-ui/tree/master/Checkbox)  | 选择框 | 🖌
+[Confirm](https://github.com/dragonwong/rnx-ui/tree/master/Confirm)  | 确认弹框 | 🖌
 [Drop](https://github.com/dragonwong/rnx-ui/tree/master/Drop)        | 掉落动画组件 | ✅
 [HeaderedSheet](https://github.com/dragonwong/rnx-ui/tree/master/HeaderedSheet)        | 有标题栏的底部弹层 | ✅
 [Icon](https://github.com/dragonwong/rnx-ui/tree/master/Icon)  | 字体图标 | 🖌
@@ -84,6 +86,7 @@ Name       | Description | State
 - ImgPicker 补充 demo 及图片
 - PlaceholderInput 补充 demo 及图片
 - PlaceholderText 补充 demo 及图片
+- All 补充 demo 及图片
 - 统一 `underlayColor`
 - Validator demo 中把 PlaceholderInput、PlaceholderText 也加进去
 - ImgHolder 图片加载完成移除底图
