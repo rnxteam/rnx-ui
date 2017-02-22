@@ -5,7 +5,7 @@ import {
   View,
   CameraRoll,
   ListView,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   Dimensions,
 } from 'react-native';
 
@@ -183,11 +183,18 @@ class ImgRollView extends Component {
     const { uri } = item.node.image;
     const side = this.sideLength;
     const itemParams = { uri, rowId, colId: i };
-    const { iconSelected, iconUnSelected } = this.props;
+    const {
+      iconSelected,
+      iconUnSelected,
+      iconSelectedStyle,
+      iconUnSelectedStyle,
+    } = this.props;
     const selectProps = {
       selected: item.selected,
       iconSelected,
       iconUnSelected,
+      iconSelectedStyle,
+      iconUnSelectedStyle,
     };
 
     const itemStyle = {
@@ -199,14 +206,15 @@ class ImgRollView extends Component {
     };
 
     return (
-      <TouchableOpacity
-        style={itemStyle}
+      <TouchableWithoutFeedback
         key={uri}
         onPress={this.onSelectImage(itemParams)}
       >
-        <Image source={{ uri }} style={{ width: side, height: side }} />
-        <SelectTick {...selectProps} />
-      </TouchableOpacity>
+        <View style={itemStyle}>
+          <Image source={{ uri }} style={{ width: side, height: side }} />
+          <SelectTick {...selectProps} />
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 
@@ -221,6 +229,7 @@ class ImgRollView extends Component {
   render() {
     return (
       <ListView
+        style={this.props.style}
         enableEmptySections
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}
@@ -230,6 +239,12 @@ class ImgRollView extends Component {
     );
   }
 }
+
+const styleShape = PropTypes.oneOfType([
+  PropTypes.array,
+  PropTypes.object,
+  PropTypes.number,
+]);
 
 ImgRollView.propTypes = {
   // 最大照片选择条数
@@ -244,10 +259,20 @@ ImgRollView.propTypes = {
     'Videos',
     'All',
   ]),
+  // 用户选择图片时触发的回调，返回参数为 node/uri/selected/uriSelected
   onSelect: PropTypes.func,
+  // 选中图标
   iconSelected: PropTypes.element,
+  // 未选中图标
   iconUnSelected: PropTypes.element,
+  // 初始选中 uri
   uriList: PropTypes.arrayOf(PropTypes.string),
+  // 外层容器样式
+  style: styleShape,
+  // 选中图标外框样式
+  iconSelectedStyle: styleShape,
+  // 未选中图标外框样式
+  iconUnSelectedStyle: styleShape,
 };
 
 ImgRollView.defaultProps = {

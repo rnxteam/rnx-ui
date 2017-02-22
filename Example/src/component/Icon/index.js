@@ -15,6 +15,7 @@ const ICON_MAP = {
   cart: '\uf07a',
   'fa-plus': '\uf067',
   'fa-minus': '\uf068',
+  'fa-check': '\uf00c',
 };
 
 const styles = StyleSheet.create({

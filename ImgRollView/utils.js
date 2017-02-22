@@ -3,16 +3,24 @@ import { View } from 'react-native';
 
 import style from './styles';
 
-export const SelectTick = ({ selected, iconSelected, iconUnSelected }) => {
+export const SelectTick = (params) => {
+  const {
+    selected,
+    iconSelected,
+    iconUnSelected,
+    iconSelectedStyle,
+    iconUnSelectedStyle,
+  } = params;
+
   if (selected) {
     return (
-      <View style={style.selectedTick}>
+      <View style={[style.selectedTick, iconSelectedStyle]}>
         {iconSelected}
       </View>
     );
   }
   return (
-    <View style={style.selectTick}>
+    <View style={[style.selectTick, iconUnSelectedStyle]}>
       {iconUnSelected}
     </View>
   );
