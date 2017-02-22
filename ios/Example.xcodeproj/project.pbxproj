@@ -452,7 +452,7 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = L5L6E4WKJD;
+						DevelopmentTeam = S6SM9HS3L9;
 					};
 				};
 			};
@@ -770,7 +770,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = L5L6E4WKJD;
+				DEVELOPMENT_TEAM = S6SM9HS3L9;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -778,7 +778,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.Example.sss;
+				PRODUCT_BUNDLE_IDENTIFIER = "rnx-ui";
 				PRODUCT_NAME = Example;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -789,7 +789,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L5L6E4WKJD;
+				DEVELOPMENT_TEAM = S6SM9HS3L9;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -797,7 +797,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.Example.sss;
+				PRODUCT_BUNDLE_IDENTIFIER = "rnx-ui";
 				PRODUCT_NAME = Example;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
