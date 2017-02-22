@@ -11,7 +11,7 @@ A UI Lib for React Native
 
 ### 1. Install
 
-```js
+```
 npm install rnx-ui --save
 ```
 
@@ -76,6 +76,22 @@ Name       | Description | State
 ---------- | ----------- | -----
 [transPxToDp](https://github.com/dragonwong/rnx-ui/tree/master/util/transPxToDp)      | 像素（px）转虚拟像素（dp）方法 | ✅
 [Validator](https://github.com/dragonwong/rnx-ui/tree/master/util/Validator)      | 表单校验工具 | ✅
+
+## Example
+
+将项目克隆至本地后：
+
+### 1. Install
+
+```
+npm install
+```
+
+### 2. Run
+
+```
+react-native run-ios
+```
 
 ## Todo
 

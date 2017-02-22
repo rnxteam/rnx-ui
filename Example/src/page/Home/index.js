@@ -2,12 +2,12 @@
  * 主页面 rnx-ui 面板
  */
 import React from 'react';
-import All from 'rnx-ui/All';
-import NavBar from 'rnx-ui/NavBar';
 import {
   List,
 } from 'BizComponent';
 import Router from 'BizRouter';
+import All from 'rnx-ui/All';
+import NavBar from 'rnx-ui/NavBar';
 
 const items = [
   {
