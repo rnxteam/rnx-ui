@@ -4,8 +4,8 @@ import './Badge';
 import './Btn';
 import './Drop';
 import './HeaderedSheet';
-import './Home';
 import './ImgHolder';
+import './ImgRollView';
 import './KeyboardAdaptiveView';
 import './Loading';
 import './NavBar';
@@ -20,3 +20,6 @@ import './ToolTip';
 import './TransPxToDp';
 import './Validator';
 import './VirtualPasswordInput';
+
+// 首页放最后，确保已经获取了所有页面
+import './Home';
