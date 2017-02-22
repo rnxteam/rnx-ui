@@ -1,13 +1,16 @@
 import {
   StyleSheet,
 } from 'react-native';
+import {
+  COLOR_BG_DARK,
+} from '../constant';
 
 const SIDE_GAP = 10;
 const COLOR = '#fff';
 
 const styles = StyleSheet.create({
   navBar: {
-    backgroundColor: '#2F3549',
+    backgroundColor: COLOR_BG_DARK,
     position: 'relative',
   },
   header: {

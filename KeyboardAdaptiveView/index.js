@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 
-const Tree = require('react/lib/ReactNativeComponentTree');
+import EventPluginUtils from 'EventPluginUtils';
 
 const NOOP = () => {};
 
@@ -109,7 +109,7 @@ class KeyboardAdaptiveView extends Component {
   }
 
   inputFocusHandle(e) {
-    const el = Tree.getInstanceFromNode(e.target);
+    const el = EventPluginUtils.getInstanceFromNode(e.target);
     el.measure((fx, fy, width, height, px, py) => {
       inputY = py;
       inputHeight = height;
