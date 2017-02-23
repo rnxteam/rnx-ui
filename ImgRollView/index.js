@@ -49,6 +49,14 @@ class ImgRollView extends Component {
     this.fetch();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.uriList !== this.props.uriList) {
+      this.uriSelected = nextProps.uriList;
+      const assets = this.setSelectedAsset(this.state.assets, this.uriSelected);
+      this.updateAssets({ assets });
+    }
+  }
+
   onEndReached() {
     if (!this.noMore) this.fetch();
   }
@@ -62,7 +70,7 @@ class ImgRollView extends Component {
 
   setSelectedAsset(assets, uriList) {
     return assets.map((data) => {
-      const item = data;
+      const item = { ...data };
       if (uriList.indexOf(item.node.image.uri) > -1) {
         item.selected = true;
       }
@@ -139,7 +147,6 @@ class ImgRollView extends Component {
     const nextAssets = data.edges;
     const nextState = { loadingMore: false };
     const { assets } = this.state;
-    const { uriList } = this.props;
     const hasNextPage = data.page_info.has_next_page;
 
     this.endCursor = data.page_info.end_cursor;
@@ -151,7 +158,7 @@ class ImgRollView extends Component {
     if (nextAssets.length > 0) {
       nextState.lastCursor = data.page_info.end_cursor;
       Object.assign(nextState, this.updateAssets({
-        assets: this.setSelectedAsset(assets.concat(nextAssets), uriList),
+        assets: this.setSelectedAsset(assets.concat(nextAssets), this.uriSelected),
         batchUpdate: true,
       }));
     }
