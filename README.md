@@ -93,28 +93,3 @@ npm install
 ```
 react-native run-ios
 ```
-
-## Todo
-
-- 修复多个 PlaceholderInput 切换输入时页面滚动错误的 bug
-- Loading 可添加文字
-- HeaderedSheet 新增按钮禁用属性，类似 NavBar
-- ActionSheet 补充 demo 及图片
-- ImgPicker 补充 demo 及图片
-- PlaceholderInput 补充 demo 及图片
-- PlaceholderText 补充 demo 及图片
-- All 补充 demo 及图片
-- 统一 `underlayColor`
-- Validator demo 中把 PlaceholderInput、PlaceholderText 也加进去
-- ImgHolder 图片加载完成移除底图
-- 补全 Example
-- 添加 test 执行脚本，检查 Example 下是否有对应示例
-- demo 图片缩小，并迁移至微博图床
-- Badge 添加小圆点样式
-- 文字走马灯组件（用于 title）
-
-### `*input` 系列组件
-
-- 添加 `required` 属性
-- 在 `onChangeText` 中将 `name` 的值作为第二个参数传入
-- value 设置默认值为 `''`
