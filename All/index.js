@@ -1,7 +1,10 @@
 /**
  * 页面容器组件
  */
-import React, { PropTypes } from 'react';
+import React, {
+  PropTypes,
+  Component,
+} from 'react';
 import {
   View,
   StatusBar,
@@ -19,16 +22,18 @@ const styles = StyleSheet.create({
   },
 });
 
-function All(props) {
-  return (
-    <View style={[styles.all, props.style]}>
-      <StatusBar
-        backgroundColor={props.statusBarBgColor}
-        barStyle={props.statusBarStyle}
-      />
-      {props.children}
-    </View>
-  );
+class All extends Component {
+  render() {
+    return (
+      <View style={[styles.all, this.props.style]}>
+        <StatusBar
+          backgroundColor={this.props.statusBarBgColor}
+          barStyle={this.props.statusBarStyle}
+        />
+        {this.props.children}
+      </View>
+    );
+  }
 }
 
 All.propTypes = {

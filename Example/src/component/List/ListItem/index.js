@@ -37,8 +37,7 @@ class ListItem extends Component {
   }
 
   render() {
-    const item = this.props.item;
-    const content = item.content;
+    const content = this.props.item.content;
     const onPress = this.onPress;
 
     const contentComponent = typeof content === 'string' ? (

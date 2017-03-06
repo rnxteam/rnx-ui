@@ -74,8 +74,10 @@ class Page extends Component {
       inputBtnDisabled: false,
     });
   }
-  onChangeText(captcha) {
-    console.log(captcha);
+  onChangeText(captcha, name) {
+    /* eslint-disable */
+    console.log(captcha, name);
+    /* eslint-enable */
   }
   render() {
     return (

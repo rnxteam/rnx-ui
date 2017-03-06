@@ -79,7 +79,7 @@ class SmsCaptchaInput extends Component {
 
   onChangeText(value) {
     this.value = value;
-    this.props.onChangeText(value);
+    this.props.onChangeText(value, this.props.name);
   }
 
   onPress() {

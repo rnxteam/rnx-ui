@@ -10,6 +10,7 @@ import All from 'rnx-ui/All';
 import NavBar from 'rnx-ui/NavBar';
 
 const utils = ['TransPxToDp', 'Validator'];
+const compException = ['Home'].concat(utils);
 const genItem = key => ({ content: key, onPress: () => Router.open(key) });
 
 const genItems = () => {
@@ -24,7 +25,7 @@ const genItems = () => {
     text: 'util',
   };
 
-  const components = keys.filter(key => utils.indexOf(key) === -1);
+  const components = keys.filter(key => compException.indexOf(key) === -1);
   const compList = components.map(genItem);
   const utilList = utils.map(genItem);
   compList.unshift(compTitle);
