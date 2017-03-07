@@ -10,9 +10,6 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native';
-import {
-  COLOR_BG_DARK,
-} from '../constant';
 
 const styles = StyleSheet.create({
   all: {
@@ -49,7 +46,7 @@ All.propTypes = {
 All.defaultProps = {
   children: null,
   style: null,
-  statusBarBgColor: COLOR_BG_DARK,
+  statusBarBgColor: 'transparent',
   statusBarStyle: 'light-content',
 };
 
