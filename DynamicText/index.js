@@ -47,6 +47,8 @@ class DynamicText extends Component {
       translateX: new Animated.Value(0),
     };
     this.scrollText = this.scrollText.bind(this);
+    this.containerLayout = this.containerLayout.bind(this);
+    this.textLayout = this.textLayout.bind(this);
   }
   scrollText(offSet, isPositionStart) {
     setTimeout(() => {
@@ -67,6 +69,17 @@ class DynamicText extends Component {
         }
       });
     }, this.props.bufferTime);
+  }
+  containerLayout({ nativeEvent }) {
+    this.setState({
+      viewWidth: nativeEvent.layout.width,
+    });
+  }
+  textLayout({ nativeEvent }) {
+    this.setState({
+      textWidth: nativeEvent.layout.width,
+      textHeight: nativeEvent.layout.height,
+    });
   }
   render() {
     const { viewWidth, textWidth, textHeight } = this.state;
@@ -99,11 +112,7 @@ class DynamicText extends Component {
       <View style={[styles.wrapper, this.props.style]}>
         <View
           style={styles.container}
-          onLayout={({ nativeEvent }) => {
-            this.setState({
-              viewWidth: nativeEvent.layout.width,
-            });
-          }}
+          onLayout={this.containerLayout}
         >
           <View style={[styles.contentContainer, contentContainerStyle]}>
             <Animated.Text
@@ -115,17 +124,11 @@ class DynamicText extends Component {
                   transform: [
                     {
                       translateX: this.state.translateX,
-                      tramslateY: -18,
                     },
                   ],
                 },
               ]}
-              onLayout={({ nativeEvent }) => {
-                this.setState({
-                  textWidth: nativeEvent.layout.width,
-                  textHeight: nativeEvent.layout.height,
-                });
-              }}
+              onLayout={this.textLayout}
             >{this.props.text}</Animated.Text>
           </View>
         </View>
