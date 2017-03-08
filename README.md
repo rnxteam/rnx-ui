@@ -30,7 +30,7 @@ function Demo(props) {
 
 ## Overview
 
-`🖌` designing(8) `🛠` developing(1) `✅` done(25)
+`🖌` designing(8) `🛠` developing(1) `✅` done(26)
 
 ### Component
 
@@ -45,6 +45,7 @@ Name       | Description | State
 [Checkbox](https://github.com/rnxteam/rnx-ui/tree/master/Checkbox)  | 选择框 | 🖌
 [Confirm](https://github.com/rnxteam/rnx-ui/tree/master/Confirm)  | 确认弹框 | 🖌
 [Drop](https://github.com/rnxteam/rnx-ui/tree/master/Drop)        | 掉落动画组件 | ✅
+[DynamicText](https://github.com/rnxteam/rnx-ui/tree/master/DynamicText) | 文本框（滚动显示过长文字）| ✅
 [HeaderedSheet](https://github.com/rnxteam/rnx-ui/tree/master/HeaderedSheet)        | 有标题栏的底部弹层 | ✅
 [Icon](https://github.com/rnxteam/rnx-ui/tree/master/Icon)  | 字体图标 | 🖌
 [ImgHolder](https://github.com/rnxteam/rnx-ui/tree/master/ImgHolder)  | 带占位的图片 | ✅
