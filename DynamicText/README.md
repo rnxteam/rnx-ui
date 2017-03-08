@@ -13,7 +13,7 @@ import DynamicText from 'rnx-ui/DynamicText';
 
 function Example(props) {
   return (
-    <DynamicText>自定义文字</DynamicText>
+    <DynamicText text="自定义文字"></DynamicText>
   );
 }
 ```
