@@ -107,7 +107,9 @@ class KeyboardAdaptiveView extends Component {
   }
 
   inputFocusHandle(e) {
+    /* eslint-disable */
     const el = e._dispatchInstances || e._targetInst;
+    /* eslint-enable */
     el.measure((fx, fy, width, height, px, py) => {
       inputY = py;
       inputHeight = height;

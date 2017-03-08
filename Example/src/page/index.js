@@ -1,3 +1,4 @@
+import './ActionSheet';
 import './Alert';
 import './AddAndSubtract';
 import './Badge';
@@ -6,6 +7,7 @@ import './Drop';
 import './DymanicText';
 import './HeaderedSheet';
 import './ImgHolder';
+import './ImgPicker';
 import './ImgRollView';
 import './KeyboardAdaptiveView';
 import './Loading';

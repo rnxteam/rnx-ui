@@ -1,15 +1,15 @@
 /**
  * 页面容器组件
  */
-import React, { PropTypes } from 'react';
+import React, {
+  PropTypes,
+  Component,
+} from 'react';
 import {
   View,
   StatusBar,
   StyleSheet,
 } from 'react-native';
-import {
-  COLOR_BG_DARK,
-} from '../constant';
 
 const styles = StyleSheet.create({
   all: {
@@ -19,16 +19,18 @@ const styles = StyleSheet.create({
   },
 });
 
-function All(props) {
-  return (
-    <View style={[styles.all, props.style]}>
-      <StatusBar
-        backgroundColor={props.statusBarBgColor}
-        barStyle={props.statusBarStyle}
-      />
-      {props.children}
-    </View>
-  );
+class All extends Component {
+  render() {
+    return (
+      <View style={[styles.all, this.props.style]}>
+        <StatusBar
+          backgroundColor={this.props.statusBarBgColor}
+          barStyle={this.props.statusBarStyle}
+        />
+        {this.props.children}
+      </View>
+    );
+  }
 }
 
 All.propTypes = {
@@ -44,7 +46,7 @@ All.propTypes = {
 All.defaultProps = {
   children: null,
   style: null,
-  statusBarBgColor: COLOR_BG_DARK,
+  statusBarBgColor: 'transparent',
   statusBarStyle: 'light-content',
 };
 

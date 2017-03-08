@@ -32,7 +32,7 @@ All.propTypes = {
 All.defaultProps = {
   children: null,
   style: null,
-  statusBarBgColor: COLOR_BG_DARK,
+  statusBarBgColor: 'transparent',
   statusBarStyle: 'light-content',
 };
 ```

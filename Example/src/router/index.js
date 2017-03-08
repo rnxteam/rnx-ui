@@ -1,3 +1,4 @@
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 /**
  * @providesModule BizRouter
  */
@@ -15,6 +16,12 @@ const Router = {
   navigator: null,
   pages: {},
   register(name, component) {
+    if (name in Router.pages) {
+      // wait for YellowBox
+      setTimeout(() => {
+        console.warn(`[Router] Page name '${name}' has been registered.`);
+      });
+    }
     Router.pages[name] = component;
   },
   open(name) {
