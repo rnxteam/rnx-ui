@@ -129,7 +129,7 @@ class DynamicText extends Component {
                 },
               ]}
               onLayout={this.textLayout}
-            >{this.props.text}</Animated.Text>
+            >{this.props.children}</Animated.Text>
           </View>
         </View>
       </View>
@@ -143,7 +143,7 @@ DynamicText.propTypes = {
   // 自定义文本样式
   textStyle: Text.propTypes.style,
   // 显示文本
-  text: PropTypes.string,
+  children: PropTypes.string,
   // 文字循环模式，默认reverse
   // reverse：轮转到末尾后再轮转回开头
   // restart: 轮转到末尾后返回至开头重新循环
@@ -156,7 +156,7 @@ DynamicText.propTypes = {
 DynamicText.defaultProps = {
   style: null,
   textStyle: null,
-  text: null,
+  children: null,
   mode: MODE_REVERSE,
   bufferTime: 500,
   speed: 5,

@@ -49,8 +49,7 @@ class Page extends Component {
             <DynamicText
               style={styles.reverse}
               textStyle={styles.reverseText}
-              text="开始:测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字:结束"
-            />
+            >开始:测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字:结束</DynamicText>
           </Article>
           <Article title="mode: restart, speed:10, bufferTime: 1000">
             <DynamicText
@@ -58,15 +57,13 @@ class Page extends Component {
               mode="restart"
               speed={10}
               bufferTime={1000}
-              text="开始:测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字:结束"
-            />
+            >开始:测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字:结束</DynamicText>
           </Article>
           <Article title="文字不超长，居中显示">
             <DynamicText
               style={styles.center}
               textStyle={styles.centerText}
-              text="测试文字"
-            />
+            >测试文字</DynamicText>
           </Article>
         </ScrollView>
       </All>
