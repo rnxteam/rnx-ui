@@ -3,6 +3,7 @@ import './AddAndSubtract';
 import './Badge';
 import './Btn';
 import './Drop';
+import './DymanicText';
 import './HeaderedSheet';
 import './ImgHolder';
 import './ImgRollView';
