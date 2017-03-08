@@ -1,19 +1,19 @@
-# DymanicText
+# DynamicText
 
 **文本框，文字超长时滚动显示**
 
 ## Demo
 
-![DymanicText](http://wx2.sinaimg.cn/mw690/955e9ff1ly1fdfh4vydffg20b40hse84.gif)
+![DynamicText](http://wx2.sinaimg.cn/mw690/955e9ff1ly1fdfh4vydffg20b40hse84.gif)
 
 ## Example
 
 ```js
-import DymanicText from 'rnx-ui/DymanicText';
+import DynamicText from 'rnx-ui/DynamicText';
 
 function Example(props) {
   return (
-    <DymanicText>自定义文字</DymanicText>
+    <DynamicText>自定义文字</DynamicText>
   );
 }
 ```
@@ -21,7 +21,7 @@ function Example(props) {
 ## Props
 
 ```js
-DymanicText.propTypes = {
+DynamicText.propTypes = {
   // 自定义wrapper样式
   style: View.propTypes.style,
   // 自定义文本样式
@@ -37,7 +37,7 @@ DymanicText.propTypes = {
   // 文字滚动速度，默认5，数字越大，速度越快
   speed: PropTypes.number,
 };
-DymanicText.defaultProps = {
+DynamicText.defaultProps = {
   style: null,
   textStyle: null,
   text: null,
