@@ -4,7 +4,7 @@
 
 ## Demo
 
-![DymanicText](http://wx2.sinaimg.cn/mw690/955e9ff1ly1fdfgjpfjzqg20a006oano.gif)
+![DymanicText](http://wx2.sinaimg.cn/mw690/955e9ff1ly1fdfh4vydffg20b40hse84.gif)
 
 ## Example
 
