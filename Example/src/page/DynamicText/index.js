@@ -6,7 +6,7 @@ import {
   ScrollView,
 } from 'react-native';
 import All from 'rnx-ui/All';
-import DymanicText from 'rnx-ui/DymanicText';
+import DynamicText from 'rnx-ui/DynamicText';
 import {
   Article,
   NavBar,
@@ -43,17 +43,17 @@ class Page extends Component {
   render() {
     return (
       <All>
-        <NavBar title="DymanicText" />
+        <NavBar title="DynamicText" />
         <ScrollView style={styles.scrollView}>
           <Article title="默认mode：reverse, 默认speed:5, 默认bufferTime:500">
-            <DymanicText
+            <DynamicText
               style={styles.reverse}
               textStyle={styles.reverseText}
               text="开始:测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字:结束"
             />
           </Article>
           <Article title="mode: restart, speed:10, bufferTime: 1000">
-            <DymanicText
+            <DynamicText
               style={styles.restart}
               mode="restart"
               speed={10}
@@ -62,7 +62,7 @@ class Page extends Component {
             />
           </Article>
           <Article title="文字不超长，居中显示">
-            <DymanicText
+            <DynamicText
               style={styles.center}
               textStyle={styles.centerText}
               text="测试文字"
@@ -74,6 +74,6 @@ class Page extends Component {
   }
 }
 
-Router.register('DymanicText', Page);
+Router.register('DynamicText', Page);
 
 export default Page;

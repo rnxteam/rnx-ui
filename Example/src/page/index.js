@@ -4,7 +4,7 @@ import './AddAndSubtract';
 import './Badge';
 import './Btn';
 import './Drop';
-import './DymanicText';
+import './DynamicText';
 import './HeaderedSheet';
 import './ImgHolder';
 import './ImgPicker';

@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 const MODE_RESTART = 'restart';
 const MODE_REVERSE = 'reverse';
 
-class DymanicText extends Component {
+class DynamicText extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -134,7 +134,7 @@ class DymanicText extends Component {
   }
 }
 
-DymanicText.propTypes = {
+DynamicText.propTypes = {
   // 自定义wrapper样式
   style: View.propTypes.style,
   // 自定义文本样式
@@ -150,7 +150,7 @@ DymanicText.propTypes = {
   // 文字滚动速度，默认5，数字越大，速度越快
   speed: PropTypes.number,
 };
-DymanicText.defaultProps = {
+DynamicText.defaultProps = {
   style: null,
   textStyle: null,
   text: null,
@@ -159,4 +159,4 @@ DymanicText.defaultProps = {
   speed: 5,
 };
 
-export default DymanicText;
+export default DynamicText;
