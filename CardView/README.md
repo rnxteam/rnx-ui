@@ -4,6 +4,10 @@
 
 以卡片样式浏览，并可以设置激活卡片样式。
 
+### ⚠️ 注意
+
+CardView 会为卡片添加 `isActiveRnxUiCardView` 属性，激活卡片值为 `true`，其他卡片是 `false`。
+
 ## Demo
 
 ![CardView](http://wx3.sinaimg.cn/mw690/4c8b519dly1fdgvohgt53g20hs0wsaip.gif)
