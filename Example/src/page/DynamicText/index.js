@@ -20,7 +20,8 @@ import {
 const styles = StyleSheet.create({
   reverse: {
     backgroundColor: COLOR_THEME,
-    paddingHorizontal: 10,
+    // paddingHorizontal: 10,
+    marginHorizontal: 20,
   },
   reverseText: {
     color: '#fff',
@@ -51,20 +52,7 @@ class Page extends Component {
               textStyle={styles.reverseText}
             >开始:测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字:结束</DynamicText>
           </Article>
-          <Article title="mode: restart, speed:10, bufferTime: 1000">
-            <DynamicText
-              style={styles.restart}
-              mode="restart"
-              speed={10}
-              bufferTime={1000}
-            >开始:测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字:结束</DynamicText>
-          </Article>
-          <Article title="文字不超长，居中显示">
-            <DynamicText
-              style={styles.center}
-              textStyle={styles.centerText}
-            >测试文字</DynamicText>
-          </Article>
+          
         </ScrollView>
       </All>
     );

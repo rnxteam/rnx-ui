@@ -14,26 +14,15 @@ import {
 } from 'react-native';
 
 const styles = StyleSheet.create({
-  wrapper: {
-    height: 45,
-    overflow: 'hidden',
-  },
   container: {
-    flex: 1,
     overflow: 'hidden',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'red',
   },
-  contentContainer: {
-    alignSelf: 'flex-start',
+  realWidthHelper: {
     width: 10000,
-    height: 45,
-  },
-  text: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    marginTop: 22.5,
+    borderWidth: 1,
+    borderColor: 'blue',
   },
 });
 
@@ -43,13 +32,43 @@ const MODE_REVERSE = 'reverse';
 class DynamicText extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       translateX: new Animated.Value(0),
     };
+
+    this.hasRealWidth = false;
+
+    this.onContainerLayout = this.onContainerLayout.bind(this);
+    this.onTextLayout = this.onTextLayout.bind(this);
     this.scrollText = this.scrollText.bind(this);
-    this.containerLayout = this.containerLayout.bind(this);
-    this.textLayout = this.textLayout.bind(this);
   }
+
+  onContainerLayout({ nativeEvent }) {
+    this.containerWidth = nativeEvent.layout.width;
+  }
+  onTextLayout({ nativeEvent }) {
+    console.log(nativeEvent.layout.width)
+    this.setState({
+      textWidth: nativeEvent.layout.width,
+    }, () => {
+      this.check();
+    });
+
+    // this.hasRealWidth = true;
+  }
+
+  check() {
+    const { containerWidth, textWidth } = this.state;
+    const offSet = this.containerWidth - textWidth;
+// debugger
+    // if (!isNaN(offSet)) {
+      if (offSet < 0) {
+        this.scrollText(offSet, true);
+      }
+    // }
+  }
+
   scrollText(offSet, isPositionStart) {
     setTimeout(() => {
       Animated.timing(this.state.translateX, {
@@ -70,67 +89,31 @@ class DynamicText extends Component {
       });
     }, this.props.bufferTime);
   }
-  containerLayout({ nativeEvent }) {
-    this.setState({
-      viewWidth: nativeEvent.layout.width,
-    });
-  }
-  textLayout({ nativeEvent }) {
-    this.setState({
-      textWidth: nativeEvent.layout.width,
-      textHeight: nativeEvent.layout.height,
-    });
-  }
-  render() {
-    const { viewWidth, textWidth, textHeight } = this.state;
-    const offSet = viewWidth - textWidth;
-    const contentContainerStyle = {};
-    const textStyle = {};
-    const propStyle = StyleSheet.flatten(this.props.style);
 
-    if (!isNaN(offSet)) {
-      if (offSet < 0) {
-        this.scrollText(offSet, true);
-      } else {
-        // 若文字长度不超过容器，使container居中显示
-        contentContainerStyle.alignSelf = 'center';
-        contentContainerStyle.width = textWidth;
-      }
-    }
-    // 如果更改了wrapper height，更新contentContainer的高度
-    if (propStyle && propStyle.height) {
-      contentContainerStyle.height = propStyle.height;
-      textStyle.marginTop = propStyle.height / 2;
-    }
-    // 使文字垂直居中
-    if (textHeight) {
-      contentContainerStyle.transform = [{
-        translateY: -textHeight / 2,
-      }];
-    }
+
+  render() {
     return (
-      <View style={[styles.wrapper, this.props.style]}>
-        <View
-          style={styles.container}
-          onLayout={this.containerLayout}
-        >
-          <View style={[styles.contentContainer, contentContainerStyle]}>
-            <Animated.Text
-              numberOfLines={1}
-              style={[
-                styles.text,
-                textStyle,
-                this.props.textStyle, {
-                  transform: [
-                    {
-                      translateX: this.state.translateX,
-                    },
-                  ],
-                },
-              ]}
-              onLayout={this.textLayout}
-            >{this.props.children}</Animated.Text>
-          </View>
+      <View
+        style={[styles.container, this.props.style]}
+        onLayout={this.onContainerLayout}
+      >
+        <View style={{
+          width: this.props.maxWidth,
+        }}>
+          <Animated.Text
+            style={[
+              this.props.textStyle,
+              {
+                position: 'absolute',
+                transform: [{
+                  translateX: this.state.translateX,
+                }],
+              },
+            ]}
+            onLayout={this.onTextLayout}
+          >
+            {this.props.children}
+          </Animated.Text>
         </View>
       </View>
     );
@@ -152,6 +135,7 @@ DynamicText.propTypes = {
   bufferTime: PropTypes.number,
   // 文字滚动速度，默认5，数字越大，速度越快
   speed: PropTypes.number,
+  maxWidth: PropTypes.number,
 };
 DynamicText.defaultProps = {
   style: null,
@@ -160,6 +144,7 @@ DynamicText.defaultProps = {
   mode: MODE_REVERSE,
   bufferTime: 500,
   speed: 5,
+  maxWidth: 1000,
 };
 
 export default DynamicText;
