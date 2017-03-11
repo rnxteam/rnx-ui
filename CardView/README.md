@@ -4,6 +4,8 @@
 
 以卡片样式浏览，并可以设置激活卡片样式。
 
+通过 `getEl` 属性获取 CardView 实例，调用 `scrollToCard` 方法可以
+
 ### ⚠️ 注意
 
 CardView 会为卡片添加 `isActiveRnxUiCardView` 属性，激活卡片值为 `true`，其他卡片是 `false`。
@@ -77,3 +79,11 @@ CardView.defaultProps = {
   getEl: NOOP,
 };
 ```
+
+## Methods
+
+### scrollToCard(index)
+
+- **index**: {Number} 卡片序号
+
+跳转至指定卡片

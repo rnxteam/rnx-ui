@@ -47,14 +47,7 @@ class CardView extends Component {
 
   componentWillMount() {
     this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponderCapture: () => {
-        // 触摸时立刻停止当前动作
-        clearInterval(this.intervalId);
-        clearInterval(this.refreshControlIntervalId);
-        return false;
-      },
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponderCapture: () => false,
+      onMoveShouldSetPanResponderCapture: () => true,
       onPanResponderMove: (evt, gestureState) => {
         // console.log('Move');
         // 开始移动
