@@ -37,7 +37,7 @@ class DynamicText extends Component {
       translateX: new Animated.Value(0),
     };
 
-    this.hasRealWidth = false;
+    this.hasLayout = false;
 
     this.onContainerLayout = this.onContainerLayout.bind(this);
     this.onTextLayout = this.onTextLayout.bind(this);
@@ -48,14 +48,13 @@ class DynamicText extends Component {
     this.containerWidth = nativeEvent.layout.width;
   }
   onTextLayout({ nativeEvent }) {
-    console.log(nativeEvent.layout.width)
+    this.hasLayout = true;
+    console.log(nativeEvent.layout.width);
     this.setState({
       textWidth: nativeEvent.layout.width,
     }, () => {
       this.check();
     });
-
-    // this.hasRealWidth = true;
   }
 
   check() {
@@ -104,7 +103,7 @@ class DynamicText extends Component {
             style={[
               this.props.textStyle,
               {
-                position: 'absolute',
+                position: this.hasLayout ? 'relative' : 'absolute',
                 transform: [{
                   translateX: this.state.translateX,
                 }],
