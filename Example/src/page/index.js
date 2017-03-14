@@ -3,6 +3,7 @@ import './Alert';
 import './AddAndSubtract';
 import './Badge';
 import './Btn';
+import './CardView';
 import './Drop';
 import './DynamicText';
 import './HeaderedSheet';

@@ -41,6 +41,6 @@ Template.defaultProps = {
 };
 ```
 
-## Other Points
+## Methods
 
--
+- `method(a, b)`
