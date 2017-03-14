@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 0, 0, 0.2)',
   },
   textWrapper: {
-    borderRadius: 5,
+    borderRadius: 0,
+    backgroundColor: 'yellow',
   },
   text: {
     color: 'red',
