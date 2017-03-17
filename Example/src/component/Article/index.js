@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 function Article(props) {
   return (
     <View style={[styles.all, props.style]}>
-      <View style={styles.title}>
+      <View style={[styles.title, props.titleStyle]}>
         <Text style={styles.titleText}>
           { props.title }
         </Text>
@@ -42,12 +42,15 @@ Article.propTypes = {
   style: View.propTypes.style,
   // 标题
   title: PropTypes.string,
+  // 标题样式
+  titleStyle: View.propTypes.style,
 };
 
 Article.defaultProps = {
   children: null,
   style: null,
   title: '',
+  titleStyle: null,
 };
 
 export default Article;

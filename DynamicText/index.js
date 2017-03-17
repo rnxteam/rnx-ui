@@ -16,8 +16,6 @@ import {
 const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: 'red',
   },
   realWidthHelper: {
     width: 10000,
@@ -37,19 +35,36 @@ class DynamicText extends Component {
       translateX: new Animated.Value(0),
     };
 
-    this.hasLayout = false;
+    this.hasTextLayout = false;
+    this.hasContainerLayout = false;
 
     this.onContainerLayout = this.onContainerLayout.bind(this);
     this.onTextLayout = this.onTextLayout.bind(this);
     this.scrollText = this.scrollText.bind(this);
   }
 
+  componentWillUpdate(nextProps) {
+    if (nextProps.children !== this.props.children) {
+      this.hasTextLayout = false;
+    }
+  }
+
   onContainerLayout({ nativeEvent }) {
+    const oldContainerWidth = this.containerWidth;
     this.containerWidth = nativeEvent.layout.width;
+    // console.log(this.containerWidth)
+
+    if (this.containerWidth !== oldContainerWidth) {
+      this.hasContainerLayout = true;
+    }
+
+    this.check();
   }
   onTextLayout({ nativeEvent }) {
-    this.hasLayout = true;
-    console.log(nativeEvent.layout.width);
+    if (this.hasTextLayout) {
+      return;
+    }
+    this.hasTextLayout = true;
     this.setState({
       textWidth: nativeEvent.layout.width,
     }, () => {
@@ -58,14 +73,18 @@ class DynamicText extends Component {
   }
 
   check() {
-    const { containerWidth, textWidth } = this.state;
-    const offSet = this.containerWidth - textWidth;
-// debugger
-    // if (!isNaN(offSet)) {
-      if (offSet < 0) {
-        this.scrollText(offSet, true);
+    if (this.hasContainerLayout && this.hasTextLayout) {
+      this.hasContainerLayout = false;
+
+      const { textWidth } = this.state;
+      const offSet = this.containerWidth - textWidth;
+
+      if (!isNaN(offSet)) {
+        if (offSet < 0) {
+          this.scrollText(offSet, true);
+        }
       }
-    // }
+    }
   }
 
   scrollText(offSet, isPositionStart) {
@@ -96,14 +115,16 @@ class DynamicText extends Component {
         style={[styles.container, this.props.style]}
         onLayout={this.onContainerLayout}
       >
-        <View style={{
-          width: this.props.maxWidth,
-        }}>
+        <View
+          style={{
+            width: this.props.maxWidth,
+          }}
+        >
           <Animated.Text
             style={[
               this.props.textStyle,
               {
-                position: this.hasLayout ? 'relative' : 'absolute',
+                position: this.hasTextLayout ? 'relative' : 'absolute',
                 transform: [{
                   translateX: this.state.translateX,
                 }],
@@ -125,7 +146,7 @@ DynamicText.propTypes = {
   // 自定义文本样式
   textStyle: Text.propTypes.style,
   // 显示文本
-  children: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // 文字循环模式，默认reverse
   // reverse：轮转到末尾后再轮转回开头
   // restart: 轮转到末尾后返回至开头重新循环
