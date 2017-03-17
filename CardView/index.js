@@ -47,7 +47,11 @@ class CardView extends Component {
 
   componentWillMount() {
     this.panResponder = PanResponder.create({
-      onMoveShouldSetPanResponderCapture: () => true,
+      onMoveShouldSetPanResponderCapture: (evt, gestureState) => (
+        // PanResponder blocking child Touchable on 6s
+        // https://github.com/facebook/react-native/issues/3082#issuecomment-191338207
+        gestureState.dx !== 0 && gestureState.dy !== 0
+      ),
       onPanResponderMove: (evt, gestureState) => {
         // console.log('Move');
         // 开始移动
