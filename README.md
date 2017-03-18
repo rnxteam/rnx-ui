@@ -30,7 +30,7 @@ function Demo(props) {
 
 ## Overview
 
-`🖌` designing(8) `🛠` developing(1) `✅` done(26)
+`🖌` designing(8) `🛠` developing(1) `✅` done(29)
 
 ### Component
 
