@@ -47,7 +47,11 @@ class CardView extends Component {
 
   componentWillMount() {
     this.panResponder = PanResponder.create({
-      onMoveShouldSetPanResponderCapture: () => true,
+      onMoveShouldSetPanResponderCapture: (evt, gestureState) => (
+        // PanResponder blocking child Touchable on 6s
+        // https://github.com/facebook/react-native/issues/3082#issuecomment-191338207
+        gestureState.dx !== 0
+      ),
       onPanResponderMove: (evt, gestureState) => {
         // console.log('Move');
         // 开始移动
@@ -123,10 +127,12 @@ class CardView extends Component {
   scrollToCard(index) {
     // console.log('[scrollToCard] start');
     const maxIndex = this.props.maxIndex;
-    let targetIndex = index;
+    let targetIndex = this.getClosestCard();
 
-    if (typeof targetIndex !== 'number') {
-      targetIndex = this.getClosestCard();
+    if (this.activeIndex === targetIndex) {
+      if (typeof index === 'number') {
+        targetIndex = index;
+      }
     }
 
     if (typeof maxIndex === 'number') {

@@ -85,6 +85,12 @@ class Page extends Component {
     this.updateCards();
   }
 
+  onCardPress() {
+    /* eslint-disable */
+    alert('Pressed!');
+    /* eslint-enable */
+  }
+
   onChange(index) {
     this.currentCardIndex = index;
   }
@@ -107,7 +113,7 @@ class Page extends Component {
               backgroundColor: item,
             }]}
           >
-            <Text style={styles.cardText}>
+            <Text style={styles.cardText} onPress={this.onCardPress} >
               {index}
             </Text>
           </View>
