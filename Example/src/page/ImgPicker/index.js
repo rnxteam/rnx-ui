@@ -36,6 +36,8 @@ const MAX_PHOTOS_NUMBER = 2;
 const IMAGE_URI = 'http://tva1.sinaimg.cn/crop.0.0.217.217.180/4c8b519djw8fa45br0vpxj2062062q33.jpg';
 
 class Page extends Component {
+  static section = 'Data Entry';
+
   constructor(props) {
     super(props);
     this.state = {

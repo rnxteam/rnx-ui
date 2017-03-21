@@ -42,6 +42,8 @@ const styles = StyleSheet.create({
 });
 
 class Page extends Component {
+  static section = 'Data Entry';
+
   constructor(props) {
     super(props);
     this.mockSuccess = true;

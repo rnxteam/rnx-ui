@@ -11,6 +11,8 @@ import { NavBar, Icon } from 'BizComponent';
 import style from './styles';
 
 class Page extends Component {
+  static section = 'Data Entry';
+
   constructor(props) {
     super(props);
 

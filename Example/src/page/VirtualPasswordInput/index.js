@@ -28,6 +28,8 @@ const PSWD_MAX_LENGTH = {
 };
 
 class Page extends Component {
+  static section = 'Data Entry';
+
   constructor(props) {
     super(props);
 

@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
 });
 
 class Page extends Component {
+  static section = 'Data Entry';
+
   render() {
     return (
       <All>

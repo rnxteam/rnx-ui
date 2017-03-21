@@ -72,6 +72,8 @@ function Page() {
   );
 }
 
+Page.section = 'Data Display';
+
 Router.register('Badge', Page);
 
 export default Page;

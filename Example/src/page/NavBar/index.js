@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
 });
 
 class Page extends Component {
+  static section = 'Navigation';
+
   constructor(props) {
     super(props);
     this.state = {

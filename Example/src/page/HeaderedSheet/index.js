@@ -22,6 +22,8 @@ const items = [
 ];
 
 class Page extends Component {
+  static section = 'Feedback';
+
   constructor(props) {
     super(props);
     this.state = {

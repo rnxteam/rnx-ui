@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
 });
 
 class Page extends Component {
+  static section = 'Data Display';
+
   constructor(props) {
     super(props);
     this.state = {

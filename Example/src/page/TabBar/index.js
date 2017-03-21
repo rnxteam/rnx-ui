@@ -42,6 +42,8 @@ const TabBarItems = [{
 }];
 
 class Page extends Component {
+  static section = 'Navigation';
+
   constructor(props) {
     super(props);
     this.state = {
