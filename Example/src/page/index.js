@@ -1,9 +1,11 @@
 import './ActionSheet';
-import './Alert';
 import './AddAndSubtract';
+import './Alert';
 import './Badge';
 import './Btn';
 import './CardView';
+import './Confirm';
+import './Dialog';
 import './Drop';
 import './DynamicText';
 import './HeaderedSheet';

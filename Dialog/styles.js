@@ -14,7 +14,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  alert: {
+  dialog: {
     width: 280,
     borderRadius: BORDER_RADIUS,
     backgroundColor: '#fff',

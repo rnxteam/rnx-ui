@@ -7,7 +7,7 @@ import {
   Text,
 } from 'react-native';
 import All from 'rnx-ui/All';
-import Alert from 'rnx-ui/Alert';
+import Confirm from 'rnx-ui/Confirm';
 import {
   NavBar,
   List,
@@ -15,10 +15,10 @@ import {
 import Router from 'BizRouter';
 
 const styles = StyleSheet.create({
-  alert: {
+  confirm: {
     width: 200,
   },
-  title: {
+  redText: {
     color: 'red',
   },
   titleContainer: {
@@ -26,14 +26,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 5,
   },
-  message: {
-    color: 'red',
-  },
   buttonsContainer: {
     height: 60,
-  },
-  buttonText: {
-    color: 'red',
   },
 });
 
@@ -53,8 +47,6 @@ const items = [
 ];
 
 class Page extends Component {
-  static section = 'Feedback';
-
   constructor(props) {
     super(props);
     this.state = {
@@ -83,42 +75,46 @@ class Page extends Component {
   render() {
     return (
       <All>
-        <NavBar title="Alert" />
+        <NavBar title="Confirm" />
         <List
           items={items}
           pressContext={this}
         />
-        <Alert
+        <Confirm
           visible={this.state.demo0}
           title="无法连接服务器"
           message="未能完成所请求的操作，因为与服务器的通信出错。"
-          onPress={this.hideMaker(0)}
+          onCancel={this.hideMaker(0)}
+          onConfirm={this.hideMaker(0)}
         />
-        <Alert
+        <Confirm
           visible={this.state.demo1}
           title="自定义"
-          titleStyle={styles.title}
+          titleStyle={styles.redText}
           message={(
             <View>
               <Text>
                 配置
               </Text>
-              <Text style={styles.message}>
+              <Text style={styles.redText}>
                 message
               </Text>
             </View>
           )}
           buttonsContainerStyle={styles.buttonsContainer}
-          buttonText="吼啊"
-          buttonTextStyle={styles.buttonText}
-          onPress={this.hideMaker(1)}
-          style={styles.alert}
+          cancelText="不吼"
+          cancelTextStyle={styles.redText}
+          onCancel={this.hideMaker(1)}
+          confirmText="吼啊"
+          confirmTextStyle={styles.redText}
+          onConfirm={this.hideMaker(1)}
+          style={styles.confirm}
         />
       </All>
     );
   }
 }
 
-Router.register('Alert', Page);
+Router.register('Confirm', Page);
 
 export default Page;
