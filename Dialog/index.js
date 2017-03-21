@@ -136,7 +136,7 @@ Dialog.propTypes = {
   overlayStyle: View.propTypes.style,
 };
 Dialog.defaultProps = {
-  visible: true,
+  visible: false,
   title: '',
   titleStyle: null,
   message: '',
