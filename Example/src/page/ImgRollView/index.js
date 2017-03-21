@@ -55,10 +55,7 @@ class Page extends Component {
         <Alert
           visible={visible}
           message={uriSelected.join('\n')}
-          buttons={[{
-            text: '吼啊',
-            onPress: this.toggleURIList,
-          }]}
+          onPress={this.toggleURIList}
         />
       </All>
     );

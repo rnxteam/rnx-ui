@@ -94,6 +94,22 @@ class Page extends Component {
   onChange(index) {
     this.currentCardIndex = index;
   }
+  onPass(index) {
+    /* eslint-disable */
+    console.log('Passed:', index);
+    /* eslint-enable */
+  }
+
+  onStartReached() {
+    /* eslint-disable */
+    alert('onStartReached!');
+    /* eslint-enable */
+  }
+  onEndReached() {
+    /* eslint-disable */
+    alert('onEndReached!');
+    /* eslint-enable */
+  }
 
   getCardView(cardView) {
     this.cardView = cardView;
@@ -158,8 +174,11 @@ class Page extends Component {
           cardWidth={this.cardWidth}
           cardGap={20}
           onChange={this.onChange}
+          onPass={this.onPass}
           minGestureDistance={50}
           maxIndex={this.state.cardViewMaxIndex}
+          onStartReached={this.onStartReached}
+          onEndReached={this.onEndReached}
         />
         <View style={styles.btns}>
           <Btn style={styles.btn} onPress={this.goNext}>

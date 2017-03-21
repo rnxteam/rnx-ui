@@ -54,8 +54,10 @@ CardView.propTypes = {
   cardGap: PropTypes.number,
   // 自定义内容容器样式
   contentContainerStyle: View.propTypes.style,
-  // 卡片切换时的回调
+  // 卡片切换时的回调，参数为当前激活的卡片序号
   onChange: PropTypes.func,
+  // 卡片经过时的回调，参数为当前经过的卡片序号
+  onPass: PropTypes.func,
   // 速度指数
   v: PropTypes.number,
   // 手势滑动触发最小距离（默认需要滑动卡片一半的距离）
@@ -64,6 +66,10 @@ CardView.propTypes = {
   maxIndex: PropTypes.number,
   // 获取元素回调
   getEl: PropTypes.func,
+  // 到达顶部回调
+  onStartReached: PropTypes.func,
+  // 到达底部回调
+  onEndReached: PropTypes.func,
 };
 CardView.defaultProps = {
   style: null,
@@ -72,11 +78,14 @@ CardView.defaultProps = {
   cardWidth: 200,
   cardGap: 0,
   contentContainerStyle: null,
-  onChange: () => {},
+  onChange: NOOP,
+  onPass: NOOP,
   v: 20,
   minGestureDistance: null,
   maxIndex: null,
   getEl: NOOP,
+  onStartReached: NOOP,
+  onEndReached: NOOP,
 };
 ```
 

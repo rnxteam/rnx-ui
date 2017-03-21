@@ -1,59 +1,31 @@
 # Alert
 
-**警告弹框**
+**警告弹框组件**
 
 ## Demo
 
-![Alert](http://wx1.sinaimg.cn/mw690/4c8b519dly1fcg1ejqa8og20hs0wsqmr.gif)
-
-## Example
-
-```js
-import Alert from 'rnx-ui/Alert';
-
-function Example(props) {
-  return (
-    <Alert
-      visible={this.state.visible}
-      title="无法连接服务器"
-      message="未能完成所请求的操作，因为与服务器的通信出错。"
-      buttons={[{
-        text: '吼啊',
-        onPress: this.hide,
-      }]}
-    />
-  );
-}
-```
+![Alert](http://wx4.sinaimg.cn/mw690/4c8b519dly1fduijhj36dg20hs0ws48p.gif)
 
 ## Props
 
 ```js
 Alert.propTypes = {
-  // 是否显示
-  visible: PropTypes.bool,
-  // 标题
-  title: PropTypes.string,
-  // 内容
-  message: PropTypes.string,
-  // 按钮
-  buttons: PropTypes.arrayOf(PropTypes.shape({
-    text: PropTypes.string,
-    style: Text.propTypes.style,
-    onPress: PropTypes.func,
-  })),
-  // 遮罩层样式
-  overlayStyle: View.propTypes.style,
+  ...Dialog.propTypes,
+  // 按钮文本
+  buttonText: PropTypes.string,
+  // 按钮文本样式
+  buttonTextStyle: Text.propTypes.style,
+  // 按钮点击回调
+  onPress: PropTypes.func,
 };
 Alert.defaultProps = {
-  visible: true,
-  title: '',
-  message: '',
-  buttons: [{
-    text: '好',
-    style: null,
-    onPress: NOOP,
-  }],
-  overlayStyle: null,
+  ...Dialog.defaultProps,
+  buttonText: '好',
+  buttonTextStyle: null,
+  onPress: NOOP,
 };
 ```
+
+## Other Points
+
+- 内部封装了 Dialog 组件，覆盖了 Dialog 的 `buttons` 属性，其他不变，请参考 [Dialog](https://github.com/dragonwong/rnx-ui/tree/master/Dialog)

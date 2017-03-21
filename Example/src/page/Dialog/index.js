@@ -7,7 +7,7 @@ import {
   Text,
 } from 'react-native';
 import All from 'rnx-ui/All';
-import Alert from 'rnx-ui/Alert';
+import Dialog from 'rnx-ui/Dialog';
 import {
   NavBar,
   List,
@@ -15,7 +15,7 @@ import {
 import Router from 'BizRouter';
 
 const styles = StyleSheet.create({
-  alert: {
+  dialog: {
     width: 200,
   },
   title: {
@@ -31,9 +31,6 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     height: 60,
-  },
-  buttonText: {
-    color: 'red',
   },
 });
 
@@ -81,18 +78,21 @@ class Page extends Component {
   render() {
     return (
       <All>
-        <NavBar title="Alert" />
+        <NavBar title="Dialog" />
         <List
           items={items}
           pressContext={this}
         />
-        <Alert
+        <Dialog
           visible={this.state.demo0}
           title="无法连接服务器"
           message="未能完成所请求的操作，因为与服务器的通信出错。"
-          onPress={this.hideMaker(0)}
+          buttons={[{
+            text: '好',
+            onPress: this.hideMaker(0),
+          }]}
         />
-        <Alert
+        <Dialog
           visible={this.state.demo1}
           title="自定义"
           titleStyle={styles.title}
@@ -107,16 +107,26 @@ class Page extends Component {
             </View>
           )}
           buttonsContainerStyle={styles.buttonsContainer}
-          buttonText="吼啊"
-          buttonTextStyle={styles.buttonText}
-          onPress={this.hideMaker(1)}
-          style={styles.alert}
+          buttons={[{
+            text: '1',
+            onPress: this.hideMaker(1),
+          }, {
+            text: '2',
+            onPress: this.hideMaker(1),
+          }, {
+            text: '3',
+            onPress: this.hideMaker(1),
+            style: {
+              fontWeight: 'bold',
+            },
+          }]}
+          style={styles.dialog}
         />
       </All>
     );
   }
 }
 
-Router.register('Alert', Page);
+Router.register('Dialog', Page);
 
 export default Page;

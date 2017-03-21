@@ -116,7 +116,11 @@ class CardView extends Component {
 
     // 当前所在区域
     const currentIndex = Math.floor(Math.abs(x / this.cardSpaceWidth));
-    this.currentIndex = currentIndex;
+
+    if (this.currentIndex !== currentIndex) {
+      this.currentIndex = currentIndex;
+      this.props.onPass(currentIndex);
+    }
 
     this.setState({
       x,
@@ -144,9 +148,11 @@ class CardView extends Component {
     if (targetIndex >= this.cardsQuantity) {
       // console.warn(`Target card index ${targetIndex} is greater than cards
       //  quantity ${this.cardsQuantity}`);
+      this.props.onEndReached();
       targetIndex = this.cardsQuantity - 1;
     } else if (targetIndex < 0) {
       // console.warn(`Target card index ${targetIndex} is less than 0`);
+      this.props.onStartReached();
       targetIndex = 0;
     } else if (this.cardsQuantity < 0) {
       // console.warn(`Target card index ${targetIndex} must not be less than 0`);
@@ -254,8 +260,10 @@ CardView.propTypes = {
   cardGap: PropTypes.number,
   // 自定义内容容器样式
   contentContainerStyle: View.propTypes.style,
-  // 卡片切换时的回调
+  // 卡片切换时的回调，参数为当前激活的卡片序号
   onChange: PropTypes.func,
+  // 卡片经过时的回调，参数为当前经过的卡片序号
+  onPass: PropTypes.func,
   // 速度指数
   v: PropTypes.number,
   // 手势滑动触发最小距离（默认需要滑动卡片一半的距离）
@@ -264,6 +272,10 @@ CardView.propTypes = {
   maxIndex: PropTypes.number,
   // 获取元素回调
   getEl: PropTypes.func,
+  // 到达顶部回调
+  onStartReached: PropTypes.func,
+  // 到达底部回调
+  onEndReached: PropTypes.func,
 };
 CardView.defaultProps = {
   style: null,
@@ -272,11 +284,14 @@ CardView.defaultProps = {
   cardWidth: 200,
   cardGap: 0,
   contentContainerStyle: null,
-  onChange: () => {},
+  onChange: NOOP,
+  onPass: NOOP,
   v: 20,
   minGestureDistance: null,
   maxIndex: null,
   getEl: NOOP,
+  onStartReached: NOOP,
+  onEndReached: NOOP,
 };
 
 export default CardView;
