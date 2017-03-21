@@ -51,6 +51,7 @@ Dialog.propTypes = {
     // 按钮点击回调
     onPress: PropTypes.func,
   })),
+  // 弹框样式
   style: View.propTypes.style,
   // 遮罩层样式
   overlayStyle: View.propTypes.style,

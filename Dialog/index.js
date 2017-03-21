@@ -130,6 +130,7 @@ Dialog.propTypes = {
     onPress: PropTypes.func,
     /* eslint-enable */
   })),
+  // 弹框样式
   style: View.propTypes.style,
   // 遮罩层样式
   overlayStyle: View.propTypes.style,

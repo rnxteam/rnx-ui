@@ -87,6 +87,7 @@ class Overlay extends Component {
           style={[styles.all, {
             opacity: this.state.opacity,
           }, this.props.style]}
+          pointerEvents={this.props.pointerEvents}
         >
           {this.props.children}
         </Animated.View>
@@ -104,6 +105,8 @@ Overlay.propTypes = {
   style: View.propTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  // 控制 Overlay 是否可以作为触控事件的目标
+  pointerEvents: View.propTypes.pointerEvents,
   // 动画时长
   duration: PropTypes.number,
 };
@@ -112,6 +115,7 @@ Overlay.defaultProps = {
   onPress: NOOP,
   style: null,
   children: null,
+  pointerEvents: 'auto',
   duration: 200,
 };
 
