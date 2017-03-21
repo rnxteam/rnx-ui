@@ -64,7 +64,7 @@ List.propTypes = {
   // 自定义样式
   style: ListView.propTypes.style,
   // 列表项
-  items: PropTypes.object,
+  items: ListItem.propTypes.item,
   sectionIds: PropTypes.arrayOf(PropTypes.string),
   rowIds: PropTypes.arrayOf(PropTypes.array),
   // onPress 回调上下文
