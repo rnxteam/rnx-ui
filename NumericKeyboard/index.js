@@ -43,7 +43,7 @@ const NOOP = () => {};
 class NumericKeyboard extends Component {
   render() {
     return (
-      <View style={styles.all}>
+      <View style={[styles.all, this.props.style]}>
         {
           KEYS.map((line, lineLndex) => (
             <View
@@ -96,12 +96,15 @@ class NumericKeyboard extends Component {
 }
 
 NumericKeyboard.propTypes = {
+  // 自定义样式
+  style: View.propTypes.style,
   // 按键回调
   onPress: PropTypes.func,
   // 删除键内容
   deleteKeyContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.array]),
 };
 NumericKeyboard.defaultProps = {
+  style: null,
   onPress: NOOP,
   deleteKeyContent: <Image source={delImgSource} />,
 };

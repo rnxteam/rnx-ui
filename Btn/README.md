@@ -36,6 +36,8 @@ Btn.propTypes = {
   activeOpacity: PropTypes.number,
   // 是否禁用，为 true 时，activeOpacity 为 1，onPress 为 null
   disabled: PropTypes.bool,
+  // 按钮热区
+  hitSlop: TouchableOpacity.propTypes.hitSlop,
 };
 Btn.defaultProps = {
   style: null,
@@ -45,5 +47,6 @@ Btn.defaultProps = {
   children: '下一步',
   activeOpacity: ACTIVE_OPACITY,
   disabled: false,
+  hitSlop: {},
 };
 ```

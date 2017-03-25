@@ -19,11 +19,14 @@ const styles = StyleSheet.create({
   textView: {
     padding: 10,
   },
+  numericKeyboard: {
+    height: 300,
+  },
 });
 
 const items = [
   {
-    content: '和 Sheet 一起用的 NumericKeyboard',
+    content: '和 Sheet 一起用的自定义高度的 NumericKeyboard',
     onPress() {
       this.show(0);
     },
@@ -91,6 +94,7 @@ class Page extends Component {
           <NumericKeyboard
             onPress={this.onInput}
             deleteKeyContent="DEL"
+            style={styles.numericKeyboard}
           />
         </Sheet>
       </All>
