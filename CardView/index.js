@@ -38,7 +38,7 @@ class CardView extends Component {
     // 当前激活卡片
     this.activeIndex = 0;
 
-    this.aniScrollToCard = this.aniScrollToCard.bind(this);
+    this.aniScrollTo = this.aniScrollTo.bind(this);
 
     this.state = {
       x: 0,
@@ -76,7 +76,7 @@ class CardView extends Component {
           }
         }
 
-        this.scrollToCard(nextCardIndex);
+        this.scrollTo(nextCardIndex);
       },
     });
   }
@@ -86,7 +86,7 @@ class CardView extends Component {
       this.cardsQuantity = nextProps.cards.length;
       if (this.currentIndex >= this.cardsQuantity) {
         // 如果当前所在位置超过了新的卡片长度，跳到最后去
-        this.scrollToCard(this.cardsQuantity - 1);
+        this.scrollTo(this.cardsQuantity - 1);
       }
     }
   }
@@ -110,9 +110,10 @@ class CardView extends Component {
 
   // 定位
   setPosition(x) {
-    if (x > 80) {
-      return;
-    }
+    console.log(x);
+    // if (x > 80) {
+    //   return;
+    // }
 
     // 当前所在区域
     const currentIndex = Math.floor(Math.abs(x / this.cardSpaceWidth));
@@ -128,15 +129,14 @@ class CardView extends Component {
   }
 
   // 滚动到卡片，默认是坠近的
-  scrollToCard(index) {
-    // console.log('[scrollToCard] start');
+  scrollTo(index, animation = true) {
+    clearTimeout(this.timeoutId);
+    // console.log('[scrollTo] start');
     const maxIndex = this.props.maxIndex;
     let targetIndex = this.getClosestCard();
 
-    if (this.activeIndex === targetIndex) {
-      if (typeof index === 'number') {
-        targetIndex = index;
-      }
+    if (typeof index === 'number') {
+      targetIndex = index;
     }
 
     if (typeof maxIndex === 'number') {
@@ -162,11 +162,19 @@ class CardView extends Component {
     this.activeIndex = targetIndex;
     this.props.onChange(targetIndex);
     this.targetX = -(targetIndex * this.cardSpaceWidth);
-    const v = (Math.abs(this.currentIndex - targetIndex) + 1) * this.props.v;
-    this.aniScrollToCard(v);
+
+    if (animation) {
+      // 使用动画
+      const v = (Math.abs(this.currentIndex - targetIndex) + 1) * this.props.v;
+      this.aniScrollTo(v);
+    } else {
+      // 不使用动画
+      this.x = this.targetX;
+      this.setPosition(this.targetX);
+    }
   }
   // 动画：滚动到卡片
-  aniScrollToCard(v) {
+  aniScrollTo(v) {
     const D = this.targetX - this.x;
     let d;
 
@@ -185,8 +193,8 @@ class CardView extends Component {
     const x = this.x + d;
     this.x = x;
     this.setPosition(x);
-    setTimeout(() => {
-      this.aniScrollToCard(v);
+    this.timeoutId = setTimeout(() => {
+      this.aniScrollTo(v);
     }, 16);
   }
 
