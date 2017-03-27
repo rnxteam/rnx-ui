@@ -16,8 +16,12 @@ import Router from 'BizRouter';
 
 import CardView from 'rnx-ui/CardView';
 
+// let flag = true;
+
 function makeRandomData() {
   const len = 3 + Math.floor(Math.random() * 3);
+  // const len = flag ? 2 : 4;
+  // flag = !flag;
   const data = [];
   for (let i = 0; i < len; i += 1) {
     const r = Math.floor(Math.random() * 256);
@@ -37,15 +41,13 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
   },
   card: {
-    borderWidth: 1,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   activeCard: {
-    transform: [{
-      scale: 1.1,
-    }],
+    borderColor: 'red',
+    borderWidth: 2,
   },
   cardText: {
     color: '#fff',
@@ -81,6 +83,8 @@ class Page extends Component {
     this.goPrev = this.goPrev.bind(this);
     this.goThird = this.goThird.bind(this);
     this.refresh = this.refresh.bind(this);
+    // this.test = this.test.bind(this);
+    this.onEndReached = this.onEndReached.bind(this);
   }
 
   componentDidMount() {
@@ -111,6 +115,7 @@ class Page extends Component {
     /* eslint-disable */
     alert('onEndReached!');
     /* eslint-enable */
+    // this.test();
   }
 
   getCardView(cardView) {
@@ -146,22 +151,28 @@ class Page extends Component {
 
   goNext() {
     if (this.cardView) {
-      this.cardView.scrollToCard(this.currentCardIndex + 1);
+      this.cardView.scrollTo(this.currentCardIndex + 1);
     }
   }
   goPrev() {
     if (this.cardView) {
-      this.cardView.scrollToCard(this.currentCardIndex - 1);
+      this.cardView.scrollTo(this.currentCardIndex - 1);
     }
   }
   goThird() {
     if (this.cardView) {
-      this.cardView.scrollToCard(2);
+      this.cardView.scrollTo(2);
     }
   }
   refresh() {
     this.updateCards();
   }
+  // test() {
+  //   this.updateCards();
+  //   setTimeout(() => {
+  //     this.cardView.scrollTo(0, false);
+  //   }, 0);
+  // }
 
   render() {
     return (

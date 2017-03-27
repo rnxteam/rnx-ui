@@ -37,6 +37,8 @@ function Example(props) {
 CardView.propTypes = {
   // 样式
   style: View.propTypes.style,
+  // 缩放系数
+  scaleCoefficient: PropTypes.number,
   // 当前卡片样式
   activeCardStyle: View.propTypes.style,
   // 卡片数组
@@ -73,6 +75,7 @@ CardView.propTypes = {
 };
 CardView.defaultProps = {
   style: null,
+  scaleCoefficient: 0.1,
   activeCardStyle: null,
   cards: [],
   cardWidth: 200,

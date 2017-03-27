@@ -43,6 +43,13 @@ class CardView extends Component {
     this.state = {
       x: 0,
     };
+
+    this.scaleArr = props.cards.map((item, index) => {
+      if (this.currentIndex === index) {
+        return 1 + (1 * this.props.scaleCoefficient);
+      }
+      return 1;
+    });
   }
 
   componentWillMount() {
@@ -84,6 +91,19 @@ class CardView extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.cards.length !== this.props.cards.length) {
       this.cardsQuantity = nextProps.cards.length;
+
+      const scaleArr = nextProps.cards.map((item, index) => {
+        const currentScale = this.scaleArr[index];
+        if (typeof currentScale === 'number') {
+          return currentScale;
+        } else if (this.currentIndex === index) {
+          return 1 + (1 * this.props.scaleCoefficient);
+        }
+        return 1;
+      });
+
+      this.scaleArr = scaleArr;
+
       if (this.currentIndex >= this.cardsQuantity) {
         // 如果当前所在位置超过了新的卡片长度，跳到最后去
         this.scrollTo(this.cardsQuantity - 1);
@@ -110,7 +130,7 @@ class CardView extends Component {
 
   // 定位
   setPosition(x) {
-    console.log(x);
+    // console.log(x);
     // if (x > 80) {
     //   return;
     // }
@@ -122,6 +142,14 @@ class CardView extends Component {
       this.currentIndex = currentIndex;
       this.props.onPass(currentIndex);
     }
+
+    this.scaleArr = this.scaleArr.map((item, index) => {
+      let k = Math.abs(index + (x / this.cardSpaceWidth));
+      if (k > 1) {
+        k = 1;
+      }
+      return 1 + ((1 - k) * this.props.scaleCoefficient);
+    });
 
     this.setState({
       x,
@@ -135,8 +163,15 @@ class CardView extends Component {
     const maxIndex = this.props.maxIndex;
     let targetIndex = this.getClosestCard();
 
-    if (typeof index === 'number') {
+    if (!animation) {
       targetIndex = index;
+    } else {
+      // 长距离拖动锁定最近
+      if (this.activeIndex === targetIndex) {
+        if (typeof index === 'number') {
+          targetIndex = index;
+        }
+      }
     }
 
     if (typeof maxIndex === 'number') {
@@ -231,7 +266,11 @@ class CardView extends Component {
               return (
                 <View
                   key={typeof key === 'undefined' ? index : key}
-                  style={cardStyle}
+                  style={[{
+                    transform: [{
+                      scale: this.scaleArr[index],
+                    }],
+                  }, cardStyle]}
                 >
                   {
                     React.cloneElement(card, {
@@ -251,6 +290,8 @@ class CardView extends Component {
 CardView.propTypes = {
   // 样式
   style: View.propTypes.style,
+  // 缩放系数
+  scaleCoefficient: PropTypes.number,
   // 当前卡片样式
   activeCardStyle: View.propTypes.style,
   // 卡片数组
@@ -287,6 +328,7 @@ CardView.propTypes = {
 };
 CardView.defaultProps = {
   style: null,
+  scaleCoefficient: 0.1,
   activeCardStyle: null,
   cards: [],
   cardWidth: 200,
