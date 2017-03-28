@@ -95,7 +95,12 @@ Btn.defaultProps = {
   children: '下一步',
   activeOpacity: ACTIVE_OPACITY,
   disabled: false,
-  hitSlop: {},
+  hitSlop: {
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
 };
 
 export default Btn;
