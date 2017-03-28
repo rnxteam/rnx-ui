@@ -46,9 +46,9 @@ class CardView extends Component {
 
     this.scaleArr = props.cards.map((item, index) => {
       if (this.currentIndex === index) {
-        return 1 + (1 * this.props.scaleCoefficient);
+        return 1;
       }
-      return 1;
+      return 1 - this.props.scaleCoefficient;
     });
   }
 
@@ -97,9 +97,9 @@ class CardView extends Component {
         if (typeof currentScale === 'number') {
           return currentScale;
         } else if (this.currentIndex === index) {
-          return 1 + (1 * this.props.scaleCoefficient);
+          return 1;
         }
-        return 1;
+        return 1 - this.props.scaleCoefficient;
       });
 
       this.scaleArr = scaleArr;
@@ -148,7 +148,7 @@ class CardView extends Component {
       if (k > 1) {
         k = 1;
       }
-      return 1 + ((1 - k) * this.props.scaleCoefficient);
+      return 1 - (k * this.props.scaleCoefficient);
     });
 
     this.setState({
