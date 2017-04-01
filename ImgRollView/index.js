@@ -12,6 +12,8 @@ import {
 import style from './styles';
 import { groupByEveryN, SelectTick } from './utils';
 
+import { Permissions } from 'RNX';
+
 const { height, width } = Dimensions.get('window');
 
 class ImgRollView extends Component {
@@ -43,6 +45,7 @@ class ImgRollView extends Component {
     this.onEndReached = this.onEndReached.bind(this);
     this.onSelectImage = this.onSelectImage.bind(this);
     this.renderRow = this.renderRow.bind(this);
+    this.isAllowStorage = this.isAllowStorage.bind(this);
   }
 
   componentWillMount() {
@@ -166,6 +169,50 @@ class ImgRollView extends Component {
     this.setState(nextState);
   }
 
+  isAllowStorage() {
+    const that = this;
+    return new Promise((resolve) => {
+      Permissions.checkPermission(Permissions.PERMISSIONS.WRITE_EXTERNAL_STORAGE).then((status) => {
+        switch (status) {
+          case Permissions.RESULTS.SHOULD_REQUEST:
+            Permissions.requestPermission(Permissions.PERMISSIONS.WRITE_EXTERNAL_STORAGE).then((result) => {
+              switch (result) {
+                case Permissions.RESULTS.AUTHORIZED:
+                  resolve();
+                  break;
+                case Permissions.RESULTS.DENIED:
+                  that.props.onReject('授权拒绝');
+                  break;
+                case Permissions.RESULTS.RESTRICTED:
+                  that.props.onReject('没有该权限');
+                  break;
+                default:
+                  that.props.onReject('授权时错误');
+                  break;
+              }
+            }).catch(() => {
+              that.props.onReject('授权时异常');
+            });
+            break;
+          case Permissions.RESULTS.AUTHORIZED:
+            resolve();
+            break;
+          case Permissions.RESULTS.DENIED:
+            that.props.onReject('授权拒绝');
+            break;
+          case Permissions.RESULTS.RESTRICTED:
+            that.props.onReject('没有该权限');
+            break;
+          default:
+            that.props.onReject('未知的权限');
+            break;
+        }
+      }).catch(() => {
+        that.props.onReject('获取授权异常');
+      });
+    });
+  }
+
   fetch() {
     const { assetType } = this.props;
     const fetchParams = {
@@ -177,11 +224,13 @@ class ImgRollView extends Component {
       fetchParams.after = this.endCursor;
     }
 
-    CameraRoll.getPhotos(fetchParams)
-      .then(d => this.appendAssets(d))
-      /* eslint-disable no-console */
-      .catch(e => console.log(e.stack));
-      /* eslint-enable no-console */
+    this.isAllowStorage().then(() => {
+      CameraRoll.getPhotos(fetchParams)
+        .then(d => this.appendAssets(d))
+        /* eslint-disable no-console */
+        .catch(e => console.log(e.stack));
+        /* eslint-enable no-console */
+    });
   }
 
   renderItem(item, rowId, i) {
@@ -280,6 +329,8 @@ ImgRollView.propTypes = {
   iconSelectedStyle: styleShape,
   // 未选中图标外框样式
   iconUnSelectedStyle: styleShape,
+  // 拒绝相册权限回调
+  onReject: PropTypes.func,
 };
 
 ImgRollView.defaultProps = {
@@ -291,6 +342,7 @@ ImgRollView.defaultProps = {
   iconUnSelected: <Text style={style.tickInner}>x</Text>,
   onSelect: () => {},
   uriList: [],
+  onReject: () => {},
 };
 
 export default ImgRollView;
