@@ -8,11 +8,10 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
 } from 'react-native';
+import { Permissions } from 'RNX';
 
 import style from './styles';
 import { groupByEveryN, SelectTick } from './utils';
-
-import { Permissions } from 'RNX';
 
 const { height, width } = Dimensions.get('window');
 
@@ -170,45 +169,46 @@ class ImgRollView extends Component {
   }
 
   isAllowStorage() {
-    const that = this;
+    const onReject = this.props.onReject;
+    const permissionsType = Permissions.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
     return new Promise((resolve) => {
-      Permissions.checkPermission(Permissions.PERMISSIONS.WRITE_EXTERNAL_STORAGE).then((status) => {
+      Permissions.checkPermission(permissionsType).then((status) => {
         switch (status) {
           case Permissions.RESULTS.SHOULD_REQUEST:
-            Permissions.requestPermission(Permissions.PERMISSIONS.WRITE_EXTERNAL_STORAGE).then((result) => {
+            Permissions.requestPermission(permissionsType).then((result) => {
               switch (result) {
                 case Permissions.RESULTS.AUTHORIZED:
                   resolve();
                   break;
                 case Permissions.RESULTS.DENIED:
-                  that.props.onReject('授权拒绝');
+                  onReject('授权拒绝');
                   break;
                 case Permissions.RESULTS.RESTRICTED:
-                  that.props.onReject('没有该权限');
+                  onReject('没有该权限');
                   break;
                 default:
-                  that.props.onReject('授权时错误');
+                  onReject('授权时错误');
                   break;
               }
             }).catch(() => {
-              that.props.onReject('授权时异常');
+              onReject('授权时异常');
             });
             break;
           case Permissions.RESULTS.AUTHORIZED:
             resolve();
             break;
           case Permissions.RESULTS.DENIED:
-            that.props.onReject('授权拒绝');
+            onReject('授权拒绝');
             break;
           case Permissions.RESULTS.RESTRICTED:
-            that.props.onReject('没有该权限');
+            onReject('没有该权限');
             break;
           default:
-            that.props.onReject('未知的权限');
+            onReject('未知的权限');
             break;
         }
       }).catch(() => {
-        that.props.onReject('获取授权异常');
+        onReject('获取授权异常');
       });
     });
   }
