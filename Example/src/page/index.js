@@ -26,6 +26,8 @@ import './ToolTip';
 import './TransPxToDp';
 import './Validator';
 import './VirtualPasswordInput';
+import './PlaceholderText';
+import './PlaceholderInput';
 
 // 首页放最后，确保已经获取了所有页面
 import './Home';
