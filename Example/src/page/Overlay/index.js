@@ -37,6 +37,12 @@ const items = [
       this.show(1);
     },
   },
+  {
+    content: '无动画',
+    onPress() {
+      this.show(2);
+    },
+  },
 ];
 
 class Page extends Component {
@@ -47,6 +53,7 @@ class Page extends Component {
     this.state = {
       demo0: false,
       demo1: false,
+      demo2: false,
     };
   }
 
@@ -88,6 +95,10 @@ class Page extends Component {
             我是遮罩层上的按钮
           </Btn>
         </Overlay>
+        <Overlay
+          visible={this.state.demo2}
+          useAnimation={false}
+        />
       </All>
     );
   }

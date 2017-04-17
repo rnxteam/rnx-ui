@@ -89,6 +89,7 @@ class Dialog extends Component {
       <Overlay
         visible={this.props.visible}
         style={[styles.overlay, this.props.overlayStyle]}
+        useAnimation={this.props.useOverlayAnimation}
       >
         <View style={[styles.dialog, this.props.style]}>
           <View style={styles.content}>
@@ -134,6 +135,8 @@ Dialog.propTypes = {
   style: View.propTypes.style,
   // 遮罩层样式
   overlayStyle: View.propTypes.style,
+  // 是否使用 Overlay 动画
+  useOverlayAnimation: PropTypes.bool,
 };
 Dialog.defaultProps = {
   visible: false,
@@ -145,6 +148,7 @@ Dialog.defaultProps = {
   buttons: [],
   style: null,
   overlayStyle: null,
+  useOverlayAnimation: true,
 };
 
 export default Dialog;

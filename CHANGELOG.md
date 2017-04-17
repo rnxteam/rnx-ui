@@ -8,6 +8,24 @@ n2：💛 影响之前版本使用方式的更新（需要用户适配）
 n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 ```
 
+## 0.17.1
+
+### Overlay
+
+- 💚 新增属性 `useAnimation`：是否使用动画
+
+### Dialog
+
+- 💚 新增属性 `useOverlayAnimation`：是否使用 Overlay 动画
+
+### Loading
+
+- 💚 新增属性 `useOverlayAnimation`：是否使用 Overlay 动画
+
+### ToolTip
+
+- 💚 新增属性 `useOverlayAnimation`：是否使用 Overlay 动画
+
 ## 0.17.0
 
 ### CardView

@@ -55,6 +55,8 @@ Dialog.propTypes = {
   style: View.propTypes.style,
   // 遮罩层样式
   overlayStyle: View.propTypes.style,
+  // 是否使用 Overlay 动画
+  useOverlayAnimation: PropTypes.bool,
 };
 Dialog.defaultProps = {
   visible: false,
@@ -66,6 +68,6 @@ Dialog.defaultProps = {
   buttons: [],
   style: null,
   overlayStyle: null,
+  useOverlayAnimation: true,
 };
-
 ```

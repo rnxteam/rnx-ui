@@ -38,6 +38,12 @@ const items = [
       this.show(1);
     },
   },
+  {
+    content: '无 Overlay 动画',
+    onPress() {
+      this.show(2);
+    },
+  },
 ];
 
 class Page extends Component {
@@ -48,6 +54,7 @@ class Page extends Component {
     this.state = {
       demo0: false,
       demo1: false,
+      demo2: false,
     };
   }
 
@@ -80,6 +87,11 @@ class Page extends Component {
           textWrapperStyle={styles.textWrapper}
           textStyle={styles.text}
           pointerEvents="auto"
+        />
+        <ToolTip
+          visible={this.state.demo2}
+          text="无 Overlay 动画"
+          useOverlayAnimation={false}
         />
       </All>
     );

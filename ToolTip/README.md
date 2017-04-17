@@ -6,6 +6,21 @@
 
 ![ToolTip](http://wx2.sinaimg.cn/mw690/4c8b519dly1fdlfmi544kg20hs0wswjd.gif)
 
+## Example
+
+```js
+import ToolTip from 'rnx-ui/ToolTip';
+
+function Example(props) {
+  return (
+    <ToolTip
+      visible={this.state.visible}
+      text="默认"
+    />
+  );
+}
+```
+
 ## Props
 
 ```js
@@ -20,8 +35,10 @@ ToolTip.propTypes = {
   textWrapperStyle: View.propTypes.style,
   // 文本样式
   textStyle: Text.propTypes.style,
-  // 控制 Overlay 是否可以作为触控事件的目标
+  // 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
   pointerEvents: Overlay.propTypes.pointerEvents,
+  // 是否使用 Overlay 动画
+  useOverlayAnimation: PropTypes.bool,
 };
 ToolTip.defaultProps = {
   visible: false,
@@ -30,6 +47,7 @@ ToolTip.defaultProps = {
   textWrapperStyle: null,
   textStyle: null,
   pointerEvents: 'none',
+  useOverlayAnimation: true,
 };
 ```
 

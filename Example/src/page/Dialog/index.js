@@ -47,6 +47,12 @@ const items = [
       this.show(1);
     },
   },
+  {
+    content: '无 Overlay 动画',
+    onPress() {
+      this.show(2);
+    },
+  },
 ];
 
 class Page extends Component {
@@ -57,6 +63,7 @@ class Page extends Component {
     this.state = {
       demo0: false,
       demo1: false,
+      demo2: false,
     };
     this.hideMaker = this.hideMaker.bind(this);
   }
@@ -123,6 +130,16 @@ class Page extends Component {
             },
           }]}
           style={styles.dialog}
+        />
+        <Dialog
+          visible={this.state.demo2}
+          title="无动画"
+          message="关闭 Overlay 动画"
+          buttons={[{
+            text: '好',
+            onPress: this.hideMaker(2),
+          }]}
+          useOverlayAnimation={false}
         />
       </All>
     );

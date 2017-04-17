@@ -28,10 +28,12 @@ Overlay.propTypes = {
   style: View.propTypes.style,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 控制 Overlay 是否可以作为触控事件的目标
+  // 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
   pointerEvents: View.propTypes.pointerEvents,
   // 动画时长
   duration: PropTypes.number,
+  // 是否使用动画
+  useAnimation: PropTypes.bool,
 };
 Overlay.defaultProps = {
   visible: false,
@@ -40,5 +42,6 @@ Overlay.defaultProps = {
   children: null,
   pointerEvents: 'auto',
   duration: 200,
+  useAnimation: true,
 };
 ```
