@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   },
 });
 
-
 class ToolTip extends Component {
   render() {
     const {
@@ -42,6 +41,7 @@ class ToolTip extends Component {
         visible={visible}
         style={[styles.overlay, overlayStyle]}
         pointerEvents={this.props.pointerEvents}
+        useAnimation={this.props.useOverlayAnimation}
       >
         <View style={[styles.textWrapper, textWrapperStyle]}>
           <Text style={[styles.text, textStyle]}>{text}</Text>
@@ -62,8 +62,10 @@ ToolTip.propTypes = {
   textWrapperStyle: View.propTypes.style,
   // 文本样式
   textStyle: Text.propTypes.style,
-  // 控制 Overlay 是否可以作为触控事件的目标
+  // 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
   pointerEvents: Overlay.propTypes.pointerEvents,
+  // 是否使用 Overlay 动画
+  useOverlayAnimation: PropTypes.bool,
 };
 ToolTip.defaultProps = {
   visible: false,
@@ -72,6 +74,7 @@ ToolTip.defaultProps = {
   textWrapperStyle: null,
   textStyle: null,
   pointerEvents: 'none',
+  useOverlayAnimation: true,
 };
 
 export default ToolTip;

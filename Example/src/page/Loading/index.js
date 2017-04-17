@@ -22,6 +22,12 @@ const items = [
       this.show(1);
     },
   },
+  {
+    content: '无 Overlay 动画',
+    onPress() {
+      this.show(2);
+    },
+  },
 ];
 
 class Page extends Component {
@@ -66,6 +72,10 @@ class Page extends Component {
           }}
           color="red"
           size="large"
+        />
+        <Loading
+          visible={this.state.demo2}
+          useOverlayAnimation={false}
         />
       </All>
     );
