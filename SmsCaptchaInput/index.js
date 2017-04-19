@@ -15,7 +15,6 @@
  */
 import React, { Component, PropTypes } from 'react';
 import {
-  Platform,
   AppState,
   View,
   TouchableOpacity,
@@ -30,7 +29,6 @@ import {
 import styles from './styles';
 
 const NOOP = () => {};
-const isIOS = Platform.OS === 'ios';
 
 class SmsCaptchaInput extends Component {
   constructor(props) {
@@ -55,19 +53,14 @@ class SmsCaptchaInput extends Component {
     this.onAppStateChange = this.onAppStateChange.bind(this);
   }
   componentDidMount() {
-    if (isIOS) {
-      AppState.addEventListener('change', this.onAppStateChange);
-    }
+    AppState.addEventListener('change', this.onAppStateChange);
   }
   componentWillUnmount() {
     clearInterval(this.interval);
-    if (isIOS) {
-      AppState.removeEventListener('change', this.onAppStateChange);
-    }
+    AppState.removeEventListener('change', this.onAppStateChange);
   }
-
   onAppStateChange(state) {
-    if (state === 'inactive') {
+    if (state === 'inactive' || state === 'background') {
       this.lastTimeStamp = +new Date();
     } else if (state === 'active') {
       if (this.lastTimeStamp) {
