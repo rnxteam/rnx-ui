@@ -28,19 +28,19 @@ import {
 } from '../constant';
 import styles from './styles';
 
+
 const NOOP = () => {};
 
 class SmsCaptchaInput extends Component {
   constructor(props) {
     super(props);
-
     this.time = props.intervalTime;
     this.state = {
       buttonText: props.btnTextInital,
       isRunning: false,
       sendSmsCount: 0,
     };
-
+    this.preState = AppState.currentState;
     this.onPress = this.onPress.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
     this.timer = this.timer.bind(this);
@@ -60,7 +60,7 @@ class SmsCaptchaInput extends Component {
     AppState.removeEventListener('change', this.onAppStateChange);
   }
   onAppStateChange(state) {
-    if (state === 'inactive' || state === 'background') {
+    if (this.preState === 'active' && state !== 'acitve') {
       this.lastTimeStamp = +new Date();
     } else if (state === 'active') {
       if (this.lastTimeStamp) {
@@ -68,6 +68,7 @@ class SmsCaptchaInput extends Component {
         this.time -= duration;
       }
     }
+    this.preState = state;
   }
 
   onChangeText(value) {
