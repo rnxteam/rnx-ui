@@ -1,3 +1,9 @@
+/**
+ * @component NumericKeyboardar
+ * @version 0.17.0
+ * @description 虚拟数字键盘
+ * @instructions {instruInfo: ./NumericKeyboard/NumericKeyboardar.md}
+ */
 import React, {
   Component,
   PropTypes,
@@ -96,11 +102,26 @@ class NumericKeyboard extends Component {
 }
 
 NumericKeyboard.propTypes = {
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default Null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
-  // 按键回调
+  /**
+   * @property onPress
+   * @type Function
+   * @default NOOP
+   * @description 按键回调
+   */
   onPress: PropTypes.func,
-  // 删除键内容
+  /**
+   * @property deleteKeyContent
+   * @type String Element Array
+   * @default <Image source={delImgSource} />
+   * @description 删除键内容
+   */
   deleteKeyContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.array]),
 };
 NumericKeyboard.defaultProps = {

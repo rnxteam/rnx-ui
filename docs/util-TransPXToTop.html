@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>RNX-UI Documentation 方法</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+  
+    
+        <link rel="stylesheet" href="theme/ydoc.css"/>
+    
+  
+</head>
+<body class=util-TransPXToTop >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="" class="navbar-brand">RNX-UI</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">RNX-UI</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="util.html">方法</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="CHANGELOG.html">版本</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>方法</h1>
+                  <p class="desc">方法的说明文档</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left " role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li   class="active" > -->
+                        <li >
+                            
+                            <a href="javascript:void(0);">Method</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  style="display:block;"    style="display:block;" >
+                        
+                            <li  class="active" >
+                                <a href="util-TransPXToTop.html">TransPXToTop</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="util-Validator.html">Validator</a>
+                            </li>
+                        
+                        
+                        </ul>
+                        
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <div class="docs-section">
+<h2 id="TransPxToDp">
+    TransPxToDp
+    <small></small>
+    <span class="yo-badge yo-badge-danger">0.17.0</span>
+</h2>
+<div class="api-content"><p>像素（px）转虚拟像素（dp）方法</p>
+</div>
+<!-- 使用说明begin -->
+
+<div class="con-list-item">
+    <div class="con-head">使用说明</div>
+  
+    <div class="instructions">
+        <div class="instructions-con">
+            
+            <div class="instructions-con-info">
+            <p>React Native 的长度单位为 dp，意思是独立像素，不是真实的物理像素，1dp 在不同 PixelRatio（像素比）的设备上会等于不同 px，比如 iPhone 456 是 2px，iPhone 6s 是 3px，所以在 rn 代码里写一个宽度为 1 的边框，在 iPhone 5 上看上去会有 2 像素宽，在 iPhone 6s 上看上去会有 3 像素宽。</p>
+<blockquote>
+<p>dp 即 device-independent pixels，或 dip，表示设备独立像素；PixelRatio 则描述物理像素和独立像素的比值，即 PixelRatio = 物理像素 / dp。</p>
+</blockquote>
+<p><code>transPxToDp</code> 就是为了解决这个问题。使用了 <code>transPxToDp</code> 之后，设置 1 的宽度，在 iPhone 5 实际设置为 0.5，在 iPhone 6s 实际设置为 0.33。</p>
+<h4 id="demo">Demo</h4>
+<p><img src="https://github.com/wangkexinW/rnx-ui/blob/doc/util/transPxToDp/TransPxToDp.png?raw=true" alt="TransPxToDp"></p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-JavaScript">
+<span class="token keyword">import</span> transPxToDp <span class="token keyword">from</span> <span class="token string">'rnx-ui/util/transPxToDp'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 设置一个宽度为 1 像素的顶部边框</span>
+<span class="token keyword">const</span> styles <span class="token operator">=</span> StyleSheet<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  foo<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//transPxToDp传的参数是px </span>
+    borderTopWidth<span class="token punctuation">:</span> <span class="token function">transPxToDp</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="-">⚠️ 注意</h3>
+<ol>
+<li><p>在安卓设备下，如果 <code>lineHeight</code> 是小数会红屏，需要再取整下。</p>
+</li>
+<li><p>如果想实现视觉效果较好的最细宽度，推荐使用 <code>Stylesheet.hairlineWidth</code>，但如果就是要实现纯粹的最细宽度，那就用 <code>transPxToDp(1)</code> 吧。</p>
+</li>
+</ol>
+<blockquote>
+<p>在屏幕像素比（PixelRatio）为 3.75 以下设备，<code>hairlineWidth</code> 和 <code>transPxToDp(1)</code> 是一样的，在 3.75 及以上设备，<code>hairlineWidth</code> 是 <code>transPxToDp(1)</code> 的两倍或两倍以上。</p>
+</blockquote>
+
+            </div>
+            
+            
+        </div>
+    </div>
+ 
+</div>
+
+<!-- 使用说明end -->
+<div class="con-list-item">
+
+
+
+
+</div>
+</div>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2017 <a href="https://github.com/YMFE">RNX-UI</a> Team. Build by <a href="https://github.com/YMFE/ydoc">YDoc</a>.
+        </div>
+      </footer>
+    </div>
+
+    
+       <div class="open-panel"></div>
+       <div class="mask"></div>
+    
+    
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+    
+      
+      <script type="text/javascript" src="theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

@@ -1,5 +1,11 @@
 /**
  * 遮罩层
+ * @component Overlay
+ * @version 0.16.0
+ * @description 遮罩层
+ * 具有渐隐渐显动画效果的遮罩层组件。
+ *
+ * @instructions {instruInfo: ./Overlay/Overlay.md}
  */
 import React, {
   PropTypes,
@@ -121,19 +127,54 @@ class Overlay extends Component {
 }
 
 Overlay.propTypes = {
-  // 显示开关
+  /**
+   * @property visible
+   * @type Boolean
+   * @default false
+   * @description 显示开关
+   */
   visible: PropTypes.bool.isRequired,
-  // 点击回调
+  /**
+   * @property onPress
+   * @type Function
+   * @default NOOP
+   * @description 点击回调
+   */
   onPress: PropTypes.func,
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
-  // 子元素
+  /**
+   * @property children
+   * @type Element Array
+   * @default null
+   * @description 子元素
+   */
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
+  /**
+   * @property pointerEvents
+   * @type String
+   * @default 'auto'
+   * @description 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
+   */
   pointerEvents: View.propTypes.pointerEvents,
-  // 动画时长
+  /**
+   * @property duration
+   * @type Number
+   * @default 200
+   * @description 动画时长
+   */
   duration: PropTypes.number,
-  // 是否使用动画
+   /**
+   * @property useAnimation
+   * @type Boolean
+   * @default true
+   * @description 是否使用动画
+   */
   useAnimation: PropTypes.bool,
 };
 Overlay.defaultProps = {

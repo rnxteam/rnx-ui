@@ -1,3 +1,10 @@
+/**
+ * @component NavBar
+ * @version 0.11.6
+ * @description 导航栏
+ *
+ * @instructions {instruInfo: ./NavBar/NavBar.md}
+ */
 import React, { Component, PropTypes } from 'react';
 import {
   Platform,
@@ -106,35 +113,110 @@ class NavBar extends Component {
 }
 
 NavBar.propTypes = {
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default Null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
-  // statusBar 高度
+  /**
+   * @property statusBarHeight
+   * @type Number
+   * @default STATUS_BAR_HEIGHT
+   * @description statusBar 高度
+   */
   statusBarHeight: PropTypes.number,
-  // header 高度
+  /**
+   * @property headerHeight
+   * @type Number
+   * @default HEADER_HEIGHT
+   * @description header 高度
+   */
   headerHeight: PropTypes.number,
-  // 标题
+  /**
+   * @property title
+   * @type String Element
+   * @default ''
+   * @description 标题
+   */
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 标题文本样式（title 为字符串时才生效）
+   /**
+   * @property titleStyle
+   * @type Object
+   * @default null
+   * @description 标题文本样式（title 为字符串时才生效）
+   */
   titleStyle: Text.propTypes.style,
-  // 标题到左右两边的距离
+  /**
+   * @property titleGap
+   * @type Number
+   * @default 50
+   * @description 标题到左右两边的距离
+   */
   titleGap: PropTypes.number,
-  // 左侧按钮
+  /**
+   * @property leftBtn
+   * @type String Element
+   * @default null
+   * @description 左侧按钮
+   */
   leftBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 左侧按钮点击事件
+  /**
+   * @property leftEvent
+   * @type Function
+   * @default NOOP
+   * @description 左侧按钮点击事件
+   */
   leftEvent: PropTypes.func,
-  // 左侧按钮文本样式（leftBtn 为字符串时才生效）
+   /**
+   * @property leftBtnStyle
+   * @type Object
+   * @default null
+   * @description 左侧按钮文本样式（leftBtn 为字符串时才生效）
+   */
   leftBtnStyle: Text.propTypes.style,
-  // 左侧按钮禁用
+  /**
+   * @property leftBtnDisabled
+   * @type Boolean
+   * @default false
+   * @description 左侧按钮禁用
+   */
   leftBtnDisabled: PropTypes.bool,
-  // 右侧按钮
+  /**
+   * @property rightBtn
+   * @type String Element
+   * @default null
+   * @description 右侧按钮
+   */
   rightBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 右侧按钮点击事件
+  /**
+   * @property rightEvent
+   * @type Function
+   * @default NOOP
+   * @description 右侧按钮文本样式
+   */
   rightEvent: PropTypes.func,
-  // 右侧按钮文本样式（rightBtn 为字符串时才生效）
+  /**
+   * @property rightBtnStyle
+   * @type Object
+   * @default null
+   * @description 右侧按钮文本样式（rightBtn 为字符串时才生效）
+   */
   rightBtnStyle: Text.propTypes.style,
-  // 右侧按钮禁用
+  /**
+   * @property rightBtnDisabled
+   * @type Boolean
+   * @default false
+   * @description 右侧按钮禁用
+   */
   rightBtnDisabled: PropTypes.bool,
-  // 按钮点击透明度变化
+  /**
+   * @property activeOpacity
+   * @type Number
+   * @default ACTIVE_OPACITY
+   * @description 按钮点击透明度变化
+   */
   activeOpacity: PropTypes.number,
 };
 NavBar.defaultProps = {

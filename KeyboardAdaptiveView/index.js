@@ -1,3 +1,10 @@
+/**
+ * @component KeyboardAdaptiveView
+ * @version 0.13.0
+ * @description
+ *  适应键盘的容器
+ * @instructions {instruInfo: ./KeyboardAdaptiveView/KeyboardAdaptiveView.md}
+ */
 import React, {
   PropTypes,
   Component,
@@ -135,17 +142,47 @@ class KeyboardAdaptiveView extends Component {
 }
 
 KeyboardAdaptiveView.propTypes = {
-  // 获取元素回调
+  /**
+   * @property getEl
+   * @type Function
+   * @default NOOP
+   * @description 获取元素回调
+   */
   getEl: PropTypes.func,
-  // 自定义样式
+  /**
+   * @property style
+   * @type Objectt
+   * @default null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
-  // 子元素
+  /**
+   * @property children
+   * @type Element Array
+   * @default null
+   * @description 子元素
+   */
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 更多距离。iOS 系统键盘可能会出现 suggest 行，导致键盘高度获取不准确。
+  /**
+   * @property moreDistance
+   * @type Number
+   * @default 40
+   * @description 更多距离。iOS 系统键盘可能会出现 suggest 行，导致键盘高度获取不准确。
+   */
   moreDistance: PropTypes.number,
-  // 最小键盘高度
+  /**
+   * @property minkbdHeight
+   * @type Number
+   * @default 250
+   * @description 最小键盘高度
+   */
   minKbdHeight: PropTypes.number,
-  // 安卓系统是否处理
+  /**
+   * @property handlerAndroid
+   * @type Boolean
+   * @default false
+   * @description 安卓系统是否处理
+   */
   handlerAndroid: PropTypes.bool,
 };
 KeyboardAdaptiveView.defaultProps = {

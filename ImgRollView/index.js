@@ -1,3 +1,10 @@
+/**
+ * @component ImgRollView
+ * @version 0.13.0
+ * @description 图片多选组件
+ *
+ * @instructions {instruInfo: ./ImgRollView/ImgRollView.md}
+ */
 import React, { Component, PropTypes } from 'react';
 import {
   Text,
@@ -26,12 +33,17 @@ class ImgRollView extends Component {
       },
     });
     const { imagesPerRow, gap } = props;
-
-    // 根据屏幕宽度与每行图片树计算图片宽度
+    /**
+     * @description 根据屏幕宽度与每行图片树计算图片宽
+     */
     this.sideLength = ((width + gap) / imagesPerRow) - gap;
-    // 根据屏幕高度获取首屏要加载的图片数量
+    /**
+     * @description 根据屏幕高度获取首屏要加载的图片数量
+     */
     this.pageSize = Math.ceil((height + gap) / (this.sideLength + gap)) * imagesPerRow;
-    // 记录已经选择的 uri
+    /**
+     * @description 记录已经选择的 uri
+     */
     this.uriSelected = props.uriList;
 
     this.state = {
@@ -39,7 +51,9 @@ class ImgRollView extends Component {
       dataSource: ds.cloneWithRows([]),
     };
 
-    // autobind
+    /**
+     * @description autobind
+     */
     this.onEndReached = this.onEndReached.bind(this);
     this.onSelectImage = this.onSelectImage.bind(this);
     this.renderRow = this.renderRow.bind(this);
@@ -254,31 +268,89 @@ const styleShape = PropTypes.oneOfType([
 ]);
 
 ImgRollView.propTypes = {
-  // 最大照片选择条数
+  /**
+   * @property maxSelected
+   * @type Number
+   * @default 10
+   * @description 最大照片选择条数
+   */
   maxSelected: PropTypes.number,
-  // 图片间像素间隔
+  /**
+   * @property gap
+   * @type Number
+   * @default 8
+   * @description 图片间像素间隔
+   */
   gap: PropTypes.number,
-  // 每行显示的图片数量
+  /**
+   * @property imagesPerRow
+   * @type Number
+   * @default 4
+   * @description 每行显示的图片数量
+   */
   imagesPerRow: PropTypes.number,
-  // 静态资源类型，默认为 Photos
+  /**
+   * @property assetType
+   * @type String
+   * @default 'Photos'
+   * @param {String} 'Photos' 图片资源
+   * @param {String} 'Videos'  视频资源
+   * @param {String} 'All'
+   * @description 静态资源类型
+   */
   assetType: PropTypes.oneOf([
     'Photos',
     'Videos',
     'All',
   ]),
-  // 用户选择图片时触发的回调，返回参数为 node/uri/selected/uriSelected
+  /**
+   * @property onSelect
+   * @type Function
+   * @default () => {}
+   * @description 用户选择图片时触发的回调，返回参数为 node/uri/selected/uriSelected
+   */
   onSelect: PropTypes.func,
-  // 选中图标
+  /**
+   * @property iconSelected
+   * @type Element
+   * @default  <Text style={style.tickInner}>v</Text>
+   * @description  选中图标
+   */
   iconSelected: PropTypes.element,
-  // 未选中图标
+  /**
+   * @property iconUnSelected
+   * @type Element
+   * @default  <Text style={style.tickInner}>x</Text>
+   * @description  未选中图标
+   */
   iconUnSelected: PropTypes.element,
-  // 初始选中 uri
+  /**
+   * @property uriList
+   * @type Array
+   * @default  []
+   * @description  初始选中 uri
+   */
   uriList: PropTypes.arrayOf(PropTypes.string),
-  // 外层容器样式
+  /**
+   * @property style
+   * @type Object
+   * @default  null
+   * @description  外层容器样式
+   */
   style: styleShape,
-  // 选中图标外框样式
+  /**
+   * @property iconSelectedStyle
+   * @type Object
+   * @default  null
+   * @description  选中图标外框样式
+   */
   iconSelectedStyle: styleShape,
-  // 未选中图标外框样式
+  /**
+   * @property iconUnSelectedStyle
+   * @type Object
+   * @default  null
+   * @description  未选中图标外框样式
+   */
   iconUnSelectedStyle: styleShape,
 };
 

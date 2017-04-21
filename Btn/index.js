@@ -1,5 +1,9 @@
 /**
- * 按钮
+ * @component Btn
+ * @version 0.17.0
+ * @description 按钮
+ *
+ * @instructions {instruInfo: ./Btn/Btn.md}
  */
 import React, {
   Component,
@@ -70,21 +74,66 @@ class Btn extends Component {
 }
 
 Btn.propTypes = {
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
-  // 内部容器样式
+   /**
+   * @property contentContainerStyle
+   * @type Object
+   * @default null
+   * @description 内部容器样式
+   */
   contentContainerStyle: View.propTypes.style,
-  // 按钮文本样式（children 为字符串时才生效）
+  /**
+   * @property textStyle
+   * @type Obejct
+   * @default null
+   * @description 按钮文本样式（children 为字符串时才生效）
+   */
   textStyle: Text.propTypes.style,
-  // 点击回调
+  /**
+   * @property onPress
+   * @type Function
+   * @default null
+   * @description 点击回调
+   */
   onPress: PropTypes.func,
-  // 按钮内容
+  /**
+   * @property children
+   * @type String Array
+   * @default '下一步'
+   * @description 按钮内容
+   */
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.array]),
-  // 点击时透明度反馈
+  /**
+   * @property activeOpacity
+   * @type Number
+   * @default ACTIVE_OPACITY
+   * @description 点击时透明度反馈
+   */
   activeOpacity: PropTypes.number,
-  // 是否禁用，为 true 时，activeOpacity 为 1，onPress 为 null
+  /**
+   * @property disabled
+   * @type Boolean
+   * @default ACTIVE_OPACITY
+   * @description 是否禁用，为 true 时，activeOpacity 为 1，onPress 为 null
+   */
   disabled: PropTypes.bool,
-  // 按钮热区
+  /**
+   * @property hitSlop
+   * @type Object
+   * @default  {
+   * top: 0,
+   * bottom: 0,
+   * left: 0,
+   * right: 0,
+   * }
+   * @description 按钮热区
+   */
   hitSlop: TouchableOpacity.propTypes.hitSlop,
 };
 Btn.defaultProps = {

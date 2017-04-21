@@ -1,3 +1,10 @@
+/**
+ * @component AddAndSubtract
+ * @version 0.17.0
+ * @description 加减法动画组件
+ *
+ * @instructions {instruInfo: ./AddAndSubtract/AddAndSubtract.md}
+ */
 import React, {
   PropTypes,
   Component,
@@ -136,7 +143,12 @@ class AddAndSubtract extends Component {
 }
 
 AddAndSubtract.propTypes = {
-  // 数字
+    /**
+     * @property num
+     * @type Number
+     * @default 0
+     * @description 数字
+     */
   num(props, propName) {
     const num = props[propName];
     if (typeof num !== 'number') {
@@ -147,39 +159,129 @@ AddAndSubtract.propTypes = {
     }
     return null;
   },
-  // 加法按钮点击事件
+    /**
+     * @property onPressAdder
+     * @type Function
+     * @default NOOP
+     * @description 加法按钮点击事件
+     */
   onPressAdder: PropTypes.func,
-  // 减法按钮点击事件
+    /**
+     * @property onPressSubtracter
+     * @type Function
+     * @default NOOP
+     * @description 减法按钮点击事件
+     */
   onPressSubtracter: PropTypes.func,
-  // 动画时间
+    /**
+     * @property duration
+     * @type Number
+     * @default 200
+     * @description 动画时间
+     */
   duration: PropTypes.number,
-  // 减法按钮移动距离
+    /**
+     * @property distance
+     * @type Number
+     * @default 30
+     * @description 减法按钮移动距离
+     */
   distance: PropTypes.number,
-  // 减法旋转角度
+    /**
+     * @property deg
+     * @type Number
+     * @default 180
+     * @description 减法旋转角度
+     */
   deg: PropTypes.number,
-  // 动画函数
+    /**
+     * @property easing
+     * @type Function
+     * @default t => t
+     * @description 动画函数
+     */
   easing: PropTypes.func,
-  // 按钮宽度
+    /**
+     * @property btnWidth
+     * @type Number
+     * @default 30
+     * @description 按钮宽度
+     */
   btnWidth: PropTypes.number,
-  // 自定义样式
+    /**
+     * @property style
+     * @type Object
+     * @default null
+     * @description 自定义样式
+     */
   style: View.propTypes.style,
-  // 加法按钮样式
+    /**
+     * @property adderBtnStyle
+     * @type Object
+     * @default null
+     * @description 加法按钮样式
+     */
   adderBtnStyle: View.propTypes.style,
-  // 加法元素样式
+    /**
+     * @property adderStyle
+     * @type Object
+     * @default null
+     * @description 加法元素样式
+     */
   adderStyle: View.propTypes.style,
-  // 减法按钮容器样式
+    /**
+     * @property subtracterWrapperStyle
+     * @type Object
+     * @default null
+     * @description 减法按钮容器样式
+     */
   subtracterWrapperStyle: View.propTypes.style,
-  // 减法按钮样式
+    /**
+     * @property subtracterBtnStyle
+     * @type Object
+     * @default null
+     * @description 减法按钮样式
+     */
   subtracterBtnStyle: View.propTypes.style,
-  // 减法元素样式
+    /**
+     * @property subtracterStyle
+     * @type Object
+     * @default null
+     * @description 减法元素样式
+     */
   subtracterStyle: View.propTypes.style,
-  // 自定义字体样式
+    /**
+     * @property textStyle
+     * @type Object
+     * @default null
+     * @description 自定义字体样式
+     */
   textStyle: Text.propTypes.style,
-  // 加法按钮
+    /**
+     * @property adder
+     * @type Element Array
+     * @default null
+     * @description 加法按钮
+     */
   adder: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 减法按钮
+    /**
+     * @property subtracter
+     * @type Element Array
+     * @default <Text style={styles.adderText}>+</Text>
+     * @description 减法按钮
+     */
   subtracter: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 按钮热区
+    /**
+     * @property hitSlop
+     * @type Object
+     * @default  {
+     *         top: 5,
+     *         left: 5,
+     *         right: 5,
+     *         bottom: 5,
+     *       },
+     * @description 按钮热区
+     */
   hitSlop: TouchableHighlight.propTypes.hitSlop,
 };
 AddAndSubtract.defaultProps = {

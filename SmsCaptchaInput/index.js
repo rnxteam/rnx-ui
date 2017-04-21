@@ -1,18 +1,28 @@
 /**
- * 短信验证码输入框组件
+ * @component SmsCaptchaInput
+ * @version 0.13.1
+ * @description 短信验证码输入框
+ *  短信验证码输入框组件有三种状态：
  *
- * 短信验证码输入框组件有三种状态：
- * 0：初始状态
- * 1：发送短信中状态
- * 2：倒计时状态
- * 3：倒计时结束状态
+ *  0：初始状态
  *
- * 点击按钮会使组件由 `0：初始状态` 进入 `1：发送短信中状态`，
- * 此时需要根据接口状况进行判断：
- * 1、如果发送短信成功：手动调起组件的 `start` 方法，进入 `2：倒计时状态`，
- * 在倒计时结束时组件会自动进入 `3：倒计时结束状态`；
- * 2、如果发送短信失败：手动调起组件的 `stop` 方法，进入 `3：倒计时结束状态`；
+ *  1：发送短信中状态
+ *
+ *  2：倒计时状态
+ *
+ *  3：倒计时结束状态
+ *
+ *  点击按钮会使组件由 `0：初始状态` 进入 `1：发送短信中状态`，
+ *  此时需要根据接口状况进行判断：
+ *  1、如果发送短信成功：手动调起组件的 `start` 方法，进入 `2：倒计时状态`，
+ *  在倒计时结束时组件会自动进入 `3：倒计时结束状态`；
+ *  2、如果发送短信失败：手动调起组件的 `stop` 方法，进入 `3：倒计时结束状态`；
+ *
+ *  >rnx-ui 表单校验工具[Validator](https://github.com/dragonwong/rnx-ui/tree/master/util/Validator) 现已支持该组件。
+ *
+ * @instructions {instruInfo: ./SmsCaptchaInput/SmsCaptchaInput.md}
  */
+
 import React, { Component, PropTypes } from 'react';
 import {
   Platform,
@@ -83,11 +93,15 @@ class SmsCaptchaInput extends Component {
   }
 
   onPress() {
-    // 检测是否处于点击发送短信状态
+    /**
+     * @description 检测是否处于点击发送短信状态
+     */
     if (this.state.isRunning) {
       return;
     }
-    // 运行点击按钮回调
+    /**
+     * @description 运行点击按钮回调
+     */
     if (this.props.onPressBtn(this.start, this.stop) === false) {
       return;
     }
@@ -103,7 +117,9 @@ class SmsCaptchaInput extends Component {
     this.input = el;
   }
 
-  // 开始倒计时
+    /**
+     * @description 开始倒计时
+     */
   start() {
     this.time = this.props.intervalTime;
     this.interval = setInterval(this.timer, 1000);
@@ -112,7 +128,9 @@ class SmsCaptchaInput extends Component {
       this.input.focus();
     }
   }
-  // 结束倒计时
+   /**
+     * @description 结束倒计时
+     */
   stop() {
     clearInterval(this.interval);
     this.setState({
@@ -122,7 +140,9 @@ class SmsCaptchaInput extends Component {
     this.props.onStop();
   }
 
-  // 倒计时函数
+    /**
+     * @description 倒计时函数
+     */
   timer() {
     if (this.time > 0) {
       this.setState({
@@ -202,50 +222,161 @@ class SmsCaptchaInput extends Component {
 }
 
 SmsCaptchaInput.propTypes = {
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default  null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
-  // 自定义输入框样式
+  /**
+   * @property inputStyle
+   * @type Object
+   * @default  null
+   * @description 自定义输入框样式
+   */
   inputStyle: TextInput.propTypes.style,
-  // 自定义按钮样式
+  /**
+   * @property btnStyle
+   * @type Object
+   * @default  null
+   * @description 自定义按钮样式
+   */
   btnStyle: View.propTypes.style,
-  // 按钮文字：初始状态
+  /**
+   * @property btnTextInital
+   * @type String
+   * @default  '获取验证码'
+   * @description 按钮文字：初始状态
+   */
   btnTextInital: PropTypes.string,
-  // 按钮文字：发送短信中
+  /**
+   * @property btnTextSending
+   * @type String
+   * @default  '正在发送短信'
+   * @description 按钮文字：发送短信中
+   */
   btnTextSending: PropTypes.string,
-  // 按钮文字：倒计时中，`{time}` 将会被替换为倒计时数字
+  /**
+   * @property btnTextTiming
+   * @type String
+   * @default'{time}秒后可重发'
+   * @description 按钮文字：倒计时中，`{time}` 将会被替换为倒计时数字
+   */
   btnTextTiming: PropTypes.string,
-  // 按钮文字：倒计时结束
+  /**
+   * @property btnTextTimed
+   * @type String
+   * @default  '重新获取'
+   * @description 按钮文字：倒计时结束
+   */
   btnTextTimed: PropTypes.string,
-  // 自定义按钮文本样式
+  /**
+   * @property btnTextStyle
+   * @type Object
+   * @default  null
+   * @description 自定义按钮文本样式
+   */
   btnTextStyle: Text.propTypes.style,
-  // 提示文字
+  /**
+   * @property placeholder
+   * @type String
+   * @default  '短信验证码'
+   * @description 提示文字
+   */
   placeholder: PropTypes.string,
-  // 提示文字颜色
+  /**
+   * @property placeholderTextColor
+   * @type String
+   * @default  COLOR_PLACEHOLDER
+   * @description 提示文字颜色
+   */
   placeholderTextColor: PropTypes.string,
-  // 按钮点击透明度
+  /**
+   * @property activeOpacity
+   * @type Number
+   * @default  ACTIVE_OPACITY
+   * @description 按钮点击透明度
+   */
   activeOpacity: PropTypes.number,
-  // 倒计时时间
+   /**
+   * @property intervalTime
+   * @type Number
+   * @default  60
+   * @description 倒计时时间
+   */
   intervalTime: PropTypes.number,
-  // 点击发送短信按钮回调，当返回 false 时，可以阻止倒计时开始；
-  // 该回调接受两个参数：开始倒计时方法：`start` 和结束倒计时方法 `stop`
+   /**
+   * @property onPressBtn
+   * @type Function
+   * @default  NOOP
+   * @description
+   * 点击发送短信按钮回调，当返回 false 时，可以阻止倒计时开始；
+   * 该回调接受两个参数：开始倒计时方法：`start` 和结束倒计时方法 `stop`
+   */
   onPressBtn: PropTypes.func,
-  // 倒计时结束回调
+  /**
+   * @property onStop
+   * @type Function
+   * @default  NOOP
+   * @description 倒计时结束回调
+   */
   onStop: PropTypes.func,
-  // 验证码校验长度
+  /**
+   * @property captchaLength
+   * @type Number
+   * @default  6
+   * @description 验证码校验长度
+   */
   captchaLength: PropTypes.number,
-  // 校验器接口，值通常为叫校验器的校验手机方法
+  /**
+   * @property collectValidate
+   * @type Function
+   * @default  NOOP
+   * @description 校验器接口，值通常为叫校验器的校验手机方法
+   */
   collectValidate: PropTypes.func,
-  // 用来在校验器中做标识
+  /**
+   * @property name
+   * @type String
+   * @default 'SMS_CODE_INPUT'
+   * @description 用来在校验器中做标识
+   */
   name: PropTypes.string,
-  // 用来在校验器中组成错误信息
+  /**
+   * @property readablename
+   * @type String
+   * @default '短信验证码'
+   * @description 用来在校验器中组成错误信息
+   */
   readableName: PropTypes.string,
-  // 改变回调
+  /**
+   * @property onChangeText
+   * @type Function
+   * @default NOOP
+   * @description 改变回调
+   */
   onChangeText: PropTypes.func,
-  // 是否开启自动获取焦点（在 start 被调用时）
+  /**
+   * @property autoFocus
+   * @type Boolean
+   * @default true
+   * @description 是否开启自动获取焦点（在 start 被调用时）
+   */
   autoFocus: PropTypes.bool,
-  // 获取输入框
+  /**
+   * @property getInput
+   * @type Function
+   * @default NOOP
+   * @description 获取输入框
+   */
   getInput: PropTypes.func,
-  // 发送短信按钮热区
+  /**
+   * @property hitSlop
+   * @type Object
+   * @default null
+   * @description 发送短信按钮热区
+   */
   hitSlop: TouchableOpacity.propTypes.hitSlop,
 };
 SmsCaptchaInput.defaultProps = {

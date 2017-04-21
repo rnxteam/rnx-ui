@@ -1,3 +1,10 @@
+/**
+ * @component HeaderedSheet
+ * @version 0.12.0
+ * @description 有标题栏的底部弹层
+ *
+ * @instructions {instruInfo: ./HeaderedSheet/HeaderedSheet.md}
+ */
 import React, { Component, PropTypes } from 'react';
 import {
   View,
@@ -111,43 +118,138 @@ class HeaderedSheet extends Component {
 }
 
 HeaderedSheet.propTypes = {
-  // 显示开关
+  /**
+   * @property visible
+   * @type Boolean
+   * @default false
+   * @description 显示开关
+   */
   visible: Sheet.propTypes.visible,
-  // 遮罩层样式
+  /**
+   * @property overlayStyle
+   * @type Object
+   * @default null
+   * @description 遮罩层样式
+   */
   overlayStyle: Sheet.propTypes.overlayStyle,
-  // 关闭回调（动画结束时）
+  /**
+   * @property onClose
+   * @type Function
+   * @default NOOP
+   * @description 关闭回调（动画结束时）
+   */
   onClose: Sheet.propTypes.onClose,
-  // 遮罩点击事件
+  /**
+   * @property onPressOverlay
+   * @type Function
+   * @default NOOP
+   * @description 遮罩点击事件
+   */
   onPressOverlay: Sheet.propTypes.onPressOverlay,
-  // 动画时长
+  /**
+   * @property duration
+   * @type Number
+   * @default 200
+   * @description 动画时长
+   */
   duration: Sheet.propTypes.duration,
-  // 自定容器义样式（包含 header 区域）
+  /**
+   * @property containerStyle
+   * @type Object
+   * @default null
+   * @description 自定容器义样式（包含 header 区域）
+   */
   containerStyle: Sheet.propTypes.style,
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
-  // 自定义 header 样式
+  /**
+   * @property headerStyle
+   * @type Object
+   * @default null
+   * @description 自定义 header 样式
+   */
   headerStyle: View.propTypes.style,
-  // 标题
+  /**
+   * @property title
+   * @type String Element
+   * @default ''
+   * @description 标题
+   */
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 标题文本样式（title 为字符串时才生效）
+  /**
+   * @property titleStyle
+   * @type Object
+   * @default null
+   * @description  标题文本样式（title 为字符串时才生效）
+   */
   titleStyle: Text.propTypes.style,
-  // 标题到左右两边的距离
+  /**
+   * @property titleGap
+   * @type Number
+   * @default 50
+   * @description  标题到左右两边的距离
+   */
   titleGap: PropTypes.number,
-  // 左侧按钮
+   /**
+   * @property leftBtn
+   * @type String Element
+   * @default null
+   * @description  左侧按钮
+   */
   leftBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 左侧点击事件
+   /**
+   * @property onPressLeftBtn
+   * @type Function
+   * @default NOOP
+   * @description  左侧点击事件
+   */
   onPressLeftBtn: PropTypes.func,
-  // 左侧按钮文本样式（leftBtn 为字符串时才生效）
+  /**
+   * @property leftBtnStyle
+   * @type Object
+   * @default null
+   * @description  左侧按钮文本样式（leftBtn 为字符串时才生效）
+   */
   leftBtnStyle: Text.propTypes.style,
-  // 右侧按钮
+  /**
+   * @property rightBtn
+   * @type String  Element
+   * @default null
+   * @description  右侧按钮
+   */
   rightBtn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 右侧点击事件
+  /**
+   * @property onPressRightBtn
+   * @type Function
+   * @default NOOP
+   * @description  右侧点击事件
+   */
   onPressRightBtn: PropTypes.func,
-  // 右侧按钮文本样式（rightBtn 为字符串时才生效）
+  /**
+   * @property rightBtnStyle
+   * @type Object
+   * @default null
+   * @description  右侧按钮文本样式（leftBtn 为字符串时才生效）
+   */
   rightBtnStyle: Text.propTypes.style,
-  // 按钮点击透明度变化
+  /**
+   * @property activeOpacity
+   * @type Number
+   * @default ACTIVE_OPACITY
+   * @description  按钮点击透明度变化
+   */
   activeOpacity: PropTypes.number,
-  // 子元素
+  /**
+   * @property children
+   * @type Element Array
+   * @default null
+   * @description  子元素
+   */
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 HeaderedSheet.defaultProps = {

@@ -1,5 +1,9 @@
 /**
- * 文本框，文字超长时滚动显示
+ * @component DynamicText
+ * @version 0.17.0
+ * @description 自动滚动的文本框：文字超长时滚动显示
+ *
+ * @instructions {instruInfo: ./DynamicText/DynamicText.md}
  */
 import React, {
   Component,
@@ -146,21 +150,58 @@ class DynamicText extends Component {
 }
 
 DynamicText.propTypes = {
-  // 自定义wrapper样式
+  /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description 自定义wrapper样式
+   */
   style: View.propTypes.style,
-  // 自定义文本样式
+  /**
+   * @property textStyle
+   * @type Object
+   * @default null
+   * @description 自定义文本样式
+   */
   textStyle: Text.propTypes.style,
-  // 显示文本
+  /**
+   * @property children
+   * @type String Number
+   * @default null
+   * @description 显示文本
+   */
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  // 文字循环模式，默认reverse
-  // reverse：轮转到末尾后再轮转回开头
-  // restart: 轮转到末尾后返回至开头重新循环
+  /**
+   * @property mode
+   * @type String
+   * @default MODE_REVERSE
+   * @param {String} MODE_RESTART 轮转到末尾后返回至开头重新循环
+   * @param {String} MODE_REVERSE 轮转到末尾后再轮转回开头
+   * @description 文字循环模式，默认reverse
+   * reverse:轮转到末尾后再轮转回开头
+   * restart: 轮转到末尾后返回至开头重新循环
+   */
   mode: PropTypes.oneOf([MODE_RESTART, MODE_REVERSE]),
-  // 动画间隔时间，默认500
+  /**
+   * @property bufferTime
+   * @type Number
+   * @default 1000
+   * @description 动画间隔时间
+   */
   bufferTime: PropTypes.number,
-  // 文字滚动速度，默认5，数字越大，速度越快
+  /**
+   * @property speed
+   * @type Number
+   * @default 5
+   * @description 文字滚动速度,数字越大,速度越快
+   */
   speed: PropTypes.number,
-  // 文本最大宽度
+  /**
+   * @property maxWidth
+   * @type Number
+   * @default 2000
+   * @description 文本最大宽度
+   */
   maxWidth: PropTypes.number,
 };
 DynamicText.defaultProps = {

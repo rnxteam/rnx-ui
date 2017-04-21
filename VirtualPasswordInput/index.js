@@ -1,3 +1,11 @@
+/**
+ * @component VirtualPasswordInput
+ * @version 0.17.0
+ * @description 虚拟密码输入框
+ *
+ * @instructions {instruInfo: ./VirtualPasswordInput/VirtualPasswordInput.md}
+ */
+
 import React, { Component, PropTypes } from 'react';
 import {
   TouchableWithoutFeedback,
@@ -56,23 +64,68 @@ class VirtualPasswordInput extends Component {
 }
 
 VirtualPasswordInput.propTypes = {
-  // 值
+  /**
+   * @property value
+   * @type String
+   * @default ''
+   * @description 值
+   */
   value: PropTypes.string,
-  // 是否启用安全输入
+  /**
+   * @property secureTextEntry
+   * @type Boolean
+   * @default true
+   * @description 是否启用安全输入
+   */
   secureTextEntry: PropTypes.bool,
-  // 最外层样式
+  /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description 最外层样式
+   */
   style: View.propTypes.style,
-  // 容器样式
+  /**
+   * @property containerStyle
+   * @type Object
+   * @default null
+   * @description 容器样式
+   */
   containerStyle: View.propTypes.style,
-  // 单个输入框样式
+  /**
+   * @property cellStyle
+   * @type Object
+   * @default null
+   * @description 单个输入框样式
+   */
   cellStyle: View.propTypes.style,
-  // 安全码样式
+  /**
+   * @property secureStyle
+   * @type Object
+   * @default null
+   * @description 安全码样式
+   */
   secureStyle: View.propTypes.style,
-  // 文本样式
+  /**
+   * @property textStyle
+   * @type Object
+   * @default null
+   * @description 文本样式
+   */
   textStyle: Text.propTypes.style,
-  // 最大长度
+  /**
+   * @property maxLength
+   * @type Number
+   * @default 6
+   * @description 最大长度
+   */
   maxLength: PropTypes.number,
-  // 点击回调
+  /**
+   * @property onPress
+   * @type Function
+   * @default NOOP
+   * @description 点击回调
+   */
   onPress: PropTypes.func,
 };
 VirtualPasswordInput.defaultProps = {

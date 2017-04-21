@@ -1,3 +1,14 @@
+/**
+ * @component RefreshView
+ * @version 0.17.0
+ * @description 滚动框
+ * 带惯性、下拉刷新功能。官版的 ScrollView 下拉刷新的功能几乎没有可定制空间，而 RefreshView 可以对 RefreshControl 进行完全的自定义，
+ * 包括控件的本身，下拉状态的实时响应等，具有极大的可定制空间。
+ *
+ * 配套组件：[RefreshControl](./RefreshControl/README.md)
+ *
+ * @instructions {instruInfo: ./RefreshView/RefreshView.md}
+ */
 import React, {
   Component,
   PropTypes,
@@ -27,24 +38,18 @@ class RefreshView extends Component {
       refreshControlY: 0,
     };
 
-    // 滚动坐标
+
     this.y = 0;
-    // 内部容器长度
+
     this.innerLen = 0;
-    // 外部容器长宽
+
     this.outerLen = 0;
-    // 滚动条容器长宽
+
     this.scrollBarContainerLen = 0;
-    // 刷新控件高度
+
     this.refreshControlHeight = 0;
     this.RCOnReadyToRefreshLock = false;
-    /**
-     * 刷新控件状态
-     * 0: 「下拉刷新」初始状态，可下拉
-     * 1: 「松开刷新」下拉距离到达刷新点
-     * 2: 「刷新中...」正在刷新
-     * @type {Number}
-     */
+
     this.refreshControlStatus = 0;
     this.lastRefreshControlStatus = 0;
 
@@ -67,7 +72,6 @@ class RefreshView extends Component {
   componentWillMount() {
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponderCapture: () => {
-        // 触摸时立刻停止当前动作
         clearInterval(this.intervalId);
         clearInterval(this.refreshControlIntervalId);
         return false;
@@ -75,16 +79,10 @@ class RefreshView extends Component {
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponderCapture: () => false,
       onMoveShouldSetPanResponder: (evt, gestureState) => {
-        // 冒泡劫持
-        // 本来应该直接 return true 劫持
-        // 但是 iPhone 6s 及其以上版本有 bug，会导致子组件无法响应事件
-        // （很奇怪，在冒泡阶段，子组件响应事件的时机应该在父组件之前）
-        // https://github.com/facebook/react-native/issues/3082
         const res = gestureState.dy !== 0;
         return res;
       },
       onPanResponderMove: (evt, gestureState) => {
-        // 开始移动
         const { dy } = gestureState;
         const dragOverA = this.props.dragOverA;
         const topThreshold = this.getTopThreshold();
@@ -92,15 +90,13 @@ class RefreshView extends Component {
         let p = y + dy;
 
         if (p > topThreshold) {
-          // 超出顶部范围，触发减速
           const p0 = this.lastRefreshControlStatus === 0 ? 0 : topThreshold;
           p = p0 + ((p - p0) / dragOverA);
 
-          // 处理下拉刷新逻辑
+
           const refreshControl = this.props.refreshControl;
           if (refreshControl) {
             if (p >= this.props.refreshDistance) {
-              // 到达刷新点
               if (this.refreshControlStatus === 0 && refreshControl.props.onReadyToRefresh) {
                 this.refreshControlStatus = 1;
                 this.props.refreshControl.props.onReadyToRefresh();
@@ -118,7 +114,6 @@ class RefreshView extends Component {
         } else {
           const d = this.outerLen - this.innerLen;
           if (p < d) {
-            // 超出底部范围，触发减速
             p = d + ((p - d) / dragOverA);
           }
         }
@@ -126,17 +121,14 @@ class RefreshView extends Component {
         this.position(p);
       },
       onPanResponderRelease: (evt, gestureState) => {
-        // 停止移动
         const { vy } = gestureState;
         const topThreshold = this.getTopThreshold();
         const y = this.state.y;
         this.y = y;
 
         if (y > topThreshold) {
-          // 超出顶部范围，触发回弹
           let s = y - topThreshold;
           if (this.refreshControlStatus !== 2 && y >= this.props.refreshDistance) {
-            // 到达刷新点
             s = y - this.refreshControlHeight;
             if (this.props.refreshControl && this.props.refreshControl.props.onRefresh) {
               this.refreshControlStatus = 2;
@@ -145,7 +137,6 @@ class RefreshView extends Component {
           }
           this.recover(s);
         } else {
-          // 超出底部范围，触发回弹
           const d = this.outerLen - this.innerLen;
           if (y < d) {
             if (d < 0) {
@@ -154,7 +145,6 @@ class RefreshView extends Component {
               this.recover(y);
             }
           } else {
-            // 判定没有超出范围，触发惯性
             this.inertialScroll(vy);
           }
         }
@@ -172,10 +162,6 @@ class RefreshView extends Component {
       const nextRefreshing = nextRefreshControl.props.refreshing;
 
       if (prevRefreshing === true && nextRefreshing === false) {
-        // * 0: 「下拉刷新」初始状态，可下拉
-        // * 1: 「松开刷新」下拉距离到达刷新点
-        // * 2: 「刷新中...」正在刷新
-        // 2「刷新中...」结束，进入 0
         this.refreshControlStatus = 0;
         this.lastRefreshControlStatus = 0;
         this.refreshControlRecover();
@@ -219,13 +205,13 @@ class RefreshView extends Component {
     return 0;
   }
 
-  // 定位
+
   setPosition(p) {
     this.y = p;
     this.position(p);
   }
 
-  // 检查 onEndReached 触发时机
+
   checkEndReached(p) {
     const distanceToBottom = (this.innerLen - this.outerLen) + p;
     if (distanceToBottom <= this.props.onEndReachedThreshold) {
@@ -241,7 +227,7 @@ class RefreshView extends Component {
     this.renderScrollBar(p);
   }
 
-  // 惯性滚动
+
   inertialScroll(initalV) {
     const t = this.props.renderInterval;
     const towards = initalV > 0 ? 1 : -1;
@@ -255,7 +241,7 @@ class RefreshView extends Component {
       n += 1;
       v = vMaker.getV(n * t);
 
-      // 趋近于 0，取 0
+
       if (v < 0.07) {
         clearInterval(this.intervalId);
         return;
@@ -265,14 +251,12 @@ class RefreshView extends Component {
       const topThreshold = this.getTopThreshold();
 
       if (p > topThreshold) {
-        // 到达顶部，停止惯性，进入超出范围滚动
         p = topThreshold;
         clearInterval(this.intervalId);
         this.overScroll(v, towards);
       } else {
         const d = this.outerLen - this.innerLen;
         if (p < d) {
-          // 到达底部，停止惯性，进入超出范围滚动
           p = d;
           clearInterval(this.intervalId);
           this.overScroll(towards * v, towards);
@@ -283,8 +267,7 @@ class RefreshView extends Component {
     }, t);
   }
 
-  // 超出范围滚动
-  // v = initalV - a*t
+
   overScroll(initalV, towards = 1) {
     const maxOverV = this.props.maxOverV;
     let v0;
@@ -306,12 +289,10 @@ class RefreshView extends Component {
       n += 1;
       v = v0 - (towards * (a * n * t));
       if (towards === 1 && v <= 0) {
-        // 向下，速度降为 0
         clearInterval(this.intervalId);
         this.recover(this.y - this.getTopThreshold());
         return;
       } else if (towards === -1 && v >= 0) {
-        // 向上，速度降为 0
         clearInterval(this.intervalId);
         const d = this.outerLen - this.innerLen;
         this.recover(this.y - d);
@@ -323,13 +304,12 @@ class RefreshView extends Component {
     }, t);
   }
 
-  // 超出范围后恢复
+
   recover(S) {
     if (S === 0) {
       return;
     }
 
-    // const towards = S > 0 ? 1 : -1;
     const t = this.props.renderInterval;
     const T = this.props.recoverTime;
     const N = Math.floor(T / t);
@@ -337,16 +317,6 @@ class RefreshView extends Component {
 
     this.intervalId = setInterval(() => {
       if (n >= N) {
-        // 按理来说，此时滚动位置已经到达目标位置
-        // 保险其间，再强制到达目标位置
-        // if (towards === 1) {
-        //   // 向下滚动超出顶部，需要回到顶部
-        //   this.setPosition(0);
-        // } else {
-        //   // 向上滚动超出底部，需要回到底部
-        //   const d = this.outerLen - this.innerLen;
-        //   this.setPosition(d);
-        // }
         clearInterval(this.intervalId);
         return;
       }
@@ -361,19 +331,18 @@ class RefreshView extends Component {
     }, t);
   }
 
-  // 显示滚动条
   showScrollBar() {
     this.aniHideScrollBar.stop();
     this.aniShowScrollBar.start();
   }
 
-  // 隐藏滚动条
+
   hideScrollBar() {
     this.aniShowScrollBar.stop();
     this.aniHideScrollBar.start();
   }
 
-  // 刷新控件恢复
+
   refreshControlRecover() {
     const y = this.y;
     let S = y;
@@ -390,16 +359,6 @@ class RefreshView extends Component {
 
     this.refreshControlIntervalId = setInterval(() => {
       if (n >= N) {
-        // 按理来说，此时滚动位置已经到达目标位置
-        // 保险其间，再强制到达目标位置
-        // if (towards === 1) {
-        //   // 向下滚动超出顶部，需要回到顶部
-        //   this.setPosition(0);
-        // } else {
-        //   // 向上滚动超出底部，需要回到底部
-        //   const d = this.outerLen - this.innerLen;
-        //   this.setPosition(d);
-        // }
         clearInterval(this.refreshControlIntervalId);
         return;
       }
@@ -414,18 +373,17 @@ class RefreshView extends Component {
     }, t);
   }
 
-  // 计算滚动条长度
   renderScrollBar(thisY) {
     if (this.innerLen <= this.outerLen) {
       return;
     }
-    // 显示滚动条
+
     this.showScrollBar();
 
     const maxLen = this.scrollBarContainerLen;
-    // 内容长度
+
     let contentLen = this.innerLen;
-    // 容器长度
+
     const containerLen = this.outerLen;
     const d = containerLen - contentLen;
     let len;
@@ -439,14 +397,14 @@ class RefreshView extends Component {
     }
 
     /**
-     * 计算滚动条高度
+     * @description 计算滚动条高度
      */
     if (y > 0) {
       contentLen += y;
     } else if (y < d) {
       contentLen = containerLen - y;
     }
-    // 长度比例
+
     const p = containerLen / contentLen;
 
     if (p >= 1) {
@@ -456,13 +414,13 @@ class RefreshView extends Component {
     }
 
     /**
-     * 计算滚动条位置
+     * @description 计算滚动条位置
      */
     if (p >= 1) {
       top = 0;
     } else {
       const maxTop = maxLen - len;
-      // 位置比例
+
       let pTop = y / d;
       if (pTop < 0) {
         pTop = 0;
@@ -477,7 +435,6 @@ class RefreshView extends Component {
       scrollBarY: top,
     });
 
-    // 隐藏滚动条
     this.hideScrollBar();
   }
 
@@ -524,27 +481,82 @@ class RefreshView extends Component {
 }
 
 RefreshView.propTypes = {
-  // 滚动回调，参数为滚动距离
+  /**
+   * @property onScroll
+   * @type Function
+   * @default NOOP
+   * @description  滚动回调，参数为滚动距离
+   */
   onScroll: PropTypes.func,
-  // 调用 onEndReached 之前的临界值，描述距底部的距离
+  /**
+   * @property onEndReachedThreShold
+   * @type Number
+   * @default 0
+   * @description  调用 onEndReached 之前的临界值，描述距底部的距离
+   */
   onEndReachedThreshold: PropTypes.number,
-  // 当滚动至距离底部 onEndReachedThreshold 的范围内，会持续触发的回调
+  /**
+   * @property onEndReached
+   * @type Function
+   * @default NOOP
+   * @description  当滚动至距离底部 onEndReachedThreshold 的范围内，会持续触发的回调
+   */
   onEndReached: PropTypes.func,
-  // 超出范围时的减速度
+  /**
+   * @property overA
+   * @type Number
+   * @default 0.05
+   * @description  超出范围时的减速度
+   */
   overA: PropTypes.number,
-  // 超出范围时最大速度
+  /**
+   * @property maxOverV
+   * @type Number
+   * @default 3
+   * @description  超出范围时最大速度
+   */
   maxOverV: PropTypes.number,
-  // 拖拽超出范围时的减速度
+  /**
+   * @property dragOverA
+   * @type Number
+   * @default 2.5
+   * @description  拖拽超出范围时的减速度
+   */
   dragOverA: PropTypes.number,
-  // 渲染间隔时间
+   /**
+   * @property renderInterval
+   * @type Number
+   * @default 16
+   * @description  渲染间隔时间
+   */
   renderInterval: PropTypes.number,
-  // 弹性恢复时间
+  /**
+   * @property recoverTime
+   * @type Number
+   * @default 200
+   * @description  弹性恢复时间
+   */
   recoverTime: PropTypes.number,
-  // 刷新控件恢复时间
+  /**
+   * @property refreshControlRecoverTime
+   * @type Number
+   * @default 100
+   * @description  刷新控件恢复时间
+   */
   refreshControlRecoverTime: PropTypes.number,
-  // 到达刷新状态所需的距离
+  /**
+   * @property refreshDistance
+   * @type Number
+   * @default 60
+   * @description  刷新控件恢复时间
+   */
   refreshDistance: PropTypes.number,
-  // 下拉刷新控件
+  /**
+   * @property refreshControl
+   * @type Function
+   * @default null
+   * @description  下拉刷新控件
+   */
   refreshControl: (props, propName, componentName) => {
     const type = props[propName].type;
     if (!type || type !== RefreshControl) {
@@ -553,7 +565,12 @@ RefreshView.propTypes = {
       );
     }
   },
-  // 子元素
+  /**
+   * @property children
+   * @type Element Array
+   * @default null
+   * @description  子元素
+   */
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 RefreshView.defaultProps = {

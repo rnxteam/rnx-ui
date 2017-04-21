@@ -1,3 +1,11 @@
+/**
+ * @component Sheet
+ * @version 0.17.0
+ * @description 底部弹层
+ *  底部弹层弹出会有动画。
+ *
+ * @instructions {instruInfo: ./Sheet/Sheet.md}
+ */
 import React, {
   Component,
   PropTypes,
@@ -125,19 +133,54 @@ class Sheet extends Component {
 }
 
 Sheet.propTypes = {
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description  自定义样式
+   */
   style: View.propTypes.style,
-  // 显示开关
+  /**
+   * @property visible
+   * @type Boolean
+   * @default false
+   * @description  显示开关
+   */
   visible: PropTypes.bool.isRequired,
-  // 遮罩层样式
+  /**
+   * @property overlayStyle
+   * @type Object
+   * @default null
+   * @description  遮盖层样式
+   */
   overlayStyle: View.propTypes.style,
-  // 关闭回调（动画结束时）
+  /**
+   * @property onClose
+   * @type Function
+   * @default NOOP
+   * @description  关闭回调（动画结束时）
+   */
   onClose: PropTypes.func,
-  // 遮罩点击事件
+  /**
+   * @property onPressOverlay
+   * @type Function
+   * @default NOOP
+   * @description  遮罩点击事件
+   */
   onPressOverlay: PropTypes.func,
-  // 子元素
+  /**
+   * @property children
+   * @type Element Array
+   * @default null
+   * @description  子元素
+   */
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 动画时长
+  /**
+   * @property duration
+   * @type Number
+   * @default 200
+   * @description  动画时长
+   */
   duration: PropTypes.number,
 };
 Sheet.defaultProps = {

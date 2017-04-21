@@ -1,3 +1,10 @@
+/**
+ * @component Dialog
+ * @version 0.17.1
+ * @description 警告弹框
+ *
+ * @instructions {instruInfo: ./Dialog/Dialog.md}
+ */
 import React, {
   Component,
   PropTypes,
@@ -108,19 +115,57 @@ class Dialog extends Component {
 }
 
 Dialog.propTypes = {
-  // 是否显示
+  /**
+   * @property visible
+   * @type Boolean
+   * @default false
+   * @description 是否显示
+   */
   visible: PropTypes.bool,
-  // 标题
+  /**
+   * @property title
+   * @type String Element
+   * @default ''
+   * @description 标题
+   */
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 标题文本样式（title 为字符串时才生效）
+  /**
+   * @property titleStyle
+   * @type Object
+   * @default null
+   * @description 标题文本样式（title 为字符串时才生效）
+   */
   titleStyle: Text.propTypes.style,
-  // 内容
+  /**
+   * @property message
+   * @type String Element
+   * @default ''
+   * @description 内容
+   */
   message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 标题文本样式（title 为字符串时才生效）
+  /**
+   * @property messageStyle
+   * @type Object
+   * @default null
+   * @description 标题文本样式（title 为字符串时才生效）
+   */
   messageStyle: Text.propTypes.style,
-  // 按钮容器样式
+  /**
+   * @property buttonsContainerStyle
+   * @type Object
+   * @default null
+   * @description 按钮容器样式
+   */
   buttonsContainerStyle: View.propTypes.style,
-  // 按钮
+  /**
+   * @property buttons
+   * @type Array
+   * @default []
+   * @param {String} text 按钮文本
+   * @param {Object} style 按钮样式
+   * @param {Function} onPress 按钮点击回调
+   * @description 按钮
+   */
   buttons: PropTypes.arrayOf(PropTypes.shape({
     /* eslint-disable */
     // 按钮文本
@@ -131,11 +176,26 @@ Dialog.propTypes = {
     onPress: PropTypes.func,
     /* eslint-enable */
   })),
-  // 弹框样式
+   /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description 弹框样式
+   */
   style: View.propTypes.style,
-  // 遮罩层样式
+  /**
+   * @property overlayStyle
+   * @type Object
+   * @default null
+   * @description 遮盖层样式
+   */
   overlayStyle: View.propTypes.style,
-  // 是否使用 Overlay 动画
+  /**
+   * @property useOverlayAnimation
+   * @type Boolean
+   * @default true
+   * @description 是否使用 Overlay 动画
+   */
   useOverlayAnimation: PropTypes.bool,
 };
 Dialog.defaultProps = {

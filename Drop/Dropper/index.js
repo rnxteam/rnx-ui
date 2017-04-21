@@ -1,3 +1,11 @@
+/**
+ * @component Dropper
+ * @version 0.17.0
+ * @description 掉落组件
+ * 用来包裹掉落元素，提供抛物线运动的动画。
+ *
+ * @instructions {instruInfo: ./Drop/Dropper/Dropper.md}
+ */
 import React, {
   Component,
   PropTypes,
@@ -144,45 +152,124 @@ class Dropper extends Component {
 }
 
 Dropper.propTypes = {
-  // 起点位置
+  /**
+   * @property startPosition
+   * @param {Number} x 水平坐标
+   * @param {Number} y 垂直坐标
+   * @type Object
+   * @default {0,0}
+   * @description 起点位置
+   */
   startPosition: PropTypes.shape({
     // 水平坐标
     x: PropTypes.number,
     // 垂直坐标
     y: PropTypes.number,
   }).isRequired,
-  // 终点位置
+  /**
+   * @property endPosition
+   * @param {Number} x 水平坐标
+   * @param {Number} y 垂直坐标
+   * @type Object
+   * @default {0,0}
+   * @description 终点位置
+   */
   endPosition: PropTypes.shape({
     // 水平坐标
     x: PropTypes.number,
     // 垂直坐标
     y: PropTypes.number,
   }).isRequired,
-  // 掉落元素宽度
+  /**
+   * @property width
+   * @type Number
+   * @default 0
+   * @description 掉落元素宽度
+   */
   width: PropTypes.number,
-  // 掉落元素高度
+   /**
+   * @property height
+   * @type Number
+   * @default 0
+   * @description 掉落元素高度
+   */
   height: PropTypes.number,
-  // 动画时间
+  /**
+   * @property duration
+   * @type Number
+   * @default 1000
+   * @description 动画时间
+   */
   duration: PropTypes.number,
-  // 弹跳的高度
+  /**
+   * @property jumpHeight
+   * @type Number
+   * @default 60
+   * @description 弹跳的高度
+   */
   jumpHeight: PropTypes.number,
-  // 缩放值
+  /**
+   * @property scale
+   * @type Number
+   * @default 1
+   * @description 缩放值
+   */
   scale: PropTypes.number,
-  // 旋转角度，如 360
+  /**
+   * @property rotate
+   * @type Number
+   * @default 360
+   * @description 旋转角度
+   */
   rotate: PropTypes.number,
-  // 动画刚开始由透明变化至不透明的时间
+  /**
+   * @property showDuration
+   * @type Number
+   * @default 100
+   * @description 动画刚开始由透明变化至不透明的时间
+   */
   showDuration: PropTypes.number,
-  // 动画结束回调
+  /**
+   * @property onEnd
+   * @type Function
+   * @default NOOP
+   * @description 动画结束回调
+   */
   onEnd: PropTypes.func,
-  // 是否需要收尾动画
+   /**
+   * @property endAnimation
+   * @type Boolean
+   * @default true
+   * @description 是否需要收尾动画
+   */
   endAnimation: PropTypes.bool,
-  // 收尾弹跳的高度
+  /**
+   * @property endJumpHeight
+   * @type Number
+   * @default 40
+   * @description 收尾弹跳的高度
+   */
   endJumpHeight: PropTypes.number,
-  // 收尾动画时间
+  /**
+   * @property endAnimationDuration
+   * @type Number
+   * @default 400
+   * @description 收尾动画时间
+   */
   endAnimationDuration: PropTypes.number,
-  // 子元素
+  /**
+   * @property children
+   * @type Element
+   * @default null
+   * @description 子元素
+   */
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 自定义样式
+   /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
 };
 Dropper.defaultProps = {

@@ -1,5 +1,9 @@
 /**
- * 手机号码输入框组件
+ * @component PhoneNumInput
+ * @version 0.13.1
+ * @description 手机号码输入框组件
+ *
+ * @instructions {instruInfo: ./PhoneNumInput/PhoneNumInput.md}
  */
 import React, { Component, PropTypes } from 'react';
 import {
@@ -91,26 +95,71 @@ class PhoneNumInput extends Component {
 }
 
 PhoneNumInput.propTypes = {
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description  自定义样式
+   */
   style: View.propTypes.style,
-  // 自定义输入框样式
+   /**
+   * @property inputStyle
+   * @type Object
+   * @default null
+   * @description  自定义输入框样式
+   */
   inputStyle: TextInput.propTypes.style,
-  // 提示文字
+  /**
+   * @property placeholder
+   * @type String
+   * @default '手机号'
+   * @description 提示文字
+   */
   placeholder: PropTypes.string,
-  // 提示文字颜色
+  /**
+   * @property placeholderTextColor
+   * @type String
+   * @default COLOR_PLACEHOLDER
+   * @description 提示文字颜色
+   */
   placeholderTextColor: PropTypes.string,
-  // 校验器接口
+  /**
+   * @property collectValidate
+   * @type Function
+   * @default NOOP
+   * @description 校验器接口
+   */
   collectValidate: PropTypes.func,
-  // 默认值
+  /**
+   * @property defaultValue
+   * @type String
+   * @default ''
+   * @description 默认值
+   */
   defaultValue: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
   ]),
-  // 用来在校验器中做标识
+  /**
+   * @property name
+   * @type String
+   * @default 'PHONE_NUM_INPUT'
+   * @description 用来在校验器中做标识
+   */
   name: PropTypes.string,
-  // 用来在校验器中组成错误信息
+  /**
+   * @property readableName
+   * @type String
+   * @default '手机号'
+   * @description 用来在校验器中组成错误信息
+   */
   readableName: PropTypes.string,
-  // 改变回调
+  /**
+   * @property onChangeText
+   * @type Function
+   * @default NOOP
+   * @description 改变回调
+   */
   onChangeText: PropTypes.func,
 };
 PhoneNumInput.defaultProps = {

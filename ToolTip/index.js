@@ -1,3 +1,10 @@
+/**
+ * @component ToolTip
+ * @version 0.16.0
+ * @description 提示框
+ *
+ * @instructions {instruInfo: ./ToolTip/ToolTip.md}
+ */
 import React, {
   Component,
   PropTypes,
@@ -52,19 +59,54 @@ class ToolTip extends Component {
 }
 
 ToolTip.propTypes = {
-  // 显示开关
+ /**
+  * @property visible
+  * @type Boolean
+  * @default false
+  * @description 显示开关
+  */
   visible: PropTypes.bool.isRequired,
-  // 显示文本
+ /**
+  * @property text
+  * @type String
+  * @default ''
+  * @description 显示文本
+  */
   text: PropTypes.string.isRequired,
-  // 遮罩层样式
+ /**
+  * @property overlayStyle
+  * @type Object
+  * @default null
+  * @description 遮罩层样式
+  */
   overlayStyle: View.propTypes.style,
-  // 文本容器样式
+ /**
+  * @property textWrapperStyle
+  * @type Object
+  * @default null
+  * @description 文本容器样式
+  */
   textWrapperStyle: View.propTypes.style,
-  // 文本样式
+ /**
+  * @property textStyle
+  * @type Object
+  * @default null
+  * @description 文本样式
+  */
   textStyle: Text.propTypes.style,
-  // 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
+ /**
+  * @property pointerEvents
+  * @type String
+  * @default 'none'
+  * @description 控制 Overlay 是否可以作为触控事件的目标（参考 https://facebook.github.io/react-native/docs/view.html#pointerevents）
+  */
   pointerEvents: Overlay.propTypes.pointerEvents,
-  // 是否使用 Overlay 动画
+  /**
+  * @property useOverlayAnimation
+  * @type Boolean
+  * @default true
+  * @description 是否使用 Overlay 动画
+  */
   useOverlayAnimation: PropTypes.bool,
 };
 ToolTip.defaultProps = {

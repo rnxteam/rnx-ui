@@ -1,14 +1,16 @@
 /**
- * px 转 dp
- * 注意：
- * 在安卓设备下，如果 lineHeight 是浮点数会红屏，需要再取整下
+ * @component TransPxToDp
+ * @version 0.17.0
+ * @description 像素（px）转虚拟像素（dp）方法
+ *
+ * @instructions {instruInfo: ./util/transPxToDp/TransPxToDp.md}
  */
 import { PixelRatio } from 'react-native';
 
-const dpi = PixelRatio.get();
+const dpi = PixelRatio.get(); // 返回设备的像素密度
 
 /**
- * pix 转 dp
+ * @description pix 转 dp
  * @param  {Number} px
  * @return {Number} dp
  */

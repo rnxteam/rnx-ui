@@ -1,3 +1,9 @@
+/**
+ * @component PlaceholderText
+ * @version 0.11.9
+ * @description 有占位元素的文本显示组件
+ * @instructions {instruInfo: ./PlaceholderText/PlaceholderText.md}
+ */
 import React, {
   PropTypes,
   Component,
@@ -85,25 +91,75 @@ class PlaceholderText extends Component {
 }
 
 PlaceholderText.propTypes = {
-  // 值
+  /**
+   * @property value
+   * @type String
+   * @default ''
+   * @description 值
+   */
   value: PropTypes.string,
-  // 值自定义样式
+  /**
+   * @property valueStyle
+   * @type Object
+   * @default null
+   * @description 值自定义样式
+   */
   valueStyle: Text.propTypes.style,
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
-  // 占位元素
+  /**
+   * @property placeholder
+   * @type String Element
+   * @default ''
+   * @description 占位元素
+   */
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 占位元素样式（placeholder 为字符串时才生效）
+  /**
+   * @property placeholderStyle
+   * @type Object
+   * @default null
+   * @description 占位元素样式（placeholder 为字符串时才生效）
+   */
   placeholderStyle: Text.propTypes.style,
-  // 点击回调
+  /**
+   * @property onPress
+   * @type Function
+   * @default NOOP
+   * @description 点击回调
+   */
   onPress: PropTypes.func,
-  // 用来在校验器中做标识
+  /**
+   * @property name
+   * @type String
+   * @default ''
+   * @description 用来在校验器中做标识
+   */
   name: PropTypes.string,
-  // 用来在校验器中组成错误信息
+  /**
+   * @property readablename
+   * @type String
+   * @default ''
+   * @description 用来在校验器中组成错误信息
+   */
   readableName: PropTypes.string,
-  // 校验器接口
+  /**
+   * @property collectValidate
+   * @type String
+   * @default ''
+   * @description 校验器接口
+   */
   collectValidate: PropTypes.func,
-  // 是否必要
+  /**
+   * @property required
+   * @type Boolean
+   * @default false
+   * @description 是否必要
+   */
   required: PropTypes.bool,
 };
 PlaceholderText.defaultProps = {

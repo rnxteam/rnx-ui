@@ -1,0 +1,90 @@
+*{
+    color: #333;
+}
+.ydoc {
+    background: #fff;
+}
+::selection{
+    color: #fff;
+    background-color: #66b5e6;
+}
+
+.ydoc-header {
+    background-image: none;
+    box-shadow: none;
+    background-color: #07233c;
+}
+.ydoc-header a, .ydoc-nav{
+    color: #fff;
+}
+.ydoc-nav .active, .ydoc-nav .active a, .ydoc-nav li a:hover{
+    color: rgb(70, 160, 231);
+}
+.ydoc .ydoc-banner-bg{
+    background-image: url(http://ww1.sinaimg.cn/large/7921624bgy1feqpemihxaj24mo1pudpq.jpg);
+    background-repeat:no-repeat;
+    background-size:100% 230px;
+}
+.ydoc-banner-area h1, .ydoc-banner-area p{
+    color: rgba(232, 231, 229, 0.75);
+    font-family:Arial;
+    font-weight: bold;
+    *filter: Glow(color=#fff, strength=1);
+}
+
+
+/* content */
+.ydoc-container-content{
+    box-shadow: 0 0 10px #97b9e1;
+}
+/* content-left */
+/*.ydoc-container-content .content-left{
+    padding-left:4%;
+}*/
+.ydoc-container-content .docs-sidebar.affix{
+    top:0px;
+}
+.ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
+    background-color: #dff0ff;
+    border-left-color: #dff0ff;
+}
+.ydoc-container-content .docs-sidebar .docs-sidenav li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
+    border-left: 2px solid #96c3ea;
+    color: rgb(70, 160, 231);
+}
+.ydoc-container .docs-sidebar:before{
+    background-color: #dff0ff;
+}
+/* content-right */
+.markdown-body h1, .markdown-body h2{
+    border-bottom: 1px solid #dff0ff;
+}
+.markdown-body pre {
+    background-color: #fdfeff;
+    border: 1px solid #dff0ff;
+}
+/*.con-head{
+    color:#f00;
+}*/
+.markdown-body blockquote.api strong{
+    color:#e62929;
+}
+.prop-type{
+    color:#f00;
+}
+/* footer */
+.ydoc .footer {
+    background: #07233c;
+}
+
+/* mobile style */
+@media screen and (max-width: 767px){
+    .ydoc .ydoc-nav .navbar-left li a:hover, .ydoc .ydoc-nav .navbar-right li a:hover{
+        color: #96c3ea;
+    }
+    .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
+        background-color: #222;
+    }
+}
+
+

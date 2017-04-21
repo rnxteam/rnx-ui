@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>RNX-UI Documentation 版本</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+  
+    
+        <link rel="stylesheet" href="theme/ydoc.css"/>
+    
+  
+</head>
+<body class=CHANGELOG >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="" class="navbar-brand">RNX-UI</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">RNX-UI</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="util.html">方法</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="CHANGELOG.html">版本</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>版本</h1>
+                  <p class="desc">RNX-UI 的历史版本发布时间及变更记录，帮助你追溯到每个版本的演进过程。</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content" id="readme">
+              <article class="markdown-body">
+                  
+                  <h1 class="subject" id="CHANGELOG">CHANGELOG <a class="hashlink" href="#CHANGELOG">#</a></h1><pre><code>{n1}.{n2}.{n3}
+
+n1：❤️ 重大更新
+n2：💛 影响之前版本使用方式的更新（需要用户适配）
+n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
+</code></pre><h2 class="subject" id="0.17.1">0.17.1 <a class="hashlink" href="#0.17.1">#</a></h2><h3 class="subject" id="Overlay">Overlay <a class="hashlink" href="#Overlay">#</a></h3><ul>
+<li>💚 新增属性 <code>useAnimation</code>：是否使用动画</li></ul>
+<h3 class="subject" id="Dialog">Dialog <a class="hashlink" href="#Dialog">#</a></h3><ul>
+<li>💚 新增属性 <code>useOverlayAnimation</code>：是否使用 Overlay 动画</li></ul>
+<h3 class="subject" id="Loading">Loading <a class="hashlink" href="#Loading">#</a></h3><ul>
+<li>💚 新增属性 <code>useOverlayAnimation</code>：是否使用 Overlay 动画</li></ul>
+<h3 class="subject" id="ToolTip">ToolTip <a class="hashlink" href="#ToolTip">#</a></h3><ul>
+<li>💚 新增属性 <code>useOverlayAnimation</code>：是否使用 Overlay 动画</li></ul>
+<h2 class="subject" id="0.17.0">0.17.0 <a class="hashlink" href="#0.17.0">#</a></h2><h3 class="subject" id="CardView">CardView <a class="hashlink" href="#CardView">#</a></h3><ul>
+<li>💚 现在自带鱼眼效果</li><li>💛 修改方法 <code>scrollToCard</code>：更名为 <code>scrollTo</code>，并接受第二个参数，标示是否使用动画</li><li>💚 新增属性 <code>scaleCoefficient</code>：当前项放大比率</li></ul>
+<h3 class="subject" id="Btn">Btn <a class="hashlink" href="#Btn">#</a></h3><ul>
+<li>💚 新增属性 <code>hitSlop</code>：按钮热区</li></ul>
+<h2 class="subject" id="NumericKeyboard">NumericKeyboard <a class="hashlink" href="#NumericKeyboard">#</a></h2><ul>
+<li>💚 新增属性 <code>style</code>：自定义样式</li></ul>
+<h2 class="subject" id="0.16.0">0.16.0 <a class="hashlink" href="#0.16.0">#</a></h2><ul>
+<li>💛 原 <code>Alert</code> 组件更名为 <code>Dialog</code></li><li>💚 新增警告弹框组件：<code>Alert</code></li><li>💚 新增确认弹框组件：<code>Confirm</code></li><li>💚 新增自动滚动的文本框组件：<code>DynamicText</code></li></ul>
+<h3 class="subject" id="CardView">CardView <a class="hashlink" href="#CardView">#</a></h3><ul>
+<li>💚 新增属性 <code>onPass</code>：卡片经过时的回调，参数为当前经过的卡片序号</li><li>💚 新增属性 <code>onStartReached</code>：到达顶部回调</li><li>💚 新增属性 <code>onEndReached</code>：到达底部回调</li></ul>
+<h3 class="subject" id="Overlay">Overlay <a class="hashlink" href="#Overlay">#</a></h3><ul>
+<li>💚 添加属性 <code>pointerEvents</code>：允许遮罩层不作为触控事件目标</li></ul>
+<h3 class="subject" id="ToolTip">ToolTip <a class="hashlink" href="#ToolTip">#</a></h3><ul>
+<li>💚 添加属性 <code>pointerEvents</code>：允许遮罩层不作为触控事件目标</li></ul>
+<h2 class="subject" id="0.15.2">0.15.2 <a class="hashlink" href="#0.15.2">#</a></h2><h3 class="subject" id="CardView">CardView <a class="hashlink" href="#CardView">#</a></h3><ul>
+<li>💚 优化 CardView 滚动效果：不再是一次只能移动一个了</li></ul>
+<h2 class="subject" id="0.15.1">0.15.1 <a class="hashlink" href="#0.15.1">#</a></h2><h3 class="subject" id="CardView">CardView <a class="hashlink" href="#CardView">#</a></h3><ul>
+<li>💚 修复在 iPhone 6s 以上苹果手机内部元素点击失效的 bug</li></ul>
+<h2 class="subject" id="0.15.0">0.15.0 <a class="hashlink" href="#0.15.0">#</a></h2><ul>
+<li>💚 新增卡片视图组件：<code>CardView</code></li></ul>
+<h3 class="subject" id="Overlay">Overlay <a class="hashlink" href="#Overlay">#</a></h3><ul>
+<li>💛 删除属性 <code>pointerEvents</code></li></ul>
+<h3 class="subject" id="ToolTip">ToolTip <a class="hashlink" href="#ToolTip">#</a></h3><ul>
+<li>💛 删除属性 <code>pointerEvents</code></li><li>💚 修改样式：文字黑色背景默认有 5dp 的圆角</li></ul>
+<h2 class="subject" id="0.14.0">0.14.0 <a class="hashlink" href="#0.14.0">#</a></h2><h3 class="subject" id="All">All <a class="hashlink" href="#All">#</a></h3><ul>
+<li>💚 修改属性 <code>statusBarBgColor</code>：默认值改为 <code>transparent</code></li></ul>
+<h2 class="subject" id="0.13.1">0.13.1 <a class="hashlink" href="#0.13.1">#</a></h2><h3 class="subject" id="PhoneNumInput">PhoneNumInput <a class="hashlink" href="#PhoneNumInput">#</a></h3><ul>
+<li>💚 修改属性 <code>onChangeText</code>：新增第二个参数，传入 <code>name</code> 属性值</li></ul>
+<h3 class="subject" id="SmsCaptchaInput">SmsCaptchaInput <a class="hashlink" href="#SmsCaptchaInput">#</a></h3><ul>
+<li>💚 修改属性 <code>onChangeText</code>：新增第二个参数，传入 <code>name</code> 属性值</li></ul>
+<h2 class="subject" id="0.13.0">0.13.0 <a class="hashlink" href="#0.13.0">#</a></h2><ul>
+<li>💚 新增页面容器组件：<code>All</code></li><li>💚 新增页面容器组件：<code>ImgRollView</code></li></ul>
+<h3 class="subject" id="KeyboardAdaptiveView">KeyboardAdaptiveView <a class="hashlink" href="#KeyboardAdaptiveView">#</a></h3><ul>
+<li>💛 兼容至 react-native <code>0.41.2</code></li></ul>
+<h2 class="subject" id="0.12.0">0.12.0 <a class="hashlink" href="#0.12.0">#</a></h2><h3 class="subject" id="HeaderedSheet">HeaderedSheet <a class="hashlink" href="#HeaderedSheet">#</a></h3><ul>
+<li>💛 左右按钮可点击区域贴边</li></ul>
+<h2 class="subject" id="0.11.9">0.11.9 <a class="hashlink" href="#0.11.9">#</a></h2><ul>
+<li>💚 新增有占位元素的文本显示组件：<code>PlaceholderText</code></li></ul>
+<h3 class="subject" id="PlaceholderInput">PlaceholderInput <a class="hashlink" href="#PlaceholderInput">#</a></h3><ul>
+<li>💚 样式兼容安卓</li></ul>
+<h2 class="subject" id="0.11.7">0.11.7 <a class="hashlink" href="#0.11.7">#</a></h2><ul>
+<li>💚 新增上拉按钮组组件：<code>ActionSheet</code></li><li>💚 新增图片选择组件：<code>ImgPicker</code></li></ul>
+<h3 class="subject" id="PlaceholderInput">PlaceholderInput <a class="hashlink" href="#PlaceholderInput">#</a></h3><ul>
+<li>💚 修正更改 <code>defaultValue</code> 不会触发 <code>placeholder</code> 显隐的 bug</li></ul>
+<h2 class="subject" id="0.11.6">0.11.6 <a class="hashlink" href="#0.11.6">#</a></h2><ul>
+<li>💚 新增可以自定义占位元素的输入框组件：<code>PlaceholderInput</code></li></ul>
+<h3 class="subject" id="NavBar">NavBar <a class="hashlink" href="#NavBar">#</a></h3><ul>
+<li>💚 新增属性 <code>leftBtnDisabled</code>：左侧按钮禁用</li><li>💚 新增属性 <code>rightBtnDisabled</code>：右侧按钮禁用</li></ul>
+<h2 class="subject" id="0.11.4">0.11.4 <a class="hashlink" href="#0.11.4">#</a></h2><h3 class="subject" id="Badge">Badge <a class="hashlink" href="#Badge">#</a></h3><ul>
+<li>💚 新增属性 <code>characterWidth</code>：单个字符宽度</li></ul>
+<h2 class="subject" id="0.0.1">0.0.1 <a class="hashlink" href="#0.0.1">#</a></h2><p>❤️ Hello RNX UI.</p>
+
+              </article>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2017 <a href="https://github.com/YMFE">RNX-UI</a> Team. Build by <a href="https://github.com/YMFE/ydoc">YDoc</a>.
+        </div>
+      </footer>
+    </div>
+
+    
+    
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+    
+      
+      <script type="text/javascript" src="theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

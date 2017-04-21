@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>RNX-UI Documentation RNX-UI</title>
+  <link rel="stylesheet" href="source/main.css"/>
+  
+  
+    
+        <link rel="stylesheet" href="theme/ydoc.css"/>
+    
+  
+</head>
+<body class=index >
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="" class="navbar-brand">RNX-UI</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">RNX-UI</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="util.html">方法</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="CHANGELOG.html">版本</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>RNX-UI</h1>
+                  <p class="desc">RNX-UI <p class="version">当前版本：v0.17.0</p></p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content" id="readme">
+              <article class="markdown-body">
+                  
+                  <h1 class="subject" id="rnx-ui">rnx-ui <a class="hashlink" href="#rnx-ui">#</a></h1><p><a href="https://travis-ci.org/rnxteam/rnx-ui"><img src="https://travis-ci.org/rnxteam/rnx-ui.svg?branch=master" alt="Build Status"></a>
+<a href="https://www.npmjs.com/package/rnx-ui"><img src="https://img.shields.io/npm/v/rnx-ui.svg?maxAge=60" alt="npm"></a>
+<a href="https://www.npmjs.com/package/rnx-ui"><img src="https://img.shields.io/npm/dt/rnx-ui.svg?maxAge=60" alt="npm"></a>
+<a href="https://raw.githubusercontent.com/rnxteam/rnx-ui/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
+<p>A UI Lib for React Native</p>
+<h2 class="subject" id="Start">Start <a class="hashlink" href="#Start">#</a></h2><h3 class="subject" id="1. Install">1. Install <a class="hashlink" href="#1. Install">#</a></h3><pre><code>npm install rnx-ui --save
+</code></pre><h3 class="subject" id="2. Use">2. Use <a class="hashlink" href="#2. Use">#</a></h3><pre><code class="lang-js"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  Component<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Btn <span class="token keyword">from</span> <span class="token string">'rnx-ui/Btn'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">Demo</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>Btn <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 class="subject" id="Overview">Overview <a class="hashlink" href="#Overview">#</a></h2><p><code>🖌</code> designing(7) <code>🛠</code> developing(1) <code>✅</code> done(30)</p>
+<h3 class="subject" id="Component">Component <a class="hashlink" href="#Component">#</a></h3><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/ActionSheet">ActionSheet</a></td>
+<td>上拉按钮组</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/AddAndSubtract">AddAndSubtract</a></td>
+<td>加减法动画组件</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Alert">Alert</a></td>
+<td>警告弹框</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/All">All</a></td>
+<td>页面容器</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Badge">Badge</a></td>
+<td>角标</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Btn">Btn</a></td>
+<td>按钮</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/CardView">CardView</a></td>
+<td>卡片视图</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Checkbox">Checkbox</a></td>
+<td>选择框</td>
+<td>🖌</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Confirm">Confirm</a></td>
+<td>确认弹框</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Dialog">Dialog</a></td>
+<td>对话框</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Drop">Drop</a></td>
+<td>掉落动画组件</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/DynamicText">DynamicText</a></td>
+<td>文本框（滚动显示过长文字）</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/HeaderedSheet">HeaderedSheet</a></td>
+<td>有标题栏的底部弹层</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Icon">Icon</a></td>
+<td>字体图标</td>
+<td>🖌</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/ImgHolder">ImgHolder</a></td>
+<td>带占位的图片</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/ImgPicker">ImgPicker</a></td>
+<td>图片选择组件</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/ImgRollView">ImgRollView</a></td>
+<td>图片选择组件</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/KeyboardAdaptiveView">KeyboardAdaptiveView</a></td>
+<td>适应键盘的容器</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Loading">Loading</a></td>
+<td>菊花加载中动画</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/LoadingBtn">LoadingBtn</a></td>
+<td>带菊花图的按钮</td>
+<td>🖌</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/NavBar">NavBar</a></td>
+<td>导航栏</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Number">Number</a></td>
+<td>数字</td>
+<td>🛠</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/NumericKeyboard">NumericKeyboard</a></td>
+<td>虚拟数字键盘</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Overlay">Overlay</a></td>
+<td>遮罩层</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/PlaceholderText">PlaceholderText</a></td>
+<td>有占位元素的文本显示组件</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/PlaceholderInput">PlaceholderInput</a></td>
+<td>可以自定义占位元素的输入框</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Checkbox">PswdInput</a></td>
+<td>密码输入框（带有用于切换密码显隐的“眼睛”按钮）</td>
+<td>🖌</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/PhoneNumInput">PhoneNumInput</a></td>
+<td>手机号码输入框</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/RefreshView">RefreshView</a></td>
+<td>滚动列表（带下拉刷新、上拉加载）</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Select">Select</a></td>
+<td>选择器（带有向上弹出和向下隐藏的动画、遮罩、取消确定标题栏）</td>
+<td>🖌</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Sheet">Sheet</a></td>
+<td>底部弹层</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/SlideMenu">SlideMenu</a></td>
+<td>侧滑菜单</td>
+<td>🖌</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/SmsCaptchaInput">SmsCaptchaInput</a></td>
+<td>短信验证码输入框</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/TabBar">TabBar</a></td>
+<td>横向点击栏</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/ToolTip">ToolTip</a></td>
+<td>提示框</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/VirtualPasswordInput">VirtualPasswordInput</a></td>
+<td>虚拟密码输入框</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/Web">Web</a></td>
+<td>类微信浏览器</td>
+<td>🖌</td>
+</tr>
+</tbody>
+</table>
+<h3 class="subject" id="Util">Util <a class="hashlink" href="#Util">#</a></h3><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/util/transPxToDp">transPxToDp</a></td>
+<td>像素（px）转虚拟像素（dp）方法</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rnxteam/rnx-ui/tree/master/util/Validator">Validator</a></td>
+<td>表单校验工具</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 class="subject" id="Example">Example <a class="hashlink" href="#Example">#</a></h2><p>将项目克隆至本地后：</p>
+<h3 class="subject" id="1. Install">1. Install <a class="hashlink" href="#1. Install">#</a></h3><pre><code>npm install
+</code></pre><h3 class="subject" id="2. Run">2. Run <a class="hashlink" href="#2. Run">#</a></h3><pre><code>react-native run-ios
+</code></pre>
+              </article>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            &copy; 2017 <a href="https://github.com/YMFE">RNX-UI</a> Team. Build by <a href="https://github.com/YMFE/ydoc">YDoc</a>.
+        </div>
+      </footer>
+    </div>
+
+    
+    
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+    
+    
+
+    
+
+    
+    
+      
+      <script type="text/javascript" src="theme/ydoc.js"></script>
+      
+    
+
+</body>
+</html>

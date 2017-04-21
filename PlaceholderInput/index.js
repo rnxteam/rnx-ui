@@ -1,3 +1,10 @@
+/**
+ * @component PlaceholderInput
+ * @version 0.11.9
+ * @description 可以自定义占位元素的输入框
+ * React Native 提供的 `TextInput` 组件的 `placeholder` 可定制程度太低了，`PlaceholderInput` 应运而生。
+ * @instructions {instruInfo: ./PlaceholderInput/PlaceholderInput.md}
+ */
 import React, {
   PropTypes,
   Component,
@@ -113,31 +120,92 @@ class PlaceholderInput extends Component {
 }
 
 PlaceholderInput.propTypes = {
-  // 自定义样式
+  /**
+   * @property style
+   * @type Object
+   * @default null
+   * @description 自定义样式
+   */
   style: View.propTypes.style,
-  // 初始值
+  /**
+   * @property defaultValue
+   * @type String
+   * @default ''
+   * @description 初始值
+   */
   defaultValue: PropTypes.string,
-  // 自定义输入框样式
+  /**
+   * @property inputStyle
+   * @type Object
+   * @default null
+   * @description 自定义输入框样式
+   */
   inputStyle: TextInput.propTypes.style,
-  // 占位元素
+  /**
+   * @property placeholder
+   * @type String  Element
+   * @default ''
+   * @description 占位元素
+   */
   placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  // 占位元素样式（placeholder 为字符串时才生效）
+  /**
+   * @property placeholderStyle
+   * @type Object
+   * @default null
+   * @description 占位元素样式 （placeholder 为字符串时才生效）
+   */
   placeholderStyle: Text.propTypes.style,
-  // onChangeText 的第二个参数，同时在校验器中做标识
+  /**
+   * @property name
+   * @type String
+   * @default ''
+   * @description onChangeText 的第二个参数，同时在校验器中做标识
+   */
   name: PropTypes.string,
-  // 用来在校验器中组成错误信息
+  /**
+   * @property readableName
+   * @type String
+   * @default ''
+   * @description 用来在校验器中组成错误信息
+   */
   readableName: PropTypes.string,
-  // 校验器接口
+  /**
+   * @property collectValidate
+   * @type Function
+   * @default NOOP
+   * @description 校验器接口
+   */
   collectValidate: PropTypes.func,
-  // 是否必要
+  /**
+   * @property required
+   * @type Boolean
+   * @default false
+   * @description 是否必要
+   */
   required: PropTypes.bool,
-  // 输入回调
+  /**
+   * @property onChangeText
+   * @type Function
+   * @default NOOP
+   * @description 输入回调
+   */
   onChangeText: PropTypes.func,
   /* eslint-disable */
-  // TextInput 属性
+  /**
+   * @property textInputProps
+   * @type Object
+   * @default {}
+   * @description TextInput 属性
+   */
   textInputProps: PropTypes.object,
   /* eslint-enable */
   // 获取 TextInput 元素
+  /**
+   * @property getInput
+   * @type Funciton
+   * @default NOOP
+   * @description 获取 TextInput 元素
+   */
   getInput: PropTypes.func,
 };
 PlaceholderInput.defaultProps = {
