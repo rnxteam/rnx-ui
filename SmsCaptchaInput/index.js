@@ -40,7 +40,7 @@ class SmsCaptchaInput extends Component {
       isRunning: false,
       sendSmsCount: 0,
     };
-    this.preState = AppState.currentState;
+    this.lastAppState = AppState.currentState;
     this.onPress = this.onPress.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
     this.timer = this.timer.bind(this);
@@ -60,7 +60,8 @@ class SmsCaptchaInput extends Component {
     AppState.removeEventListener('change', this.onAppStateChange);
   }
   onAppStateChange(state) {
-    if (this.preState === 'active' && state !== 'acitve') {
+    if (this.lastAppState === 'active' && state !== 'acitve') {
+      // 如果 App 状态是从激活到非激活，则记录下此时时间
       this.lastTimeStamp = +new Date();
     } else if (state === 'active') {
       if (this.lastTimeStamp) {
@@ -68,7 +69,7 @@ class SmsCaptchaInput extends Component {
         this.time -= duration;
       }
     }
-    this.preState = state;
+    this.lastAppState = state;
   }
 
   onChangeText(value) {
