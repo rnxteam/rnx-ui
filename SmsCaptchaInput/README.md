@@ -21,7 +21,7 @@
 
 ## Demo
 
-![](demo.png)
+<image src="http://wx3.sinaimg.cn/mw1024/4c8b519dly1feumcw9v67g20nc12c7wh.gif" width="320" />
 
 ## Props
 
