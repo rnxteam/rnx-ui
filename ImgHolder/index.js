@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     width: null,
   },
 });
+
 class ImgHolder extends Component {
   constructor(props) {
     super(props);
@@ -35,20 +36,33 @@ class ImgHolder extends Component {
     this.state = {
       holder,
     };
-    this.removeBaseImgfn = this.removeBaseImgfn.bind(this);
     this.onLoad = this.onLoad.bind(this);
   }
-  onLoad() {
-    if (this.props.removeBaseImg) {
-      this.removeBaseImgfn();
+
+  componentWillReceiveProps(nextProps) {
+    const {
+      autoRemoveHolder,
+      source,
+      holder,
+    } = this.props;
+
+    if (autoRemoveHolder) {
+      if (nextProps.source !== source) {
+        this.setState({
+          holder,
+        });
+      }
     }
   }
-  removeBaseImgfn() {
-    const holder = null;
-    this.setState({
-      holder,
-    });
+
+  onLoad() {
+    if (this.props.autoRemoveHolder) {
+      this.setState({
+        holder: null,
+      });
+    }
   }
+
   render() {
     return (
       <View style={[styles.all, this.props.style]}>
@@ -68,24 +82,23 @@ class ImgHolder extends Component {
 ImgHolder.propTypes = {
   // 自定义样式
   style: View.propTypes.style,
+  // 图片资源
+  source: Image.propTypes.source,
   // 图片样式
   imgStyle: Image.propTypes.style,
   // 占位元素
   holder: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 图片资源
-  source: PropTypes.oneOfType([PropTypes.object, PropTypes.number]).isRequired,
-  // 图片加载完成是否移除底图
-  removeBaseImg: PropTypes.bool,
-
+  // 图片加载完成是否移除 holder
+  autoRemoveHolder: PropTypes.bool,
 };
 ImgHolder.defaultProps = {
   style: null,
-  imgStyle: null,
-  holder: null,
   source: {
     uri: '',
   },
-  removeBaseImg: false,
+  imgStyle: null,
+  holder: null,
+  autoRemoveHolder: false,
 };
 
 export default ImgHolder;
