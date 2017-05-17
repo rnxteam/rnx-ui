@@ -94,11 +94,13 @@ class Sheet extends Component {
   // 隐藏
   hide() {
     this.aniShow.stop();
-    this.aniHide.start(() => {
-      this.setState({
-        overlayVisible: false,
-      });
-      this.props.onClose();
+    this.aniHide.start((e) => {
+      if (e.finished) {
+        this.setState({
+          overlayVisible: false,
+        });
+        this.props.onClose();
+      }
     });
   }
 
