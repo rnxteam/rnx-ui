@@ -15,7 +15,6 @@
  */
 import React, { Component, PropTypes } from 'react';
 import {
-  Platform,
   AppState,
   View,
   TouchableOpacity,
@@ -29,20 +28,19 @@ import {
 } from '../constant';
 import styles from './styles';
 
+
 const NOOP = () => {};
-const isIOS = Platform.OS === 'ios';
 
 class SmsCaptchaInput extends Component {
   constructor(props) {
     super(props);
-
     this.time = props.intervalTime;
     this.state = {
       buttonText: props.btnTextInital,
       isRunning: false,
       sendSmsCount: 0,
     };
-
+    this.lastAppState = AppState.currentState;
     this.onPress = this.onPress.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
     this.timer = this.timer.bind(this);
@@ -55,19 +53,15 @@ class SmsCaptchaInput extends Component {
     this.onAppStateChange = this.onAppStateChange.bind(this);
   }
   componentDidMount() {
-    if (isIOS) {
-      AppState.addEventListener('change', this.onAppStateChange);
-    }
+    AppState.addEventListener('change', this.onAppStateChange);
   }
   componentWillUnmount() {
     clearInterval(this.interval);
-    if (isIOS) {
-      AppState.removeEventListener('change', this.onAppStateChange);
-    }
+    AppState.removeEventListener('change', this.onAppStateChange);
   }
-
   onAppStateChange(state) {
-    if (state === 'inactive') {
+    if (this.lastAppState === 'active' && state !== 'acitve') {
+      // 如果 App 状态是从激活到非激活，则记录下此时时间
       this.lastTimeStamp = +new Date();
     } else if (state === 'active') {
       if (this.lastTimeStamp) {
@@ -75,6 +69,7 @@ class SmsCaptchaInput extends Component {
         this.time -= duration;
       }
     }
+    this.lastAppState = state;
   }
 
   onChangeText(value) {
