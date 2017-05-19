@@ -133,10 +133,8 @@ PlaceholderInput.propTypes = {
   required: PropTypes.bool,
   // 输入回调
   onChangeText: PropTypes.func,
-  /* eslint-disable */
   // TextInput 属性
   textInputProps: PropTypes.object,
-  /* eslint-enable */
   // 获取 TextInput 元素
   getInput: PropTypes.func,
 };
