@@ -43,12 +43,10 @@ CardView.propTypes = {
   activeCardStyle: View.propTypes.style,
   // 卡片数组
   cards: PropTypes.arrayOf(PropTypes.shape({
-    /* eslint-disable */
     // 数组循环优化标示 key
     key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     // 卡片元素
     card: PropTypes.element,
-    /* eslint-enable */
   })),
   // 卡片宽度
   cardWidth: PropTypes.number,
