@@ -6,7 +6,7 @@
 
 ## Demo
 
-![AddAndSubtract](http://wx3.sinaimg.cn/mw690/4c8b519dly1fcaq7v2pnvg20ho0wgh0z.gif)
+<image src="http://wx3.sinaimg.cn/mw690/4c8b519dly1fcaq7v2pnvg20ho0wgh0z.gif" width="320" />
 
 ## Example
 
@@ -56,9 +56,19 @@ AddAndSubtract.propTypes = {
   // 自定义样式
   style: View.propTypes.style,
   // 加法按钮样式
-  adderStyle:  View.propTypes.style,
+  adderBtnStyle: View.propTypes.style,
+  // 加法元素样式
+  adderStyle: View.propTypes.style,
+  // 加法元素触摸时底色
+  adderUnderlayColor: TouchableHighlight.propTypes.underlayColor,
+  // 减法按钮容器样式
+  subtracterWrapperStyle: View.propTypes.style,
   // 减法按钮样式
-  subtracterStyle:  View.propTypes.style,
+  subtracterBtnStyle: View.propTypes.style,
+  // 减法元素样式
+  subtracterStyle: View.propTypes.style,
+  // 减法元素触摸时底色
+  subtracterUnderlayColor: TouchableHighlight.propTypes.underlayColor,
   // 自定义字体样式
   textStyle: Text.propTypes.style,
   // 加法按钮
@@ -78,8 +88,13 @@ AddAndSubtract.defaultProps = {
   easing: t => t,
   btnWidth: 30,
   style: null,
+  adderBtnStyle: null,
   adderStyle: null,
+  adderUnderlayColor: '#bbb',
+  subtracterWrapperStyle: null,
+  subtracterBtnStyle: null,
   subtracterStyle: null,
+  subtracterUnderlayColor: '#bbb',
   textStyle: null,
   adder: <Text style={styles.adderText}>+</Text>,
   subtracter: <Text style={styles.subtracterText}>-</Text>,
