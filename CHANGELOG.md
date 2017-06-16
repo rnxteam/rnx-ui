@@ -8,10 +8,17 @@ n2：💛 影响之前版本使用方式的更新（需要用户适配）
 n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 ```
 
+## 0.17.3
+
+### AddAndSubtract
+
+- 💚 新增属性 `adderUnderlayColor`：加法元素触摸时底色
+- 💚 新增属性 `subtracterUnderlayColor`：减法元素触摸时底色
+
 ## 0.17.2
 
 ### Sheet
- 
+
 - 💚 修复隐藏之后快速展示时不显示内容的 bug
 
 ### SmsCaptchaInput
