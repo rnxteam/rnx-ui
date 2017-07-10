@@ -2,6 +2,10 @@
 
 **图片选择组件**
 
+## Demo
+
+<image src="http://wx3.sinaimg.cn/mw690/4c8b519dgy1fh4arl9n4rg20nc12c47w.gif" width="320" />
+
 ## Example
 
 ```js

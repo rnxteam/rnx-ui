@@ -6,7 +6,7 @@
 
 ## Demo
 
-![NumericKeyboard](http://wx2.sinaimg.cn/mw690/4c8b519dly1fbztgpbw6gg20ho0wgx6p.gif)
+<image src="http://wx2.sinaimg.cn/mw690/4c8b519dly1fbztgpbw6gg20ho0wgx6p.gif" width="320" />
 
 ## Example
 

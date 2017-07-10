@@ -4,7 +4,7 @@
 
 ## Demo
 
-![Alert](http://wx4.sinaimg.cn/mw690/4c8b519dly1fduijhj36dg20hs0ws48p.gif)
+<image src="http://wx4.sinaimg.cn/mw690/4c8b519dly1fduijhj36dg20hs0ws48p.gif" width="320" />
 
 ## Props
 

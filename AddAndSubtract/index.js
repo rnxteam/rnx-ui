@@ -94,7 +94,7 @@ class AddAndSubtract extends Component {
           }, this.props.subtracterWrapperStyle]}
         >
           <TouchableHighlight
-            underlayColor="#ddd"
+            underlayColor={this.props.subtracterUnderlayColor}
             style={[btnStyle, this.props.subtracterBtnStyle]}
             onPress={this.props.onPressSubtracter}
             hitSlop={this.props.hitSlop}
@@ -118,6 +118,7 @@ class AddAndSubtract extends Component {
           </Text>
         </View>
         <TouchableHighlight
+          underlayColor={this.props.adderUnderlayColor}
           style={[btnStyle, this.props.adderBtnStyle]}
           onPress={this.props.onPressAdder}
           hitSlop={this.props.hitSlop}
@@ -167,12 +168,16 @@ AddAndSubtract.propTypes = {
   adderBtnStyle: View.propTypes.style,
   // 加法元素样式
   adderStyle: View.propTypes.style,
+  // 加法元素触摸时底色
+  adderUnderlayColor: TouchableHighlight.propTypes.underlayColor,
   // 减法按钮容器样式
   subtracterWrapperStyle: View.propTypes.style,
   // 减法按钮样式
   subtracterBtnStyle: View.propTypes.style,
   // 减法元素样式
   subtracterStyle: View.propTypes.style,
+  // 减法元素触摸时底色
+  subtracterUnderlayColor: TouchableHighlight.propTypes.underlayColor,
   // 自定义字体样式
   textStyle: Text.propTypes.style,
   // 加法按钮
@@ -194,9 +199,11 @@ AddAndSubtract.defaultProps = {
   style: null,
   adderBtnStyle: null,
   adderStyle: null,
+  adderUnderlayColor: '#bbb',
   subtracterWrapperStyle: null,
   subtracterBtnStyle: null,
   subtracterStyle: null,
+  subtracterUnderlayColor: '#bbb',
   textStyle: null,
   adder: <Text style={styles.adderText}>+</Text>,
   subtracter: <Text style={styles.subtracterText}>-</Text>,
