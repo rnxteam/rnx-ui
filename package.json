@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "eslint . *.js",
+    "lint": "eslint . *.js --cache",
     "test": "jest"
   },
   "license": "MIT",
