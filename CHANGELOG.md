@@ -15,6 +15,10 @@ n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 - 💚 新增属性 `adderUnderlayColor`：加法元素触摸时底色
 - 💚 新增属性 `subtracterUnderlayColor`：减法元素触摸时底色
 
+### ActionSheet
+
+- 💚 修复安卓下只显示一行菜单时下边框无圆角的 bug
+
 ## 0.17.2
 
 ### Sheet

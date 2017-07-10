@@ -31,7 +31,8 @@ class ActionSheet extends Component {
               if (isAndroid) {
                 if (index === 0) {
                   btnStyle.push(styles.btnFirst);
-                } else if (index === this.props.btnList.length - 1) {
+                }
+                if (index === this.props.btnList.length - 1) {
                   btnStyle.push(styles.btnLast);
                 }
               }
