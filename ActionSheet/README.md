@@ -4,8 +4,7 @@
 
 ## Demo
 
-![ActionSheet](http://wx4.sinaimg.cn/mw690/4c8b519dly1feq4asyl44g20hs0wsguv.gif)
-
+<image src="http://wx4.sinaimg.cn/mw690/4c8b519dly1feq4asyl44g20hs0wsguv.gif" width="320" />
 
 ## Example
 

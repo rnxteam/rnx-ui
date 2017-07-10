@@ -4,7 +4,7 @@
 
 ## Demo
 
-![navBar demo](demo.gif)
+<image src="http://wx4.sinaimg.cn/mw690/4c8b519dgy1fh4agk0ft3g20hc0wk4qp.gif" width="320" />
 
 ## Props
 

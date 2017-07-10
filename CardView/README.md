@@ -12,7 +12,7 @@ CardView 会为卡片添加 `isActiveRnxUiCardView` 属性，激活卡片值为 
 
 ## Demo
 
-![CardView](http://wx3.sinaimg.cn/mw690/4c8b519dly1fdgvohgt53g20hs0wsaip.gif)
+<image src="http://wx3.sinaimg.cn/mw690/4c8b519dly1fdgvohgt53g20hs0wsaip.gif" width="320" />
 
 ## Example
 
