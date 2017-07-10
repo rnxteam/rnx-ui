@@ -10,7 +10,7 @@ DynamicText 有 `maxWidth` 属性可以配置支持的最大的文本长度，�
 
 ## Demo
 
-![DynamicText](http://wx4.sinaimg.cn/mw690/4c8b519dly1fdrlqh8ujsg20hs0ws4qq.gif)
+<image src="http://wx4.sinaimg.cn/mw690/4c8b519dly1fdrlqh8ujsg20hs0ws4qq.gif" width="320" />
 
 ## Example
 

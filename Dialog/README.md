@@ -4,7 +4,8 @@
 
 ## Demo
 
-![Dialog](http://wx3.sinaimg.cn/mw690/4c8b519dly1fdulkkgmsog20hs0wsn81.gif)
+<image src="http://wx3.sinaimg.cn/mw690/4c8b519dly1fdulkkgmsog20hs0wsn81.gif" width="320" />
+
 
 ## Example
 

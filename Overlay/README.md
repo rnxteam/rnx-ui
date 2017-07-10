@@ -14,7 +14,7 @@
 
 ## Demo
 
-![Overlay](http://wx2.sinaimg.cn/mw690/4c8b519dly1fdlfglw0mfg20hs0wsn3p.gif)
+<image src="http://wx2.sinaimg.cn/mw690/4c8b519dly1fdlfglw0mfg20hs0wsn3p.gif" width="320" />
 
 ## Props
 

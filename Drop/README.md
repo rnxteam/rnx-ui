@@ -6,7 +6,7 @@
 
 ## Demo
 
-![Drop](http://wx1.sinaimg.cn/mw690/4c8b519dly1fbp9qg0mlog20ho0wghdw.gif)
+<image src="http://wx1.sinaimg.cn/mw690/4c8b519dly1fbp9qg0mlog20ho0wghdw.gif" width="320" />
 
 ## Dropper
 
