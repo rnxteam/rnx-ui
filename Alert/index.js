@@ -1,4 +1,5 @@
 import React, {
+  Component,
   PropTypes,
 } from 'react';
 import {
@@ -9,7 +10,7 @@ import Dialog from '../Dialog';
 
 const NOOP = () => {};
 
-class Alert extends Dialog {
+class Alert extends Component {
   render() {
     return (
       <Dialog
