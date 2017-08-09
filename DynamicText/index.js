@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
 
 const MODE_RESTART = 'restart';
 const MODE_REVERSE = 'reverse';
+const MODE_CYCLE = 'cycle';
 
 class DynamicText extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class DynamicText extends Component {
 
     this.state = {
       translateX: new Animated.Value(0),
+      translateXCycle: new Animated.Value(0),
     };
 
     this.hasTextLayout = false;
@@ -50,6 +52,15 @@ class DynamicText extends Component {
       if (this.animation) {
         this.animation.stop();
       }
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.timeoutScrollId) {
+      clearTimeout(this.timeoutScrollId);
+    }
+    if (this.animation) {
+      this.animation.stop();
     }
   }
 
@@ -85,32 +96,66 @@ class DynamicText extends Component {
 
       if (!isNaN(offSet)) {
         if (offSet < 0) {
-          this.scrollText(offSet, true);
+          this.scrollText(offSet, true, true);
         }
       }
     }
   }
 
-  scrollText(offSet, isPositionStart) {
-    this.animation = Animated.timing(this.state.translateX, {
-      delay: this.props.bufferTime,
-      duration: Math.abs(offSet) * (100 / this.props.speed),
-      toValue: isPositionStart ? offSet : 0,
-      easing: Easing.linear,
-    }).start(({ finished }) => {
-      if (!finished) {
-        this.state.translateX.setValue(0);
-        return;
-      }
-      if (this.props.mode === MODE_REVERSE) {
-          // 从末尾滚动至文字开始
-        this.scrollText(offSet, !isPositionStart);
-      } else if (this.props.mode === MODE_RESTART) {
+  scrollText(offSet, isPositionStart, isFirst = false) {
+    if (this.props.mode === MODE_RESTART || this.props.mode === MODE_REVERSE) {
+      this.animation = Animated.timing(this.state.translateX, {
+        delay: isFirst ? 0 : this.props.bufferTime,
+        duration: Math.abs(offSet) * (100 / this.props.speed),
+        toValue: isPositionStart ? offSet : 0,
+        easing: Easing.linear,
+      }).start(({ finished }) => {
+        if (!finished) {
+          this.state.translateX.setValue(0);
+          return;
+        }
+        this.timeoutScrollId = setTimeout(() => {
+          if (this.props.mode === MODE_REVERSE) {
+            // 从末尾滚动至文字开始
+            this.scrollText(offSet, !isPositionStart);
+          } else if (this.props.mode === MODE_RESTART) {
             // 跳回文字开始，并开始新的动画滚动到文字末尾
-        this.state.translateX.setValue(0);
+            this.state.translateX.setValue(0);
+            this.scrollText(offSet, true);
+          }
+        }, this.props.delayTime);
+      });
+    } else if (this.props.mode === MODE_CYCLE) {
+      const textWidth = this.state.textWidth;
+      this.animation = Animated.parallel([
+        Animated.timing(this.state.translateX, {
+          delay: 0,
+          duration: Math.abs(textWidth) * (100 / this.props.speed),
+          toValue: this.state.translateX._value - textWidth,
+          easing: Easing.linear,
+        }),
+        Animated.timing(this.state.translateXCycle, {
+          delay: 0,
+          duration: Math.abs(textWidth) * (100 / this.props.speed),
+          toValue: this.state.translateXCycle._value - textWidth,
+          easing: Easing.linear,
+        }),
+      ]).start(({ finished }) => {
+        if (!finished) {
+          this.state.translateX.setValue(0);
+          this.state.translateXCycle.setValue(0);
+          return;
+        }
+        console.log(this.state.translateX._value, this.state.translateXCycle._value);
+        if (this.state.translateX._value === textWidth * -1) {
+          this.state.translateX.setValue(textWidth);
+        }
+        if (this.state.translateXCycle._value === textWidth * -2) {
+          this.state.translateXCycle.setValue(0);
+        }
         this.scrollText(offSet, true);
-      }
-    });
+      });
+    }
   }
 
 
@@ -123,13 +168,13 @@ class DynamicText extends Component {
         <View
           style={{
             width: this.props.maxWidth,
+            flexDirection: 'row',
           }}
         >
           <Animated.Text
             style={[
               this.props.textStyle,
               {
-                position: this.hasTextLayout ? 'relative' : 'absolute',
                 transform: [{
                   translateX: this.state.translateX,
                 }],
@@ -139,6 +184,22 @@ class DynamicText extends Component {
           >
             {this.props.children}
           </Animated.Text>
+          {
+            this.props.mode === MODE_CYCLE ?
+              <Animated.Text
+                style={[
+                  this.props.textStyle,
+                  {
+                    transform: [{
+                      translateX: this.state.translateXCycle,
+                    }],
+                  },
+                ]}
+              >
+                {this.props.children}
+              </Animated.Text>
+              : null
+          }
         </View>
       </View>
     );
@@ -155,22 +216,25 @@ DynamicText.propTypes = {
   // 文字循环模式，默认reverse
   // reverse：轮转到末尾后再轮转回开头
   // restart: 轮转到末尾后返回至开头重新循环
-  mode: PropTypes.oneOf([MODE_RESTART, MODE_REVERSE]),
+  mode: PropTypes.oneOf([MODE_RESTART, MODE_REVERSE, MODE_CYCLE]),
   // 动画间隔时间，默认500
   bufferTime: PropTypes.number,
   // 文字滚动速度，默认5，数字越大，速度越快
   speed: PropTypes.number,
   // 文本最大宽度
   maxWidth: PropTypes.number,
+  // MODE_RESTART, MODE_REVERSE 到末尾再开始滚动的延迟
+  delayTime: PropTypes.number,
 };
 DynamicText.defaultProps = {
   style: null,
   textStyle: null,
   children: null,
-  mode: MODE_REVERSE,
-  bufferTime: 1000,
+  mode: MODE_CYCLE,
+  bufferTime: 500,
   speed: 5,
   maxWidth: 2000,
+  delayTime: 500,
 };
 
 export default DynamicText;
