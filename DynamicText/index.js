@@ -127,6 +127,7 @@ class DynamicText extends Component {
       });
     } else if (this.props.mode === MODE_CYCLE) {
       const textWidth = this.state.textWidth;
+      /* eslint-disable no-underscore-dangle */
       this.animation = Animated.parallel([
         Animated.timing(this.state.translateX, {
           delay: 0,
@@ -146,7 +147,6 @@ class DynamicText extends Component {
           this.state.translateXCycle.setValue(0);
           return;
         }
-        console.log(this.state.translateX._value, this.state.translateXCycle._value);
         if (this.state.translateX._value === textWidth * -1) {
           this.state.translateX.setValue(textWidth);
         }
@@ -155,6 +155,7 @@ class DynamicText extends Component {
         }
         this.scrollText(offSet, true);
       });
+      /* eslint-disable no-underscore-dangle */
     }
   }
 
