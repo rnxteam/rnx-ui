@@ -42,7 +42,7 @@ class Overlay extends Component {
     });
     this.aniHide = Animated.timing(this.state.opacity, {
       toValue: 0,
-      duration: 200,
+      duration: props.duration,
     });
   }
 
