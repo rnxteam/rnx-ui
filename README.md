@@ -28,9 +28,25 @@ function Demo(props) {
 }
 ```
 
+## Demo
+
+将项目克隆至本地后：
+
+### 1. Install
+
+```
+npm install
+```
+
+### 2. Run
+
+```
+react-native run-ios
+```
+
 ## Overview
 
-`🖌` designing(7) `🛠` developing(1) `✅` done(30)
+`🖌` designing(7) `🛠` developing(1) `✅` done(31)
 
 ### Component
 
@@ -60,10 +76,10 @@ Name       | Description | State
 [Number](https://github.com/rnxteam/rnx-ui/tree/master/Number)     | 数字 | 🛠
 [NumericKeyboard](https://github.com/rnxteam/rnx-ui/tree/master/NumericKeyboard)  | 虚拟数字键盘 | ✅
 [Overlay](https://github.com/rnxteam/rnx-ui/tree/master/Overlay)     | 遮罩层 | ✅
-[PlaceholderText](https://github.com/rnxteam/rnx-ui/tree/master/PlaceholderText)     | 有占位元素的文本显示组件 | ✅
-[PlaceholderInput](https://github.com/rnxteam/rnx-ui/tree/master/PlaceholderInput)     | 可以自定义占位元素的输入框 | ✅
-[PswdInput](https://github.com/rnxteam/rnx-ui/tree/master/Checkbox)  | 密码输入框（带有用于切换密码显隐的“眼睛”按钮） | 🖌
 [PhoneNumInput](https://github.com/rnxteam/rnx-ui/tree/master/PhoneNumInput)     | 手机号码输入框 | ✅
+[PlaceholderInput](https://github.com/rnxteam/rnx-ui/tree/master/PlaceholderInput)     | 可以自定义占位元素的输入框 | ✅
+[PlaceholderText](https://github.com/rnxteam/rnx-ui/tree/master/PlaceholderText)     | 有占位元素的文本显示组件 | ✅
+[PswdInput](https://github.com/rnxteam/rnx-ui/tree/master/Checkbox)  | 密码输入框（带有用于切换密码显隐的“眼睛”按钮） | 🖌
 [RefreshView](https://github.com/rnxteam/rnx-ui/tree/master/RefreshView)     | 滚动列表（带下拉刷新、上拉加载） | ✅
 [Select](https://github.com/rnxteam/rnx-ui/tree/master/Select)  | 选择器（带有向上弹出和向下隐藏的动画、遮罩、取消确定标题栏） | 🖌
 [Sheet](https://github.com/rnxteam/rnx-ui/tree/master/Sheet)     | 底部弹层 | ✅
@@ -80,19 +96,3 @@ Name       | Description | State
 ---------- | ----------- | -----
 [transPxToDp](https://github.com/rnxteam/rnx-ui/tree/master/util/transPxToDp)      | 像素（px）转虚拟像素（dp）方法 | ✅
 [Validator](https://github.com/rnxteam/rnx-ui/tree/master/util/Validator)      | 表单校验工具 | ✅
-
-## Example
-
-将项目克隆至本地后：
-
-### 1. Install
-
-```
-npm install
-```
-
-### 2. Run
-
-```
-react-native run-ios
-```

@@ -53,8 +53,8 @@ class Badge extends Component {
     return (
       <View style={[styles.container, this.props.style]}>
         {
-        this.props.children
-      }
+          this.props.children
+        }
         {
         text.length > 0 ? (
           <View

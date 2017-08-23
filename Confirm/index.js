@@ -1,4 +1,5 @@
 import React, {
+  Component,
   PropTypes,
 } from 'react';
 import {
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class Confirm extends Dialog {
+class Confirm extends Component {
   render() {
     return (
       <Dialog

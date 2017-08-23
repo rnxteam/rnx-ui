@@ -34,7 +34,7 @@ DynamicText.propTypes = {
   textStyle: Text.propTypes.style,
   // 显示文本
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  // 文字循环模式，默认reverse
+  // 文字循环模式，默认 'reverse'
   // reverse：轮转到末尾后再轮转回开头
   // restart: 轮转到末尾后返回至开头重新循环
   // cycle: 无限循环播放，头尾相连
@@ -55,7 +55,7 @@ DynamicText.defaultProps = {
   mode: "cycle",
   bufferTime: 1000,
   speed: 5,
-  maxWidth: 1000,
+  maxWidth: 2000,
   delayTime: 500,
 };
 ```

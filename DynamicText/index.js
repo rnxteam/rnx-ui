@@ -67,7 +67,6 @@ class DynamicText extends Component {
   onContainerLayout({ nativeEvent }) {
     const oldContainerWidth = this.containerWidth;
     this.containerWidth = nativeEvent.layout.width;
-    // console.log(this.containerWidth)
 
     if (this.containerWidth !== oldContainerWidth) {
       this.flag = true;
@@ -159,7 +158,6 @@ class DynamicText extends Component {
     }
   }
 
-
   render() {
     return (
       <View
@@ -216,7 +214,7 @@ DynamicText.propTypes = {
   textStyle: Text.propTypes.style,
   // 显示文本
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  // 文字循环模式，默认reverse
+  // 文字循环模式，默认 'reverse'
   // reverse：轮转到末尾后再轮转回开头
   // restart: 轮转到末尾后返回至开头重新循环
   mode: PropTypes.oneOf([MODE_RESTART, MODE_REVERSE, MODE_CYCLE]),
