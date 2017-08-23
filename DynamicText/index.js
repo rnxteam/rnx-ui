@@ -174,8 +174,9 @@ class DynamicText extends Component {
         >
           <Animated.Text
             style={[
-              this.props.textStyle,
-              {
+              this.props.textStyle, this.props.mode === MODE_CYCLE ? {
+                paddingRight: this.props.reverseSpacing,
+              } : null, {
                 transform: [{
                   translateX: this.state.translateX,
                 }],
@@ -189,8 +190,9 @@ class DynamicText extends Component {
             this.props.mode === MODE_CYCLE ?
               <Animated.Text
                 style={[
-                  this.props.textStyle,
-                  {
+                  this.props.textStyle, {
+                    paddingRight: this.props.reverseSpacing,
+                  }, {
                     transform: [{
                       translateX: this.state.translateXCycle,
                     }],
@@ -226,6 +228,8 @@ DynamicText.propTypes = {
   maxWidth: PropTypes.number,
   // MODE_RESTART, MODE_REVERSE 到末尾再开始滚动的延迟
   delayTime: PropTypes.number,
+  // reverse模式下两组文案的间距
+  reverseSpacing: PropTypes.number,
 };
 DynamicText.defaultProps = {
   style: null,
@@ -236,6 +240,7 @@ DynamicText.defaultProps = {
   speed: 5,
   maxWidth: 2000,
   delayTime: 500,
+  reverseSpacing: 0,
 };
 
 export default DynamicText;

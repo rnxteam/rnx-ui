@@ -78,11 +78,12 @@ class Page extends Component {
       <All>
         <NavBar title="DynamicText" />
         <ScrollView style={styles.scrollView}>
-          <Article titleStyle={styles.articleTitle} title="默认">
-            <DynamicText>{this.state.text1}</DynamicText>
+          <Article titleStyle={styles.articleTitle} title="默认: cycle">
+            <DynamicText reverseSpacing={20}>{this.state.text1}</DynamicText>
           </Article>
-          <Article titleStyle={styles.articleTitle} title="自定义">
+          <Article titleStyle={styles.articleTitle} title="reverse">
             <DynamicText
+              mode="reverse"
               style={styles.demo1}
               textStyle={styles.demo1Text}
               speed={10}
@@ -90,8 +91,10 @@ class Page extends Component {
               {this.state.text1}
             </DynamicText>
           </Article>
-          <Article titleStyle={styles.articleTitle} title="测试">
+          <Article titleStyle={styles.articleTitle} title="restart">
             <DynamicText
+              mode="restart"
+              delayTime={1000}
               style={styles.reverse}
               textStyle={styles.reverseText}
             >{this.state.text}</DynamicText>
