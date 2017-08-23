@@ -217,6 +217,7 @@ DynamicText.propTypes = {
   // 文字循环模式，默认 'reverse'
   // reverse：轮转到末尾后再轮转回开头
   // restart: 轮转到末尾后返回至开头重新循环
+  // cycle: 无限循环播放，头尾相连
   mode: PropTypes.oneOf([MODE_RESTART, MODE_REVERSE, MODE_CYCLE]),
   // 动画间隔时间，默认500
   bufferTime: PropTypes.number,
