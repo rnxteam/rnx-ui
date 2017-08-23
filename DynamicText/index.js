@@ -56,7 +56,6 @@ class DynamicText extends Component {
   onContainerLayout({ nativeEvent }) {
     const oldContainerWidth = this.containerWidth;
     this.containerWidth = nativeEvent.layout.width;
-    // console.log(this.containerWidth)
 
     if (this.containerWidth !== oldContainerWidth) {
       this.flag = true;
@@ -103,16 +102,15 @@ class DynamicText extends Component {
         return;
       }
       if (this.props.mode === MODE_REVERSE) {
-          // 从末尾滚动至文字开始
+        // 从末尾滚动至文字开始
         this.scrollText(offSet, !isPositionStart);
       } else if (this.props.mode === MODE_RESTART) {
-            // 跳回文字开始，并开始新的动画滚动到文字末尾
+        // 跳回文字开始，并开始新的动画滚动到文字末尾
         this.state.translateX.setValue(0);
         this.scrollText(offSet, true);
       }
     });
   }
-
 
   render() {
     return (
@@ -152,7 +150,7 @@ DynamicText.propTypes = {
   textStyle: Text.propTypes.style,
   // 显示文本
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  // 文字循环模式，默认reverse
+  // 文字循环模式，默认 'reverse'
   // reverse：轮转到末尾后再轮转回开头
   // restart: 轮转到末尾后返回至开头重新循环
   mode: PropTypes.oneOf([MODE_RESTART, MODE_REVERSE]),

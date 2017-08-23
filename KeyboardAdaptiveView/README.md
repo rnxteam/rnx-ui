@@ -20,7 +20,7 @@
 
 ## Demo
 
-![KeyboardAdaptiveView](http://wx2.sinaimg.cn/mw690/4c8b519dly1fbztgmfj0lg20ho0wgqv8.gif)
+<image src="http://wx2.sinaimg.cn/mw690/4c8b519dly1fbztgmfj0lg20ho0wgqv8.gif" width="320" />
 
 ## Example
 
