@@ -59,6 +59,7 @@ class CardView extends Component {
         // https://github.com/facebook/react-native/issues/3082#issuecomment-191338207
         gestureState.dx !== 0
       ),
+      onPanResponderGrant: this.props.onPanResponderGrant,
       onPanResponderMove: (evt, gestureState) => {
         // console.log('Move');
         // 开始移动
@@ -67,6 +68,7 @@ class CardView extends Component {
         this.setPosition(x);
       },
       onPanResponderRelease: (a, gestureState) => {
+        this.props.onPanResponderRelease();
         // console.log('Release');
         // 停止移动
         const x = this.state.x;
@@ -325,6 +327,10 @@ CardView.propTypes = {
   onStartReached: PropTypes.func,
   // 到达底部回调
   onEndReached: PropTypes.func,
+  // 开始手势操作回调
+  onPanResponderGrant: PropTypes.func,
+  // 放开手势操作回调
+  onPanResponderRelease: PropTypes.func,
 };
 CardView.defaultProps = {
   style: null,
@@ -342,6 +348,8 @@ CardView.defaultProps = {
   getEl: NOOP,
   onStartReached: NOOP,
   onEndReached: NOOP,
+  onPanResponderGrant: NOOP,
+  onPanResponderRelease: NOOP,
 };
 
 export default CardView;

@@ -8,6 +8,15 @@ n2：💛 影响之前版本使用方式的更新（需要用户适配）
 n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 ```
 
+## 0.17.5
+
+### CardView
+
+- 💚 new props `onPanResponderGrant`：a callback called when the gesture starts
+- 💚 new props `onPanResponderRelease`：a callback called when the gesture stops
+
+> `onPanResponderGrant` and `onPanResponderRelease` can be used to fix the bug that CardView will not work in ScrollView. For more infomation: [CardView · rnxteam/rnx-ui Wiki](https://github.com/rnxteam/rnx-ui/wiki/CardView)
+
 ## 0.17.4
 
 ### Overlay
