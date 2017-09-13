@@ -36,6 +36,9 @@ class Loading extends Component {
         visible={this.props.visible}
         style={[styles.overlay, this.props.overlayStyle]}
         useAnimation={this.props.useOverlayAnimation}
+        duration={this.props.overlayAnimationDuration}
+        onShow={this.props.onShow}
+        onHide={this.props.onHide}
       >
         <View style={[styles.loader, this.props.loaderStyle]}>
           <ActivityIndicator
@@ -62,6 +65,12 @@ Loading.propTypes = {
   size: ActivityIndicator.propTypes.size,
   // 是否使用 Overlay 动画
   useOverlayAnimation: PropTypes.bool,
+  // Overlay 动画时长
+  overlayAnimationDuration: PropTypes.number,
+  // 显示回调
+  onShow: PropTypes.func,
+  // 隐藏回调
+  onHide: PropTypes.func,
 };
 Loading.defaultProps = {
   visible: false,
@@ -69,7 +78,6 @@ Loading.defaultProps = {
   loaderStyle: null,
   color: '#fff',
   size: 'small',
-  useOverlayAnimation: true,
 };
 
 export default Loading;

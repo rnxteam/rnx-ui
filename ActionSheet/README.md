@@ -57,10 +57,16 @@ ActionSheet.propTypes = {
   cancelBtnTextStyle: Text.propTypes.style,
   // 遮罩层样式
   overlayStyle: Sheet.propTypes.overlayStyle,
-  // 关闭回调（动画结束时）
-  onClose: Sheet.propTypes.onClose,
+  // Overlay 动画时长
+  overlayAnimationDuration: PropTypes.number,
+  // 关闭点击事件回调
+  onClose: Sheet.propTypes.onPressOverlay,
   // 动画时长
   duration: Sheet.propTypes.duration,
+  // 显示回调
+  onShow: PropTypes.func,
+  // 隐藏回调
+  onHide: PropTypes.func,
   // 自定义样式
   style: View.propTypes.style,
   // 按钮点击透明度变化

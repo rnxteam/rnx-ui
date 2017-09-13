@@ -41,13 +41,24 @@ class Page extends Component {
     };
   }
 
+  onShow() {
+    /* eslint-disable */
+    console.log('onShow');
+    /* eslint-enable */
+  }
+  onHide() {
+    /* eslint-disable */
+    console.log('onHide');
+    /* eslint-enable */
+  }
+
   show(index) {
     const state = {};
     state[`demo${index}`] = true;
     this.setState(state);
     setTimeout(() => {
       this.hide(index);
-    }, 1000);
+    }, 2000);
   }
 
   hide(index) {
@@ -72,6 +83,9 @@ class Page extends Component {
           }}
           color="red"
           size="large"
+          overlayAnimationDuration={1000}
+          onShow={this.onShow}
+          onHide={this.onHide}
         />
         <Loading
           visible={this.state.demo2}

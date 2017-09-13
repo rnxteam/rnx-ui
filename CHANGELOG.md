@@ -8,14 +8,55 @@ n2：💛 影响之前版本使用方式的更新（需要用户适配）
 n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 ```
 
-## 0.17.5
+## 0.18.0
+
+## ActionSheet
+
+- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
+- 💚 new props `onShow`：a callback called when ActionSheet has shown
+- 💚 new props `onHide`：a callback called when ActionSheet has hidden
 
 ### CardView
 
 - 💚 new props `onPanResponderGrant`：a callback called when the gesture starts
 - 💚 new props `onPanResponderRelease`：a callback called when the gesture stops
 
+## Dialog
+
+- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
+- 💚 new props `onShow`：a callback called when Dialog has shown
+- 💚 new props `onHide`：a callback called when Dialog has hidden
+
 > `onPanResponderGrant` and `onPanResponderRelease` can be used to fix the bug that CardView will not work in ScrollView. For more infomation: [CardView · rnxteam/rnx-ui Wiki](https://github.com/rnxteam/rnx-ui/wiki/CardView)
+
+### HeaderedSheet
+
+- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
+- 💚 new props `onShow`：a callback called when HeaderedSheet has shown
+- 💛 props `onClose` is renamed `onHide`
+
+### Loading
+
+- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
+- 💚 new props `onShow`：a callback called when Loading has shown
+- 💚 new props `onHide`：a callback called when Loading has hidden
+
+### Overlay
+
+- 💚 new props `onShow`：a callback called when Overlay has shown
+- 💚 new props `onHide`：a callback called when Overlay has hidden
+
+### Sheet
+
+- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
+- 💚 new props `onShow`：a callback called when Sheet has shown
+- 💛 props `onClose` is renamed `onHide`
+
+### ToolTip
+
+- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
+- 💚 new props `onShow`：a callback called when ToolTip has shown
+- 💚 new props `onHide`：a callback called when ToolTip has hidden
 
 ## 0.17.4
 

@@ -58,6 +58,17 @@ class Page extends Component {
     };
   }
 
+  onShow() {
+    /* eslint-disable */
+    console.log('onShow');
+    /* eslint-enable */
+  }
+  onHide() {
+    /* eslint-disable */
+    console.log('onHide');
+    /* eslint-enable */
+  }
+
   show(index) {
     const state = {};
     state[`demo${index}`] = true;
@@ -65,7 +76,7 @@ class Page extends Component {
     setTimeout(() => {
       state[`demo${index}`] = false;
       this.setState(state);
-    }, 1000);
+    }, 2000);
   }
 
   render() {
@@ -87,11 +98,14 @@ class Page extends Component {
           textWrapperStyle={styles.textWrapper}
           textStyle={styles.text}
           pointerEvents="auto"
+          overlayAnimationDuration={1000}
+          onShow={this.onShow}
+          onHide={this.onHide}
         />
         <ToolTip
           visible={this.state.demo2}
           text="无 Overlay 动画"
-          useOverlayAnimation={false}
+          useAnimation={false}
         />
       </All>
     );

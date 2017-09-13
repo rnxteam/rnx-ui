@@ -89,7 +89,9 @@ class Sheet extends Component {
     }
 
     this.aniHide.stop();
-    this.aniShow.start();
+    this.aniShow.start(() => {
+      this.props.onShow();
+    });
   }
   // 隐藏
   hide() {
@@ -99,7 +101,7 @@ class Sheet extends Component {
         this.setState({
           overlayVisible: false,
         });
-        this.props.onClose();
+        this.props.onHide();
       }
     });
   }
@@ -110,6 +112,7 @@ class Sheet extends Component {
         visible={this.state.overlayVisible}
         style={this.props.overlayStyle}
         onPress={this.props.onPressOverlay}
+        duration={this.props.overlayAnimationDuration}
       >
         <View style={styles.container}>
           <Animated.View
@@ -133,23 +136,28 @@ Sheet.propTypes = {
   visible: PropTypes.bool.isRequired,
   // 遮罩层样式
   overlayStyle: View.propTypes.style,
-  // 关闭回调（动画结束时）
-  onClose: PropTypes.func,
+  // Overlay 动画时长
+  overlayAnimationDuration: PropTypes.number,
   // 遮罩点击事件
   onPressOverlay: PropTypes.func,
   // 子元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 动画时长
   duration: PropTypes.number,
+  // 显示回调
+  onShow: PropTypes.func,
+  // 隐藏回调
+  onHide: PropTypes.func,
 };
 Sheet.defaultProps = {
   style: null,
   visible: false,
   overlayStyle: null,
-  onClose: NOOP,
   onPressOverlay: NOOP,
   children: null,
   duration: 200,
+  onShow: NOOP,
+  onHide: NOOP,
 };
 
 export default Sheet;
