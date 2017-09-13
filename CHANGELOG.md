@@ -35,6 +35,12 @@ n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 - 💚 new props `onShow`：a callback called when HeaderedSheet has shown
 - 💛 props `onClose` is renamed `onHide`
 
+### ImgHolder
+
+- 💚 new props `resizeMode`：Determines how to resize the image when the frame doesn't match the raw image dimensions.
+
+> For more infomation: [Image](https://facebook.github.io/react-native/docs/image.html#resizemode)
+
 ### Loading
 
 - 💚 new props `overlayAnimationDuration`：duration of Overlay animation
