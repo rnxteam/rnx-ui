@@ -55,6 +55,8 @@ class Sheet extends Component {
       this.setState({
         overlayVisible: true,
       });
+      // 每次显示都使用当时的内容高度为真实动画高度
+      this.height = null;
       this.show();
     } else if (!props.visible && this.props.visible) {
       // 显示 -> 隐藏
