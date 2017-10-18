@@ -57,6 +57,8 @@ n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 - 💚 new props `overlayAnimationDuration`：duration of Overlay animation
 - 💚 new props `onShow`：a callback called when Sheet has shown
 - 💛 props `onClose` is renamed `onHide`
+- 💚 fix the bug that after a Sheet has been shown, when the height of the content changes, the height of the Sheet will not change ([`12ee9cc`](https://github.com/rnxteam/rnx-ui/pull/17/commits/12ee9cc1a25887cd6ee37049f99d747d1906a330)) - [`@reoszo`](https://github.com/reoszo)
+
 
 ### ToolTip
 
