@@ -1,11 +1,11 @@
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
   View,
   Animated,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const NOOP = () => {};
 

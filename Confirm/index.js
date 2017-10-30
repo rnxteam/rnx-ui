@@ -1,11 +1,11 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   StyleSheet,
   Text,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import Dialog from '../Dialog';
 

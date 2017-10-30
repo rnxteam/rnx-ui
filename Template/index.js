@@ -4,13 +4,13 @@
  * 这个不是供业务使用的组件，而是为 rnx-ui 开发提供的组件模板
  */
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
   StyleSheet,
   View,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   all: {

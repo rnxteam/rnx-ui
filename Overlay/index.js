@@ -2,7 +2,6 @@
  * 遮罩层
  */
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
@@ -11,6 +10,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const NOOP = () => {};
 

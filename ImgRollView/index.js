@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   Image,
@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import style from './styles';
 import { groupByEveryN, SelectTick } from './utils';
