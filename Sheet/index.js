@@ -1,12 +1,11 @@
-import React, {
-  Component,
-} from 'react';
+// @flow
+import * as React from 'react';
 import {
   StyleSheet,
   View,
   Animated,
 } from 'react-native';
-import PropTypes from 'prop-types';
+import type { StyleObj } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 import Overlay from '../Overlay';
 
@@ -27,20 +26,58 @@ const styles = StyleSheet.create({
   },
 });
 
-class Sheet extends Component {
-  constructor(props) {
+
+export type SheetProps = {
+  // 自定义样式
+  style?: StyleObj,
+  // 显示开关
+  visible: boolean,
+  // 遮罩层样式
+  overlayStyle?: StyleObj,
+  // Overlay 动画时长
+  overlayAnimationDuration?: number,
+  // 遮罩点击事件
+  onPressOverlay?: () => void,
+  // 子元素
+  children?: React.Node,
+  // 动画时长
+  duration?: number,
+  // 显示回调
+  onShow: () => void,
+  // 隐藏回调
+  onHide: () => void,
+};
+type State = {
+  overlayVisible: boolean,
+  animDistance: number,
+};
+
+class Sheet extends React.Component<SheetProps, State> {
+  static defaultProps = {
+    style: null,
+    visible: false,
+    overlayStyle: null,
+    onPressOverlay: NOOP,
+    children: null,
+    duration: 200,
+    onShow: NOOP,
+    onHide: NOOP,
+  };
+
+  height: ?number = null;
+
+  aniShow: Animated.CompositeAnimation;
+  aniHide: Animated.CompositeAnimation;
+
+  constructor(props: SheetProps) {
     super(props);
     this.state = {
       overlayVisible: props.visible,
       animDistance: new Animated.Value(0),
     };
 
-    this.height = null;
-
-    this.aniShow = this.makeAnimation(this.height || 0);
-    this.aniHide = this.makeAnimation(0);
-
-    this.getHeight = this.getHeight.bind(this);
+    this.aniShow = Animated.CompositeAnimation = this.makeAnimation(this.height || 0);
+    this.aniHide = Animated.CompositeAnimation = this.makeAnimation(0);
   }
 
   componentWillMount() {
@@ -49,7 +86,7 @@ class Sheet extends Component {
     }
   }
 
-  componentWillReceiveProps(props) {
+  componentWillReceiveProps(props: Object) {
     if (props.visible && !this.props.visible) {
       // 隐藏 -> 显示
       this.setState({
@@ -64,7 +101,7 @@ class Sheet extends Component {
     }
   }
 
-  getHeight(e) {
+  getHeight = (e: Object) => {
     const { height } = e.nativeEvent.layout;
 
     if (height !== this.height) {
@@ -73,7 +110,7 @@ class Sheet extends Component {
     }
   }
 
-  makeAnimation(toValue) {
+  makeAnimation(toValue: number) {
     return Animated.timing(this.state.animDistance, {
       toValue,
       duration: this.props.duration,
@@ -130,36 +167,5 @@ class Sheet extends Component {
     );
   }
 }
-
-Sheet.propTypes = {
-  // 自定义样式
-  style: View.propTypes.style,
-  // 显示开关
-  visible: PropTypes.bool.isRequired,
-  // 遮罩层样式
-  overlayStyle: View.propTypes.style,
-  // Overlay 动画时长
-  overlayAnimationDuration: PropTypes.number,
-  // 遮罩点击事件
-  onPressOverlay: PropTypes.func,
-  // 子元素
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 动画时长
-  duration: PropTypes.number,
-  // 显示回调
-  onShow: PropTypes.func,
-  // 隐藏回调
-  onHide: PropTypes.func,
-};
-Sheet.defaultProps = {
-  style: null,
-  visible: false,
-  overlayStyle: null,
-  onPressOverlay: NOOP,
-  children: null,
-  duration: 200,
-  onShow: NOOP,
-  onHide: NOOP,
-};
 
 export default Sheet;

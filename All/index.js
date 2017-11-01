@@ -1,15 +1,14 @@
 /**
  * 页面容器组件
+ * @flow
  */
-import React, {
-  Component,
-} from 'react';
+import * as React from 'react';
 import {
   View,
   StatusBar,
   StyleSheet,
 } from 'react-native';
-import PropTypes from 'prop-types';
+import type { StyleObj } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 const styles = StyleSheet.create({
   all: {
@@ -19,30 +18,27 @@ const styles = StyleSheet.create({
   },
 });
 
-class All extends Component {
-  render() {
-    return (
-      <View style={[styles.all, this.props.style]}>
-        <StatusBar
-          backgroundColor={this.props.statusBarBgColor}
-          barStyle={this.props.statusBarStyle}
-        />
-        {this.props.children}
-      </View>
-    );
-  }
+function All(props: {
+  // 子元素
+  children?: React.Node,
+  // 自定义样式
+  style?: StyleObj,
+  // StatusBar 背景色
+  statusBarBgColor?: string,
+  // StatusBar 样式类型
+  statusBarStyle?: string,
+}) {
+  return (
+    <View style={[styles.all, props.style]}>
+      <StatusBar
+        backgroundColor={props.statusBarBgColor}
+        barStyle={props.statusBarStyle}
+      />
+      {props.children}
+    </View>
+  );
 }
 
-All.propTypes = {
-  // 子元素
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  // 自定义样式
-  style: View.propTypes.style,
-  // StatusBar 背景色
-  statusBarBgColor: PropTypes.string,
-  // StatusBar 样式类型
-  statusBarStyle: PropTypes.string,
-};
 All.defaultProps = {
   children: null,
   style: null,

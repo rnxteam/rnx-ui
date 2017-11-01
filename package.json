@@ -18,6 +18,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "lint": "eslint . *.js --cache",
+    "flow": "flow",
     "test": "jest"
   },
   "license": "MIT",
@@ -25,19 +26,23 @@
     "prop-types": "15.6.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "18.0.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react-native": "1.9.1",
     "eslint-config-rnx": "*",
+    "flow-bin": "^0.57.3",
+    "jest": "18.1.0",
+    "pre-commit": "^1.2.2",
     "react": "~15.4.0",
     "react-native": "0.41.2",
-    "babel-jest": "18.0.0",
-    "jest": "18.1.0",
-    "react-test-renderer": "15.4.2",
-    "pre-commit": "^1.2.2"
+    "react-test-renderer": "15.4.2"
   },
   "jest": {
     "preset": "react-native"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "flow"
   ]
 }
