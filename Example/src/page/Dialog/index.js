@@ -68,6 +68,17 @@ class Page extends Component {
     this.hideMaker = this.hideMaker.bind(this);
   }
 
+  onShow() {
+    /* eslint-disable */
+    console.log('onShow');
+    /* eslint-enable */
+  }
+  onHide() {
+    /* eslint-disable */
+    console.log('onHide');
+    /* eslint-enable */
+  }
+
   show(index) {
     const state = {};
     state[`demo${index}`] = true;
@@ -130,6 +141,9 @@ class Page extends Component {
             },
           }]}
           style={styles.dialog}
+          overlayAnimationDuration={1000}
+          onShow={this.onShow}
+          onHide={this.onHide}
         />
         <Dialog
           visible={this.state.demo2}

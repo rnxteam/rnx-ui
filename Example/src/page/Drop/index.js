@@ -3,7 +3,6 @@
  */
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   ScrollView,
@@ -14,6 +13,7 @@ import {
 } from 'BizComponent';
 import Router from 'BizRouter';
 import All from 'rnx-ui/All';
+import PropTypes from 'prop-types';
 
 import CartEmitter from './CartEmitter';
 import CartReceiver from './CartReceiver';

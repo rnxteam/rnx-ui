@@ -39,6 +39,12 @@ ToolTip.propTypes = {
   pointerEvents: Overlay.propTypes.pointerEvents,
   // 是否使用 Overlay 动画
   useOverlayAnimation: PropTypes.bool,
+  // Overlay 动画时长
+  overlayAnimationDuration: PropTypes.number,
+  // 显示回调
+  onShow: PropTypes.func,
+  // 隐藏回调
+  onHide: PropTypes.func,
 };
 ToolTip.defaultProps = {
   visible: false,
@@ -47,7 +53,6 @@ ToolTip.defaultProps = {
   textWrapperStyle: null,
   textStyle: null,
   pointerEvents: 'none',
-  useOverlayAnimation: true,
 };
 ```
 

@@ -6,12 +6,11 @@
  * 1: 「松开刷新」下拉距离到达刷新点
  * 2: 「刷新中...」正在刷新
  */
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import {
   View,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const NOOP = () => {};
 

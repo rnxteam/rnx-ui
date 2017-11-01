@@ -55,24 +55,40 @@ class Page extends Component {
       demo1: false,
       demo2: false,
     };
+    this.onBtnPress = this.onBtnPress.bind(this);
   }
 
   onOverlayPress() {
-    // console.log('press overlay');
+    /* eslint-disable */
+    console.log('press overlay');
+    /* eslint-enable */
   }
-
   onBtnPress() {
-    // console.log('press btn');
+    this.setState({
+      demo1: false,
+    });
+  }
+  onShow() {
+    /* eslint-disable */
+    console.log('onShow');
+    /* eslint-enable */
+  }
+  onHide() {
+    /* eslint-disable */
+    console.log('onHide');
+    /* eslint-enable */
   }
 
   show(index) {
     const state = {};
     state[`demo${index}`] = true;
     this.setState(state);
-    setTimeout(() => {
-      state[`demo${index}`] = false;
-      this.setState(state);
-    }, 1000);
+    if (index !== 1) {
+      setTimeout(() => {
+        state[`demo${index}`] = false;
+        this.setState(state);
+      }, 1000);
+    }
   }
 
   render() {
@@ -90,9 +106,12 @@ class Page extends Component {
           visible={this.state.demo1}
           style={styles.overlay}
           onPress={this.onOverlayPress}
+          duration={2000}
+          onShow={this.onShow}
+          onHide={this.onHide}
         >
           <Btn style={styles.btn} onPress={this.onBtnPress}>
-            我是遮罩层上的按钮
+            点我关闭
           </Btn>
         </Overlay>
         <Overlay

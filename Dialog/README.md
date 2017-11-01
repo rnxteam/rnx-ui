@@ -58,6 +58,12 @@ Dialog.propTypes = {
   overlayStyle: View.propTypes.style,
   // 是否使用 Overlay 动画
   useOverlayAnimation: PropTypes.bool,
+  // Overlay 动画时长
+  overlayAnimationDuration: PropTypes.number,
+  // 显示回调
+  onShow: PropTypes.func,
+  // 隐藏回调
+  onHide: PropTypes.func,
 };
 Dialog.defaultProps = {
   visible: false,

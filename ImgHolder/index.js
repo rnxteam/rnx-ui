@@ -2,7 +2,6 @@
  * 带占位的图片组件
  */
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
@@ -10,6 +9,7 @@ import {
   View,
   Image,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   all: {
@@ -73,6 +73,7 @@ class ImgHolder extends Component {
           onLoad={this.onLoad}
           source={this.props.source}
           style={[styles.img, this.props.imgStyle]}
+          resizeMode={this.props.resizeMode}
         />
       </View>
     );
@@ -90,6 +91,8 @@ ImgHolder.propTypes = {
   holder: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   // 图片加载完成是否移除 holder
   autoRemoveHolder: PropTypes.bool,
+  // 图片自适应模式（参考：https://facebook.github.io/react-native/docs/image.html#resizemode）
+  resizeMode: Image.propTypes.resizeMode,
 };
 ImgHolder.defaultProps = {
   style: null,

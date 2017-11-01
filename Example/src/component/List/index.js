@@ -1,11 +1,11 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   StyleSheet,
   ListView,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';

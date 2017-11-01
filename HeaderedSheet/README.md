@@ -14,12 +14,16 @@ HeaderedSheet.propTypes = {
   visible: Sheet.propTypes.visible,
   // 遮罩层样式
   overlayStyle: Sheet.propTypes.overlayStyle,
-  // 关闭回调（动画结束时）
-  onClose: Sheet.propTypes.onClose,
   // 遮罩点击事件
   onPressOverlay: Sheet.propTypes.onPressOverlay,
+  // Overlay 动画时长
+  overlayAnimationDuration: PropTypes.number,
   // 动画时长
   duration: Sheet.propTypes.duration,
+  // 显示回调
+  onShow: PropTypes.func,
+  // 隐藏回调
+  onHide: PropTypes.func,
   // 自定容器义样式（包含 header 区域）
   containerStyle: Sheet.propTypes.style,
   // 自定义样式
@@ -52,7 +56,6 @@ HeaderedSheet.propTypes = {
 HeaderedSheet.defaultProps = {
   visible: false,
   overlayStyle: null,
-  onClose: NOOP,
   onPressOverlay: NOOP,
   duration: 200,
   style: null,

@@ -1,6 +1,5 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   StyleSheet,
@@ -9,6 +8,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import transPxToDp from 'rnx-ui/util/transPxToDp';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   item: {

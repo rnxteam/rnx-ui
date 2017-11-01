@@ -37,13 +37,13 @@ const styles = StyleSheet.create({
 
 const items = [
   {
-    content: 'demo 0',
+    content: '默认',
     onPress() {
       this.show(0);
     },
   },
   {
-    content: 'demo 1',
+    content: '自定义',
     onPress() {
       this.show(1);
     },
@@ -61,6 +61,17 @@ class Page extends Component {
     };
     this.onPressDemo0 = this.onPressDemo0.bind(this);
     this.onPressDemo1 = this.onPressDemo1.bind(this);
+  }
+
+  onShow() {
+    /* eslint-disable */
+    console.log('onShow');
+    /* eslint-enable */
+  }
+  onHide() {
+    /* eslint-disable */
+    console.log('onHide');
+    /* eslint-enable */
   }
 
   onPressDemo0() {
@@ -101,6 +112,8 @@ class Page extends Component {
         <Sheet
           visible={this.state.demo1}
           overlayStyle={styles.overlay}
+          onShow={this.onShow}
+          onHide={this.onHide}
         >
           <View style={styles.demo1}>
             <View style={styles.demo1TextContainer}>

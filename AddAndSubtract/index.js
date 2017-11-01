@@ -1,5 +1,4 @@
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
@@ -8,6 +7,7 @@ import {
   TouchableHighlight,
   Animated,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
 

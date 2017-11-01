@@ -1,6 +1,6 @@
 {
   "name": "rnx-ui",
-  "version": "0.17.4",
+  "version": "0.18.0",
   "description": "A UI Lib for React Native",
   "keywords": [
     "rnx",
@@ -21,6 +21,9 @@
     "test": "jest"
   },
   "license": "MIT",
+  "dependencies": {
+    "prop-types": "15.6.0"
+  },
   "devDependencies": {
     "babel-preset-react-native": "1.9.1",
     "eslint-config-rnx": "*",

@@ -1,12 +1,12 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   StyleSheet,
   View,
   Text,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import Overlay from '../Overlay';
 
@@ -42,6 +42,9 @@ class ToolTip extends Component {
         style={[styles.overlay, overlayStyle]}
         pointerEvents={this.props.pointerEvents}
         useAnimation={this.props.useOverlayAnimation}
+        duration={this.props.overlayAnimationDuration}
+        onShow={this.props.onShow}
+        onHide={this.props.onHide}
       >
         <View style={[styles.textWrapper, textWrapperStyle]}>
           <Text style={[styles.text, textStyle]}>{text}</Text>
@@ -66,6 +69,12 @@ ToolTip.propTypes = {
   pointerEvents: Overlay.propTypes.pointerEvents,
   // 是否使用 Overlay 动画
   useOverlayAnimation: PropTypes.bool,
+  // Overlay 动画时长
+  overlayAnimationDuration: PropTypes.number,
+  // 显示回调
+  onShow: PropTypes.func,
+  // 隐藏回调
+  onHide: PropTypes.func,
 };
 ToolTip.defaultProps = {
   visible: false,
@@ -74,7 +83,6 @@ ToolTip.defaultProps = {
   textWrapperStyle: null,
   textStyle: null,
   pointerEvents: 'none',
-  useOverlayAnimation: true,
 };
 
 export default ToolTip;

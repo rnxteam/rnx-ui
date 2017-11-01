@@ -8,7 +8,24 @@
 
 ### ⚠️ 注意
 
-CardView 会为卡片添加 `isActiveRnxUiCardView` 属性，激活卡片值为 `true`，其他卡片是 `false`。
+1. CardView 会为卡片添加 `isActiveRnxUiCardView` 属性，激活卡片值为 `true`，其他卡片是 `false`。
+2. CardView 内部是使用 `PanResponder` 实现的，在 ScrollView 中使用时会出现停止工作的现象。针对该问题可以使用 CardView 的两个属性 `onPanResponderGrant` 和 `onPanResponderRelease` 来手动控制 ScrollView 的滚动开关。具体做法如下：
+
+    ```js
+    /* this.state.scroll 默认值为 true */
+    <ScrollView
+      scrollEnabled={this.state.scroll}
+    >
+      <CardView
+        onPanResponderGrant={
+          () => this.setState({ scroll: false })
+        }
+        onPanResponderRelease={
+          () => this.setState({ scroll: true })
+        }
+      />
+    </ScrollView>
+    ```
 
 ## Demo
 
@@ -70,6 +87,10 @@ CardView.propTypes = {
   onStartReached: PropTypes.func,
   // 到达底部回调
   onEndReached: PropTypes.func,
+  // 开始手势操作回调
+  onPanResponderGrant: PropTypes.func,
+  // 放开手势操作回调
+  onPanResponderRelease: PropTypes.func,
 };
 CardView.defaultProps = {
   style: null,
@@ -87,6 +108,8 @@ CardView.defaultProps = {
   getEl: NOOP,
   onStartReached: NOOP,
   onEndReached: NOOP,
+  onPanResponderGrant: NOOP,
+  onPanResponderRelease: NOOP,
 };
 ```
 

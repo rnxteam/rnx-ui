@@ -1,6 +1,5 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   Platform,
@@ -8,6 +7,7 @@ import {
   TouchableHighlight,
   Text,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import Overlay from '../Overlay';
 import styles from './styles.js';
@@ -90,6 +90,9 @@ class Dialog extends Component {
         visible={this.props.visible}
         style={[styles.overlay, this.props.overlayStyle]}
         useAnimation={this.props.useOverlayAnimation}
+        duration={this.props.overlayAnimationDuration}
+        onShow={this.props.onShow}
+        onHide={this.props.onHide}
       >
         <View style={[styles.dialog, this.props.style]}>
           <View style={styles.content}>
@@ -137,6 +140,12 @@ Dialog.propTypes = {
   overlayStyle: View.propTypes.style,
   // 是否使用 Overlay 动画
   useOverlayAnimation: PropTypes.bool,
+  // Overlay 动画时长
+  overlayAnimationDuration: PropTypes.number,
+  // 显示回调
+  onShow: PropTypes.func,
+  // 隐藏回调
+  onHide: PropTypes.func,
 };
 Dialog.defaultProps = {
   visible: false,
