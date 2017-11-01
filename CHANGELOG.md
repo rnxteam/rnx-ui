@@ -12,7 +12,7 @@ n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 
 - 💚 import `PropTypes` from `prop-types` instead of `react`
 
-## ActionSheet
+### ActionSheet
 
 - 💚 new props `overlayAnimationDuration`：duration of Overlay animation
 - 💚 new props `onShow`：a callback called when ActionSheet has shown
@@ -23,7 +23,7 @@ n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 - 💚 new props `onPanResponderGrant`：a callback called when the gesture starts
 - 💚 new props `onPanResponderRelease`：a callback called when the gesture stops
 
-## Dialog
+### Dialog
 
 - 💚 new props `overlayAnimationDuration`：duration of Overlay animation
 - 💚 new props `onShow`：a callback called when Dialog has shown
