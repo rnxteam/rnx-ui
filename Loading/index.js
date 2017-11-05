@@ -2,7 +2,6 @@
  * 菊花加载中组件
  */
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
@@ -10,6 +9,7 @@ import {
   ActivityIndicator,
   View,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import Overlay from '../Overlay';
 

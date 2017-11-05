@@ -1,12 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   Platform,
   View,
   Text,
   TouchableHighlight,
 } from 'react-native';
-import Sheet from '../Sheet';
+import PropTypes from 'prop-types';
 
+import Sheet from '../Sheet';
 import styles from './styles';
 
 const NOOP = () => {};

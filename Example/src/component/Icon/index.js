@@ -1,8 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import {
   Text,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const ICON_MAP = {
   menu: '\uf0c9',

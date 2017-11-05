@@ -13,7 +13,7 @@
  * 在倒计时结束时组件会自动进入 `3：倒计时结束状态`；
  * 2、如果发送短信失败：手动调起组件的 `stop` 方法，进入 `3：倒计时结束状态`；
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   AppState,
   View,
@@ -21,6 +21,7 @@ import {
   TextInput,
   Text,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import {
   COLOR_PLACEHOLDER,

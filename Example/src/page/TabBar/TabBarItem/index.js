@@ -1,15 +1,14 @@
 /**
  * TabBar item 组件
  */
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
   Text,
 } from 'react-native';
 import { Icon } from 'BizComponent';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   all: {

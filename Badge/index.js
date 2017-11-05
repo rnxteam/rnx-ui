@@ -4,7 +4,6 @@
  * 1. Badge 没有宽度，跨度随外部容器变化
  */
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
@@ -12,6 +11,7 @@ import {
   View,
   Text,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const NUMBER_HEIGHT = 14;
 

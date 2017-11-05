@@ -2,7 +2,6 @@
  * 页面容器组件
  */
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
@@ -10,6 +9,7 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   all: {

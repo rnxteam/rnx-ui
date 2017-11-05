@@ -1,6 +1,5 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   Platform,
@@ -8,6 +7,7 @@ import {
   TouchableHighlight,
   Text,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import Overlay from '../Overlay';
 import styles from './styles.js';

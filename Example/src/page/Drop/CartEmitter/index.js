@@ -1,12 +1,12 @@
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
 import {
   StyleSheet,
 } from 'react-native';
 import {
   Emitter,
 } from 'rnx-ui/Drop';
+import PropTypes from 'prop-types';
+
 import Cart from '../Cart';
 
 const NOOP = () => {};

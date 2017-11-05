@@ -2,7 +2,6 @@
  * 带占位的图片组件
  */
 import React, {
-  PropTypes,
   Component,
 } from 'react';
 import {
@@ -10,6 +9,7 @@ import {
   View,
   Image,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   all: {
