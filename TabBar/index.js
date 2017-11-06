@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   item: {
     flex: 1,
     justifyContent: 'space-around',
-  }
+  },
 });
 
 class TabBar extends Component {
@@ -40,16 +40,16 @@ class TabBar extends Component {
           this.props.items.map((item, index) => (
             <View key={index} style={styles.item}>
               <TouchableOpacity
-              key={index}
-              id={item.id}
-              context={this}
-              onPress={this.onPress}
-              activeOpacity={this.props.activeOpacity}
-            >
-              {
-                this.props.activeId === item.id ?
-                item.activedComponent : item.defaultComponent
-              }
+                key={index}
+                id={item.id}
+                context={this}
+                onPress={this.onPress}
+                activeOpacity={this.props.activeOpacity}
+              >
+                {
+                  this.props.activeId === item.id ?
+                  item.activedComponent : item.defaultComponent
+                }
               </TouchableOpacity>
             </View>
           ))
