@@ -12,7 +12,6 @@ import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   all: {
-    width: 50,
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
