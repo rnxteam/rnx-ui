@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
     borderTopColor: '#C9C9C9',
     borderTopWidth: HAIRLINE_WIDTH,
   },
+  item: {
+    flex: 1,
+    justifyContent: 'space-around',
+  }
 });
 
 class TabBar extends Component {
@@ -34,7 +38,8 @@ class TabBar extends Component {
       <View style={[styles.all, this.props.style]}>
         {
           this.props.items.map((item, index) => (
-            <TouchableOpacity
+            <View key={index} style={styles.item}>
+              <TouchableOpacity
               key={index}
               id={item.id}
               context={this}
@@ -45,7 +50,8 @@ class TabBar extends Component {
                 this.props.activeId === item.id ?
                 item.activedComponent : item.defaultComponent
               }
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </View>
           ))
         }
       </View>
