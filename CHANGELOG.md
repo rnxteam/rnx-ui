@@ -8,6 +8,12 @@ n2：💛 影响之前版本使用方式的更新（需要用户适配）
 n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 ```
 
+### SmsCaptchaInput
+
+- 💚 new props `btnTextNumberOfLines`：used to truncate the button's text with an ellipsis after computing the text layout
+
+### TabBar
+
 ## 0.18.0
 
 - 💚 import `PropTypes` from `prop-types` instead of `react`
