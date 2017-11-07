@@ -18,6 +18,7 @@ import './NavBar';
 import './NumericKeyboard';
 import './Overlay';
 import './PhoneNumInput';
+import './Progress';
 import './RefreshView';
 import './Sheet';
 import './SmsCaptchaInput';
@@ -26,6 +27,7 @@ import './ToolTip';
 import './TransPxToDp';
 import './Validator';
 import './VirtualPasswordInput';
+
 
 // 首页放最后，确保已经获取了所有页面
 import './Home';
