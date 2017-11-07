@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     borderTopColor: '#C9C9C9',
     borderTopWidth: HAIRLINE_WIDTH,
   },
+  item: {
+    flex: 1,
+  },
 });
 
 class TabBar extends Component {
@@ -35,6 +38,7 @@ class TabBar extends Component {
         {
           this.props.items.map((item, index) => (
             <TouchableOpacity
+              style={styles.item}
               key={index}
               id={item.id}
               context={this}

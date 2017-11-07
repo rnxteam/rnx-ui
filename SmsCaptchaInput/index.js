@@ -188,7 +188,7 @@ class SmsCaptchaInput extends Component {
           style={[styles.button, this.props.btnStyle]}
           hitSlop={this.props.hitSlop}
         >
-          <Text style={this.props.btnTextStyle}>
+          <Text style={this.props.btnTextStyle} numberOfLines={this.props.btnTextNumberOfLines}>
             {this.state.buttonText}
           </Text>
         </TouchableOpacity>
@@ -214,6 +214,8 @@ SmsCaptchaInput.propTypes = {
   btnTextTimed: PropTypes.string,
   // 自定义按钮文本样式
   btnTextStyle: Text.propTypes.style,
+  // 自定义按钮文本行数，超出 btnTextStyle 中设定的宽度时，超出部分用...代替
+  btnTextNumberOfLines: PropTypes.number,
   // 提示文字
   placeholder: PropTypes.string,
   // 提示文字颜色
@@ -253,6 +255,7 @@ SmsCaptchaInput.defaultProps = {
   btnTextTiming: '{time}秒后可重发',
   btnTextTimed: '重新获取',
   btnTextStyle: null,
+  btnTextNumberOfLines: 1,
   placeholder: '短信验证码',
   placeholderTextColor: COLOR_PLACEHOLDER,
   activeOpacity: ACTIVE_OPACITY,
