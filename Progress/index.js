@@ -6,9 +6,9 @@ import {
   View,
   Animated,
   Text,
+  Easing,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import Easing from 'Easing';
 
 const styles = StyleSheet.create({
   all: {
@@ -17,8 +17,6 @@ const styles = StyleSheet.create({
   },
   outer: {
     flex: 1,
-    height: 10,
-    borderRadius: 5,
     overflow: 'hidden',
     backgroundColor: '#ddd',
   },
@@ -86,11 +84,17 @@ class Progress extends Component {
         style={[styles.all, this.props.style]}
       >
         <View
-          style={[styles.outer, this.props.outerStyle]}
+          style={[styles.outer, {
+            height: this.props.width,
+            borderRadius: this.props.width / 2,
+          }, this.props.outerStyle]}
           onLayout={this.onLayout}
         >
           <Animated.View
-            style={[styles.inner, this.props.innerStyle, {
+            style={[styles.inner, {
+              height: this.props.width,
+              borderRadius: this.props.width / 2,
+            }, this.props.innerStyle, {
               width: this.state.progressWidth,
             }]}
           />
@@ -112,6 +116,8 @@ class Progress extends Component {
 Progress.propTypes = {
   // 容器样式
   style: View.propTypes.style,
+  // 进度条宽度
+  width: PropTypes.number,
   // 进度条背景样式
   outerStyle: View.propTypes.style,
   // 进度条样式
@@ -129,6 +135,7 @@ Progress.propTypes = {
 };
 Progress.defaultProps = {
   style: null,
+  width: 10,
   outerStyle: null,
   innerStyle: null,
   duration: 300,

@@ -24,6 +24,8 @@ function Example(props) {
 Progress.propTypes = {
   // 容器样式
   style: View.propTypes.style,
+  // 进度条宽度
+  width: PropTypes.number,
   // 进度条背景样式
   outerStyle: View.propTypes.style,
   // 进度条样式
@@ -41,6 +43,7 @@ Progress.propTypes = {
 };
 Progress.defaultProps = {
   style: null,
+  width: 10,
   outerStyle: null,
   innerStyle: null,
   duration: 300,
