@@ -22,8 +22,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   outer: {
-    height: 20,
-    borderRadius: 0,
     backgroundColor: 'yellow',
   },
   inner: {
@@ -135,6 +133,7 @@ class Page extends Component {
             <Progress
               value={0.75}
               valueVisible={false}
+              width={20}
               outerStyle={styles.outer}
               innerStyle={styles.inner}
             />
