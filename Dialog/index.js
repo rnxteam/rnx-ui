@@ -30,7 +30,8 @@ class Dialog extends Component {
       if (isAndroid) {
         if (index === 0) {
           btnTouchableStyle.push(styles.btnTouchableFirst);
-        } else if (index === len - 1) {
+        }
+        if (index === len - 1) {
           btnTouchableStyle.push(styles.btnTouchableLast);
         }
       }
