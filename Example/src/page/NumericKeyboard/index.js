@@ -95,6 +95,10 @@ class Page extends Component {
             onPress={this.onInput}
             deleteKeyContent="DEL"
             style={styles.numericKeyboard}
+            bottomLeftButton={{
+              value: 'x',
+              children: 'X',
+            }}
           />
         </Sheet>
       </All>
