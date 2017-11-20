@@ -8,6 +8,12 @@ n2：💛 影响之前版本使用方式的更新（需要用户适配）
 n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 ```
 
+## 0.17.4-patch-5
+
+### NumericKeyboard
+
+- 💚 new props `bottomLeftButton`: config the button in bottom-left corner of the keyboard
+
 ## 0.17.4-patch-4
 
 - 💚 Bugfix: fix display bug when there is only one button that is in touching state

@@ -32,10 +32,27 @@ NumericKeyboard.propTypes = {
   onPress: PropTypes.func,
   // 删除键内容
   deleteKeyContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.array]),
+  // 左下角空白键
+  bottomLeftButton: PropTypes.shape({
+    // 样式类型
+    type: Key.propTypes.type,
+    // 是否禁用
+    disabled: Key.propTypes.disabled,
+    // 值
+    value: Key.propTypes.value,
+    // 子元素
+    children: Key.propTypes.children,
+  }),
 };
 NumericKeyboard.defaultProps = {
   style: null,
   onPress: NOOP,
   deleteKeyContent: <Image source={delImgSource} />,
+  bottomLeftButton: {
+    type: 'dark',
+    disabled: true,
+    value: '',
+    children: null,
+  },
 };
 ```
