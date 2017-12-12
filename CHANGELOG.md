@@ -42,7 +42,7 @@ Now badge will self-adjust to the length of `text`, and the maxWidth of badge is
 
 ## 0.18.0
 
-- 💚 import `PropTypes` from `prop-types` instead of `react`
+- 💛 import `PropTypes` from `prop-types` instead of `react`
 
 ### ActionSheet
 
