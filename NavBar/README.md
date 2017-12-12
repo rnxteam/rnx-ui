@@ -40,6 +40,8 @@ NavBar.propTypes = {
   rightBtnDisabled: PropTypes.bool,
   // 按钮点击透明度变化
   activeOpacity: PropTypes.number,
+  // 按钮热区
+  hitSlop: TouchableOpacity.propTypes.hitSlop,
 };
 NavBar.defaultProps = {
   style: null,
@@ -57,6 +59,12 @@ NavBar.defaultProps = {
   rightBtnStyle: null,
   rightBtnDisabled: false,
   activeOpacity: ACTIVE_OPACITY,
+  hitSlop: {
+    top: 10,
+    bottom: 10,
+    left: 10,
+    right: 10,
+  },
 };
 ```
 

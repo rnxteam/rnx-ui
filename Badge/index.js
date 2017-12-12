@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-const NUMBER_HEIGHT = 14;
+const TEXT_HEIGHT = 14;
+const DOT_HEIGHT = 8;
 
 const styles = StyleSheet.create({
   container: {
@@ -25,30 +26,71 @@ const styles = StyleSheet.create({
     right: -5,
     backgroundColor: 'red',
     borderRadius: 7,
-    height: NUMBER_HEIGHT,
+    height: TEXT_HEIGHT,
+    minWidth: TEXT_HEIGHT,
     overflow: 'hidden',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
+    padding: 4,
   },
   text: {
     fontSize: 10,
     color: '#fff',
     marginTop: -1,
   },
-  icon: {
-    fontSize: 20,
-    color: '#fff',
+  dot: {
+    height: DOT_HEIGHT,
+    width: DOT_HEIGHT,
+    top: -4,
+    right: -4,
+    position: 'absolute',
+    backgroundColor: 'red',
+    borderRadius: DOT_HEIGHT / 2,
   },
 });
 
 class Badge extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      opacity: 0,
+      top: -5,
+      right: -5,
+      borderRadius: 7,
+    };
+  }
+
+  // 获取徽标的布局信息
+  setPosition = (params) => {
+    const { nativeEvent } = params;
+    const { layout } = nativeEvent;
+    const { width, height } = layout;
+    this.setState({
+      top: -(height * 0.5),
+      right: -(width * 0.5),
+      borderRadius: height * 0.5,
+      opacity: 1,
+    });
+  }
+
+  // 小红点生成器
+  createDot() {
+    if (this.props.dot) {
+      return (
+        <View
+          style={[styles.dot, this.props.dotStyle]}
+        />
+      );
+    }
+    return null;
+  }
+
   render() {
     let text = this.props.text;
 
     if (typeof text !== 'string') {
       text = `${text}`;
     }
-    const textWidth = this.props.characterWidth * (text.length + 1);
 
     return (
       <View style={[styles.container, this.props.style]}>
@@ -59,14 +101,21 @@ class Badge extends Component {
         text.length > 0 ? (
           <View
             style={[styles.textContainer, {
-              width: textWidth,
+              right: this.state.right,
+              top: this.state.top,
+              borderRadius: this.state.borderRadius,
+              opacity: this.state.opacity,
             }, this.props.textContainerStyle]}
+            onLayout={this.setPosition}
           >
-            <Text style={[styles.text, this.props.textStyle]}>
+            <Text
+              style={[styles.text, this.props.textStyle]}
+              numberOfLines={1}
+            >
               {text}
             </Text>
           </View>
-        ) : null
+        ) : this.createDot()
       }
       </View>
     );
@@ -74,26 +123,29 @@ class Badge extends Component {
 }
 
 Badge.propTypes = {
-  // 自定义样式
+  // 样式
   style: View.propTypes.style,
-  // 自定义文本容器样式
+  // 文本容器样式
   textContainerStyle: View.propTypes.style,
-  // 自定义文本样式
+  // 文本样式
   textStyle: Text.propTypes.style,
-  // 单个字符宽度
-  characterWidth: PropTypes.number,
   // 角标文本内容
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // 主体元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  // 是否使用小红点
+  dot: PropTypes.bool,
+  // 小红点样式
+  dotStyle: View.propTypes.style,
 };
 Badge.defaultProps = {
   style: null,
   textContainerStyle: null,
   textStyle: null,
-  characterWidth: 7,
   text: '',
   children: null,
+  dot: null,
+  dotStyle: null,
 };
 
 export default Badge;

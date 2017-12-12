@@ -87,6 +87,7 @@ class NavBar extends Component {
           <TouchableOpacity
             activeOpacity={this.props.leftBtnDisabled ? 1 : this.props.activeOpacity}
             onPress={this.props.leftBtnDisabled ? NOOP : this.props.leftEvent}
+            hitSlop={this.props.hitSlop}
           >
             <View style={styles.btn}>
               {leftBtn}
@@ -95,6 +96,7 @@ class NavBar extends Component {
           <TouchableOpacity
             activeOpacity={this.props.rightBtnDisabled ? 1 : this.props.activeOpacity}
             onPress={this.props.rightBtnDisabled ? NOOP : this.props.rightEvent}
+            hitSlop={this.props.hitSlop}
           >
             <View style={styles.btn}>
               {rightBtn}
@@ -137,6 +139,8 @@ NavBar.propTypes = {
   rightBtnDisabled: PropTypes.bool,
   // 按钮点击透明度变化
   activeOpacity: PropTypes.number,
+  // 按钮热区
+  hitSlop: TouchableOpacity.propTypes.hitSlop,
 };
 NavBar.defaultProps = {
   style: null,
@@ -154,6 +158,12 @@ NavBar.defaultProps = {
   rightBtnStyle: null,
   rightBtnDisabled: false,
   activeOpacity: ACTIVE_OPACITY,
+  hitSlop: {
+    top: 10,
+    bottom: 10,
+    left: 10,
+    right: 10,
+  },
 };
 
 export default NavBar;

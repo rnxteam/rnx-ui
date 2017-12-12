@@ -8,65 +8,97 @@ n2：💛 影响之前版本使用方式的更新（需要用户适配）
 n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 ```
 
-## 0.18.0
+## 0.19.0
 
-- 💚 import `PropTypes` from `prop-types` instead of `react`
+- 💚 new component for displaying progress: `Progress`
 
-### ActionSheet
+### NumericKeyboard
 
-- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
-- 💚 new props `onShow`：a callback called when ActionSheet has shown
-- 💚 new props `onHide`：a callback called when ActionSheet has hidden
-
-### CardView
-
-- 💚 new props `onPanResponderGrant`：a callback called when the gesture starts
-- 💚 new props `onPanResponderRelease`：a callback called when the gesture stops
+- 💚 new props `bottomLeftButton`: config the button in bottom-left corner of the keyboard
 
 ### Dialog
 
-- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
-- 💚 new props `onShow`：a callback called when Dialog has shown
-- 💚 new props `onHide`：a callback called when Dialog has hidden
+- 💚 Bugfix: fix display bug when there is only one button that is in touching state
+
+### NavBar
+
+- 💚 new props `hitSlop`: defines how far a touch event can start away from buttons in left and right
+
+### SmsCaptchaInput
+
+- 💚 new props `btnTextNumberOfLines`: used to truncate the button's text with an ellipsis after computing the text layout
+
+### TabBar
+
+- 💛 TabBar items will divide space equally and the touchable area will be extended as far as possible. You may need to add `flex: 1` in style of TabBar item components to adapte to this change.
+
+### Badge
+
+Now badge will self-adjust to the length of `text`, and the maxWidth of badge is the width of `children`.
+
+- 💛 remove props `characterWidth`: because of the new self-adjusting strategy
+- 💚 new props `dot`: whether to use dot
+- 💚 new props `dotStyle`: the style of dot
+
+## 0.18.0
+
+- 💛 import `PropTypes` from `prop-types` instead of `react`
+
+### ActionSheet
+
+- 💚 new props `overlayAnimationDuration`: duration of Overlay animation
+- 💚 new props `onShow`: a callback called when ActionSheet has shown
+- 💚 new props `onHide`: a callback called when ActionSheet has hidden
+
+### CardView
+
+- 💚 new props `onPanResponderGrant`: a callback called when the gesture starts
+- 💚 new props `onPanResponderRelease`: a callback called when the gesture stops
+
+### Dialog
+
+- 💚 new props `overlayAnimationDuration`: duration of Overlay animation
+- 💚 new props `onShow`: a callback called when Dialog has shown
+- 💚 new props `onHide`: a callback called when Dialog has hidden
 
 > `onPanResponderGrant` and `onPanResponderRelease` can be used to fix the bug that CardView will not work in ScrollView. For more infomation: [CardView · rnxteam/rnx-ui Wiki](https://github.com/rnxteam/rnx-ui/wiki/CardView)
 
 ### HeaderedSheet
 
-- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
-- 💚 new props `onShow`：a callback called when HeaderedSheet has shown
+- 💚 new props `overlayAnimationDuration`: duration of Overlay animation
+- 💚 new props `onShow`: a callback called when HeaderedSheet has shown
 - 💛 props `onClose` is renamed `onHide`
 
 ### ImgHolder
 
-- 💚 new props `resizeMode`：Determines how to resize the image when the frame doesn't match the raw image dimensions.
+- 💚 new props `resizeMode`: Determines how to resize the image when the frame doesn't match the raw image dimensions.
 
 > For more infomation: [Image](https://facebook.github.io/react-native/docs/image.html#resizemode)
 
 ### Loading
 
-- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
-- 💚 new props `onShow`：a callback called when Loading has shown
-- 💚 new props `onHide`：a callback called when Loading has hidden
+- 💚 new props `overlayAnimationDuration`: duration of Overlay animation
+- 💚 new props `onShow`: a callback called when Loading has shown
+- 💚 new props `onHide`: a callback called when Loading has hidden
 
 ### Overlay
 
-- 💚 new props `onShow`：a callback called when Overlay has shown
-- 💚 new props `onHide`：a callback called when Overlay has hidden
+- 💚 new props `onShow`: a callback called when Overlay has shown
+- 💚 new props `onHide`: a callback called when Overlay has hidden
 
 ### Sheet
 
-- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
-- 💚 new props `onShow`：a callback called when Sheet has shown
+- 💚 new props `overlayAnimationDuration`: duration of Overlay animation
+- 💚 new props `onShow`: a callback called when Sheet has shown
 - 💛 props `onClose` is renamed `onHide`
 - 💚 fix the bug that after a Sheet has been shown, when the height of the content changes, the height of the Sheet will not change ([`12ee9cc`](https://github.com/rnxteam/rnx-ui/pull/17/commits/12ee9cc1a25887cd6ee37049f99d747d1906a330)) - [`@reoszo`](https://github.com/reoszo)
 
 
 ### ToolTip
 
-- 💚 new props `overlayAnimationDuration`：duration of Overlay animation
-- 💚 new props `onShow`：a callback called when ToolTip has shown
-- 💚 new props `onHide`：a callback called when ToolTip has hidden
+- 💚 new props `overlayAnimationDuration`: duration of Overlay animation
+- 💚 new props `onShow`: a callback called when ToolTip has shown
+- 💚 new props `onHide`: a callback called when ToolTip has hidden
 
 ## 0.17.4
 

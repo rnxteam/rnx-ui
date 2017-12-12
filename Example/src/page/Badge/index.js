@@ -24,9 +24,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
   },
-  placeholder: {
-    flex: 1,
-  },
   textContainerStyle: {
     top: null,
     bottom: 0,
@@ -43,10 +40,9 @@ function Page() {
           <View style={styles.container}>
             <Badge text="+1s">
               <Text>
-                  一颗赛艇
-                </Text>
+                一颗赛艇
+              </Text>
             </Badge>
-            <View style={styles.placeholder} />
           </View>
         </Article>
 
@@ -55,7 +51,22 @@ function Page() {
             <Badge text={8}>
               <Icon name="commenting-o" style={styles.icon} />
             </Badge>
-            <View style={styles.placeholder} />
+          </View>
+        </Article>
+
+        <Article title="dot 单独使用">
+          <View style={styles.container}>
+            <Badge dot>
+              <Text>dot</Text>
+            </Badge>
+          </View>
+        </Article>
+
+        <Article title="位置右居中">
+          <View style={styles.container}>
+            <Badge text="位置根据计算居中">
+              <Text>位置右居中</Text>
+            </Badge>
           </View>
         </Article>
 
@@ -64,7 +75,6 @@ function Page() {
             <Badge text="8" textContainerStyle={styles.textContainerStyle}>
               <Icon name="commenting-o" style={styles.icon} />
             </Badge>
-            <View style={styles.placeholder} />
           </View>
         </Article>
       </ScrollView>

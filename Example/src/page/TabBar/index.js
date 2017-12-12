@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  tabBar: {
+    height: 40,
+  },
 });
 
 const TabBarItems = [{
@@ -71,6 +74,7 @@ class Page extends Component {
           activeId={this.state.paneId}
           items={TabBarItems}
           onPress={this.onTabBarPress}
+          style={styles.tabBar}
         />
       </All>
     );
