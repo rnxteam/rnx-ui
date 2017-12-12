@@ -33,25 +33,28 @@ function Example(props) {
 
 ```js
 Badge.propTypes = {
-  // 自定义样式
+  // 样式
   style: View.propTypes.style,
-  // 自定义文本容器样式
+  // 文本容器样式
   textContainerStyle: View.propTypes.style,
-  // 自定义文本样式
+  // 文本样式
   textStyle: Text.propTypes.style,
-  // 单个字符宽度
-  characterWidth: PropTypes.number,
   // 角标文本内容
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   // 主体元素
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  // 是否使用小红点
+  dot: PropTypes.bool,
+  // 小红点样式
+  dotStyle: View.propTypes.style,
 };
 Badge.defaultProps = {
   style: null,
   textContainerStyle: null,
   textStyle: null,
-  characterWidth: 7,
   text: '',
   children: null,
+  dot: null,
+  dotStyle: null,
 };
 ```

@@ -30,6 +30,14 @@ n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 
 - 💛 TabBar items will divide space equally and the touchable area will be extended as far as possible. You may need to add `flex: 1` in style of TabBar item components to adapte to this change.
 
+### Badge
+
+Now badge will self-adjust to the length of `text`, and the maxWidth of badge is the width of `children`.
+
+- 💛 remove props `characterWidth`: because of the new self-adjusting strategy
+- 💚 new props `dot`: whether to use dot
+- 💚 new props `dotStyle`: the style of dot
+
 ## 0.18.0
 
 - 💚 import `PropTypes` from `prop-types` instead of `react`
