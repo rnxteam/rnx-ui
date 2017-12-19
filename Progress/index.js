@@ -50,7 +50,7 @@ class Progress extends Component {
       /* eslint-enable */
         Animated.timing(this.state.progressWidth, {
           toValue: progressWidth,
-          duration: this.props.duration,
+          duration: nextProps.duration,
           // linear animation looks smoother
           easing: Easing.linear,
         }).start();
@@ -123,7 +123,9 @@ Progress.propTypes = {
   // 进度条样式
   innerStyle: View.propTypes.style,
   // 动画时长
+  /* eslint-disable */
   duration: PropTypes.number,
+  /* eslint-enable */
   // 进度值
   value: PropTypes.number,
   // 是否显示进度值
