@@ -43,6 +43,10 @@ Dialog.propTypes = {
   messageStyle: Text.propTypes.style,
   // 按钮容器样式
   buttonsContainerStyle: View.propTypes.style,
+  // 按钮样式
+  buttonStyle: View.propTypes.style,
+  // 按钮控件样式
+  buttonTouchableStyle: TouchableHighlight.propTypes.style,
   // 按钮
   buttons: PropTypes.arrayOf(PropTypes.shape({
     // 按钮文本
@@ -66,6 +70,8 @@ Dialog.defaultProps = {
   message: '',
   messageStyle: null,
   buttonsContainerStyle: null,
+  buttonStyle: null,
+  buttonTouchableStyle: null,
   buttons: [],
   style: null,
   overlayStyle: null,

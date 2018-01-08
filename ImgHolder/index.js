@@ -48,6 +48,15 @@ class ImgHolder extends Component {
 
     if (autoRemoveHolder) {
       if (nextProps.source !== source) {
+        if (typeof nextProps.source === 'object' && typeof source === 'object'
+          && typeof nextProps.source.uri === 'string' && typeof source.uri === 'string'
+          && nextProps.source.uri === source.uri
+        ) {
+          // if source changes but uri not (a new object with same uri), Image will not fire onload,
+          // so the holder will never hide.
+          return;
+        }
+
         this.setState({
           holder,
         });

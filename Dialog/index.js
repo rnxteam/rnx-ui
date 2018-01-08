@@ -20,13 +20,13 @@ class Dialog extends Component {
     const len = this.props.buttons.length;
 
     return this.props.buttons.map((item, index) => {
-      const btnStyle = [styles.btn];
+      const btnStyle = [styles.btn, this.props.buttonStyle];
       if (index === 0) {
         btnStyle.push(styles.btnFirst);
       }
 
       // fix android
-      const btnTouchableStyle = [styles.btnTouchable];
+      const btnTouchableStyle = [styles.btnTouchable, this.props.buttonTouchableStyle];
       if (isAndroid) {
         if (index === 0) {
           btnTouchableStyle.push(styles.btnTouchableFirst);
@@ -121,6 +121,10 @@ Dialog.propTypes = {
   messageStyle: Text.propTypes.style,
   // 按钮容器样式
   buttonsContainerStyle: View.propTypes.style,
+  // 按钮样式
+  buttonStyle: View.propTypes.style,
+  // 按钮控件样式
+  buttonTouchableStyle: TouchableHighlight.propTypes.style,
   // 按钮
   buttons: PropTypes.arrayOf(PropTypes.shape({
     /* eslint-disable */
@@ -146,6 +150,8 @@ Dialog.defaultProps = {
   message: '',
   messageStyle: null,
   buttonsContainerStyle: null,
+  buttonStyle: null,
+  buttonTouchableStyle: null,
   buttons: [],
   style: null,
   overlayStyle: null,
