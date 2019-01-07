@@ -41,10 +41,10 @@ class Receiver extends Component {
       const node = this.el._component || this.el.refs.node;
       /* eslint-enable */
       if (node) {
-        node.measure((fx, fy, width, height, px, py) => {
+        node.measure((fx, fy, width, height) => {
           this.props.getCenterPosition({
-            x: px + (width / 2),
-            y: py + (height / 2),
+            x: fx + (width / 2),
+            y: fy + (height / 2),
           });
         });
       }
