@@ -5,6 +5,8 @@
 [![npm](https://img.shields.io/npm/dt/rnx-ui.svg?maxAge=60)](https://www.npmjs.com/package/rnx-ui)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rnxteam/rnx-ui/master/LICENSE)
 
+> ⚠️ RNX 特供版
+
 A UI Lib for React Native
 
 ## Start

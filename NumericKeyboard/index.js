@@ -1,11 +1,11 @@
 import React, {
   Component,
+  PropTypes,
 } from 'react';
 import {
   View,
   Image,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 import Key from './Key';
 import styles from './styles';

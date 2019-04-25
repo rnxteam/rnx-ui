@@ -1,5 +1,6 @@
 import React, {
   Component,
+  PropTypes,
 } from 'react';
 import {
   Platform,
@@ -7,7 +8,6 @@ import {
   Keyboard,
   View,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 const NOOP = () => {};
 

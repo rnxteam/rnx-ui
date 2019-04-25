@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, {
+  Component,
+  PropTypes,
+} from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 import {
   ACTIVE_OPACITY,

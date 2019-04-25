@@ -5,13 +5,13 @@
  */
 import React, {
   Component,
+  PropTypes,
 } from 'react';
 import {
   StyleSheet,
   View,
   Text,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 const TEXT_HEIGHT = 14;
 const DOT_HEIGHT = 8;

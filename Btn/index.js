@@ -3,6 +3,7 @@
  */
 import React, {
   Component,
+  PropTypes,
 } from 'react';
 import {
   StyleSheet,
@@ -10,7 +11,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 import {
   COLOR_THEME,

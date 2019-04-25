@@ -1,13 +1,15 @@
 /**
  * 手机号码输入框组件
  */
-import React, { Component } from 'react';
+import React, {
+  Component,
+  PropTypes,
+} from 'react';
 import {
   StyleSheet,
   TextInput,
   View,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 import {
   COLOR_PLACEHOLDER,

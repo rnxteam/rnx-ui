@@ -1,12 +1,12 @@
 import React, {
   Component,
+  PropTypes,
 } from 'react';
 import {
   View,
   PanResponder,
   Animated,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 import RefreshControl from './RefreshControl';
 import InertiallyDecreasingSpead from './InertiallyDecreasingSpead';

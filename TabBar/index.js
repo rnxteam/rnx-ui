@@ -1,12 +1,12 @@
 import React, {
   Component,
+  PropTypes,
 } from 'react';
 import {
   StyleSheet,
   View,
   TouchableOpacity,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 import {
   HAIRLINE_WIDTH,

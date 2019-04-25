@@ -3,6 +3,7 @@
  */
 import React, {
   Component,
+  PropTypes,
 } from 'react';
 import {
   StyleSheet,
@@ -10,7 +11,6 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 const NOOP = () => {};
 

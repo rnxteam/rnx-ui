@@ -3,13 +3,13 @@
  */
 import React, {
   Component,
+  PropTypes,
 } from 'react';
 import {
   StyleSheet,
   View,
   Image,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   all: {
