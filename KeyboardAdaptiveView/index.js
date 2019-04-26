@@ -23,8 +23,6 @@ class KeyboardAdaptiveView extends Component {
   constructor(props) {
     super(props);
 
-    props.getEl(this);
-
     this.state = {
       y: 0,
     };
@@ -33,6 +31,8 @@ class KeyboardAdaptiveView extends Component {
   }
 
   componentDidMount() {
+    this.props.getEl(this);
+
     if (isIOS) {
       this.keyboardShowListener = Keyboard.addListener('keyboardWillShow', (e) => {
         kbdHeight = Math.max(e.endCoordinates.height, this.props.minKbdHeight);
