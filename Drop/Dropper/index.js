@@ -43,10 +43,13 @@ class Dropper extends Component {
       const k = props.jumpHeight / dy;
       this.b = -Math.sqrt((4 * k * k) + (4 * k)) - (2 * k);
       this.a = 1 - this.b;
-    } else {
+    } else if (dy < 0) {
       const k = (props.jumpHeight / dy) - 1;
       this.b = Math.sqrt((4 * k * k) + (4 * k)) - (2 * k);
       this.a = 1 - this.b;
+    } else {
+      this.a = -4;
+      this.b = 4;
     }
   }
 
@@ -63,7 +66,7 @@ class Dropper extends Component {
         easing: t => t,
       }),
       Animated.timing(this.y, {
-        toValue: this.dy,
+        toValue: this.dy === 0 ? -this.props.jumpHeight : this.dy,
         duration: this.props.duration,
         easing: (t) => {
           const s = (this.a * t * t) + (this.b * t);

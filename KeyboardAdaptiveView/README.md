@@ -27,7 +27,7 @@
 ```js
 import KeyboardAdaptiveView, {
   keyboardDismissMode,
-} from 'rnx-ui/Drop';
+} from 'rnx-ui/KeyboardAdaptiveView';
 
 class Example extends Component {
   constructor(props) {
