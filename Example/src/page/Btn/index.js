@@ -12,8 +12,8 @@ import {
   Icon,
   Article,
   NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   scrollView: {

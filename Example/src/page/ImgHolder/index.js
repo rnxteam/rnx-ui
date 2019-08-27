@@ -6,14 +6,15 @@ import {
   ScrollView,
   Text,
 } from 'react-native';
-import {
-  Article,
-  NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
 import All from 'rnx-ui/All';
 import ImgHolder from 'rnx-ui/ImgHolder';
 import Btn from 'rnx-ui/Btn';
+
+import {
+  Article,
+  NavBar,
+} from '../../component';
+import Router from '../../router';
 
 // const IMG_URI = 'https://raw.githubusercontent.com/dragonwong/excited/master/img/dark_power.jpg?t=';
 const IMG_URI = 'http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo-x2.png?id=1404211047727&t=';

@@ -7,8 +7,9 @@ import {
   View,
   Text,
 } from 'react-native';
-import { Icon } from 'BizComponent';
 import PropTypes from 'prop-types';
+
+import { Icon } from '../../../component';
 
 const styles = StyleSheet.create({
   all: {

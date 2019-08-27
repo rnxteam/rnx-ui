@@ -8,12 +8,13 @@ import {
   ScrollView,
   View,
 } from 'react-native';
-import {
-  NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
 import All from 'rnx-ui/All';
 import PropTypes from 'prop-types';
+
+import {
+  NavBar,
+} from '../../component';
+import Router from '../../router';
 
 import CartEmitter from './CartEmitter';
 import CartReceiver from './CartReceiver';

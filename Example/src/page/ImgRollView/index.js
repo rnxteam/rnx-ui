@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { TouchableHighlight, Text } from 'react-native';
-import Router from 'BizRouter';
 
 import All from 'rnx-ui/All';
 import ImgRollView from 'rnx-ui/ImgRollView';
 import Alert from 'rnx-ui/Alert';
 
-import { NavBar, Icon } from 'BizComponent';
+import { NavBar, Icon } from '../../component';
+import Router from '../../router';
 
 import style from './styles';
 

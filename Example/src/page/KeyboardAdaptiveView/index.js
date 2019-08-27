@@ -5,11 +5,12 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import All from 'rnx-ui/All';
+
 import {
   NavBar,
-} from 'BizComponent';
-import All from 'rnx-ui/All';
-import Router from 'BizRouter';
+} from '../../component';
+import Router from '../../router';
 
 import Column from './Column';
 

@@ -6,14 +6,15 @@ import {
   View,
   Text,
 } from 'react-native';
-import Router from 'BizRouter';
-import {
-  NavBar,
-  List,
-} from 'BizComponent';
 import All from 'rnx-ui/All';
 import NumericKeyboard from 'rnx-ui/NumericKeyboard';
 import Sheet from 'rnx-ui/Sheet';
+
+import Router from '../../router';
+import {
+  NavBar,
+  List,
+} from '../../component';
 
 const styles = StyleSheet.create({
   textView: {

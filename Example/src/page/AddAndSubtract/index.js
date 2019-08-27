@@ -5,15 +5,15 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
+import Easing from 'Easing';
 import All from 'rnx-ui/All';
 import AddAndSubtract from 'rnx-ui/AddAndSubtract';
 import {
   NavBar,
   Article,
   Icon,
-} from 'BizComponent';
-import Easing from 'Easing';
-import Router from 'BizRouter';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   scrollView: {

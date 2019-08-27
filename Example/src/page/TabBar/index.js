@@ -6,12 +6,13 @@ import {
   View,
   Text,
 } from 'react-native';
-import {
-  NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
 import All from 'rnx-ui/All';
 import TabBar from 'rnx-ui/TabBar';
+
+import {
+  NavBar,
+} from '../../component';
+import Router from '../../router';
 
 import TabBarItem from './TabBarItem';
 

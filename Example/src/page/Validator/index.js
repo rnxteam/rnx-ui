@@ -5,15 +5,16 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import {
-  NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
 import All from 'rnx-ui/All';
 import PhoneNumInput from 'rnx-ui/PhoneNumInput';
 import SmsCaptchaInput from 'rnx-ui/SmsCaptchaInput';
 import Btn from 'rnx-ui/Btn';
 import Validator from 'rnx-ui/util/Validator';
+
+import {
+  NavBar,
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   scrollView: {

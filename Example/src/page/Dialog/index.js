@@ -11,8 +11,8 @@ import Dialog from 'rnx-ui/Dialog';
 import {
   NavBar,
   List,
-} from 'BizComponent';
-import Router from 'BizRouter';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   dialog: {

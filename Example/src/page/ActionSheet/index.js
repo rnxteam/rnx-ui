@@ -9,8 +9,8 @@ import ActionSheet from 'rnx-ui/ActionSheet';
 import {
   NavBar,
   List,
-} from 'BizComponent';
-import Router from 'BizRouter';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   btnText: {

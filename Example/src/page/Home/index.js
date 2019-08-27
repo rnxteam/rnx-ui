@@ -1,13 +1,16 @@
 /**
  * 主页面 rnx-ui 面板
  */
-import React from 'react';
-import {
-  HomeList,
-} from 'BizComponent';
-import Router from 'BizRouter';
+import React, {
+  Component,
+} from 'react';
 import All from 'rnx-ui/All';
 import NavBar from 'rnx-ui/NavBar';
+
+import {
+  HomeList,
+} from '../../component';
+import Router from '../../router';
 
 const sectionList = ['Navigation', 'Data Entry', 'Data Display', 'Feedback', 'Other'];
 const pageException = ['Home'];
@@ -51,17 +54,24 @@ const itemList = keys
       return p;
     }, {});
 
-function Page() {
-  return (
-    <All>
-      <NavBar title="RNX UI" />
-      <HomeList
-        items={itemList}
-        sectionIds={sectionList}
-        rowIds={keyList.reverse()}
-      />
-    </All>
-  );
+class Page extends Component {
+  componentDidMount() {
+    setTimeout(() => {
+      // Router.open('Overlay');
+    }, 300);
+  }
+  render() {
+    return (
+      <All>
+        <NavBar title="RNX UI" />
+        <HomeList
+          items={itemList}
+          sectionIds={sectionList}
+          rowIds={keyList.reverse()}
+        />
+      </All>
+    );
+  }
 }
 
 Router.register('Home', Page);

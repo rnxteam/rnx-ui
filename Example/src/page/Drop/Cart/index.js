@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {
   Icon,
-} from 'BizComponent';
+} from '../../../component';
 
 const styles = StyleSheet.create({
   all: {

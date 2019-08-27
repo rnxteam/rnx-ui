@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 import All from 'rnx-ui/All';
 import Btn from 'rnx-ui/Btn';
+import CardView from 'rnx-ui/CardView';
+
 import {
   NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
-
-import CardView from 'rnx-ui/CardView';
+} from '../../component';
+import Router from '../../router';
 
 // let flag = true;
 
