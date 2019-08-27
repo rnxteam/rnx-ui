@@ -6,14 +6,15 @@ import {
   View,
   Text,
 } from 'react-native';
-import {
-  NavBar,
-  List,
-} from 'BizComponent';
-import Router from 'BizRouter';
 import All from 'rnx-ui/All';
 import Sheet from 'rnx-ui/Sheet';
 import Btn from 'rnx-ui/Btn';
+
+import {
+  NavBar,
+  List,
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   overlay: {
@@ -112,6 +113,7 @@ class Page extends Component {
         <Sheet
           visible={this.state.demo1}
           overlayStyle={styles.overlay}
+          onPressOverlay={this.onPressDemo1}
           onShow={this.onShow}
           onHide={this.onHide}
         >

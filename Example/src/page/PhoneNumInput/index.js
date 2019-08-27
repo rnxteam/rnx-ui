@@ -5,13 +5,14 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
+import All from 'rnx-ui/All';
+import PhoneNumInput from 'rnx-ui/PhoneNumInput';
+
 import {
   Article,
   NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
-import All from 'rnx-ui/All';
-import PhoneNumInput from 'rnx-ui/PhoneNumInput';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   scrollView: {

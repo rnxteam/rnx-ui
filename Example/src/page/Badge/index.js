@@ -5,14 +5,16 @@ import {
   ScrollView,
   Text,
 } from 'react-native';
+
+import All from 'rnx-ui/All';
+import Badge from 'rnx-ui/Badge';
+
 import {
   Icon,
   Article,
   NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
-import All from 'rnx-ui/All';
-import Badge from 'rnx-ui/Badge';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   icon: {

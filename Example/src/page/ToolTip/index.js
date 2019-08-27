@@ -4,13 +4,14 @@ import React, {
 import {
   StyleSheet,
 } from 'react-native';
+import All from 'rnx-ui/All';
+import ToolTip from 'rnx-ui/ToolTip';
+
 import {
   NavBar,
   List,
-} from 'BizComponent';
-import Router from 'BizRouter';
-import All from 'rnx-ui/All';
-import ToolTip from 'rnx-ui/ToolTip';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   overlay: {

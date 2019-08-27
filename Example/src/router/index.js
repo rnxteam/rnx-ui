@@ -1,7 +1,4 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
-/**
- * @providesModule BizRouter
- */
 import React, {
   Component,
 } from 'react';

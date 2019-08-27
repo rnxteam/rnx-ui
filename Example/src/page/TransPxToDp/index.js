@@ -4,13 +4,14 @@ import {
   ScrollView,
   View,
 } from 'react-native';
+import All from 'rnx-ui/All';
+import transPxToDp from 'rnx-ui/util/transPxToDp';
+
 import {
   Article,
   NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
-import All from 'rnx-ui/All';
-import transPxToDp from 'rnx-ui/util/transPxToDp';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   scrollView: {

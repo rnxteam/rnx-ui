@@ -1,17 +1,19 @@
+/* eslint-disable no-console */
 import React, {
   Component,
 } from 'react';
 import {
   StyleSheet,
 } from 'react-native';
-import {
-  NavBar,
-  List,
-} from 'BizComponent';
-import Router from 'BizRouter';
 import All from 'rnx-ui/All';
 import Overlay from 'rnx-ui/Overlay';
 import Btn from 'rnx-ui/Btn';
+
+import {
+  NavBar,
+  List,
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   overlay: {
@@ -43,6 +45,12 @@ const items = [
       this.show(2);
     },
   },
+  {
+    content: '不捕获触摸事件',
+    onPress() {
+      this.show(3);
+    },
+  },
 ];
 
 class Page extends Component {
@@ -54,14 +62,13 @@ class Page extends Component {
       demo0: false,
       demo1: false,
       demo2: false,
+      demo3: false,
     };
     this.onBtnPress = this.onBtnPress.bind(this);
   }
 
   onOverlayPress() {
-    /* eslint-disable */
     console.log('press overlay');
-    /* eslint-enable */
   }
   onBtnPress() {
     this.setState({
@@ -69,14 +76,10 @@ class Page extends Component {
     });
   }
   onShow() {
-    /* eslint-disable */
     console.log('onShow');
-    /* eslint-enable */
   }
   onHide() {
-    /* eslint-disable */
     console.log('onHide');
-    /* eslint-enable */
   }
 
   show(index) {
@@ -117,6 +120,10 @@ class Page extends Component {
         <Overlay
           visible={this.state.demo2}
           useAnimation={false}
+        />
+        <Overlay
+          visible={this.state.demo3}
+          pointerEvents="none"
         />
       </All>
     );

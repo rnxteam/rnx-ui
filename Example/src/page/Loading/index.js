@@ -6,8 +6,8 @@ import Loading from 'rnx-ui/Loading';
 import {
   NavBar,
   List,
-} from 'BizComponent';
-import Router from 'BizRouter';
+} from '../../component';
+import Router from '../../router';
 
 const items = [
   {

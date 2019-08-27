@@ -10,13 +10,14 @@ import All from 'rnx-ui/All';
 import Btn from 'rnx-ui/Btn';
 import DynamicText from 'rnx-ui/DynamicText';
 import {
-  Article,
-  NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
-import {
   COLOR_THEME,
 } from 'rnx-ui/constant';
+
+import {
+  Article,
+  NavBar,
+} from '../../component';
+import Router from '../../router';
 
 const TEXT_ARR = [
   '为了使得我们今天晚上的这个环境更加的轻松一点，我回忆起我曾经在1945年、46年的大学年代，经常我们喜欢玩儿“Hawaii guitar”。',

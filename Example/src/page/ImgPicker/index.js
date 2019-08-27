@@ -11,8 +11,8 @@ import ImgPicker from 'rnx-ui/ImgPicker';
 import {
   NavBar,
   Icon,
-} from 'BizComponent';
-import Router from 'BizRouter';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   imgPicker: {

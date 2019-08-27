@@ -23,6 +23,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
+  innerView: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  },
 });
 
 class Overlay extends Component {
@@ -99,30 +106,36 @@ class Overlay extends Component {
       return null;
     }
 
+    if (this.props.useAnimation) {
+      return (
+        <Animated.View
+          style={[styles.all, {
+            opacity: this.state.opacity,
+          }, this.props.style]}
+          pointerEvents={this.props.pointerEvents}
+        >
+          <TouchableWithoutFeedback
+            onPress={this.props.onPress}
+          >
+            <View style={styles.innerView} />
+          </TouchableWithoutFeedback>
+          {this.props.children}
+        </Animated.View>
+      );
+    }
+
     return (
-      <TouchableWithoutFeedback
-        onPress={this.props.onPress}
+      <View
+        style={[styles.all, this.props.style]}
+        pointerEvents={this.props.pointerEvents}
       >
-        {
-          this.props.useAnimation ? (
-            <Animated.View
-              style={[styles.all, {
-                opacity: this.state.opacity,
-              }, this.props.style]}
-              pointerEvents={this.props.pointerEvents}
-            >
-              {this.props.children}
-            </Animated.View>
-          ) : (
-            <View
-              style={[styles.all, this.props.style]}
-              pointerEvents={this.props.pointerEvents}
-            >
-              {this.props.children}
-            </View>
-          )
-        }
-      </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          onPress={this.props.onPress}
+        >
+          <View style={styles.innerView} />
+        </TouchableWithoutFeedback>
+        {this.props.children}
+      </View>
     );
   }
 }

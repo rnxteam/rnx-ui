@@ -5,7 +5,7 @@ import {
   Text,
 } from 'react-native';
 import RnxUiNavBar from 'rnx-ui/NavBar';
-import Router from 'BizRouter';
+import Router from '../../router';
 
 import Icon from '../Icon';
 

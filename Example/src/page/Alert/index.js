@@ -11,8 +11,8 @@ import Alert from 'rnx-ui/Alert';
 import {
   NavBar,
   List,
-} from 'BizComponent';
-import Router from 'BizRouter';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   alert: {
