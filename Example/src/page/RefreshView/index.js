@@ -6,14 +6,15 @@ import {
   Text,
   Image,
 } from 'react-native';
-import {
-  NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
 import All from 'rnx-ui/All';
 import RefreshView, {
   RefreshControl,
 } from 'rnx-ui/RefreshView';
+
+import {
+  NavBar,
+} from '../../component';
+import Router from '../../router';
 
 import styles from './styles.js';
 

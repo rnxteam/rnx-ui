@@ -31,7 +31,7 @@
  import {
    All,
    NavBar,
- } from 'BizComponent';
+ } from '../../component';
 
  const styles = StyleSheet.create({
    scrollView: {

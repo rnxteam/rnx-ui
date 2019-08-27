@@ -6,13 +6,14 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
+import All from 'rnx-ui/All';
+import SmsCaptchaInput from 'rnx-ui/SmsCaptchaInput';
+
 import {
   Article,
   NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
-import All from 'rnx-ui/All';
-import SmsCaptchaInput from 'rnx-ui/SmsCaptchaInput';
+} from '../../component';
+import Router from '../../router';
 
 
 const styles = StyleSheet.create({

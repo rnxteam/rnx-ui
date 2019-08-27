@@ -5,14 +5,15 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import {
-  Article,
-  NavBar,
-} from 'BizComponent';
-import Router from 'BizRouter';
 import All from 'rnx-ui/All';
 import Progress from 'rnx-ui/Progress';
 import Btn from 'rnx-ui/Btn';
+
+import {
+  Article,
+  NavBar,
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   scrollView: {

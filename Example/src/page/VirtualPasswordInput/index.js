@@ -5,16 +5,17 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import {
-  NavBar,
-  Article,
-} from 'BizComponent';
-import Router from 'BizRouter';
 import All from 'rnx-ui/All';
 import VirtualPasswordInput from 'rnx-ui/VirtualPasswordInput';
 import NumericKeyboard from 'rnx-ui/NumericKeyboard';
 import Sheet from 'rnx-ui/Sheet';
 import Btn from 'rnx-ui/Btn';
+
+import {
+  NavBar,
+  Article,
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   srcollView: {

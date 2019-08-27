@@ -11,8 +11,8 @@ import Confirm from 'rnx-ui/Confirm';
 import {
   NavBar,
   List,
-} from 'BizComponent';
-import Router from 'BizRouter';
+} from '../../component';
+import Router from '../../router';
 
 const styles = StyleSheet.create({
   confirm: {

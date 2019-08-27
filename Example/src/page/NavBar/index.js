@@ -5,14 +5,15 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
-import Router from 'BizRouter';
-import {
-  List,
-  Icon,
-} from 'BizComponent';
 import All from 'rnx-ui/All';
 import NavBar from 'rnx-ui/NavBar';
 import Badge from 'rnx-ui/Badge';
+
+import Router from '../../router';
+import {
+  List,
+  Icon,
+} from '../../component';
 
 function generateMsgCount() {
   return Math.floor(Math.random() * 200);

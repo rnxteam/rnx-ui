@@ -1,4 +1,4 @@
-import Router from 'BizRouter';
+import Router from '../router';
 
 Router.initialRoute = {
   name: 'Home',

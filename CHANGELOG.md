@@ -8,6 +8,12 @@ n2：💛 影响之前版本使用方式的更新（需要用户适配）
 n3：💚 不影响之前版本使用方式的更新（不需要用户适配）
 ```
 
+## 0.19.3
+
+### Overlay
+
+- 💚 Bugfix: fix the bug that `ScrollView` cannot scroll smoothly in `Overlay`.
+
 ## 0.19.2
 
 ### KeyboardAdaptiveView
